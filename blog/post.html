@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artikel — REDUCD</title>
+  <meta name="description" content="Inzichten van REDUCD over akoestische omkastingen, warmtepompgeluid en stil wonen.">
+  <link rel="canonical" id="canonical-link" href="https://www.reducd.be/blog/">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:site_name" content="REDUCD">
+  <meta property="og:title" id="og-title" content="Artikel — REDUCD">
+  <meta property="og:description" id="og-description" content="Inzichten van REDUCD over akoestische omkastingen, warmtepompgeluid en stil wonen.">
+  <meta property="og:url" id="og-url" content="https://www.reducd.be/blog/">
+  <meta property="og:image" id="og-image" content="https://www.reducd.be/assets/images/promo-meer-rust.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="twitter-title" content="Artikel — REDUCD">
+  <meta name="twitter:description" id="twitter-description" content="Inzichten van REDUCD over akoestische omkastingen, warmtepompgeluid en stil wonen.">
+  <meta name="twitter:image" id="twitter-image" content="https://www.reducd.be/assets/images/promo-meer-rust.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { brand: { navy: '#0F2A3A', white: '#FFFFFF' } },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #0F2A3A; -webkit-font-smoothing: antialiased; }
+    .btn-primary { background: #0F2A3A; color: #fff; }
+    .article-body { font-weight: 300; line-height: 1.8; font-size: 1.125rem; }
+    .article-body h2 { font-weight: 800; font-size: 1.5rem; letter-spacing: -0.025em; margin: 2.5rem 0 1rem; color: #0F2A3A; }
+    .article-body p { margin: 0 0 1.25rem; color: rgba(15,42,58,0.8); }
+    .article-body ul { margin: 0 0 1.25rem; padding-left: 1.25rem; list-style: disc; }
+    .article-body li { margin-bottom: 0.5rem; color: rgba(15,42,58,0.8); }
+    .article-body a { color: #0F2A3A; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+    .article-body strong { font-weight: 600; color: #0F2A3A; }
+    .article-body.plain { white-space: pre-wrap; }
+    .bento { transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s ease; }
+    .bento:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -12px rgba(15,42,58,0.12); }
+  </style>
+</head>
+<body>
+  <header class="border-b border-brand-navy/8">
+    <div class="max-w-3xl mx-auto px-6 py-5 flex items-center justify-between gap-4">
+      <a href="../index.html"><img src="../assets/images/logo-reducd.png" alt="REDUCD" class="h-10"></a>
+      <nav class="flex items-center gap-5 text-[11px] uppercase tracking-widest text-brand-navy/50">
+        <a href="./index.html" class="hover:text-brand-navy">← Blog</a>
+        <a href="../index.html#contact" class="btn-primary px-4 py-2 rounded-full font-semibold text-white">Offerte</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 py-14 lg:py-20">
+    <p id="post-status" class="text-brand-navy/45 text-sm">Laden…</p>
+    <article id="post-article" class="hidden" itemscope itemtype="https://schema.org/BlogPosting">
+      <div id="post-cover" class="hidden mb-10 rounded-2xl overflow-hidden aspect-[16/9] bg-brand-navy/[0.04]"></div>
+      <p id="post-date" class="text-[11px] uppercase tracking-widest text-brand-navy/40 mb-4"></p>
+      <h1 id="post-title" class="font-extrabold text-4xl lg:text-5xl tracking-tight leading-tight mb-6" itemprop="headline"></h1>
+      <p id="post-excerpt" class="text-xl text-brand-navy/55 font-light leading-relaxed mb-10" itemprop="description"></p>
+      <div id="post-content" class="article-body text-brand-navy/80 border-t border-brand-navy/8 pt-10" itemprop="articleBody"></div>
+    </article>
+
+    <aside id="post-cta" class="hidden mt-14 rounded-2xl bg-brand-navy text-white p-8">
+      <h2 class="font-extrabold text-2xl tracking-tight mb-3">De rust is nabij</h2>
+      <p class="text-white/60 font-light mb-6">Bekijk de omkastingen, de specificaties, of plan een vrijblijvend adviesgesprek.</p>
+      <div class="flex flex-wrap gap-3">
+        <a href="../index.html#producten" class="bg-white text-brand-navy px-5 py-2.5 rounded-full text-sm font-semibold">Producten</a>
+        <a href="../index.html#specs" class="border border-white/25 px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-white/10">Specs</a>
+        <a href="../index.html#contact" class="border border-white/25 px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-white/10">Contact</a>
+      </div>
+    </aside>
+
+    <section id="related-wrap" class="hidden mt-16">
+      <h2 class="font-extrabold text-2xl tracking-tight mb-6">Meer inzichten</h2>
+      <div id="related-grid" class="grid sm:grid-cols-2 gap-5"></div>
+    </section>
+  </main>
+
+  <footer class="bg-brand-navy py-12 px-6">
+    <div class="max-w-3xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <a href="../index.html"><img src="../assets/images/logo-reducd-white.png" alt="REDUCD" class="h-10 w-auto"></a>
+      <div class="flex flex-wrap justify-center gap-6 text-sm text-white/40">
+        <a href="../index.html#producten" class="hover:text-white transition-colors">Producten</a>
+        <a href="../index.html#specs" class="hover:text-white transition-colors">Specs</a>
+        <a href="../index.html#contact" class="hover:text-white transition-colors">Contact</a>
+        <a href="./index.html" class="hover:text-white transition-colors">Blog</a>
+      </div>
+      <p class="text-xs text-white/30">© 2026 REDUCD B.V.</p>
+    </div>
+  </footer>
+
+  <script src="../js/firebase-config.js"></script>
+  <script type="module">
+    import { getPostBySlug, listPublishedPosts } from "../js/firebase-app.js";
+    import {
+      getStaticPostBySlug,
+      formatBlogDate,
+      resolveCoverPath,
+      escapeHtml,
+      isHtmlContent,
+      injectJsonLd,
+      organizationJsonLd,
+      blogPostingJsonLd,
+      renderPostCards
+    } from "../js/blog-posts.js";
+
+    const params = new URLSearchParams(location.search);
+    const slug = params.get("slug");
+    const status = document.getElementById("post-status");
+
+    function setMeta(name, content) {
+      let el = document.querySelector(`meta[name="${name}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("name", name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    }
+
+    function setById(id, content) {
+      const el = document.getElementById(id);
+      if (el) el.setAttribute("content", content);
+    }
+
+    function renderPost(post) {
+      if (!post) return;
+      status.classList.add("hidden");
+      document.getElementById("post-article").classList.remove("hidden");
+      document.getElementById("post-cta").classList.remove("hidden");
+      const title = post.metaTitle || `${post.title} — REDUCD`;
+      const description = post.metaDescription || post.excerpt || "";
+      const pageUrl = `https://www.reducd.be/blog/post.html?slug=${encodeURIComponent(post.slug)}`;
+      document.title = title;
+      setMeta("description", description);
+      const canonical = document.getElementById("canonical-link");
+      if (canonical) canonical.href = pageUrl;
+      const coverAbs = post.coverImage
+        ? `https://www.reducd.be/${String(post.coverImage).replace(/^\.\.\//, "").replace(/^\//, "")}`
+        : "https://www.reducd.be/assets/images/promo-meer-rust.jpg";
+      setById("og-title", title);
+      setById("og-description", description);
+      setById("og-url", pageUrl);
+      setById("og-image", coverAbs);
+      setById("twitter-title", title);
+      setById("twitter-description", description);
+      setById("twitter-image", coverAbs);
+      document.getElementById("post-title").textContent = post.title || "";
+      document.getElementById("post-excerpt").textContent = post.excerpt || "";
+      document.getElementById("post-date").textContent = formatBlogDate(post.publishedAt) || "";
+      const contentEl = document.getElementById("post-content");
+      const html = isHtmlContent(post.content);
+      contentEl.classList.toggle("plain", !html);
+      if (html) contentEl.innerHTML = post.content;
+      else contentEl.textContent = post.content || "";
+      const cover = document.getElementById("post-cover");
+      if (post.coverImage) {
+        cover.classList.remove("hidden");
+        const src = resolveCoverPath(post.coverImage, "blog");
+        cover.innerHTML = `<img src="${escapeHtml(src)}" alt="${escapeHtml(post.title)}" class="w-full h-full object-cover">`;
+      }
+      injectJsonLd("ld-organization", organizationJsonLd());
+      injectJsonLd("ld-article", blogPostingJsonLd(post, pageUrl, coverAbs));
+    }
+
+    async function renderRelated(currentSlug) {
+      try {
+        const posts = (await listPublishedPosts()).filter((p) => p.slug !== currentSlug).slice(0, 2);
+        if (!posts.length) return;
+        document.getElementById("related-wrap").classList.remove("hidden");
+        document.getElementById("related-grid").innerHTML = renderPostCards(posts, { from: "blog", heading: "h3" });
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    if (!slug) {
+      status.textContent = "Artikel niet gevonden. Ga terug naar de blog.";
+    } else {
+      const instant = getStaticPostBySlug(slug);
+      if (instant) renderPost(instant);
+      try {
+        const post = await getPostBySlug(slug);
+        if (post && post.status !== "draft") {
+          renderPost(post);
+          await renderRelated(post.slug);
+        } else if (!instant) {
+          status.textContent = "Dit artikel is niet beschikbaar.";
+        }
+      } catch (err) {
+        if (!instant) status.textContent = "Kon dit artikel niet laden.";
+        console.error(err);
+      }
+    }
+  </script>
+</body>
+</html>

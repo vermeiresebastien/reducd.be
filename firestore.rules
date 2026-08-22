@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn()
+        && request.auth.token.email != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.token.email));
+    }
+
+    // Publiek: alleen gepubliceerde posts lezen
+    match /posts/{postId} {
+      allow read: if resource.data.status == 'published'
+        || isAdmin();
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Admin-allowlist: document-ID = e-mailadres (lowercase).
+    // Verplicht: maak in Console een leeg document aan per admin-e-mail,
+    // anders falen create/update/delete op /posts (isAdmin() hierboven).
+    match /admins/{email} {
+      allow read: if isSignedIn() && request.auth.token.email == email;
+      allow write: if false; // alleen via Firebase Console / Admin SDK
+    }
+  }
+}

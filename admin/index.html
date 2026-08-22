@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — REDUCD Blog</title>
+  <meta name="robots" content="noindex,nofollow">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { brand: { navy: '#0F2A3A', white: '#FFFFFF', green: '#8BC34A' } },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #F7F8F9; color: #0F2A3A; -webkit-font-smoothing: antialiased; }
+    .form-field { width: 100%; padding: 0.875rem 1rem; background: #fff; border: 1px solid rgba(15,42,58,0.12); border-radius: 10px; color: #0F2A3A; }
+    .form-field:focus { outline: none; border-color: #0F2A3A; box-shadow: 0 0 0 3px rgba(15,42,58,0.08); }
+    .btn-primary { background: #0F2A3A; color: #fff; transition: 0.25s ease; }
+    .btn-primary:hover { background: #1a3f54; }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+    .media-thumb.active { outline: 2px solid #0F2A3A; outline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <div id="app" class="min-h-screen">
+    <div id="view-loading" class="min-h-screen flex items-center justify-center">
+      <p class="text-brand-navy/50 text-sm tracking-widest uppercase">Laden…</p>
+    </div>
+
+    <div id="view-setup" class="hidden min-h-screen flex items-center justify-center px-6">
+      <div class="max-w-lg w-full bg-white rounded-2xl border border-brand-navy/10 p-8 shadow-sm">
+        <img src="../assets/images/logo-reducd.png" alt="REDUCD" class="h-12 mb-6">
+        <h1 class="font-extrabold text-2xl tracking-tight mb-2">Firebase setup</h1>
+        <p class="text-brand-navy/55 text-sm leading-relaxed mb-6">Configureer eerst je Firebase-project voordat je kunt inloggen.</p>
+        <ol class="space-y-3 text-sm text-brand-navy/70 list-decimal pl-5 mb-6">
+          <li>Maak een project op <a class="underline" href="https://console.firebase.google.com" target="_blank" rel="noopener">console.firebase.google.com</a></li>
+          <li>Authentication → Google sign-in inschakelen</li>
+          <li>Firestore Database aanmaken</li>
+          <li>Rules uit <code class="text-xs bg-brand-navy/5 px-1 rounded">firestore.rules</code> plakken</li>
+          <li>Web-app config kopiëren naar <code class="text-xs bg-brand-navy/5 px-1 rounded">js/firebase-config.js</code></li>
+          <li>Zet jouw e-mail in <code class="text-xs bg-brand-navy/5 px-1 rounded">REDUCD_ADMIN_EMAILS</code></li>
+          <li><strong>Verplicht:</strong> Firestore collection <code class="text-xs bg-brand-navy/5 px-1 rounded">admins</code> → document-ID = jouw e-mail (lowercase), bv. <code class="text-xs bg-brand-navy/5 px-1 rounded">info@reducd.be</code> (leeg document volstaat)</li>
+        </ol>
+        <a href="../index.html" class="text-sm text-brand-navy/50 hover:text-brand-navy">← Terug naar site</a>
+      </div>
+    </div>
+
+    <div id="view-login" class="hidden min-h-screen flex items-center justify-center px-6">
+      <div class="max-w-md w-full bg-white rounded-2xl border border-brand-navy/10 p-10 shadow-sm text-center">
+        <img src="../assets/images/logo-reducd.png" alt="REDUCD" class="h-14 mx-auto mb-8">
+        <h1 class="font-extrabold text-2xl tracking-tight mb-2">Admin</h1>
+        <p class="text-brand-navy/50 text-sm mb-8">Log in met Google om blogposts te beheren.</p>
+        <button id="btn-google" type="button" class="btn-primary w-full py-3.5 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-3">
+          Doorgaan met Google
+        </button>
+        <p id="login-error" class="hidden mt-4 text-sm text-red-600"></p>
+        <a href="../index.html" class="inline-block mt-8 text-sm text-brand-navy/40 hover:text-brand-navy">← Terug naar site</a>
+      </div>
+    </div>
+
+    <div id="view-dashboard" class="hidden">
+      <header class="bg-white border-b border-brand-navy/8 sticky top-0 z-20">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <a href="../index.html"><img src="../assets/images/logo-reducd.png" alt="REDUCD" class="h-9"></a>
+            <span class="text-[10px] uppercase tracking-widest text-brand-navy/40 border border-brand-navy/10 rounded-full px-2.5 py-1">Admin</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div id="user-chip" class="hidden sm:flex items-center gap-2 text-sm text-brand-navy/60"></div>
+            <button id="btn-new" type="button" class="btn-primary px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider">Nieuwe post</button>
+            <button id="btn-logout" type="button" class="text-xs uppercase tracking-wider text-brand-navy/45 hover:text-brand-navy">Uitloggen</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="max-w-6xl mx-auto px-6 py-10">
+        <div id="panel-list">
+          <div class="flex items-end justify-between gap-4 mb-8">
+            <div>
+              <h1 class="font-extrabold text-3xl tracking-tight">Blog</h1>
+              <p class="text-brand-navy/50 text-sm mt-1">Maak, bewerk en publiceer artikelen.</p>
+            </div>
+            <a href="../blog/index.html" class="text-sm text-brand-navy/45 hover:text-brand-navy" target="_blank">Publieke blog ↗</a>
+          </div>
+          <div id="posts-empty" class="hidden bg-white rounded-2xl border border-dashed border-brand-navy/15 p-12 text-center text-brand-navy/45 text-sm">
+            Nog geen posts. Klik op “Nieuwe post” om te starten.
+          </div>
+          <div id="posts-table" class="bg-white rounded-2xl border border-brand-navy/8 overflow-hidden"></div>
+        </div>
+
+        <div id="panel-editor" class="hidden">
+          <div class="flex items-center justify-between gap-4 mb-8">
+            <h1 id="editor-title" class="font-extrabold text-3xl tracking-tight">Nieuwe post</h1>
+            <button id="btn-back" type="button" class="text-sm text-brand-navy/45 hover:text-brand-navy">← Overzicht</button>
+          </div>
+          <form id="post-form" class="grid lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 space-y-4 bg-white rounded-2xl border border-brand-navy/8 p-6 lg:p-8">
+              <div>
+                <label class="block text-[11px] font-bold uppercase tracking-widest text-brand-navy/40 mb-2">Titel</label>
+                <input id="field-title" class="form-field text-lg font-semibold" required placeholder="Titel van het artikel">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold uppercase tracking-widest text-brand-navy/40 mb-2">Slug (URL)</label>
+                <input id="field-slug" class="form-field font-mono text-sm" placeholder="automatisch-uit-titel">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold uppercase tracking-widest text-brand-navy/40 mb-2">Korte intro</label>
+                <textarea id="field-excerpt" rows="2" class="form-field resize-none" placeholder="Korte samenvatting voor de bloglijst"></textarea>
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold uppercase tracking-widest text-brand-navy/40 mb-2">Inhoud</label>
+                <textarea id="field-content" rows="16" class="form-field resize-y font-light leading-relaxed" required placeholder="Schrijf je artikel…"></textarea>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div class="bg-white rounded-2xl border border-brand-navy/8 p-6 space-y-4">
+                <div>
+                  <label class="block text-[11px] font-bold uppercase tracking-widest text-brand-navy/40 mb-2">Status</label>
+                  <select id="field-status" class="form-field">
+                    <option value="draft">Concept</option>
+                    <option value="published">Gepubliceerd</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold uppercase tracking-widest text-brand-navy/40 mb-2">Cover-afbeelding URL</label>
+                  <input id="field-cover" class="form-field text-sm" placeholder="../assets/images/…">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold uppercase tracking-widest text-brand-navy/40 mb-2">Kies uit bibliotheek</label>
+                  <div id="media-picker" class="grid grid-cols-3 gap-2 max-h-56 overflow-y-auto"></div>
+                </div>
+                <p id="save-msg" class="text-sm text-brand-navy/45 min-h-[1.25rem]"></p>
+                <button type="submit" id="btn-save" class="btn-primary w-full py-3 rounded-xl text-sm font-semibold">Opslaan</button>
+                <button type="button" id="btn-delete" class="hidden w-full py-3 rounded-xl text-sm font-semibold border border-red-200 text-red-600 hover:bg-red-50">Verwijderen</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/firebase-config.js"></script>
+  <script src="../js/media-library.js"></script>
+  <script type="module">
+    import {
+      isConfigured, loginWithGoogle, logout, onAuth, slugify,
+      listAllPosts, getPostById, savePost, removePost, formatDate
+    } from "../js/firebase-app.js";
+
+    const $ = (id) => document.getElementById(id);
+    const views = ["view-loading", "view-setup", "view-login", "view-dashboard"];
+    let currentUser = null;
+    let editingId = null;
+    let slugManual = false;
+
+    function show(id) {
+      views.forEach((v) => $(v).classList.toggle("hidden", v !== id));
+    }
+    function showPanel(name) {
+      $("panel-list").classList.toggle("hidden", name !== "list");
+      $("panel-editor").classList.toggle("hidden", name !== "editor");
+    }
+    function setLoginError(msg) {
+      const el = $("login-error");
+      if (!msg) { el.classList.add("hidden"); el.textContent = ""; return; }
+      el.textContent = msg;
+      el.classList.remove("hidden");
+    }
+    function escapeHtml(str) {
+      return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+
+    function renderMediaPicker(selected) {
+      const media = window.REDUCD_MEDIA || [];
+      const picker = $("media-picker");
+      picker.innerHTML = media.map((m) => {
+        const path = `../${m.path}`;
+        const active = selected === path || selected === m.path ? "active" : "";
+        return `<button type="button" data-path="${path}" title="${escapeHtml(m.label)}" class="media-thumb ${active} aspect-square rounded-lg overflow-hidden border border-brand-navy/10 bg-brand-navy/[0.03]">
+          <img src="${path}" alt="" class="w-full h-full object-cover">
+        </button>`;
+      }).join("");
+      picker.querySelectorAll(".media-thumb").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          $("field-cover").value = btn.dataset.path;
+          renderMediaPicker(btn.dataset.path);
+        });
+      });
+    }
+
+    async function renderList() {
+      const posts = await listAllPosts();
+      const table = $("posts-table");
+      const empty = $("posts-empty");
+      if (!posts.length) {
+        empty.classList.remove("hidden");
+        table.classList.add("hidden");
+        table.innerHTML = "";
+        return;
+      }
+      empty.classList.add("hidden");
+      table.classList.remove("hidden");
+      table.innerHTML = `<div class="divide-y divide-brand-navy/8">${posts.map((p) => `
+        <button type="button" data-id="${p.id}" class="post-row w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-brand-navy/[0.03] transition-colors">
+          <div class="min-w-0">
+            <div class="font-semibold truncate">${escapeHtml(p.title || "Zonder titel")}</div>
+            <div class="text-xs text-brand-navy/40 mt-1 truncate">${escapeHtml(p.slug || "")} · ${formatDate(p.updatedAt) || "—"}</div>
+          </div>
+          <span class="shrink-0 text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full ${p.status === "published" ? "bg-brand-navy text-white" : "bg-brand-navy/5 text-brand-navy/50"}">${p.status === "published" ? "Live" : "Concept"}</span>
+        </button>`).join("")}</div>`;
+      table.querySelectorAll(".post-row").forEach((btn) => btn.addEventListener("click", () => openEditor(btn.dataset.id)));
+    }
+
+    function resetForm() {
+      editingId = null;
+      slugManual = false;
+      $("editor-title").textContent = "Nieuwe post";
+      $("field-title").value = "";
+      $("field-slug").value = "";
+      $("field-excerpt").value = "";
+      $("field-content").value = "";
+      $("field-cover").value = "";
+      $("field-status").value = "draft";
+      $("save-msg").textContent = "";
+      $("btn-delete").classList.add("hidden");
+      renderMediaPicker("");
+    }
+
+    async function openEditor(id = null) {
+      resetForm();
+      if (id) {
+        const post = await getPostById(id);
+        if (!post) return;
+        editingId = id;
+        slugManual = true;
+        $("editor-title").textContent = "Post bewerken";
+        $("field-title").value = post.title || "";
+        $("field-slug").value = post.slug || "";
+        $("field-excerpt").value = post.excerpt || "";
+        $("field-content").value = post.content || "";
+        $("field-cover").value = post.coverImage || "";
+        $("field-status").value = post.status || "draft";
+        $("btn-delete").classList.remove("hidden");
+        renderMediaPicker(post.coverImage || "");
+      }
+      showPanel("editor");
+    }
+
+    $("btn-google").addEventListener("click", async () => {
+      setLoginError("");
+      $("btn-google").disabled = true;
+      try { await loginWithGoogle(); }
+      catch (err) { setLoginError(err.message || "Inloggen mislukt."); }
+      finally { $("btn-google").disabled = false; }
+    });
+    $("btn-logout").addEventListener("click", () => logout());
+    $("btn-new").addEventListener("click", () => openEditor());
+    $("btn-back").addEventListener("click", async () => { showPanel("list"); await renderList(); });
+    $("field-title").addEventListener("input", () => { if (!slugManual) $("field-slug").value = slugify($("field-title").value); });
+    $("field-slug").addEventListener("input", () => { slugManual = true; });
+
+    $("post-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = $("btn-save");
+      btn.disabled = true;
+      $("save-msg").textContent = "Opslaan…";
+      try {
+        const id = await savePost({
+          title: $("field-title").value,
+          slug: $("field-slug").value || slugify($("field-title").value),
+          excerpt: $("field-excerpt").value,
+          content: $("field-content").value,
+          coverImage: $("field-cover").value,
+          status: $("field-status").value,
+          authorName: currentUser?.displayName || "",
+          authorEmail: currentUser?.email || ""
+        }, editingId);
+        editingId = id;
+        $("btn-delete").classList.remove("hidden");
+        $("editor-title").textContent = "Post bewerken";
+        $("save-msg").textContent = $("field-status").value === "published" ? "Gepubliceerd." : "Concept opgeslagen.";
+      } catch (err) {
+        $("save-msg").textContent = err.message || "Opslaan mislukt.";
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    $("btn-delete").addEventListener("click", async () => {
+      if (!editingId || !confirm("Deze post definitief verwijderen?")) return;
+      await removePost(editingId);
+      showPanel("list");
+      await renderList();
+    });
+
+    if (!isConfigured()) {
+      show("view-setup");
+    } else {
+      onAuth(async (user, isAdmin) => {
+        currentUser = user;
+        if (!user) { show("view-login"); return; }
+        if (!isAdmin) {
+          await logout();
+          show("view-login");
+          setLoginError("Dit Google-account heeft geen admin-rechten.");
+          return;
+        }
+        const chip = $("user-chip");
+        chip.innerHTML = `${user.photoURL ? `<img src="${user.photoURL}" alt="" class="w-7 h-7 rounded-full">` : ""}<span class="truncate max-w-[160px]">${escapeHtml(user.email || "")}</span>`;
+        chip.classList.remove("hidden");
+        show("view-dashboard");
+        showPanel("list");
+        await renderList();
+      });
+    }
+  </script>
+</body>
+</html>
