@@ -322,6 +322,18 @@ export function blogPostingJsonLd(post, pageUrl, imageUrl) {
   };
 }
 
+export function breadcrumbJsonLd(post, pageUrl) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.reducd.be/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.reducd.be/blog/" },
+      { "@type": "ListItem", position: 3, name: post.title || "Artikel", item: pageUrl }
+    ]
+  };
+}
+
 export function injectJsonLd(id, data) {
   let el = document.getElementById(id);
   if (!el) {

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voor professionals — REDUCD installateurs & aannemers</title>
+    <meta name="description" content="REDUCD voor installateurs en aannemers: snelle levering, merkonafhankelijke akoestische omkastingen, pro-tarieven en support in BE & NL.">
+    <link rel="canonical" href="https://www.reducd.be/pro/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Voor professionals — REDUCD">
+    <meta property="og:description" content="Partner met REDUCD: akoestische omkastingen voor warmtepomp & airco. Pro-tarief, snelle levering, weinig nazorg.">
+    <meta property="og:url" content="https://www.reducd.be/pro/">
+    <meta property="og:image" content="https://www.reducd.be/assets/images/hero-enclosure.jpg">
+    <link rel="icon" href="../assets/images/logo-reducd.png" type="image/png">
+    <script src="../js/tracking-config.js"></script>
+    <script src="../js/tracking.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brand: { navy: '#0F2A3A', white: '#FFFFFF' } },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root { --ease-out: cubic-bezier(0.16, 1, 0.3, 1); }
+        body { font-family: 'Inter', sans-serif; background: #fff; color: #0F2A3A; -webkit-font-smoothing: antialiased; }
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .btn-primary { background: #0F2A3A; color: #fff; transition: all 0.35s var(--ease-out); }
+        .btn-primary:hover { background: #1a3f54; transform: translateY(-2px); }
+        .btn-outline { border: 1.5px solid #0F2A3A; color: #0F2A3A; transition: all 0.35s var(--ease-out); }
+        .btn-outline:hover { background: #0F2A3A; color: #fff; }
+        #navPill { background: #fff; border: 1px solid rgba(15,42,58,0.08); box-shadow: 0 4px 24px rgba(15,42,58,0.06); }
+        .form-field { width: 100%; padding: 1rem 1.25rem; background: #fff; border: 1px solid rgba(15,42,58,0.12); border-radius: 10px; color: #0F2A3A; }
+        .form-field:focus { outline: none; border-color: #0F2A3A; box-shadow: 0 0 0 3px rgba(15,42,58,0.08); }
+        .pro-subnav a { color: rgba(15,42,58,0.45); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+        .pro-subnav a:hover, .pro-subnav a.is-active { color: #0F2A3A; }
+        .spec-table th, .spec-table td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid rgba(15,42,58,0.08); font-size: 0.875rem; }
+        .spec-table th { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(15,42,58,0.45); font-weight: 700; }
+        .tool-card { opacity: 0.72; }
+    </style>
+</head>
+<body>
+
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 pt-4 lg:pt-6">
+        <nav id="navPill" class="max-w-5xl mx-auto flex items-center justify-between px-5 py-3 rounded-full">
+            <a href="../" class="flex items-center"><img src="../assets/images/logo-reducd.png" alt="REDUCD" class="h-10 lg:h-11 w-auto"></a>
+            <div class="hidden md:flex items-center gap-6 lg:gap-8">
+                <a href="../#producten" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Producten</a>
+                <a href="../#installaties" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Installaties</a>
+                <a href="../blog/" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Blog</a>
+                <a href="./" class="text-[11px] font-medium text-brand-navy uppercase tracking-widest">Voor professionals</a>
+                <a href="#pro-contact" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Contact</a>
+            </div>
+            <a href="#pro-contact" class="btn-primary px-5 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-wider">Pro-tarief</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative min-h-[78vh] flex items-end bg-brand-navy text-white pt-32 pb-16 px-6 lg:px-8 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="../assets/images/hero-enclosure.jpg" alt="" class="w-full h-full object-cover opacity-35" aria-hidden="true">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/80 to-brand-navy/40"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto w-full">
+            <p class="text-[11px] font-bold uppercase tracking-[0.25em] text-white/50 mb-4">Installateurs · aannemers · projectontwikkelaars</p>
+            <h1 class="font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight max-w-3xl leading-[1.05] mb-6">Voor installateurs &amp; aannemers</h1>
+            <p class="text-lg text-white/65 font-light max-w-xl mb-10">Akoestische omkastingen die je snel plaatst, weinig nazorg geven, en merkonafhankelijk passen bij de units die jij installeert.</p>
+            <div class="flex flex-wrap gap-3">
+                <a href="#pro-contact" class="inline-flex bg-white text-brand-navy px-8 py-4 rounded-full text-sm font-semibold">Vraag pro-tarief</a>
+                <a href="#productmatrix" class="inline-flex border border-white/30 text-white px-8 py-4 rounded-full text-sm font-semibold hover:bg-white/10 transition-colors">Bekijk matrix</a>
+            </div>
+        </div>
+    </section>
+
+    <nav class="pro-subnav sticky top-[4.5rem] z-40 bg-white/95 backdrop-blur border-b border-brand-navy/8 hidden lg:block">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex gap-8 py-3 overflow-x-auto">
+            <a href="#waarom">Waarom</a>
+            <a href="#productmatrix">Producten</a>
+            <a href="#samenwerking">Samenwerking</a>
+            <a href="#downloads">Downloads</a>
+            <a href="#tools">Tools</a>
+            <a href="#cases">Cases</a>
+            <a href="#pro-contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Waarom -->
+    <section id="waarom" class="py-24 lg:py-28 px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-14">
+                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Waarom REDUCD</span>
+                <h2 class="font-extrabold text-3xl lg:text-5xl text-brand-navy mt-4 tracking-tight">Gebouwd voor jouw marge en planning</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <article class="reveal border border-brand-navy/10 rounded-2xl p-7">
+                    <h3 class="font-bold text-lg mb-2">Pro-marge</h3>
+                    <p class="text-sm text-brand-navy/55 font-light leading-relaxed">Partnerprijzen en heldere staffels — geen verrassingen bij de eindklant.</p>
+                </article>
+                <article class="reveal border border-brand-navy/10 rounded-2xl p-7">
+                    <h3 class="font-bold text-lg mb-2">Snelle levering</h3>
+                    <p class="text-sm text-brand-navy/55 font-light leading-relaxed">Standaardmaten vaak &lt; 1 week. Maatwerk met duidelijke planning.</p>
+                </article>
+                <article class="reveal border border-brand-navy/10 rounded-2xl p-7">
+                    <h3 class="font-bold text-lg mb-2">Weinig nazorg</h3>
+                    <p class="text-sm text-brand-navy/55 font-light leading-relaxed">Magnelis® + RVS 316, eenvoudige demontage voor service aan de unit.</p>
+                </article>
+                <article class="reveal border border-brand-navy/10 rounded-2xl p-7">
+                    <h3 class="font-bold text-lg mb-2">Merkonafhankelijk</h3>
+                    <p class="text-sm text-brand-navy/55 font-light leading-relaxed">Past op Daikin, NIBE, Vaillant en andere buitenunits — of maatwerk.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productmatrix -->
+    <section id="productmatrix" class="py-24 lg:py-28 px-6 lg:px-8 bg-brand-navy/[0.03]">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal mb-10 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+                <div>
+                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Productmatrix</span>
+                    <h2 class="font-extrabold text-3xl lg:text-5xl text-brand-navy mt-4 tracking-tight">Vrijstaand &amp; wandmodel</h2>
+                </div>
+                <p class="text-sm text-brand-navy/50 font-light max-w-md">Indicatieve waarden. Exacte selectie na inmeting of unit-afmetingen. Rendementsimpact typisch 2–4%.</p>
+            </div>
+            <div class="reveal overflow-x-auto rounded-2xl border border-brand-navy/10 bg-white">
+                <table class="spec-table w-full min-w-[720px]">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Type</th>
+                            <th>Maat</th>
+                            <th>Geluidsreductie</th>
+                            <th>Vrije ruimte</th>
+                            <th>Opmerking</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-brand-navy/75">
+                        <tr>
+                            <td class="font-semibold text-brand-navy">Vrijstaand S</td>
+                            <td>Vrijstaand</td>
+                            <td>S</td>
+                            <td>± 14 dB(A)</td>
+                            <td>≥ 50 cm voor/achter</td>
+                            <td>Meest gekozen particulier</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-brand-navy">Vrijstaand L</td>
+                            <td>Vrijstaand</td>
+                            <td>L</td>
+                            <td>± 14 dB(A)</td>
+                            <td>≥ 50 cm voor/achter</td>
+                            <td>Grotere buitenunits</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-brand-navy">Vrijstaand XL</td>
+                            <td>Vrijstaand</td>
+                            <td>XL</td>
+                            <td>± 14 dB(A)</td>
+                            <td>≥ 50 cm voor/achter</td>
+                            <td>Project / commercieel</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-brand-navy">Wandmodel S</td>
+                            <td>Wand</td>
+                            <td>S</td>
+                            <td>10–12 dB(A)</td>
+                            <td>≥ 50 cm voor/zij</td>
+                            <td>Unit met rug tegen muur</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-brand-navy">Wandmodel L</td>
+                            <td>Wand</td>
+                            <td>L</td>
+                            <td>10–12 dB(A)</td>
+                            <td>≥ 50 cm voor/zij</td>
+                            <td>Compacte situaties</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-brand-navy">Maatwerk</td>
+                            <td>Beide</td>
+                            <td>—</td>
+                            <td>Op specificatie</td>
+                            <td>Situatie-afhankelijk</td>
+                            <td>Eigen productie NL</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Samenwerking -->
+    <section id="samenwerking" class="py-24 lg:py-28 px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-14">
+                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Samenwerking</span>
+                <h2 class="font-extrabold text-3xl lg:text-5xl text-brand-navy mt-4 tracking-tight">Zo werk je met ons</h2>
+            </div>
+            <ol class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <li class="reveal">
+                    <div class="text-4xl font-extrabold text-brand-navy/15 mb-3">01</div>
+                    <h3 class="font-bold text-lg mb-2">Bestellen</h3>
+                    <p class="text-sm text-brand-navy/55 font-light leading-relaxed">Stuur unit-afmetingen of plan een intake. Je krijgt een pro-offerte met levertijd.</p>
+                </li>
+                <li class="reveal">
+                    <div class="text-4xl font-extrabold text-brand-navy/15 mb-3">02</div>
+                    <h3 class="font-bold text-lg mb-2">Levertijd</h3>
+                    <p class="text-sm text-brand-navy/55 font-light leading-relaxed">Voorraadmodellen doorgaans binnen een week. Maatwerk volgens afspraak.</p>
+                </li>
+                <li class="reveal">
+                    <div class="text-4xl font-extrabold text-brand-navy/15 mb-3">03</div>
+                    <h3 class="font-bold text-lg mb-2">Montage</h3>
+                    <p class="text-sm text-brand-navy/55 font-light leading-relaxed">Zelf met handleiding &amp; video, of door REDUCD laten plaatsen — jij kiest.</p>
+                </li>
+                <li class="reveal">
+                    <div class="text-4xl font-extrabold text-brand-navy/15 mb-3">04</div>
+                    <h3 class="font-bold text-lg mb-2">Service</h3>
+                    <p class="text-sm text-brand-navy/55 font-light leading-relaxed">Snelle support bij vragen van eindklanten. Panelen eenvoudig los voor WP-service.</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Downloads -->
+    <section id="downloads" class="py-24 lg:py-28 px-6 lg:px-8 bg-brand-navy text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal mb-12">
+                <span class="text-[11px] font-bold text-white/40 uppercase tracking-[0.25em]">Downloads</span>
+                <h2 class="font-extrabold text-3xl lg:text-5xl mt-4 tracking-tight">Documentatie voor op de werf</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <a href="mailto:info@reducd.be?subject=Brochure%20aanvragen" class="reveal block rounded-2xl border border-white/15 p-6 hover:bg-white/5 transition-colors">
+                    <div class="text-[10px] uppercase tracking-widest text-white/40 mb-3">PDF</div>
+                    <div class="font-bold">Brochure</div>
+                    <p class="text-sm text-white/50 mt-2 font-light">Vraag de actuele brochure aan.</p>
+                </a>
+                <a href="mailto:info@reducd.be?subject=Installatiehandleiding" class="reveal block rounded-2xl border border-white/15 p-6 hover:bg-white/5 transition-colors">
+                    <div class="text-[10px] uppercase tracking-widest text-white/40 mb-3">PDF</div>
+                    <div class="font-bold">Installatiehandleiding</div>
+                    <p class="text-sm text-white/50 mt-2 font-light">Stap-voor-stap montage.</p>
+                </a>
+                <a href="mailto:info@reducd.be?subject=Meetrapport%20Peutz" class="reveal block rounded-2xl border border-white/15 p-6 hover:bg-white/5 transition-colors">
+                    <div class="text-[10px] uppercase tracking-widest text-white/40 mb-3">PDF</div>
+                    <div class="font-bold">Meetrapport</div>
+                    <p class="text-sm text-white/50 mt-2 font-light">Onafhankelijke akoestische data.</p>
+                </a>
+                <a href="mailto:info@reducd.be?subject=CAD%20%2F%20tekeningen" class="reveal block rounded-2xl border border-white/15 p-6 hover:bg-white/5 transition-colors">
+                    <div class="text-[10px] uppercase tracking-widest text-white/40 mb-3">CAD</div>
+                    <div class="font-bold">Tekeningen</div>
+                    <p class="text-sm text-white/50 mt-2 font-light">Op aanvraag voor projecten.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools placeholder -->
+    <section id="tools" class="py-24 lg:py-28 px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Tools</span>
+                <h2 class="font-extrabold text-3xl lg:text-5xl text-brand-navy mt-4 tracking-tight">Binnenkort beschikbaar</h2>
+                <p class="mt-4 text-brand-navy/55 font-light">Calculators en hulpmiddelen voor selectie en offertes. Nu al welkom: mail ons je use-case.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-5">
+                <div class="tool-card reveal rounded-2xl border border-dashed border-brand-navy/20 p-8">
+                    <h3 class="font-bold text-lg mb-2">Maatcheck</h3>
+                    <p class="text-sm text-brand-navy/50 font-light">Buitenunit-afmetingen → passend model.</p>
+                    <span class="inline-block mt-6 text-[10px] font-bold uppercase tracking-widest text-brand-navy/35">Coming soon</span>
+                </div>
+                <div class="tool-card reveal rounded-2xl border border-dashed border-brand-navy/20 p-8">
+                    <h3 class="font-bold text-lg mb-2">dB-indicatie</h3>
+                    <p class="text-sm text-brand-navy/50 font-light">Schatting reductie t.o.v. erfgrens / Bouwbesluit.</p>
+                    <span class="inline-block mt-6 text-[10px] font-bold uppercase tracking-widest text-brand-navy/35">Coming soon</span>
+                </div>
+                <div class="tool-card reveal rounded-2xl border border-dashed border-brand-navy/20 p-8">
+                    <h3 class="font-bold text-lg mb-2">Offerte-hulp</h3>
+                    <p class="text-sm text-brand-navy/50 font-light">Snelle indicatie voor jouw klantofferte.</p>
+                    <span class="inline-block mt-6 text-[10px] font-bold uppercase tracking-widest text-brand-navy/35">Coming soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases -->
+    <section id="cases" class="py-24 lg:py-28 px-6 lg:px-8 bg-brand-navy/[0.03]">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal mb-12">
+                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Cases</span>
+                <h2 class="font-extrabold text-3xl lg:text-5xl text-brand-navy mt-4 tracking-tight">Referenties in de praktijk</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <article class="reveal bg-white rounded-2xl overflow-hidden border border-brand-navy/8">
+                    <div class="aspect-[16/10] overflow-hidden"><img src="../assets/images/google/photo-02.jpg" alt="Residentiële installatie" class="w-full h-full object-cover"></div>
+                    <div class="p-6">
+                        <div class="text-[10px] uppercase tracking-widest text-brand-navy/40 mb-2">Residentieel · NL/BE</div>
+                        <h3 class="font-bold text-lg mb-2">Woning met patio-unit</h3>
+                        <p class="text-sm text-brand-navy/55 font-light">Vrijstaand model, zichtbare stilte voor bewoners en buren.</p>
+                    </div>
+                </article>
+                <article class="reveal bg-white rounded-2xl overflow-hidden border border-brand-navy/8">
+                    <div class="aspect-[16/10] overflow-hidden"><img src="../assets/images/google/photo-03.jpg" alt="Dakinstallatie" class="w-full h-full object-cover"></div>
+                    <div class="p-6">
+                        <div class="text-[10px] uppercase tracking-widest text-brand-navy/40 mb-2">Commercieel · dak</div>
+                        <h3 class="font-bold text-lg mb-2">Meerdere units op plat dak</h3>
+                        <p class="text-sm text-brand-navy/55 font-light">Serie-plaatsing met behoud van servicepaden.</p>
+                    </div>
+                </article>
+                <article class="reveal bg-white rounded-2xl overflow-hidden border border-brand-navy/8">
+                    <div class="aspect-[16/10] overflow-hidden"><img src="../assets/images/product-heritage.jpg" alt="Herenwoning" class="w-full h-full object-cover"></div>
+                    <div class="p-6">
+                        <div class="text-[10px] uppercase tracking-widest text-brand-navy/40 mb-2">Renovatie</div>
+                        <h3 class="font-bold text-lg mb-2">Inpassing bij bestaand erfgoed</h3>
+                        <p class="text-sm text-brand-navy/55 font-light">RAL-afwerking afgestemd op gevel en tuinarchitectuur.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pro contact -->
+    <section id="pro-contact" class="py-24 lg:py-32 px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 lg:gap-20">
+            <div class="reveal">
+                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Pro-contact</span>
+                <h2 class="font-extrabold text-3xl lg:text-5xl text-brand-navy mt-4 tracking-tight mb-6">Word partner</h2>
+                <p class="text-brand-navy/55 font-light leading-relaxed mb-8">Vul je bedrijfsgegevens in. We sturen pro-tarieven, levertijden en — indien gewenst — een kennismaking.</p>
+                <div class="space-y-3 text-sm text-brand-navy/60">
+                    <p><a href="tel:+31403041976" data-track-contact="phone_pro" class="hover:text-brand-navy">+31 40 304 1976</a> (NL)</p>
+                    <p><a href="tel:+32472084470" data-track-contact="phone_pro_be" class="hover:text-brand-navy">+32 472 08 44 70</a> (BE)</p>
+                    <p><a href="mailto:info@reducd.be" data-track-contact="email_pro" class="hover:text-brand-navy">info@reducd.be</a></p>
+                </div>
+            </div>
+            <form id="pro-lead-form" class="reveal bg-white rounded-2xl p-8 lg:p-10 border border-brand-navy/8 shadow-sm">
+                <div class="space-y-4">
+                    <input type="text" name="company" class="form-field" placeholder="Bedrijfsnaam *" required autocomplete="organization">
+                    <input type="text" name="vat" class="form-field" placeholder="BTW-nummer *" required>
+                    <input type="text" name="name" class="form-field" placeholder="Contactpersoon *" required autocomplete="name">
+                    <input type="email" name="email" class="form-field" placeholder="Zakelijk e-mail *" required autocomplete="email">
+                    <input type="tel" name="phone" class="form-field" placeholder="Telefoon *" required autocomplete="tel">
+                    <select name="region" class="form-field" required>
+                        <option value="">Regio / land *</option>
+                        <option>Nederland</option>
+                        <option>België — Vlaanderen</option>
+                        <option>België — Wallonië / Brussel</option>
+                        <option>Andere</option>
+                    </select>
+                    <textarea name="message" rows="3" class="form-field resize-none" placeholder="Type werk / volume / vraag (optioneel)"></textarea>
+                    <button type="submit" class="btn-primary w-full py-4 rounded-xl font-bold text-sm uppercase tracking-widest">Vraag pro-tarief →</button>
+                    <p class="text-[11px] text-brand-navy/40 leading-relaxed">Door te versturen ga je akkoord met ons <a href="../privacy.html" class="underline hover:text-brand-navy">privacybeleid</a>.</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-brand-navy py-12 px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <a href="../"><img src="../assets/images/logo-reducd-white.png" alt="REDUCD" class="h-10 w-auto"></a>
+            <div class="flex flex-wrap justify-center gap-6 text-sm text-white/40">
+                <a href="../" class="hover:text-white">Home</a>
+                <a href="./" class="hover:text-white">Voor professionals</a>
+                <a href="../blog/" class="hover:text-white">Blog</a>
+                <a href="../privacy.html" class="hover:text-white">Privacy</a>
+            </div>
+            <p class="text-xs text-white/30">© 2026 REDUCD B.V.</p>
+        </div>
+    </footer>
+
+    <script>
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.08 });
+        revealEls.forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible'); });
+
+        document.querySelectorAll('[data-track-contact]').forEach(a => a.addEventListener('click', () => {
+            window.REDUCD?.trackContact?.(a.getAttribute('data-track-contact'));
+        }));
+
+        document.getElementById('pro-lead-form')?.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const orig = btn.textContent;
+            btn.textContent = 'Verzenden...';
+            btn.disabled = true;
+            window.REDUCD?.trackLead?.({
+                content_name: 'pro_partner',
+                lead_source: 'pro_page',
+                customer_type: 'installateur'
+            });
+            setTimeout(() => {
+                btn.textContent = '✓ Verstuurd!';
+                setTimeout(() => { btn.textContent = orig; btn.disabled = false; e.target.reset(); }, 2200);
+            }, 900);
+        });
+    </script>
+</body>
+</html>

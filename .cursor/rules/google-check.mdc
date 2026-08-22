@@ -1,0 +1,31 @@
+---
+description: When user asks "doe de google check" / Google SEO-Ads audit for REDUCD
+alwaysApply: true
+---
+
+# Google check (REDUCD)
+
+When the user says **"doe de google check"** (or similar), audit everything Google-related and report status + open actions. Do not skip open items.
+
+## Always include
+
+### Search / SEO
+- Search Console: verification meta present, sitemap submitted, indexing / coverage issues
+- `sitemap.xml`, `robots.txt`, canonicals, OG tags
+- Key URLs: home, `/blog/`, `/pro/`, privacy
+
+### Analytics & ads
+- `js/tracking-config.js`: GA4 (`G-…`), Meta Pixel, **Google Ads (`AW-…`) + conversion label**
+- **OPEN until done:** user must still connect Google Ads tag + map `generate_lead` / Ads `conversion` as conversions in Google Ads
+- Cookie consent gates trackers (`js/tracking.js`)
+- Events: `generate_lead` (contact form, lead popup, pro form), `contact`, `popup_open`, Ads `conversion` when label set
+- Lead popup: `js/lead-popup.js` (timer / scroll / exit-intent)
+
+### Technical / content
+- LocalBusiness / AggregateRating / other JSON-LD
+- Broken links, heavy assets, console tracking errors if inspectable
+
+## Response format
+- Short verdict (OK / gaps)
+- Checklist with ✅ / ⚠️ / ❌
+- Explicit reminder if Ads ID/label still PLACEHOLDER
