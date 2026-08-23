@@ -1,0 +1,16 @@
+{
+  "name": "reducd.be static site",
+  "terminals": [
+    {
+      "name": "web",
+      "command": "python3 -m http.server 8000",
+      "description": "Serves the static site at http://localhost:8000. HTTP is required because pages import ES modules (Firebase from gstatic) that browsers refuse to load over file://."
+    }
+  ],
+  "ports": [
+    {
+      "name": "web server",
+      "port": 8000
+    }
+  ]
+}
