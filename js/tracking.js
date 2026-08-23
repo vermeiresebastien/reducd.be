@@ -169,9 +169,12 @@
   }
 
   function fixPrivacyHref() {
-    const inSub = /\/(blog|admin|pro)(\/|$)/i.test(location.pathname);
+    const path = location.pathname;
+    let prefix = "";
+    if (/\/pro\/docs(\/|$)/i.test(path)) prefix = "../../";
+    else if (/\/(blog|admin|pro|vlarem|docs)(\/|$)/i.test(path)) prefix = "../";
     document.querySelectorAll("[data-privacy-link]").forEach((link) => {
-      link.setAttribute("href", inSub ? "../privacy.html" : "privacy.html");
+      link.setAttribute("href", prefix + "privacy.html");
     });
   }
 

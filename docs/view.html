@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="nl-BE" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentatie | REDUCD</title>
+    <meta name="description" content="REDUCD documentatie: brochure, specificaties, installatiehandleidingen, meetrapport en voorwaarden.">
+    <meta name="robots" content="noindex,follow">
+    <link rel="canonical" href="https://www.reducd.be/docs/view.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="nl_BE">
+    <meta property="og:title" content="Documentatie | REDUCD">
+    <meta property="og:description" content="Technische en installatiedocumentatie voor REDUCD akoestische omkastingen.">
+    <meta property="og:url" content="https://www.reducd.be/docs/view.html">
+    <meta property="og:image" content="https://www.reducd.be/assets/images/geluidsmeting.webp">
+    <link rel="icon" href="../assets/images/logo-reducd.png" type="image/png">
+    <script src="../js/tracking-config.js"></script>
+    <script src="../js/tracking.js" defer></script>
+    <script src="../js/lead-popup.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/docs.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brand: { navy: '#0F2A3A', white: '#FFFFFF' } },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root { --ease-out: cubic-bezier(0.16, 1, 0.3, 1); }
+        body { font-family: 'Inter', sans-serif; background: #fff; color: #0F2A3A; -webkit-font-smoothing: antialiased; }
+        .btn-primary { background: #0F2A3A; color: #fff; transition: all 0.35s var(--ease-out); }
+        .btn-primary:hover { background: #1a3f54; transform: translateY(-2px); }
+        .btn-outline { border: 1.5px solid #0F2A3A; color: #0F2A3A; transition: all 0.35s var(--ease-out); }
+        .btn-outline:hover { background: #0F2A3A; color: #fff; }
+        .accent-gratis { color: #D49A12; }
+        .btn-primary .accent-gratis { color: #E8B84A; }
+        #navPill { background: #fff; border: 1px solid rgba(15,42,58,0.08); box-shadow: 0 4px 24px rgba(15,42,58,0.06); }
+        .form-field { width: 100%; padding: 0.95rem 1.1rem; background: #fff; border: 1px solid rgba(15,42,58,0.12); border-radius: 10px; color: #0F2A3A; }
+        .form-field:focus { outline: none; border-color: #0F2A3A; box-shadow: 0 0 0 3px rgba(15,42,58,0.08); }
+    </style>
+</head>
+<body>
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 pt-4 lg:pt-6">
+        <nav id="navPill" class="max-w-5xl mx-auto flex items-center justify-between px-5 py-3 rounded-full">
+            <a href="../" class="flex items-center"><img src="../assets/images/logo-reducd.png" alt="REDUCD" class="h-10 lg:h-11 w-auto"></a>
+            <div class="hidden md:flex items-center gap-5 lg:gap-7">
+                <a href="../#producten" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Producten</a>
+                <a href="./" class="text-[11px] font-medium text-brand-navy uppercase tracking-widest">Docs</a>
+                <a href="../vlarem/" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">VLAREM</a>
+                <a href="../pro/" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Pro</a>
+                <a href="../#contact" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Contact</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <a data-open-lead-popup href="../#contact" class="hidden sm:inline-flex btn-primary px-5 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-wider"><span class="accent-gratis">Gratis</span> meting</a>
+                <button id="menuBtn" class="md:hidden w-9 h-9 flex items-center justify-center text-brand-navy" aria-label="Menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div id="mobileMenu" class="fixed inset-0 z-[60] bg-brand-navy translate-x-full flex flex-col items-center justify-center gap-8">
+        <button id="closeMenu" class="absolute top-6 right-6 w-10 h-10 text-white/60" aria-label="Sluiten">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <a href="./" class="mobile-link text-3xl font-bold text-white">Documentatie</a>
+        <a href="../vlarem/" class="mobile-link text-3xl font-bold text-white">VLAREM-tool</a>
+        <a href="../pro/docs/" class="mobile-link text-3xl font-bold text-white">Docs voor pro’s</a>
+        <a href="../#contact" class="mobile-link text-3xl font-bold text-white">Contact</a>
+        <a data-open-lead-popup href="../#contact" class="mobile-link bg-white text-brand-navy px-10 py-4 rounded-full font-semibold mt-4">Plan <span class="accent-gratis">gratis</span> meting</a>
+    </div>
+
+    <section class="pt-32 pb-10 lg:pt-40 lg:pb-12 px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+            <a id="docHubLink" href="./" class="text-[11px] font-semibold uppercase tracking-widest text-brand-navy/45 hover:text-brand-navy">← Documentatie</a>
+            <p class="doc-kicker mt-5" data-doc-kicker>Documentatie</p>
+            <h1 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-3 tracking-tight leading-[1.08]" data-doc-title>Documentatie</h1>
+            <p class="text-brand-navy/55 mt-4 text-lg font-light leading-relaxed" data-doc-summary>Vul je gegevens in om dit document te openen.</p>
+        </div>
+    </section>
+
+    <section class="px-6 lg:px-8 pb-8" id="docGate">
+        <div class="max-w-3xl mx-auto">
+            <div class="bg-brand-navy text-white rounded-3xl p-8 lg:p-10 grid lg:grid-cols-2 gap-10 items-center">
+                <div>
+                    <p class="text-[11px] font-bold uppercase tracking-[0.22em] text-white/40 mb-3">Toegang</p>
+                    <h2 class="font-extrabold text-2xl lg:text-3xl tracking-tight mb-4">Eerst je gegevens, daarna het document</h2>
+                    <p class="text-white/60 font-light leading-relaxed">We gebruiken je contactgegevens om te kunnen opvolgen — geen nieuwsbrief, geen doorverkoop. Daarna zie je de volledige tekst in sitestijl én de originele PDF.</p>
+                </div>
+                <form id="docGateForm" class="bg-white text-brand-navy rounded-2xl p-6 lg:p-8 space-y-4">
+                    <input type="text" name="name" required class="form-field" placeholder="Uw naam" autocomplete="name">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <input type="email" name="email" required class="form-field" placeholder="E-mail" autocomplete="email">
+                        <input type="tel" name="phone" required class="form-field" placeholder="Telefoon" autocomplete="tel">
+                    </div>
+                    <div id="docCompanyWrap" hidden>
+                        <input type="text" name="company" id="docCompany" class="form-field" placeholder="Bedrijf / installatiebedrijf" autocomplete="organization">
+                    </div>
+                    <div id="docTypeWrap">
+                        <select name="customerType" class="form-field appearance-none cursor-pointer">
+                            <option value="particulier">Particulier</option>
+                            <option value="installateur">Installateur / aannemer</option>
+                            <option value="project">Projectontwikkelaar</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary w-full py-4 rounded-xl font-bold text-sm uppercase tracking-widest">Document openen →</button>
+                    <p class="text-[11px] text-brand-navy/40 leading-relaxed">Door te versturen ga je akkoord met ons <a href="../privacy.html" class="underline hover:text-brand-navy">privacybeleid</a>. We gebruiken je gegevens enkel om je aanvraag te beantwoorden.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 lg:px-8 pb-20 lg:pb-28" id="docBody" hidden>
+        <div class="max-w-3xl mx-auto">
+            <div class="doc-pdfbar">
+                <p class="text-sm text-brand-navy/55 font-light m-0">Origineel document als PDF, plus de tekst hieronder voor op smartphone of werf.</p>
+                <a id="docPdf" href="#" class="btn-primary px-5 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-wider inline-flex">Download PDF</a>
+            </div>
+            <article id="docArticle" class="doc-prose"></article>
+        </div>
+    </section>
+
+    <footer class="bg-brand-navy py-12 px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <a href="../"><img src="../assets/images/logo-reducd-white.png" alt="REDUCD" class="h-10 w-auto"></a>
+            <div class="flex flex-wrap justify-center gap-6 text-sm text-white/40">
+                <a href="./" class="hover:text-white">Documentatie</a>
+                <a href="../pro/docs/" class="hover:text-white">Docs voor pro’s</a>
+                <a href="../vlarem/" class="hover:text-white">VLAREM-tool</a>
+                <a href="../privacy.html" class="hover:text-white">Privacy</a>
+            </div>
+            <p class="text-xs text-white/30">© 2026 REDUCD B.V.</p>
+        </div>
+    </footer>
+
+    <script src="../js/docs-catalog.js"></script>
+    <script src="../js/docs-page.js"></script>
+    <script src="../js/doc-gate.js"></script>
+    <script>
+        const mobileMenu = document.getElementById('mobileMenu');
+        document.getElementById('menuBtn')?.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+        document.getElementById('closeMenu')?.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+        document.querySelectorAll('.mobile-link').forEach((l) => l.addEventListener('click', () => mobileMenu.classList.add('translate-x-full')));
+    </script>
+</body>
+</html>
