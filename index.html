@@ -278,6 +278,8 @@
         <script src="js/size-report.js" defer></script>
         <script src="js/unit-sizes.js" defer></script>
         <script src="js/size-calculator.js" defer></script>
+        <script src="js/maps-config.js"></script>
+        <script src="js/parcel-map.js" defer></script>
     <link rel="stylesheet" href="css/app.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -542,7 +544,7 @@
         }
         #lead-form { scroll-margin-top: 7rem; }
         #contact { scroll-margin-top: 5.5rem; }
-        #calculator { scroll-margin-top: 6rem; }
+        #calculator, #perceelkaart { scroll-margin-top: 6rem; }
         .size-calc {
             --fit: #0F2A3A;
             --fit-soft: rgba(15, 42, 58, 0.08);
@@ -727,6 +729,114 @@
         .size-compare-card[data-card-fit="tight"] .size-compare-fit { color: #d97706; }
         .size-compare-card[data-card-fit="custom"] .size-compare-fit,
         .size-compare-card[data-card-fit="nofit"] .size-compare-fit { color: #4338ca; }
+        .parcel-map-shell {
+            background: #fff;
+            border: 1px solid rgba(15,42,58,0.08);
+            border-radius: 1.25rem;
+            padding: 1.25rem 1.25rem 1rem;
+            overflow: hidden;
+        }
+        @media (min-width: 1024px) {
+            .parcel-map-shell { padding: 1.5rem 1.5rem 1.15rem; }
+        }
+        .parcel-map-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            align-items: stretch;
+            margin-bottom: 0.85rem;
+            position: relative;
+            z-index: 20;
+        }
+        .parcel-search { position: relative; flex: 1 1 16rem; min-width: 0; }
+        .parcel-search .form-field { margin: 0; width: 100%; }
+        .parcel-suggest {
+            position: absolute;
+            left: 0; right: 0; top: calc(100% + 4px);
+            margin: 0; padding: 0.35rem;
+            list-style: none;
+            background: #fff;
+            border: 1px solid rgba(15,42,58,0.12);
+            border-radius: 0.85rem;
+            box-shadow: 0 16px 40px -12px rgba(15,42,58,0.22);
+            max-height: 16rem;
+            overflow: auto;
+            z-index: 30;
+        }
+        .parcel-opt {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 0.65rem 0.75rem;
+            border: 0;
+            background: transparent;
+            border-radius: 0.55rem;
+            font-size: 0.875rem;
+            color: #0F2A3A;
+            cursor: pointer;
+        }
+        .parcel-opt:hover,
+        .parcel-opt[aria-selected="true"] { background: rgba(15,42,58,0.06); }
+        .parcel-ext {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.45rem 0.85rem;
+            border-radius: 999px;
+            border: 1px solid rgba(15,42,58,0.14);
+            color: rgba(15,42,58,0.7);
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            background: #fff;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+        .parcel-ext:hover { border-color: rgba(15,42,58,0.35); color: #0F2A3A; }
+        .parcel-status {
+            font-size: 0.8rem;
+            color: rgba(15,42,58,0.5);
+            font-weight: 400;
+            margin: 0 0 0.65rem;
+            min-height: 1.2em;
+        }
+        .parcel-map-frame {
+            width: 100%;
+            height: min(68vh, 560px);
+            min-height: 320px;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: #d7dde2;
+            border: 1px solid rgba(15,42,58,0.08);
+            z-index: 1;
+        }
+        .parcel-map-frame .leaflet-container { width: 100%; height: 100%; font: inherit; }
+        .parcel-disclaimer {
+            margin: 0.85rem 0 0;
+            font-size: 0.72rem;
+            line-height: 1.45;
+            color: rgba(15,42,58,0.42);
+            font-weight: 400;
+        }
+        .parcel-disclaimer code {
+            font-size: 0.7rem;
+            background: rgba(15,42,58,0.05);
+            padding: 0.1rem 0.35rem;
+            border-radius: 0.25rem;
+        }
+        .parcel-gmap-toggles { margin-bottom: 0.75rem; }
+        .parcel-chip {
+            border: 1px solid rgba(15,42,58,0.14);
+            background: #fff;
+            color: rgba(15,42,58,0.65);
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.4rem 0.7rem;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+        .parcel-chip[aria-pressed="true"] {
+            border-color: #0F2A3A;
+            color: #0F2A3A;
+            background: rgba(15,42,58,0.06);
+        }
         tr.is-size-hit td { background: rgba(15, 42, 58, 0.055); box-shadow: inset 3px 0 0 #0F2A3A; }
         .marquee-track { display: flex; animation: marquee 28s linear infinite; width: max-content; position: relative; z-index: 1; }
         .mq-letter { font-weight: 300; }
@@ -1359,7 +1469,51 @@
                     </button>
                 </div>
             </div>
-            <p class="reveal mt-10 text-sm text-brand-navy/50 font-light leading-relaxed">Wil je de restwaarde aan de perceelsgrens schatten? Open de <a href="vlarem/#decibelmeter" class="text-brand-navy font-medium underline underline-offset-2">Decibelmeter en VLAREM-rekentool</a>.</p>
+            <p class="reveal mt-10 text-sm text-brand-navy/50 font-light leading-relaxed">Wil je de restwaarde aan de perceelsgrens schatten? Open de <a href="vlarem/#decibelmeter" class="text-brand-navy font-medium underline underline-offset-2">Decibelmeter en VLAREM-rekentool</a>, of zoek je perceel op de <a href="#perceelkaart" class="text-brand-navy font-medium underline underline-offset-2">kadasterkaart met adreszoeken</a>.</p>
+        </div>
+    </section>
+
+    <!-- Perceelkaart: adreszoeken + CadGIS / Geopunt / RO overlays -->
+    <section id="perceelkaart" class="parcel-map-section py-24 lg:py-32 px-6 lg:px-8 bg-[#F7F5F1]" data-engine="">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-10">
+                <div>
+                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Perceel &amp; omgeving</span>
+                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Kadasterkaart met adreszoeken</h2>
+                    <p class="text-brand-navy/55 mt-4 max-w-2xl font-light leading-relaxed">Zoek op adres (Geopunt) en leg CadGIS-, GRB- en ruimtelijke-ordeningslagen over een luchtfoto. In CadGIS Viewer en Geopunt zelf is adreszoeken beperkt — hier niet.</p>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <a class="parcel-ext" href="https://www.vlaanderen.be/geopunt/kaarttoepassingen/cadgis-viewer" target="_blank" rel="noopener noreferrer">CadGIS Viewer</a>
+                    <a class="parcel-ext" href="https://www.geopunt.be/" target="_blank" rel="noopener noreferrer">Geopunt</a>
+                    <a class="parcel-ext" href="https://www.geopunt.be/kaart" target="_blank" rel="noopener noreferrer">Geoportaal RO</a>
+                </div>
+            </div>
+            <div class="reveal parcel-map-shell">
+                <div class="parcel-map-toolbar">
+                    <div class="parcel-search">
+                        <label class="sr-only" for="parcel-q">Zoek adres in Vlaanderen</label>
+                        <input id="parcel-q" data-parcel-q class="form-field" type="search" autocomplete="off" placeholder="Straat, nr, postcode of gemeente…" aria-autocomplete="list" aria-controls="parcel-list" aria-expanded="false" role="combobox">
+                        <ul id="parcel-list" data-parcel-list class="parcel-suggest" role="listbox" hidden></ul>
+                    </div>
+                    <button type="button" data-parcel-go class="btn-primary px-5 py-3 rounded-full text-sm font-semibold shrink-0">Zoek</button>
+                    <a data-parcel-google class="btn-outline px-5 py-3 rounded-full text-sm font-semibold shrink-0" href="#" target="_blank" rel="noopener noreferrer" hidden>Open in Google Maps</a>
+                </div>
+                <div class="parcel-gmap-toggles" data-gmap-toggles hidden>
+                    <p class="text-[11px] font-bold uppercase tracking-widest text-brand-navy/45 mb-2">Overlays</p>
+                    <div class="flex flex-wrap gap-2">
+                        <button type="button" class="parcel-chip" data-gmap-layer="parcels" aria-pressed="true">Perceelsgrenzen</button>
+                        <button type="button" class="parcel-chip" data-gmap-layer="parcelsFill" aria-pressed="true">Percelen</button>
+                        <button type="button" class="parcel-chip" data-gmap-layer="buildings" aria-pressed="false">Gebouwen</button>
+                        <button type="button" class="parcel-chip" data-gmap-layer="cad" aria-pressed="false">CadGIS Capakey</button>
+                        <button type="button" class="parcel-chip" data-gmap-layer="canu" aria-pressed="false">Perceelnummers</button>
+                        <button type="button" class="parcel-chip" data-gmap-layer="gwp" aria-pressed="false">Gewestplan</button>
+                        <button type="button" class="parcel-chip" data-gmap-layer="rup" aria-pressed="false">Gem. RUP</button>
+                    </div>
+                </div>
+                <p class="parcel-status" data-parcel-status>Kaart laden…</p>
+                <div class="parcel-map-frame" data-parcel-map role="application" aria-label="Kaart met kadastrale en RO-lagen"></div>
+                <p class="parcel-disclaimer">Lagen via Digitaal Vlaanderen / Mercator (informatief, geen juridisch uittreksel). CadGIS Capakey kan leeg blijven zonder GDI-toegang; GRB-percelen zijn publiek. Optioneel: Google Maps Hybrid via <code>js/maps-config.js</code>.</p>
+            </div>
         </div>
     </section>
 
