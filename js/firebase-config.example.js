@@ -3,7 +3,7 @@
  *
  * Firebase Console setup (eenmalig):
  * 1. https://console.firebase.google.com → nieuw project
- * 2. Authentication → Sign-in method → Google inschakelen
+ * 2. Authentication → Sign-in method → Google én E-mail link (wachtwoordloos) inschakelen
  * 3. Firestore Database → Create database (production mode)
  * 4. Project settings → Your apps → Web app → config kopiëren
  * 5. Authentication → Settings → Authorized domains: voeg je domain toe (localhost werkt standaard)

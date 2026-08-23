@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 
 Disallow: /admin/
+Disallow: /pro/platform/
 Disallow: /docs/view.html
 
 Sitemap: https://www.reducd.be/sitemap.xml

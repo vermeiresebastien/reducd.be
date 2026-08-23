@@ -206,6 +206,7 @@ function formatDate(ts) {
 export {
   isConfigured,
   init,
+  isAdminUser,
   loginWithGoogle,
   logout,
   onAuth,

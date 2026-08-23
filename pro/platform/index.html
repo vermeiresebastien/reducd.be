@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verdelersplatform | REDUCD Pro</title>
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="canonical" href="https://www.reducd.be/pro/platform/">
+    <link rel="icon" href="../../assets/images/logo-reducd.png" type="image/png">
+    <script src="../../js/firebase-config.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brand: { navy: '#0F2A3A', white: '#FFFFFF' } },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root { --ease-out: cubic-bezier(0.16, 1, 0.3, 1); }
+        body { font-family: 'Inter', sans-serif; background: #F7F8F9; color: #0F2A3A; -webkit-font-smoothing: antialiased; }
+        .btn-primary { background: #0F2A3A; color: #fff; transition: all 0.25s var(--ease-out); }
+        .btn-primary:hover { background: #1a3f54; }
+        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-outline { border: 1.5px solid #0F2A3A; color: #0F2A3A; }
+        .form-field { width: 100%; padding: 0.7rem 0 0.55rem; background: transparent; border: 0; border-bottom: 1px solid rgba(15,42,58,0.16); border-radius: 0; color: #0F2A3A; font-size: 0.9375rem; }
+        .form-field:focus { outline: none; border-bottom-color: #0F2A3A; }
+        .form-field::placeholder { color: rgba(15,42,58,0.32); }
+        select.form-field { background: transparent; cursor: pointer; }
+        .stat { background: #fff; border: 1px solid rgba(15,42,58,0.08); border-radius: 1.15rem; padding: 1.25rem 1.35rem; }
+        .stat b { display: block; font-size: 1.85rem; font-weight: 800; letter-spacing: -0.03em; }
+        .stat span { display: block; margin-top: 0.2rem; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(15,42,58,0.42); }
+        table.grid-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+        table.grid-table th { text-align: left; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(15,42,58,0.4); padding: 0.75rem 1rem; border-bottom: 1px solid rgba(15,42,58,0.08); }
+        table.grid-table td { padding: 0.85rem 1rem; border-bottom: 1px solid rgba(15,42,58,0.06); vertical-align: top; }
+        .bar { height: 6px; background: rgba(15,42,58,0.08); border-radius: 99px; overflow: hidden; }
+        .bar > i { display: block; height: 100%; background: #0F2A3A; border-radius: 99px; }
+    </style>
+</head>
+<body>
+    <div id="view-loading" class="min-h-screen flex items-center justify-center">
+        <p class="text-[11px] uppercase tracking-widest text-brand-navy/40">Laden…</p>
+    </div>
+
+    <div id="view-setup" class="hidden min-h-screen flex items-center justify-center px-6 py-16">
+        <div class="max-w-lg w-full bg-white rounded-3xl border border-brand-navy/8 p-8 lg:p-10">
+            <img src="../../assets/images/logo-reducd.png" alt="REDUCD" class="h-11 mb-6">
+            <h1 class="font-extrabold text-2xl tracking-tight mb-2">Firebase-setup</h1>
+            <p class="text-brand-navy/55 text-sm font-light leading-relaxed mb-6">Het verdelersplatform gebruikt hetzelfde Firebase-project als de blog-admin.</p>
+            <ol class="space-y-2.5 text-sm text-brand-navy/70 list-decimal pl-5 mb-8">
+                <li>Authentication → Google én <strong>E-mail link</strong> (wachtwoordloos) inschakelen</li>
+                <li>Authorized domains: <code class="text-xs bg-brand-navy/5 px-1 rounded">localhost</code> en <code class="text-xs bg-brand-navy/5 px-1 rounded">reducd.be</code></li>
+                <li>Config in <code class="text-xs bg-brand-navy/5 px-1 rounded">js/firebase-config.js</code></li>
+                <li>Rules uit <code class="text-xs bg-brand-navy/5 px-1 rounded">firestore.rules</code> publiceren</li>
+                <li>Collection <code class="text-xs bg-brand-navy/5 px-1 rounded">admins</code> → document-ID = jouw e-mail (lowercase)</li>
+                <li>Na inloggen: verdelers uitnodigen via hun e-mail</li>
+            </ol>
+            <a href="../" class="text-sm text-brand-navy/45 hover:text-brand-navy">← Terug naar Pro</a>
+        </div>
+    </div>
+
+    <div id="view-login" class="hidden min-h-screen flex items-center justify-center px-6 py-16">
+        <div class="max-w-md w-full bg-white rounded-3xl border border-brand-navy/8 p-8 lg:p-10">
+            <img src="../../assets/images/logo-reducd.png" alt="REDUCD" class="h-11 mb-8">
+            <p class="text-[11px] font-bold uppercase tracking-[0.22em] text-brand-navy/40 mb-2">Verdelers</p>
+            <h1 class="font-extrabold text-2xl tracking-tight mb-3">Inloggen</h1>
+            <p class="text-brand-navy/55 text-sm font-light leading-relaxed mb-8">Alleen accounts die REDUCD heeft vrijgegeven. Google, of een eenmalige link naar je e-mail.</p>
+            <button id="btn-google" type="button" class="btn-primary w-full py-3.5 rounded-full font-semibold text-sm mb-6">Doorgaan met Google</button>
+            <div class="flex items-center gap-3 mb-6 text-[10px] uppercase tracking-widest text-brand-navy/30">
+                <span class="flex-1 h-px bg-brand-navy/10"></span>of e-mail<span class="flex-1 h-px bg-brand-navy/10"></span>
+            </div>
+            <form id="email-form" class="space-y-5">
+                <input id="email-input" type="email" required class="form-field" placeholder="Zakelijk e-mailadres" autocomplete="email">
+                <button type="submit" class="btn-outline w-full py-3 rounded-full font-semibold text-sm">Stuur inloglink</button>
+            </form>
+            <p id="login-msg" class="hidden mt-4 text-sm"></p>
+            <a href="../" class="inline-block mt-8 text-sm text-brand-navy/40 hover:text-brand-navy">← Terug naar Pro</a>
+        </div>
+    </div>
+
+    <div id="view-denied" class="hidden min-h-screen flex items-center justify-center px-6 py-16">
+        <div class="max-w-md w-full bg-white rounded-3xl border border-brand-navy/8 p-8 lg:p-10">
+            <img src="../../assets/images/logo-reducd.png" alt="REDUCD" class="h-11 mb-8">
+            <h1 class="font-extrabold text-2xl tracking-tight mb-3">Nog geen toegang</h1>
+            <p id="denied-text" class="text-brand-navy/55 text-sm font-light leading-relaxed mb-8"></p>
+            <button id="btn-denied-logout" type="button" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold">Ander account</button>
+        </div>
+    </div>
+
+    <div id="view-app" class="hidden min-h-screen">
+        <header class="bg-white border-b border-brand-navy/8 sticky top-0 z-20">
+            <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <a href="../"><img src="../../assets/images/logo-reducd.png" alt="REDUCD" class="h-9"></a>
+                    <span id="role-chip" class="text-[10px] uppercase tracking-widest text-brand-navy/40 border border-brand-navy/10 rounded-full px-2.5 py-1">Platform</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span id="user-chip" class="hidden sm:block text-sm text-brand-navy/50"></span>
+                    <button id="btn-logout" type="button" class="text-[11px] uppercase tracking-wider text-brand-navy/45 hover:text-brand-navy">Uitloggen</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="max-w-6xl mx-auto px-6 py-10 lg:py-14">
+            <section id="panel-dealer" class="hidden space-y-10">
+                <div>
+                    <p class="text-[11px] font-bold uppercase tracking-[0.22em] text-brand-navy/40 mb-2">Bestellen</p>
+                    <h1 class="font-extrabold text-3xl tracking-tight">Nieuwe bestelling</h1>
+                    <p class="text-brand-navy/50 text-sm font-light mt-2 max-w-xl">Pro-prijzen volgens jouw staffel. REDUCD bevestigt levertijd na ontvangst.</p>
+                </div>
+                <form id="order-form" class="grid lg:grid-cols-5 gap-8">
+                    <div class="lg:col-span-3 bg-white rounded-3xl border border-brand-navy/8 p-6 lg:p-8 space-y-6">
+                        <div>
+                            <p class="text-[11px] font-bold uppercase tracking-widest text-brand-navy/40 mb-4">Regels</p>
+                            <div id="order-lines" class="space-y-5"></div>
+                            <button type="button" id="btn-add-line" class="mt-4 text-sm font-semibold text-brand-navy underline underline-offset-4">+ Regel toevoegen</button>
+                        </div>
+                        <input name="notes" class="form-field" placeholder="Opmerking / unit-afmetingen (optioneel)">
+                    </div>
+                    <div class="lg:col-span-2 bg-white rounded-3xl border border-brand-navy/8 p-6 lg:p-8 space-y-4">
+                        <p class="text-[11px] font-bold uppercase tracking-widest text-brand-navy/40 mb-2">Levering</p>
+                        <input name="company" class="form-field" placeholder="Bedrijf" required>
+                        <input name="contact" class="form-field" placeholder="Contactpersoon" required>
+                        <input name="phone" class="form-field" placeholder="Telefoon" required>
+                        <input name="street" class="form-field" placeholder="Straat en nummer" required>
+                        <div class="grid grid-cols-3 gap-4">
+                            <input name="postcode" class="form-field col-span-1" placeholder="Postcode" required>
+                            <input name="city" class="form-field col-span-2" placeholder="Gemeente" required>
+                        </div>
+                        <input name="po" class="form-field" placeholder="Uw PO / referentie (optioneel)">
+                        <button type="submit" class="btn-primary w-full mt-4 py-3.5 rounded-full text-sm font-semibold uppercase tracking-wider">Bestelling plaatsen</button>
+                        <p id="order-msg" class="text-sm text-brand-navy/45 min-h-[1.25rem]"></p>
+                    </div>
+                </form>
+                <div>
+                    <h2 class="font-extrabold text-xl tracking-tight mb-4">Jouw bestellingen</h2>
+                    <div id="my-orders" class="bg-white rounded-3xl border border-brand-navy/8 overflow-hidden"></div>
+                </div>
+            </section>
+
+            <section id="panel-admin" class="hidden space-y-10">
+                <div>
+                    <p class="text-[11px] font-bold uppercase tracking-[0.22em] text-brand-navy/40 mb-2">Admin</p>
+                    <h1 class="font-extrabold text-3xl tracking-tight">Analytics &amp; bestellingen</h1>
+                    <p class="text-brand-navy/50 text-sm font-light mt-2">Overzicht van verdelersorders. Blog-admin blijft op <a class="underline" href="../../admin/">/admin/</a>.</p>
+                </div>
+                <div id="admin-stats" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+                <div class="grid lg:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-3xl border border-brand-navy/8 p-6">
+                        <h2 class="font-bold mb-4">Per model</h2>
+                        <div id="admin-models" class="space-y-3 text-sm"></div>
+                    </div>
+                    <div class="bg-white rounded-3xl border border-brand-navy/8 p-6">
+                        <h2 class="font-bold mb-4">Verdeler uitnodigen</h2>
+                        <form id="invite-form" class="space-y-4">
+                            <input id="invite-email" type="email" required class="form-field" placeholder="E-mail verdeler">
+                            <input id="invite-company" class="form-field" placeholder="Bedrijf">
+                            <input id="invite-name" class="form-field" placeholder="Contactpersoon">
+                            <button type="submit" class="btn-primary px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider">Vrijgeven</button>
+                            <p id="invite-msg" class="text-sm text-brand-navy/45"></p>
+                        </form>
+                        <div id="admin-distributors" class="mt-6 text-sm space-y-2"></div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="font-extrabold text-xl tracking-tight mb-4">Alle bestellingen</h2>
+                    <div id="admin-orders" class="bg-white rounded-3xl border border-brand-navy/8 overflow-x-auto"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+      (function () {
+        var c = window.REDUCD_FIREBASE;
+        var ok = c && c.apiKey && c.apiKey !== "PLACEHOLDER" && String(c.apiKey).indexOf("YOUR_") !== 0;
+        if (!ok) {
+          var loading = document.getElementById("view-loading");
+          var setup = document.getElementById("view-setup");
+          if (loading) loading.classList.add("hidden");
+          if (setup) setup.classList.remove("hidden");
+        }
+      })();
+    </script>
+    <script type="module">
+      import {
+        isConfigured,
+        completeEmailLinkIfPresent,
+        loginWithGoogleAny,
+        sendEmailLoginLink,
+        onPlatformAuth,
+        logout,
+        MODELS,
+        FINISHES,
+        ORDER_STATUSES,
+        createOrder,
+        listMyOrders,
+        listAllOrders,
+        updateOrderStatus,
+        listDistributors,
+        upsertDistributor,
+        summarizeOrders,
+        modelLabel,
+        finishLabel,
+        statusLabel,
+        formatDate
+      } from "../../js/platform-app.js?v=2";
+
+      const $ = (id) => document.getElementById(id);
+      const views = ["view-loading", "view-setup", "view-login", "view-denied", "view-app"];
+      function show(id) {
+        views.forEach((v) => $(v).classList.toggle("hidden", v !== id));
+      }
+
+      let currentUser = null;
+      let currentRole = null;
+
+      function lineHtml() {
+        const models = MODELS.map((m) => `<option value="${m.id}">${m.name}</option>`).join("");
+        const finishes = FINISHES.map((f) => `<option value="${f.id}">${f.name}</option>`).join("");
+        return `<div class="order-line grid sm:grid-cols-12 gap-3 items-end">
+          <select name="model" class="form-field sm:col-span-5">${models}</select>
+          <select name="finish" class="form-field sm:col-span-4">${finishes}</select>
+          <input name="qty" type="number" min="1" value="1" class="form-field sm:col-span-2" aria-label="Aantal">
+          <input name="ral" class="form-field sm:col-span-12 hidden" placeholder="RAL-code (bij poedercoat)">
+        </div>`;
+      }
+
+      function bindLine(el) {
+        const finish = el.querySelector('[name="finish"]');
+        const ral = el.querySelector('[name="ral"]');
+        const toggle = () => ral.classList.toggle("hidden", finish.value !== "ral");
+        finish.addEventListener("change", toggle);
+        toggle();
+      }
+
+      function addLine() {
+        const wrap = $("order-lines");
+        wrap.insertAdjacentHTML("beforeend", lineHtml());
+        bindLine(wrap.lastElementChild);
+      }
+
+      function collectItems() {
+        return [...document.querySelectorAll(".order-line")].map((row) => ({
+          model: row.querySelector('[name="model"]').value,
+          finish: row.querySelector('[name="finish"]').value,
+          ral: row.querySelector('[name="ral"]').value,
+          qty: row.querySelector('[name="qty"]').value
+        }));
+      }
+
+      function itemsText(items) {
+        return (items || []).map((i) => {
+          const fin = i.finish === "ral" && i.ral ? `RAL ${i.ral}` : finishLabel(i.finish);
+          return `${i.qty}× ${modelLabel(i.model)} · ${fin}`;
+        }).join("<br>");
+      }
+
+      function renderMyOrders(rows) {
+        const box = $("my-orders");
+        if (!rows.length) {
+          box.innerHTML = `<p class="p-8 text-sm text-brand-navy/45">Nog geen bestellingen.</p>`;
+          return;
+        }
+        box.innerHTML = `<table class="grid-table"><thead><tr><th>Datum</th><th>Inhoud</th><th>Status</th></tr></thead><tbody>${
+          rows.map((o) => `<tr><td>${formatDate(o.createdAt) || "—"}</td><td>${itemsText(o.items)}</td><td>${statusLabel(o.status)}</td></tr>`).join("")
+        }</tbody></table>`;
+      }
+
+      function renderAdmin(orders, distributors) {
+        const s = summarizeOrders(orders);
+        $("admin-stats").innerHTML = `
+          <div class="stat"><b>${s.total}</b><span>Bestellingen</span></div>
+          <div class="stat"><b>${s.thisMonth}</b><span>Deze maand</span></div>
+          <div class="stat"><b>${s.openCount}</b><span>Open</span></div>
+          <div class="stat"><b>${s.units}</b><span>Stuks</span></div>`;
+        const max = Math.max(1, ...Object.values(s.byModel));
+        $("admin-models").innerHTML = MODELS.map((m) => {
+          const n = s.byModel[m.id] || 0;
+          const pct = Math.round((n / max) * 100);
+          return `<div><div class="flex justify-between mb-1"><span>${m.name}</span><span class="text-brand-navy/40">${n}</span></div><div class="bar"><i style="width:${pct}%"></i></div></div>`;
+        }).join("");
+        $("admin-distributors").innerHTML = distributors.length
+          ? distributors.map((d) => `<p>${d.company || d.email} · <span class="text-brand-navy/40">${d.email}</span>${d.active === false ? " · inactief" : ""}</p>`).join("")
+          : `<p class="text-brand-navy/40">Nog geen verdelers. Nodig hierboven iemand uit.</p>`;
+        const opts = ORDER_STATUSES.map((st) => `<option value="${st.id}">${st.label}</option>`).join("");
+        $("admin-orders").innerHTML = orders.length ? `<table class="grid-table min-w-[720px]"><thead><tr><th>Datum</th><th>Verdeler</th><th>Inhoud</th><th>Status</th></tr></thead><tbody>${
+          orders.map((o) => `<tr>
+            <td>${formatDate(o.createdAt) || "—"}</td>
+            <td>${o.company || "—"}<br><span class="text-brand-navy/40 text-xs">${o.email}</span></td>
+            <td>${itemsText(o.items)}</td>
+            <td><select data-order="${o.id}" class="form-field status-select">${opts}</select></td>
+          </tr>`).join("")
+        }</tbody></table>` : `<p class="p-8 text-sm text-brand-navy/45">Nog geen orders.</p>`;
+        $("admin-orders").querySelectorAll(".status-select").forEach((sel) => {
+          const id = sel.getAttribute("data-order");
+          const row = orders.find((o) => o.id === id);
+          if (row) sel.value = row.status || "nieuw";
+          sel.addEventListener("change", async () => {
+            await updateOrderStatus(id, sel.value);
+          });
+        });
+      }
+
+      async function bootDealer(user, distributor) {
+        $("panel-dealer").classList.remove("hidden");
+        $("panel-admin").classList.add("hidden");
+        $("role-chip").textContent = "Verdeler";
+        const form = $("order-form");
+        if (distributor?.company) form.company.value = distributor.company;
+        if (distributor?.name) form.contact.value = distributor.name;
+        if (!$("order-lines").children.length) addLine();
+        renderMyOrders(await listMyOrders(user.email));
+      }
+
+      async function bootAdmin() {
+        $("panel-dealer").classList.add("hidden");
+        $("panel-admin").classList.remove("hidden");
+        $("role-chip").textContent = "Admin";
+        const [orders, distributors] = await Promise.all([listAllOrders(), listDistributors()]);
+        renderAdmin(orders, distributors);
+      }
+
+      $("btn-add-line")?.addEventListener("click", addLine);
+      $("btn-google")?.addEventListener("click", async () => {
+        $("login-msg").classList.add("hidden");
+        try {
+          await loginWithGoogleAny();
+        } catch (err) {
+          $("login-msg").className = "mt-4 text-sm text-red-600";
+          $("login-msg").textContent = err.message || "Inloggen mislukt.";
+          $("login-msg").classList.remove("hidden");
+        }
+      });
+      $("email-form")?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const msg = $("login-msg");
+        try {
+          await sendEmailLoginLink($("email-input").value);
+          msg.className = "mt-4 text-sm text-brand-navy/60";
+          msg.textContent = "Check je inbox. De link is 1 uur geldig.";
+        } catch (err) {
+          msg.className = "mt-4 text-sm text-red-600";
+          msg.textContent = err.message || "Kon geen link sturen. Staat e-mail-link aan in Firebase?";
+        }
+        msg.classList.remove("hidden");
+      });
+      $("order-form")?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button[type="submit"]');
+        const orig = btn.textContent;
+        btn.disabled = true;
+        $("order-msg").textContent = "";
+        try {
+          const data = Object.fromEntries(new FormData(e.target).entries());
+          data.items = collectItems();
+          await createOrder(currentUser, data);
+          $("order-msg").textContent = "Bestelling ontvangen. We bevestigen zo snel mogelijk.";
+          $("order-lines").innerHTML = "";
+          addLine();
+          renderMyOrders(await listMyOrders(currentUser.email));
+        } catch (err) {
+          $("order-msg").textContent = err.message || "Bestellen mislukt.";
+        }
+        btn.disabled = false;
+        btn.textContent = orig;
+      });
+      $("invite-form")?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        try {
+          await upsertDistributor({
+            email: $("invite-email").value,
+            company: $("invite-company").value,
+            name: $("invite-name").value
+          });
+          $("invite-msg").textContent = "Verdeler vrijgegeven. Zij loggen in met Google of e-maillink.";
+          e.target.reset();
+          const [orders, distributors] = await Promise.all([listAllOrders(), listDistributors()]);
+          renderAdmin(orders, distributors);
+        } catch (err) {
+          $("invite-msg").textContent = err.message || "Opslaan mislukt.";
+        }
+      });
+      $("btn-logout")?.addEventListener("click", () => logout());
+      $("btn-denied-logout")?.addEventListener("click", () => logout());
+
+      if (!isConfigured()) {
+        show("view-setup");
+      } else {
+        try {
+          await completeEmailLinkIfPresent();
+        } catch (err) {
+          show("view-login");
+          $("login-msg").className = "mt-4 text-sm text-red-600";
+          $("login-msg").textContent = err.message;
+          $("login-msg").classList.remove("hidden");
+        }
+        onPlatformAuth(async (user, info) => {
+          currentUser = user;
+          currentRole = info.role;
+          if (!user) {
+            show("view-login");
+            return;
+          }
+          $("user-chip").textContent = user.email;
+          $("user-chip").classList.remove("hidden");
+          if (info.role === "admin") {
+            show("view-app");
+            await bootAdmin();
+          } else if (info.role === "distributor") {
+            show("view-app");
+            await bootDealer(user, info.distributor);
+          } else {
+            $("denied-text").textContent = `${user.email} is nog niet vrijgegeven als verdeler. Mail info@reducd.be, of log in met het account dat REDUCD heeft uitgenodigd.`;
+            show("view-denied");
+          }
+        });
+      }
+    </script>
+</body>
+</html>

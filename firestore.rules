@@ -8,7 +8,7 @@ service cloud.firestore {
     function isAdmin() {
       return isSignedIn()
         && request.auth.token.email != null
-        && exists(/databases/$(database)/documents/admins/$(request.auth.token.email));
+        && exists(/databases/$(database)/documents/admins/$(request.auth.token.email.lower()));
     }
 
     // Publiek: alleen gepubliceerde posts lezen
@@ -22,8 +22,33 @@ service cloud.firestore {
     // Verplicht: maak in Console een leeg document aan per admin-e-mail,
     // anders falen create/update/delete op /posts (isAdmin() hierboven).
     match /admins/{email} {
-      allow read: if isSignedIn() && request.auth.token.email == email;
+      allow read: if isSignedIn() && request.auth.token.email.lower() == email;
       allow write: if false; // alleen via Firebase Console / Admin SDK
+    }
+
+    function emailKey() {
+      return request.auth.token.email.lower();
+    }
+
+    function isDistributor() {
+      return isSignedIn()
+        && request.auth.token.email != null
+        && exists(/databases/$(database)/documents/distributors/$(emailKey()))
+        && get(/databases/$(database)/documents/distributors/$(emailKey())).data.get('active', true) != false;
+    }
+
+    match /distributors/{email} {
+      allow read: if isAdmin() || (isSignedIn() && emailKey() == email);
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /orders/{orderId} {
+      allow read: if isAdmin()
+        || (isSignedIn() && resource.data.email == emailKey());
+      allow create: if isDistributor()
+        && request.resource.data.email == emailKey()
+        && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if isAdmin();
     }
   }
 }

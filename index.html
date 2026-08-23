@@ -223,21 +223,33 @@
         .img-reveal { overflow: hidden; border-radius: 1rem; }
         .img-reveal img { transition: transform 1s var(--ease-out); transform: scale(1.06); }
         .img-reveal:hover img { transform: scale(1); }
-        .hero-headline-line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
-        .hero-headline-word { display: block; animation: hero-headline-up 1s var(--ease-out) both; }
+        .hero-headline-line { display: block; overflow: hidden; padding-bottom: 0.1em; margin-bottom: -0.08em; }
+        .hero-headline-word { display: inline-block; transform-origin: 0% 72%; animation: hero-headline-up 1s var(--ease-out) both; scale: var(--wscale, 1); }
         .hero-headline-line:nth-child(1) .hero-headline-word { animation-delay: 0.06s; }
         .hero-headline-line:nth-child(2) .hero-headline-word { animation-delay: 0.22s; }
         .hero-headline-line:nth-child(3) .hero-headline-word { animation-delay: 0.38s; }
+        .hero-headline.is-live .hero-headline-line { overflow: visible; }
         @keyframes hero-headline-up {
             from { opacity: 0; transform: translateY(108%); }
             to { opacity: 1; transform: translateY(0); }
         }
         .hero-photo { overflow: hidden; transition: box-shadow 0.75s var(--ease-out); }
-        .hero-photo img { transform: scale(1.12); transform-origin: 78% 22%; transition: transform 1.2s var(--ease-out); }
+        .img-reveal.hero-photo img,
+        .img-reveal.hero-photo:hover img {
+            --hero-zoom: 1.12;
+            --hero-ox: 78%;
+            --hero-oy: 22%;
+            --hero-pan-x: 0px;
+            --hero-pan-y: 0px;
+            transform: translate(var(--hero-pan-x), var(--hero-pan-y)) scale(var(--hero-zoom));
+            transform-origin: var(--hero-ox) var(--hero-oy);
+            transition: none;
+            will-change: transform;
+        }
         .hero-pct-badge { transition: transform 0.7s var(--ease-out); }
         @media (hover: hover) and (pointer: fine) {
-            .hero-stage:hover .hero-photo { box-shadow: 0 32px 64px -18px rgba(15,42,58,0.28); }
-            .hero-stage:hover .hero-photo img { transform: scale(1.18); }
+            .hero-stage:hover .hero-photo,
+            .hero-stage.is-tracking .hero-photo { box-shadow: 0 32px 64px -18px rgba(15,42,58,0.28); }
             .hero-stage:hover .hero-pct-badge { transform: translate(4px, -4px); }
         }
         .hero-db-badge {
@@ -246,6 +258,8 @@
             animation: hero-db-radiate 1.45s var(--ease-out) 0.95s 1, hero-db-float 7.4s ease-in-out 2.2s infinite;
         }
         .hero-db-badge > * { position: relative; z-index: 1; }
+        .hero-db-metric { animation: hero-db-fade 1.15s ease 0.55s both; }
+        .hero-db-caption { animation: hero-db-fade 1.25s ease 0.7s both; }
         .hero-db-badge::before {
             content: "";
             position: absolute;
@@ -255,7 +269,7 @@
             border: 1px solid rgba(15,42,58,0.05);
             border-radius: 1.15rem;
             box-shadow: 0 12px 28px -10px rgba(15,42,58,0.16);
-            animation: hero-db-morph 18s ease-in-out 1.1s infinite;
+            animation: hero-db-bg-fade 2.8s ease 0.4s both, hero-db-morph 18s ease-in-out 1.1s infinite;
         }
         .hero-db-badge::after {
             content: "";
@@ -281,32 +295,40 @@
             }
             12% {
                 border-radius: 62% 38% 58% 42% / 48% 54% 46% 52%;
-                background: #f3f6f8;
+                background: #fbfcfd;
             }
             24% {
                 border-radius: 50%;
-                background: #eef3f5;
+                background: #f8fafb;
             }
             36% {
                 border-radius: 0.4rem;
-                background: #f8f6f2;
+                background: #fcfbf9;
             }
             48% {
                 border-radius: 2rem 0.55rem 1.85rem 0.7rem;
-                background: #f2f5f4;
+                background: #fafbfb;
             }
             60% {
                 border-radius: 42% 58% 38% 62% / 60% 40% 55% 45%;
-                background: #f6f3ee;
+                background: #fcfbf8;
             }
             74% {
                 border-radius: 999px;
-                background: #eef2f4;
+                background: #f9fafb;
             }
             88% {
                 border-radius: 1.85rem 1.85rem 0.45rem 0.45rem;
-                background: #f5f7f6;
+                background: #fbfcfc;
             }
+        }
+        @keyframes hero-db-fade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes hero-db-bg-fade {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         @keyframes hero-db-radiate {
             0% { transform: scale(1); }
@@ -379,7 +401,7 @@
         .faq-item .faq-a { padding: 0 1.5rem 1.35rem; color: rgba(15,42,58,0.58); font-weight: 300; line-height: 1.7; }
         .product-finish { position: relative; background: #fff; aspect-ratio: 16 / 11; }
         .product-finish-stage { position: absolute; inset: 0; overflow: hidden; }
-        .product-finish-img { position: absolute; inset: 0 0 2.35rem 0; width: 100%; height: auto; max-width: none; max-height: none; object-fit: contain; object-position: center center; transform: scale(1.34); transform-origin: center 48%; opacity: 0; transition: opacity 0.85s ease; pointer-events: none; }
+        .product-finish-img { position: absolute; inset: 0 0 2.35rem 0; width: 100%; height: auto; max-width: none; max-height: none; object-fit: contain; object-position: center center; transform: scale(0.85); transform-origin: center 48%; opacity: 0; transition: opacity 0.85s ease; pointer-events: none; }
         .product-finish-img.is-active { opacity: 1; }
         .product-finish-label { position: absolute; left: 1.25rem; bottom: 1rem; margin: 0; max-width: calc(100% - 12rem); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(15,42,58,0.52); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .product-finish-swatches { position: absolute; right: 0.65rem; bottom: 0.55rem; display: flex; align-items: center; gap: 0.12rem; z-index: 2; }
@@ -404,18 +426,22 @@
         .product-finish-picker.is-active input[type="color"],
         .product-finish-picker:focus-within input[type="color"] { outline: 1.5px solid #0F2A3A; outline-offset: 2px; }
         @media (max-width: 640px) {
-          .product-finish-img { bottom: 2.25rem; transform: scale(1.28); }
+          .product-finish-img { bottom: 2.25rem; transform: scale(0.85); }
           .product-finish-label { left: 1rem; max-width: calc(100% - 11.25rem); }
         }
         .unit-db { text-transform: none; }
         @media (prefers-reduced-motion: reduce) {
-            .product-finish-img { transition: none; transform: scale(1.34); }
+            .product-finish-img { transition: none; transform: scale(0.85); }
             .hero-headline-word,
             .hero-db-badge,
             .hero-db-badge::before,
             .hero-db-badge::after,
+            .hero-db-metric,
+            .hero-db-caption,
             .hero-pct-badge { animation: none !important; }
             .hero-headline-word { opacity: 1; transform: none; }
+            .hero-db-metric,
+            .hero-db-caption { opacity: 1; }
             .hero-db-badge {
                 background: #fff;
                 border-radius: 1rem;
@@ -426,7 +452,9 @@
             .img-reveal img,
             .img-reveal:hover img { transform: none !important; transition: none; }
             .hero-photo img,
-            .hero-stage:hover .hero-photo img { transform: scale(1.12) !important; transition: none; }
+            .img-reveal.hero-photo img,
+            .img-reveal.hero-photo:hover img,
+            .hero-stage:hover .hero-photo img { transform: scale(1.12) !important; transform-origin: 78% 22% !important; transition: none; }
             .hero-stage:hover .hero-db-badge,
             .hero-stage:hover .hero-pct-badge { transform: none; }
             .hero-stage:hover .hero-photo { box-shadow: 0 20px 25px -5px rgba(15,42,58,0.1); }
@@ -524,10 +552,10 @@
                             <img src="assets/images/hero-homepage.jpg" alt="REDUCD akoestische omkasting voor warmtepomp, met team" width="960" height="1200" fetchpriority="high" decoding="async" class="w-full h-full object-cover object-[70%_12%]">
                         </div>
                         <div class="hero-db-badge absolute -bottom-5 -left-5 p-6 hidden sm:block">
-                            <div class="flex items-baseline leading-none whitespace-nowrap">
+                            <div class="hero-db-metric flex items-baseline leading-none whitespace-nowrap">
                                 <span class="font-extrabold text-7xl text-brand-navy tracking-tight">−14</span><span class="unit-db text-3xl font-extrabold text-brand-navy tracking-tight">dB(A)</span>
                             </div>
-                            <div class="text-[10px] font-semibold text-brand-navy/45 tracking-[0.12em] mt-1.5 uppercase leading-snug">gemiddelde geluidsreductie</div>
+                            <div class="hero-db-caption text-[10px] font-semibold text-brand-navy/45 tracking-[0.12em] mt-1.5 uppercase leading-snug">gemiddelde geluidsreductie</div>
                         </div>
                         <div class="hero-pct-badge absolute -top-4 -right-4 bg-brand-navy text-white rounded-2xl px-5 py-4 hidden sm:block">
                             <div class="font-bold text-xl">75%</div>
@@ -1497,6 +1525,139 @@
                     if (!root.contains(e.relatedTarget) && !customMode) start();
                 });
                 setTimeout(start, 650 + lagMs);
+            });
+        })();
+        (function () {
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+            const h1 = document.querySelector('.hero-headline');
+            if (!h1 || reduce || !fine) {
+                h1?.classList.add('is-live');
+                return;
+            }
+            const words = [...h1.querySelectorAll('.hero-headline-word')].map((el) => ({ el, hold: 0, near: 0 }));
+            if (words.length < 2) return;
+            let mx = -9999, my = -9999, raf = 0, last = 0;
+            const RADIUS = 168;
+            function distToRect(x, y, r) {
+                const dx = Math.max(r.left - x, 0, x - r.right);
+                const dy = Math.max(r.top - y, 0, y - r.bottom);
+                return Math.hypot(dx, dy);
+            }
+            function tick(now) {
+                raf = 0;
+                const dt = Math.min(0.05, (now - last) / 1000 || 0.016);
+                last = now;
+                let busy = false;
+                let bestI = 0;
+                let bestNear = 0;
+                words.forEach((w, i) => {
+                    const d = distToRect(mx, my, w.el.getBoundingClientRect());
+                    w.raw = Math.max(0, 1 - d / RADIUS);
+                    if (w.raw > bestNear) {
+                        bestNear = w.raw;
+                        bestI = i;
+                    }
+                });
+                words.forEach((w, i) => {
+                    const target = (i === bestI ? w.raw : w.raw * 0.08);
+                    w.near += (target - w.near) * (target > w.near ? 0.32 : 0.18);
+                    if (i === bestI && w.near > 0.22) w.hold = Math.min(0.62, w.hold + dt * (0.2 + w.near * 0.36));
+                    else w.hold = Math.max(0, w.hold - dt * 0.85);
+                    const s = 1 + w.near * 0.28 + w.hold * 0.58;
+                    w.el.style.setProperty('--wscale', s.toFixed(4));
+                    w.el.style.zIndex = s > 1.08 ? '2' : '1';
+                    if (w.near > 0.002 || w.hold > 0.002) busy = true;
+                });
+                if (busy) raf = requestAnimationFrame(tick);
+            }
+            function kick() {
+                if (!raf) {
+                    last = performance.now();
+                    raf = requestAnimationFrame(tick);
+                }
+            }
+            window.addEventListener('pointermove', (e) => {
+                if (e.pointerType === 'touch') return;
+                mx = e.clientX;
+                my = e.clientY;
+                kick();
+            }, { passive: true });
+            window.addEventListener('pointerleave', () => {
+                mx = -9999;
+                my = -9999;
+                kick();
+            });
+            setTimeout(() => h1.classList.add('is-live'), 1200);
+        })();
+        (function () {
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+            const stage = document.querySelector('.hero-stage');
+            const img = stage?.querySelector('.hero-photo img');
+            if (!stage || !img || reduce || !fine) return;
+            const rest = { ox: 78, oy: 22, zoom: 1.12, px: 0, py: 0 };
+            const cur = { ox: 78, oy: 22, zoom: 1.12, px: 0, py: 0 };
+            const to = { ox: 78, oy: 22, zoom: 1.12, px: 0, py: 0 };
+            let over = false, raf = 0;
+            function apply() {
+                img.style.setProperty('--hero-ox', cur.ox.toFixed(2) + '%');
+                img.style.setProperty('--hero-oy', cur.oy.toFixed(2) + '%');
+                img.style.setProperty('--hero-zoom', cur.zoom.toFixed(4));
+                img.style.setProperty('--hero-pan-x', cur.px.toFixed(2) + 'px');
+                img.style.setProperty('--hero-pan-y', cur.py.toFixed(2) + 'px');
+            }
+            function tick() {
+                raf = 0;
+                const k = over ? 0.16 : 0.09;
+                cur.ox += (to.ox - cur.ox) * k;
+                cur.oy += (to.oy - cur.oy) * k;
+                cur.zoom += (to.zoom - cur.zoom) * (over ? 0.2 : 0.1);
+                cur.px += (to.px - cur.px) * k;
+                cur.py += (to.py - cur.py) * k;
+                apply();
+                const done = !over
+                    && Math.abs(cur.zoom - rest.zoom) < 0.002
+                    && Math.abs(cur.px) < 0.15
+                    && Math.abs(cur.py) < 0.15;
+                if (!done || over) raf = requestAnimationFrame(tick);
+            }
+            function kick() {
+                if (!raf) raf = requestAnimationFrame(tick);
+            }
+            function aim(e) {
+                const r = stage.getBoundingClientRect();
+                const nx = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+                const ny = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height));
+                const fromCenter = Math.hypot(nx - 0.5, ny - 0.5);
+                to.ox = 8 + nx * 84;
+                to.oy = 8 + ny * 84;
+                to.zoom = 1.34 + fromCenter * 0.22;
+                to.px = (0.5 - nx) * 54;
+                to.py = (0.5 - ny) * 42;
+            }
+            stage.addEventListener('pointerenter', (e) => {
+                if (e.pointerType === 'touch') return;
+                over = true;
+                stage.classList.add('is-tracking');
+                aim(e);
+                kick();
+            });
+            stage.addEventListener('pointermove', (e) => {
+                if (e.pointerType === 'touch') return;
+                over = true;
+                aim(e);
+                kick();
+            });
+            stage.addEventListener('pointerleave', () => {
+                over = false;
+                stage.classList.remove('is-tracking');
+                to.ox = rest.ox;
+                to.oy = rest.oy;
+                to.zoom = rest.zoom;
+                to.px = rest.px;
+                to.py = rest.py;
+                kick();
             });
         })();
         document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
