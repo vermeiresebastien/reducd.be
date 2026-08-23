@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentatie voor particulieren | REDUCD België</title>
     <meta name="description" content="REDUCD-documentatie: brochure, specs vrijstaand (14 dB(A)) en wand (10–12 dB(A)), handleidingen, Peutz-meetrapport en voorwaarden. België.">
-    <meta name="robots" content="index,follow">
+    <meta name="robots" content="index,follow,max-image-preview:large">
     <link rel="canonical" href="https://www.reducd.be/docs/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="nl_BE">
@@ -40,22 +40,12 @@
     <script src="../js/tracking.js" defer></script>
     <script src="../js/lead-popup.js" defer></script>
     <script src="../js/scroll-motion.js" defer></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../css/scroll-motion.css">
+    <link rel="stylesheet" href="../css/app.css">
+<link rel="stylesheet" href="../css/scroll-motion.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { brand: { navy: '#0F2A3A', white: '#FFFFFF' } },
-                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
-                }
-            }
-        }
-    </script>
-    <style>
+<style>
         :root { --ease-out: cubic-bezier(0.16, 1, 0.3, 1); }
         body { font-family: 'Inter', sans-serif; background: #fff; color: #0F2A3A; -webkit-font-smoothing: antialiased; }
         .btn-primary { background: #0F2A3A; color: #fff; transition: all 0.35s var(--ease-out); }
@@ -72,15 +62,24 @@
     <header class="fixed top-0 left-0 right-0 z-50 px-6 lg:px-8 pt-4 lg:pt-6">
         <nav id="navPill" class="max-w-7xl mx-auto flex items-center justify-between gap-4 px-5 sm:px-6 py-3 rounded-full">
             <a href="../" class="flex items-center shrink-0"><img src="../assets/images/logo-reducd.png" alt="REDUCD" class="h-10 lg:h-11 w-auto"></a>
-            <div class="hidden md:flex flex-1 items-center justify-center gap-5 lg:gap-8">
-                <a href="../#producten" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Producten</a>
-                <a href="./" class="text-[11px] font-medium text-brand-navy uppercase tracking-widest">Docs</a>
-                <a href="../vlarem/" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">VLAREM</a>
-                <a href="../pro/" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Pro</a>
-                <a href="../#contact" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Contact</a>
+            <div class="hidden md:flex flex-1 items-center justify-center gap-5 lg:gap-7">
+                <a href="../#calculator" class="nav-link">Oplossingen</a>
+                <a href="../#producten" class="nav-link">Modellen</a>
+                <a href="../#installaties" class="nav-link">Resultaten</a>
+                <details class="nav-dd">
+                    <summary class="nav-link">Kennis</summary>
+                    <div class="nav-dd-menu">
+                        <a href="../#faq">FAQ</a>
+                        <a href="../blog/">Blog</a>
+                        <a href="./">Documentatie</a>
+                        <a href="../vlarem/">VLAREM-tool</a>
+                        <a href="../pro/">Voor professionals</a>
+                    </div>
+                </details>
+                <a href="../#contact" class="nav-link">Contact</a>
             </div>
             <div class="flex items-center gap-3 shrink-0">
-                <a data-open-lead-popup href="../#contact" class="hidden sm:inline-flex btn-primary px-5 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-wider"><span class="accent-gratis">Gratis</span> meting</a>
+                <a href="../#lead-form" class="hidden sm:inline-flex btn-primary px-5 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-wider"><span class="accent-gratis">Gratis</span> check</a>
                 <button id="menuBtn" class="md:hidden w-9 h-9 flex items-center justify-center text-brand-navy" aria-label="Menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
@@ -92,10 +91,14 @@
         <button id="closeMenu" class="absolute top-6 right-6 w-10 h-10 text-white/60" aria-label="Sluiten">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
-        <a href="./" class="mobile-link text-3xl font-bold text-white">Documentatie</a>
-        <a href="../vlarem/" class="mobile-link text-3xl font-bold text-white">VLAREM-tool</a>
-        <a href="../pro/docs/" class="mobile-link text-3xl font-bold text-white">Docs voor pro’s</a>
-        <a data-open-lead-popup href="../#contact" class="mobile-link bg-white text-brand-navy px-10 py-4 rounded-full font-semibold mt-4">Plan <span class="accent-gratis">gratis</span> meting</a>
+        <a href="../#calculator" class="mobile-link text-3xl font-bold text-white">Oplossingen</a>
+        <a href="../#producten" class="mobile-link text-3xl font-bold text-white">Modellen</a>
+        <a href="../#installaties" class="mobile-link text-3xl font-bold text-white">Resultaten</a>
+        <a href="./" class="mobile-link text-xl font-semibold text-white/80">Documentatie</a>
+        <a href="../vlarem/" class="mobile-link text-xl font-semibold text-white/80">VLAREM-tool</a>
+        <a href="../pro/" class="mobile-link text-xl font-semibold text-white/80">Voor professionals</a>
+        <a href="../#contact" class="mobile-link text-3xl font-bold text-white">Contact</a>
+        <a href="../#lead-form" class="mobile-link bg-white text-brand-navy px-10 py-4 rounded-full font-semibold mt-4">Gratis situatiecheck</a>
     </div>
 
     <section class="pt-32 pb-12 lg:pt-40 lg:pb-16 px-6 lg:px-8">

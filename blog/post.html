@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Artikel — REDUCD</title>
   <meta name="description" content="Inzichten van REDUCD over akoestische omkastingen, warmtepompgeluid en stil wonen.">
-  <meta name="robots" id="robots-meta" content="index,follow">
+  <meta name="robots" id="robots-meta" content="noindex,follow">
   <link rel="canonical" id="canonical-link" href="https://www.reducd.be/blog/post.html">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="nl_BE">
@@ -16,15 +16,41 @@
   <script>
     (function () {
       var raw = new URLSearchParams(location.search).get("slug") || "";
-      var slug = String(raw).trim();
+      var slug = String(raw).trim().toLowerCase();
       var canonical = document.getElementById("canonical-link");
       var ogUrl = document.getElementById("og-url");
       var robots = document.getElementById("robots-meta");
+      var redirects = {
+        "hoeveel-geluid-maakt-een-warmtepomp-vlaanderen": "warmtepomp-geluidsoverlast-verminderen",
+        "hoeveel-geluid-warmtepomp-per-soort": "warmtepomp-geluidsoverlast-verminderen",
+        "buitenunit-warmtepomp-waarom-lawaai": "warmtepomp-geluidsoverlast-verminderen",
+        "hoe-werkt-warmtepomp-buitenunit": "warmtepomp-geluidsoverlast-verminderen",
+        "welk-type-warmtepomp-minste-geluid": "warmtepomp-geluidsoverlast-verminderen",
+        "stilste-warmtepomp-praktijk": "warmtepomp-geluidsoverlast-verminderen",
+        "warmtepomp-vrieskou-meer-geluid": "warmtepomp-geluidsoverlast-verminderen",
+        "geluid-warmtepomp-ervaringen-horen": "warmtepomp-geluidsoverlast-verminderen",
+        "voordelen-nadelen-warmtepomp-vlaanderen": "warmtepomp-geluidsoverlast-verminderen",
+        "regels-buitenunit-warmtepomp-airco-vlaanderen": "warmtepomp-geluid-vlarem-berekenen",
+        "tonaaltoeslag-k1-vlaanderen": "warmtepomp-geluid-vlarem-berekenen",
+        "jurisprudentie-geluidsoverlast-warmtepomp-belgie": "warmtepomp-geluid-vlarem-berekenen",
+        "warmtepomp-geluid-buren-regelgeving-belgie-nederland": "warmtepomp-geluid-buren-overlast-vlaanderen",
+        "geluidsoverlast-warmtepomp-airco-oplossingen": "akoestische-omkasting-vs-suskast",
+        "warmtepomp-geluid-dempen-vlaanderen": "akoestische-omkasting-vs-suskast",
+        "airco-geluid-dempen-vlaanderen": "akoestische-omkasting-vs-suskast",
+        "airco-ombouw-goed-idee": "akoestische-omkasting-vs-suskast",
+        "geluiddempende-omkasting-maatwerk": "akoestische-omkasting-vs-suskast",
+        "daikin-warmtepomp-ombouw-nodig": "geluidsoverlast-daikin-altherma-hybride-warmtepomp"
+      };
+      if (redirects[slug]) {
+        location.replace("./post.html?slug=" + encodeURIComponent(redirects[slug]));
+        return;
+      }
       if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/i.test(slug)) {
         if (robots) robots.setAttribute("content", "noindex,follow");
         return;
       }
-      var url = "https://www.reducd.be/blog/post.html?slug=" + encodeURIComponent(slug.toLowerCase());
+      var url = "https://www.reducd.be/blog/post.html?slug=" + encodeURIComponent(slug);
+      if (robots) robots.setAttribute("content", "index,follow");
       if (canonical) canonical.href = url;
       if (ogUrl) ogUrl.setAttribute("content", url);
       document.title = slug.replace(/-/g, " ") + " — REDUCD";
@@ -41,22 +67,12 @@
   <script src="../js/tracking.js" defer></script>
   <script src="../js/lead-popup.js" defer></script>
   <script src="../js/scroll-motion.js" defer></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="../css/scroll-motion.css">
+  <link rel="stylesheet" href="../css/app.css">
+<link rel="stylesheet" href="../css/scroll-motion.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { brand: { navy: '#0F2A3A', white: '#FFFFFF' } },
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
-        }
-      }
-    }
-  </script>
-  <style>
+<style>
     body { font-family: 'Inter', sans-serif; background: #fff; color: #0F2A3A; -webkit-font-smoothing: antialiased; }
     .btn-primary { background: #0F2A3A; color: #fff; }
     .article-body { font-weight: 300; line-height: 1.8; font-size: 1.125rem; }
@@ -73,6 +89,8 @@
     .article-body .post-faq summary { cursor: pointer; list-style: none; font-weight: 600; color: #0F2A3A; padding: 0.95rem 1.1rem; }
     .article-body .post-faq summary::-webkit-details-marker { display: none; }
     .article-body .post-faq p { padding: 0 1.1rem 1rem; margin: 0; }
+    .article-body .topic-cluster { border: 1px solid rgba(15,42,58,0.12); border-radius: 0.9rem; padding: 0.95rem 1.1rem; margin: 0 0 1.75rem; background: rgba(15,42,58,0.03); font-size: 0.95rem; }
+    .article-body .topic-cluster p { margin: 0; }
     .bento { transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s ease; }
     .bento:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -12px rgba(15,42,58,0.12); }
   </style>
@@ -101,9 +119,9 @@
 
     <aside id="post-cta" class="hidden mt-14 rounded-2xl bg-brand-navy text-white p-8 lg:p-10">
       <h2 class="font-extrabold text-3xl lg:text-4xl tracking-tight mb-4">De rust is nabij</h2>
-      <p class="text-white/60 font-light mb-8 text-base lg:text-lg max-w-xl">Bekijk de omkastingen, of plan een vrijblijvende geluidsmeting op locatie.</p>
+      <p class="text-white/60 font-light mb-8 text-base lg:text-lg max-w-xl">Bekijk de omkastingen, of stuur een gratis situatiecheck. Reactie binnen 24 uur.</p>
       <div class="flex flex-col sm:flex-row flex-wrap gap-4">
-        <a data-open-lead-popup href="../index.html#contact" class="bg-white text-brand-navy px-8 py-4 rounded-full text-base font-semibold inline-flex items-center justify-center gap-2">Plan <span class="accent-gratis">gratis</span> meting</a>
+        <a href="../index.html#lead-form" class="bg-white text-brand-navy px-8 py-4 rounded-full text-base font-semibold inline-flex items-center justify-center gap-2"><span class="accent-gratis">Gratis</span> situatiecheck</a>
         <a href="../index.html#producten" class="border border-white/25 px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 inline-flex items-center justify-center">Producten</a>
         <a href="../vlarem/" class="border border-white/25 px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 inline-flex items-center justify-center">VLAREM-tool</a>
       </div>
@@ -136,6 +154,8 @@
     import { getPostBySlug, listPublishedPosts } from "../js/firebase-app.js";
     import {
       getStaticPostBySlug,
+      clusterBoxHtml,
+      resolveBlogRedirect,
       formatBlogDate,
       resolveCoverPath,
       escapeHtml,
@@ -197,7 +217,7 @@
       const html = isHtmlContent(post.content);
       contentEl.classList.toggle("plain", !html);
       const faqHtml = renderFaqHtml(post.faq);
-      if (html) contentEl.innerHTML = (post.content || "") + faqHtml;
+      if (html) contentEl.innerHTML = clusterBoxHtml(post.slug) + (post.content || "") + faqHtml;
       else contentEl.textContent = post.content || "";
       if (!html && faqHtml) {
         const wrap = document.createElement("div");
@@ -228,7 +248,10 @@
       }
     }
 
-    if (!slug) {
+    const dest = resolveBlogRedirect(slug);
+    if (dest) {
+      location.replace("./post.html?slug=" + encodeURIComponent(dest));
+    } else if (!slug) {
       status.textContent = "Artikel niet gevonden. Ga terug naar de blog.";
     } else {
       const instant = getStaticPostBySlug(slug);

@@ -3,11 +3,11 @@
  * Hooks: timer / scroll / exit-intent. Submit: generate_lead / conversion.
  */
 (function () {
-  const SUBMIT_LABEL = "Plan nu uw meting";
+  const SUBMIT_LABEL = "Vraag situatiecheck aan";
   const DEFAULTS = {
     enabled: true,
-    delayMs: 45000,
-    scrollPercent: 55,
+    delayMs: 0,
+    scrollPercent: 0,
     exitIntent: true,
     storageKey: "reducd_lead_popup_dismissed",
     cooldownDays: 7
@@ -70,22 +70,29 @@
 
         <div class="lead-popup__main">
           <div class="lead-popup__bar">
-            <p class="lead-popup__eyebrow">Advies op locatie</p>
+            <p class="lead-popup__eyebrow">Situatiecheck</p>
             <button type="button" class="lead-popup__close" data-lead-popup-close aria-label="Sluiten">
               <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
           </div>
           <form id="leadPopupForm" class="lead-popup__form" novalidate>
             <div class="lead-popup__scroll">
-              <h2 id="leadPopupTitle" class="lead-popup__title">Wij komen bij u langs</h2>
+              <h2 id="leadPopupTitle" class="lead-popup__title">Eerst een check, daarna eventueel een meting</h2>
               <p class="lead-popup__sub">
-                Geluidsadvies bij u thuis — vrijblijvend en kosteloos, inclusief professionele meting.
+                Stuur postcode en contact. We reageren binnen 24 uur. Een meting op locatie volgt alleen als de case dat vraagt.
               </p>
-              <p class="lead-popup__value"><span>t.w.v. €&nbsp;325</span></p>
               <p class="lead-popup__prompt">
-                We nemen binnen 48 uur contact op om de meting in te plannen.
+                Geen automatische planning — we bekijken eerst of een bezoek zinvol is.
               </p>
 
+              <label class="lead-popup__field">
+                <span class="lead-popup__label">Postcode</span>
+                <input type="text" name="postcode" class="lead-popup__input" autocomplete="postal-code" inputmode="numeric" required>
+              </label>
+              <label class="lead-popup__field">
+                <span class="lead-popup__label">Gemeente</span>
+                <input type="text" name="city" class="lead-popup__input" autocomplete="address-level2" required>
+              </label>
               <label class="lead-popup__field">
                 <span class="lead-popup__label">Naam</span>
                 <input type="text" name="name" class="lead-popup__input" autocomplete="name" autocapitalize="words" spellcheck="false" enterkeyhint="next" required>
@@ -108,7 +115,7 @@
               </p>
             </div>
           </form>
-          <p class="lead-popup__success" hidden>Bedankt — we plannen spoedig uw advies op locatie.</p>
+          <p class="lead-popup__success" hidden>Bedankt — we nemen binnen 24 uur contact op.</p>
         </div>
       </div>`;
     return wrap;
@@ -340,28 +347,20 @@
     document.head.appendChild(s);
   }
 
-  function visibleText(el) {
-    return (el && el.textContent ? el.textContent : "").replace(/\s+/g, " ").trim();
+  function inView(el) {
+    if (!el) return false;
+    const r = el.getBoundingClientRect();
+    const vh = window.innerHeight || 800;
+    return r.top < vh * 0.88 && r.bottom > vh * 0.12;
   }
 
-  function isMetingCta(el) {
-    if (!el || el.closest(".lead-popup")) return false;
-    if (el.hasAttribute("data-open-lead-popup")) return true;
-    const href = (el.getAttribute("href") || "").toLowerCase();
-    if (href.includes("#lead-form")) return true;
-    const text = visibleText(el).toLowerCase();
-    if (/\bgratis\b/.test(text) && /\bmeting\b/.test(text)) return true;
+  function isHighIntent() {
+    const calc = document.getElementById("calculator");
+    const lead = document.getElementById("lead-form");
+    const ae = document.activeElement;
+    if (calc && (calc.contains(ae) || inView(calc))) return true;
+    if (lead && (lead.contains(ae) || inView(lead))) return true;
     return false;
-  }
-
-  function findMetingCta(target) {
-    if (!target || !target.closest) return null;
-    if (target.closest(".lead-popup")) return null;
-    const marked = target.closest("[data-open-lead-popup]");
-    if (marked) return marked;
-    const clickable = target.closest("a, button");
-    if (clickable && isMetingCta(clickable)) return clickable;
-    return null;
   }
 
   function init() {
@@ -397,6 +396,7 @@
     function open(trigger, opts) {
       const manual = !!(opts && opts.manual);
       if (modal.classList.contains("is-open")) return;
+      if (!manual && isHighIntent()) return;
       if (!manual && autoUsed) return;
       if (!manual) autoUsed = true;
       resetForm();
@@ -410,7 +410,7 @@
         content_name: "lead_popup"
       });
       if (window.matchMedia("(min-width: 640px)").matches) {
-        modal.querySelector('input[name="name"]')?.focus();
+        modal.querySelector('input[name="postcode"]')?.focus();
       }
     }
 
@@ -486,24 +486,13 @@
       if (cfg.exitIntent) {
         const onExit = (e) => {
           if (e.clientY > 8) return;
+          if (isHighIntent()) return;
           open("exit_intent");
           document.removeEventListener("mouseout", onExit);
         };
         document.addEventListener("mouseout", onExit);
       }
     }
-
-    document.addEventListener(
-      "click",
-      (e) => {
-        const cta = findMetingCta(e.target);
-        if (!cta) return;
-        e.preventDefault();
-        e.stopPropagation();
-        open("manual", { manual: true });
-      },
-      true
-    );
 
     window.REDUCD = window.REDUCD || {};
     window.REDUCD.openLeadPopup = function (trigger) {

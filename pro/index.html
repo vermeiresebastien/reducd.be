@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voor professionals — akoestische omkastingen | REDUCD Pro België</title>
     <meta name="description" content="REDUCD Pro: merkonafhankelijke akoestische omkastingen voor installateurs en aannemers in België. Pro-tarief, levering vaak binnen 1 week, montage zelf of door REDUCD.">
-    <meta name="robots" content="index,follow">
+    <meta name="robots" content="index,follow,max-image-preview:large">
     <link rel="canonical" href="https://www.reducd.be/pro/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="nl_BE">
+    <meta property="og:site_name" content="REDUCD">
     <meta property="og:title" content="Voor professionals — REDUCD Pro België">
     <meta property="og:description" content="REDUCD Pro: pro-tarief, snelle levering en weinig nazorg. Akoestische omkastingen voor installateurs in Vlaanderen en België.">
     <meta property="og:url" content="https://www.reducd.be/pro/">
@@ -42,22 +43,12 @@
     <script src="../js/tracking.js" defer></script>
     <script src="../js/lead-popup.js" defer></script>
     <script src="../js/scroll-motion.js" defer></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../css/scroll-motion.css">
+    <link rel="stylesheet" href="../css/app.css">
+<link rel="stylesheet" href="../css/scroll-motion.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { brand: { navy: '#0F2A3A', white: '#FFFFFF' } },
-                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
-                }
-            }
-        }
-    </script>
-    <style>
+<style>
         :root { --ease-out: cubic-bezier(0.16, 1, 0.3, 1); }
         body { font-family: 'Inter', sans-serif; background: #fff; color: #0F2A3A; -webkit-font-smoothing: antialiased; }
         .btn-primary { background: #0F2A3A; color: #fff; transition: all 0.35s var(--ease-out); }
@@ -80,13 +71,20 @@
         <nav id="navPill" class="max-w-7xl mx-auto flex items-center justify-between gap-4 px-5 sm:px-6 py-3 rounded-full">
             <a href="../" class="flex items-center shrink-0"><img src="../assets/images/logo-reducd.png" alt="REDUCD" class="h-10 lg:h-11 w-auto"></a>
             <div class="hidden md:flex flex-1 items-center justify-center gap-6 lg:gap-8">
-                <a href="../#producten" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Producten</a>
-                <a href="../#installaties" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Installaties</a>
-                <a href="../blog/" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Blog</a>
-                <a href="../vlarem/" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">VLAREM</a>
-                <a href="docs/" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Docs</a>
-                <a href="./" class="text-[11px] font-medium text-brand-navy uppercase tracking-widest">Voor professionals</a>
-                <a href="#pro-contact" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Contact</a>
+                <a href="../#calculator" class="nav-link">Oplossingen</a>
+                <a href="../#producten" class="nav-link">Modellen</a>
+                <a href="../#installaties" class="nav-link">Resultaten</a>
+                <details class="nav-dd">
+                    <summary class="nav-link">Kennis</summary>
+                    <div class="nav-dd-menu">
+                        <a href="../#faq">FAQ</a>
+                        <a href="../blog/">Blog</a>
+                        <a href="../docs/">Documentatie</a>
+                        <a href="../vlarem/">VLAREM-tool</a>
+                        <a href="./">Voor professionals</a>
+                    </div>
+                </details>
+                <a href="#pro-contact" class="nav-link">Contact</a>
             </div>
             <div class="flex items-center gap-2 shrink-0">
                 <a href="platform/" class="inline-flex btn-outline px-5 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-wider">Login</a>

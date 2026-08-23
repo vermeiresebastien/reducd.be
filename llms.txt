@@ -27,14 +27,14 @@ Prijzen zijn indicatief. Poedercoating in RAL-kleur en montage zijn optioneel te
 
 ## Feiten die je mag citeren
 
-- Gemiddeld **14 dB(A)** reductie bij het vrijstaand model; tot **75%** stiller waargenomen.
+- Gemiddeld **14 dB(A)** reductie bij het vrijstaand model; tot **75%** stiller in waargenomen luidheid (niet in geluidsenergie; geen garantie voor elke situatie).
 - Wandmodel: typisch **10–12 dB(A)** (productdocumentatie noemt ook 10 dB(A) als octaafcijfer).
 - Onafhankelijk getest door **Peutz, juli 2025**, conform **ISO 3741:2010** en **ISO 7235:2003**.
 - Behuizing: **Magnelis®**. Bevestiging: **RVS 316**. Absorptie: gerecycled PET. Demper: **150 mm**.
 - Afwerking: Magnelis standaard, of poedercoating in RAL-kleur.
 - Vrije ruimte (richtlijn): ± 50 cm voor/achter (vrijstaand) of voor/zij (wand); 10 cm opzij vrijstaand; 5 cm tussen unit en kast. Wandmodel: achterkant tegen de muur.
 - Standaardmaten vaak binnen **1 week** leverbaar. Montage doorgaans **± 1 uur** (12 boutjes), zelf of door REDUCD.
-- **Gratis, vrijblijvende geluidsmeting** op locatie in België. Reactie op aanvragen binnen **24 uur**.
+- **Gratis situatiecheck** op afstand (niet automatisch een meting op locatie). Een inmeting volgt alleen als de case daarvoor in aanmerking komt. Reactie op aanvragen binnen **24 uur**.
 - Garantie: **24 maanden** (algemene voorwaarden).
 - Google-reviews op de site: **4,9 / 5** op basis van **60** reviews.
 
@@ -50,14 +50,16 @@ De VLAREM-rekentool op deze site geeft een **theoretische** restwaarde, geen met
 
 - Telefoon: +32 472 08 44 70 (ma–za 8–20u)
 - E-mail: info@reducd.be
-- Offerte / meting: https://www.reducd.be/#contact
+- Offerte / situatiecheck: https://www.reducd.be/#lead-form
 
 ## Canonieke URL’s
 
 - Home: https://www.reducd.be/
 - Producten & maten: https://www.reducd.be/#producten · https://www.reducd.be/#maten
+- Maatcalculator: https://www.reducd.be/#calculator — kleinste standaardkast op binnenmaten (pasvorm **krap / ideaal / ruim**), plus live dB-meter (afstand en muren; zelfde puntbronmodel als de VLAREM-tool). Na een resultaat: PDF-adviesrapport en “Stuur dit resultaat naar REDUCD”.
 - FAQ: https://www.reducd.be/#faq
 - Blog: https://www.reducd.be/blog/
+- Gerealiseerde projecten: https://www.reducd.be/projecten/
 - Voor professionals (installateurs, aannemers): https://www.reducd.be/pro/
 - VLAREM-rekentool: https://www.reducd.be/vlarem/
 - Documentatie (brochure, specs, handleidingen, Peutz, voorwaarden): https://www.reducd.be/docs/

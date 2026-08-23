@@ -4,7 +4,7 @@
  */
 
 const CTA =
-  '<p>Twijfel je over jouw buitenunit in Vlaanderen, Brussel of Wallonië? Reken eerst met de <a href="../vlarem/">VLAREM-rekentool</a> of plan een <a data-open-lead-popup href="../index.html#contact"><span class="accent-gratis">gratis</span> meting</a> via info@reducd.be of +32 472 08 44 70.</p>';
+  '<p>Twijfel je over jouw buitenunit in Vlaanderen, Brussel of Wallonië? Reken eerst met de <a href="../vlarem/">VLAREM-rekentool</a> of stuur een <a href="../index.html#lead-form"><span class="accent-gratis">gratis</span> situatiecheck</a> via info@reducd.be of +32 472 08 44 70. Reactie binnen 24 uur.</p>';
 
 function be(partial) {
   return {
@@ -91,7 +91,7 @@ export const BE_BLOG_POSTS = [
 
       <h2>Oplossing zonder de hybride te breken</h2>
       <p>Een sierkap of dichte houten box is riskant: Daikin eist lucht. Een <a href="./post.html?slug=daikin-warmtepomp-ombouw-nodig">akoestische ombouw</a> met berekende in- en uitlaat dempt gemiddeld 14 dB(A) en laat de unit ademen. Wandmodel als de unit tegen de gevel hangt; vrijstaand als ze los in de tuin staat.</p>
-      <p>Check ook of de overlast écht de buitenunit is, of trilling via de muur. Dan helpt een sokkel eerst. Praktische stappen: <a href="./post.html?slug=warmtepomp-geluid-dempen-vlaanderen">geluid dempen</a>.</p>
+      <p>Check ook of de overlast écht de buitenunit is, of trilling via de muur. Dan helpt een sokkel eerst. Praktische stappen: <a href="./post.html?slug=akoestische-omkasting-vs-suskast">geluid dempen</a>.</p>
       ${CTA}
     `
   }),
@@ -302,7 +302,7 @@ export const BE_BLOG_POSTS = [
       <p>Geen constante brom, wel wisselende niveaus. Bij zachte dagen is de overlast klein. Bij kou of veel tapwater hoor je haar. In een halfopen bebouwing met de unit op 3 meter van de erfgrens is dat een VLAREM-risico ’s nachts (vaak 35 dB(A) specifiek geluid in woongebied).</p>
 
       <h2>Wat je eraan doet</h2>
-      <p>Plaatsing eerst, dan <a href="./post.html?slug=warmtepomp-geluid-dempen-vlaanderen">demping</a>. Een geteste omkasting haalt gemiddeld 14 dB(A) zonder de luchtweg te dichten. Zelfde logica als bij <a href="./post.html?slug=remeha-elga-ace-geluid-omkasting">Remeha Elga Ace</a> en <a href="./post.html?slug=nibe-f2040-geluid-omkasting">NIBE F2040</a>: het merk is de bron, de kast is de maatregel.</p>
+      <p>Plaatsing eerst, dan <a href="./post.html?slug=akoestische-omkasting-vs-suskast">demping</a>. Een geteste omkasting haalt gemiddeld 14 dB(A) zonder de luchtweg te dichten. Zelfde logica als bij <a href="./post.html?slug=remeha-elga-ace-geluid-omkasting">Remeha Elga Ace</a> en <a href="./post.html?slug=nibe-f2040-geluid-omkasting">NIBE F2040</a>: het merk is de bron, de kast is de maatregel.</p>
       ${CTA}
     `
   }),
@@ -401,7 +401,7 @@ export const BE_BLOG_POSTS = [
       <p>De warmtepomp zelf, onder voorwaarden (aannemer, factuur, type, soms inkomen). Fluvius handelt veel Vlaamse premies af, maar de regels wijzigen. Dit is geen premieadvies; het is een waarschuwing om de omkasting niet in dezelfde lijn te zetten als de unit.</p>
 
       <h2>Waarom de kast toch rendabel is</h2>
-      <p>Een burenconflict, een gemeentelijke aanmaning of een unit die je moet verplaatsen kost meer dan een kast vanaf € 2.335. De omkasting beschermt de investering waar wél premie op zat. Zie <a href="./post.html?slug=warmtepomp-geluid-buren-regelgeving-belgie-nederland">regels bij de buren</a> en <a href="./post.html?slug=jurisprudentie-geluidsoverlast-warmtepomp-belgie">jurisprudentie in België</a>.</p>
+      <p>Een burenconflict, een gemeentelijke aanmaning of een unit die je moet verplaatsen kost meer dan een kast vanaf € 2.335. De omkasting beschermt de investering waar wél premie op zat. Zie <a href="./post.html?slug=warmtepomp-geluid-buren-overlast-vlaanderen">regels bij de buren</a> en <a href="./post.html?slug=warmtepomp-geluid-vlarem-berekenen">VLAREM</a>.</p>
       ${CTA}
     `
   }),
@@ -610,6 +610,7 @@ export const BE_BLOG_POSTS = [
   be({
     slug: "warmtepomp-geluid-buren-overlast-vlaanderen",
     title: "Warmtepompgeluid en burenoverlast: wat te doen in Vlaanderen?",
+    featured: true,
     metaTitle: "Warmtepomp geluid buren Vlaanderen | wat te doen | REDUCD",
     metaDescription:
       "Buren klagen over je warmtepomp in Vlaanderen? Meet, reken VLAREM, praat, demp. Geen juridisch advies — wel de volgorde die werkt.",
@@ -635,12 +636,15 @@ export const BE_BLOG_POSTS = [
       <ul>
         <li>Praat met de buren: tijdstip, slaapkamerzijde, wat ze horen (zoem of toon).</li>
         <li>Laat een indicatie rekenen: <a href="../vlarem/">VLAREM-tool</a>.</li>
-        <li>Plan een <a href="../index.html#contact">meting op locatie</a> — gratis bij REDUCD.</li>
+        <li>Vraag een <a href="../index.html#lead-form">gratis situatiecheck</a>. Meting op locatie alleen als de case dat vraagt.</li>
       </ul>
-      <p>Kader van de regels: <a href="./post.html?slug=warmtepomp-geluid-buren-regelgeving-belgie-nederland">Belgisch kader</a>. Als het escaleert: <a href="./post.html?slug=jurisprudentie-geluidsoverlast-warmtepomp-belgie">jurisprudentie</a>.</p>
+
+      <h2>Belgisch kader, geen erfgrensmythe</h2>
+      <p>België kent geen één landelijke decibelnorm voor elke residentiële buitenunit. Geluid loopt via gewest (in Vlaanderen VLAREM: woongebied vaak 45 / 40 / 35 dB(A)), gemeentelijke verordeningen, en bovenmatige hinder. Brussel en Wallonië hebben eigen kaders. Een cataloguscijfer op 1 meter is niet het beoordelingspunt van de buren.</p>
+      <p>Wachten tot er een klacht is, is duurder dan vooraf dempen. Campagnepagina voor wie nu last heeft: <a href="../geluid-warmtepomp-buren/">warmtepomp te luid voor de buren</a>.</p>
 
       <h2>Technische hefbomen</h2>
-      <p>Afstand, geen hoek, trillingsdempers, akoestische omkasting (gemiddeld 14 dB(A)). Een schutting van planken is geen maatregel. <a href="./post.html?slug=warmtepomp-geluid-dempen-vlaanderen">Hoe dempen</a>.</p>
+      <p>Afstand, geen hoek, trillingsdempers, akoestische omkasting (gemiddeld 14 dB(A) vrijstaand, Peutz). Een schutting van planken is geen maatregel. Kies geen sierkap: zie de <a href="./post.html?slug=akoestische-omkasting-vs-suskast">vergelijkingsgids</a>.</p>
       ${CTA}
     `
   }),
@@ -746,10 +750,15 @@ export const BE_BLOG_POSTS = [
         <li>Afstand tot perceelgrens of raam van de buren.</li>
         <li>Vrij veld versus hoek/nis (extra dB).</li>
       </ul>
-      <p>Toets het resultaat aan de richtwaarde van het gebied. Woongebied: vaak 45 / 40 / 35 dB(A). Uitleg bij <a href="./post.html?slug=hoeveel-geluid-maakt-een-warmtepomp-vlaanderen">hoeveel geluid een warmtepomp maakt</a>.</p>
+      <p>Toets het resultaat aan de richtwaarde van het gebied. Woongebied: vaak <strong>45 / 40 / 35 dB(A)</strong> overdag / ’s avonds / ’s nachts. Uitleg van wat je hoort: <a href="./post.html?slug=warmtepomp-geluidsoverlast-verminderen">de gids warmtepompgeluid</a>.</p>
+
+      <h2>Richtwaarden, gemeente en hinderrecht</h2>
+      <p>VLAREM is het Vlaamse spoor. Daarbovenop kunnen gemeentelijke politieverordeningen en het burgerlijk recht (bovenmatige hinder) meespelen. Brussel en Wallonië hebben eigen kaders. België kent geen één landelijke erfgrensnorm voor elke residentiële buitenunit. Dit is geen juridisch advies en geen vergunning.</p>
+      <p>Een tonaal karakter (duidelijke zoem) weegt in de praktijk zwaarder dan breedbandig geruis. De Nederlandse K1-toeslag is geen VLAREM-knop die je 1-op-1 overzet; gebruik hem niet als “bewijs” in Vlaanderen. Reken de restwaarde, en laat tonaliteit op locatie beoordelen.</p>
+      <p>Rechtspraak over warmtepompgeluid in België is casuïstisch: afstand, tijdstip, meetpunt en of er al gedempt is, wegen zwaarder dan een folder-dB. Documenteer maatregelen vóór een conflict escaleert.</p>
 
       <h2>Wat de tool niet is</h2>
-      <p>Geen vergunning, geen juridisch advies, geen vervanging van een erkend deskundige. Wél een manier om te zien of je “op het randje” zit vóór je een kast of een verplaatsing plant. Tonaal karakter: <a href="./post.html?slug=tonaaltoeslag-k1-vlaanderen">K1 versus VLAREM</a>.</p>
+      <p>Geen vergunning, geen juridisch advies, geen vervanging van een erkend deskundige. Wél een manier om te zien of je “op het randje” zit vóór je een kast of een verplaatsing plant. Open de <a href="../vlarem/">rekentool</a>.</p>
       ${CTA}
     `
   }),
@@ -785,7 +794,7 @@ export const BE_BLOG_POSTS = [
         <li>Trilling — de gevel zingt mee, vooral bij wandmontage.</li>
         <li>Reflectie — twee muren + haag = hoorn.</li>
       </ol>
-      <p>Werking van het toestel: <a href="./post.html?slug=hoe-werkt-warmtepomp-buitenunit">hoe de buitenunit werkt</a>. Maatregelen: <a href="./post.html?slug=warmtepomp-geluid-dempen-vlaanderen">dempen</a>.</p>
+      <p>Werking van het toestel: <a href="./post.html?slug=warmtepomp-geluidsoverlast-verminderen">hoe de buitenunit werkt</a>. Maatregelen: <a href="./post.html?slug=akoestische-omkasting-vs-suskast">dempen</a>.</p>
       ${CTA}
     `
   }),
@@ -822,7 +831,7 @@ export const BE_BLOG_POSTS = [
         <li><strong>Lucht/lucht</strong> — per kop extra een buitenunit mogelijk.</li>
         <li><strong>Zwembad</strong> — debiet boven fluister; zie <a href="./post.html?slug=zwembadwarmtepomp-omkasten-tuin">omkasten</a>.</li>
       </ul>
-      <p>Meer context: <a href="./post.html?slug=welk-type-warmtepomp-minste-geluid">welk type het minste geluid maakt</a> en <a href="./post.html?slug=hoeveel-geluid-maakt-een-warmtepomp-vlaanderen">algemene dB-uitleg</a>.</p>
+      <p>Meer context: <a href="./post.html?slug=warmtepomp-geluidsoverlast-verminderen">welk type het minste geluid maakt</a> en <a href="./post.html?slug=warmtepomp-geluidsoverlast-verminderen">algemene dB-uitleg</a>.</p>
       ${CTA}
     `
   }),
@@ -957,7 +966,7 @@ export const BE_BLOG_POSTS = [
         <li><strong>VLAREM</strong> — specifiek geluid, gebiedstype.</li>
         <li><strong>Buren</strong> — hinderrecht, ook als de vergunning klopt.</li>
       </ol>
-      <p>Brussel en Wallonië hebben eigen milieuregels. Plaatsingstips: <a href="./post.html?slug=waar-plaats-je-een-warmtepomp-vlaanderen">waar je de unit zet</a>. Geluidskader: <a href="./post.html?slug=warmtepomp-geluid-buren-regelgeving-belgie-nederland">regels bij de buren</a>.</p>
+      <p>Brussel en Wallonië hebben eigen milieuregels. Plaatsingstips: <a href="./post.html?slug=waar-plaats-je-een-warmtepomp-vlaanderen">waar je de unit zet</a>. Geluidskader: <a href="./post.html?slug=warmtepomp-geluid-buren-overlast-vlaanderen">regels bij de buren</a>.</p>
       ${CTA}
     `
   }),

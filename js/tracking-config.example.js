@@ -14,8 +14,8 @@ window.REDUCD_TRACKING = {
   googleAdsConversionLabel: "YOUR_CONVERSION_LABEL",
   popup: {
     enabled: true,
-    delayMs: 45000,
-    scrollPercent: 55,
+    delayMs: 0,
+    scrollPercent: 0,
     exitIntent: true,
     storageKey: "reducd_lead_popup_dismissed",
     cooldownDays: 7

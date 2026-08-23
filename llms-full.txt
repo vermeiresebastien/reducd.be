@@ -42,6 +42,8 @@ Bron: maattabel homepage https://www.reducd.be/#maten — prijzen Magnelis®, zo
 
 Keuzehulp: vrijstaand bij unit in tuin, oprit of platdak en maximale demping; wandmodel als de rug tegen de gevel staat of de diepte tot pad/perceelgrens beperkt is.
 
+Maatcalculator (homepage https://www.reducd.be/#calculator): kleinste standaardmaat op binnenmaten. Pasvorm op de krapste as: nauw < 40 mm, ideaal 40–99 mm, ruim ≥ 100 mm; buiten S/L/XL = maatwerk. Breedte/diepte mag gedraaid als dat de enige manier is om te passen. Live dB-meter op dezelfde pagina: puntbron Lp = Lw − 20·log10(r) − 11 + 10·log10(Q); vrijstaand −14 dB, wand −11 dB; resultaat theoretisch, geen meting. Na een pasvormresultaat kan de bezoeker een PDF-adviesrapport downloaden (pasvorm + theoretische VLAREM-toets).
+
 Vrije ruimte (homepage): vrijstaand min. 50 cm voor/achter en 10 cm opzij; wand min. 50 cm voor/zij, achterkant tegen de muur; 5 cm tussen unit en kast.
 
 Pro-pagina: rendementsimpact typisch **2–4%**. Exacte selectie na inmeting of unit-afmetingen.
@@ -52,13 +54,13 @@ Pro-pagina: rendementsimpact typisch **2–4%**. Exacte selectie na inmeting of 
 - Bevestiging RVS 316
 - Absorptie gerecycled PET, demper 150 mm
 - Peutz, juli 2025, ISO 3741:2010 en ISO 7235:2003
-- 14 dB(A) gemiddeld vrijstaand ≈ tot 75% stiller waargenomen (logaritmische schaal: ~10 dB ≈ halvering van luidheid)
+- 14 dB(A) gemiddeld vrijstaand ≈ tot 75% stiller in waargenomen luidheid (~10 dB ≈ halvering van luidheid). Geen geluidsenergie-claim en geen garantie voor elke situatie.
 
 Meetrapport: https://www.reducd.be/docs/ (document achter formulier)
 
-## Dienst: geluidsmeting
+## Dienst: situatiecheck
 
-Gratis en vrijblijvend op locatie in België. Intake + advies. Aanvragen binnen 24 uur beantwoord. Geen vervanging van een erkend akoestisch onderzoek als de procedure dat vereist.
+Gratis check op afstand. Een meting op locatie volgt alleen als de case daarvoor in aanmerking komt. Aanvragen binnen 24 uur beantwoord. Geen vervanging van een erkend akoestisch onderzoek als de procedure dat vereist.
 
 ## VLAREM (Vlaanderen)
 
@@ -86,9 +88,15 @@ Index: https://www.reducd.be/blog/
 
 Onder meer: warmtepompgeluid verminderen; akoestische omkasting vs suskast/sierkap; regels België (gewest/gemeente/hinder); Magnelis; vrijstaand vs wand; vrije ruimte; VLAREM rekenen; merken (Daikin, Mitsubishi, Remeha, NIBE, Intergas); airco; subsidies Vlaanderen. Artikelen zijn nl-BE en geen juridisch advies.
 
+## Projecten
+
+https://www.reducd.be/projecten/
+
+Foto’s van eerder geplaatste akoestische omkastingen in België (tuin, dak, poolhouse, gevel).
+
 ## Veelgestelde vragen (homepage)
 
-**Hoeveel geluid reduceert een REDUCD omkasting?** Gemiddeld 14 dB(A) bij het vrijstaand model, tot 75% stiller waargenomen. Onafhankelijk getest door Peutz (juli 2025) conform ISO 3741:2010 en ISO 7235:2003. Het wandmodel reduceert typisch 10–12 dB(A).
+**Hoeveel geluid reduceert een REDUCD omkasting?** Gemiddeld 14 dB(A) bij het vrijstaand model, tot 75% stiller in waargenomen luidheid (niet in geluidsenergie, geen garantie). Onafhankelijk getest door Peutz (juli 2025) conform ISO 3741:2010 en ISO 7235:2003. Het wandmodel reduceert typisch 10–12 dB(A).
 
 **Wat kost een akoestische omkasting?** Standaardmaten starten vanaf € 2.335 (Magnelis, zonder installatie). Poedercoating in RAL-kleur en montage zijn optioneel tegen meerprijs. Maatwerk op aanvraag.
 
@@ -96,7 +104,11 @@ Onder meer: warmtepompgeluid verminderen; akoestische omkasting vs suskast/sierk
 
 **Welke geluidsnormen gelden in België?** België kent geen één landelijke erfgrensnorm. Geluid van een buitenunit loopt via gewestelijke milieuregels (Vlaanderen, Brussel, Wallonië), gemeentelijke verordeningen en burenhinder. In Vlaanderen toets je het specifieke geluid aan VLAREM-richtwaarden (woongebied 45 / 40 / 35 dB(A)).
 
-**Is de geluidsmeting in België gratis?** Ja. De intake met geluidsmeting op locatie is vrijblijvend en kosteloos.
+**Kies ik een vrijstaand model of een wandmodel?** Vrijstaand (S / L / XL) past bij units in de tuin, oprit of platdak met ± 50 cm vrije ruimte. Wandmodel (S / L) is voor units met de rug tegen de gevel of weinig diepte tot pad of perceelgrens.
+
+**Hoe weet ik welke maat ik nodig heb?** Vul hoogte, breedte en diepte van de buitenunit in de maatcalculator (https://www.reducd.be/#calculator). Kleinste standaardmaat; pasvorm ruim (≥ 100 mm), ideaal (40–99 mm) of krap (< 40 mm). Anders maatwerk.
+
+**Is de geluidsmeting in België gratis?** We starten met een gratis situatiecheck op afstand. Een meting op locatie volgt alleen als de case daarvoor in aanmerking komt. Reactie binnen 24 uur.
 
 **Werkt een REDUCD-omkasting ook voor airco?** Ja. De maat volgt de unit, niet het merk.
 

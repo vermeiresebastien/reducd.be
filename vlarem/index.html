@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VLAREM-rekentool warmtepomp | perceelsgrens Vlaanderen | REDUCD</title>
     <meta name="description" content="De VLAREM-rekentool van REDUCD schat de theoretische restwaarde van je warmtepomp aan de perceelsgrens in Vlaanderen (woongebied 45/40/35 dB(A)).">
-    <meta name="robots" content="index,follow">
+    <meta name="robots" content="index,follow,max-image-preview:large">
     <link rel="canonical" href="https://www.reducd.be/vlarem/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="nl_BE">
+    <meta property="og:site_name" content="REDUCD">
     <meta property="og:title" content="VLAREM-rekentool warmtepomp | REDUCD Vlaanderen">
     <meta property="og:description" content="Theoretische restwaarde aan de perceelsgrens, getoetst aan VLAREM-richtwaarden voor Vlaanderen. Geen meting, geen juridisch advies.">
     <meta property="og:url" content="https://www.reducd.be/vlarem/">
@@ -73,22 +74,12 @@
     <script src="../js/tracking.js" defer></script>
     <script src="../js/lead-popup.js" defer></script>
     <script src="../js/scroll-motion.js" defer></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../css/scroll-motion.css">
+    <link rel="stylesheet" href="../css/app.css">
+<link rel="stylesheet" href="../css/scroll-motion.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { brand: { navy: '#0F2A3A', white: '#FFFFFF' } },
-                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
-                }
-            }
-        }
-    </script>
-    <style>
+<style>
         :root { --ease-out: cubic-bezier(0.16, 1, 0.3, 1); }
         body { font-family: 'Inter', sans-serif; background: #fff; color: #0F2A3A; -webkit-font-smoothing: antialiased; }
         .btn-primary { background: #0F2A3A; color: #fff; transition: all 0.35s var(--ease-out); }
@@ -124,6 +115,44 @@
         .vlarem-break dt { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(15,42,58,0.4); }
         .vlarem-break dd { margin: 0.2rem 0 0; font-weight: 600; }
         .vlarem-formula { margin-top: 1rem; font-size: 0.75rem; color: rgba(15,42,58,0.4); font-family: ui-monospace, monospace; }
+        .size-db {
+            background: #fff;
+            border: 1px solid rgba(15,42,58,0.08);
+            border-radius: 1.25rem;
+            padding: 1.5rem 1.5rem 1.65rem;
+        }
+        @media (min-width: 1024px) {
+            .size-db { padding: 1.75rem 2rem 1.85rem; }
+        }
+        .size-db-grid { display: grid; gap: 1.5rem; }
+        @media (min-width: 1024px) {
+            .size-db-grid { grid-template-columns: 1fr 1.15fr; gap: 2rem; align-items: center; }
+        }
+        .size-db-row { margin-top: 1.05rem; }
+        .size-db-row label { display: flex; justify-content: space-between; gap: 0.75rem; align-items: baseline; }
+        .size-db-row input[type="range"] { width: 100%; margin-top: 0.45rem; accent-color: #0F2A3A; }
+        .size-db-val { font-size: 0.8rem; font-weight: 700; color: #0F2A3A; }
+        .size-db-select {
+            width: 100%; margin-top: 0.45rem; padding: 0.5rem 0.85rem;
+            border: 1px solid rgba(15,42,58,0.12); border-radius: 999px;
+            font-size: 0.8rem; font-weight: 600; color: #0F2A3A; background: #fff;
+        }
+        .size-db-place { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .size-db-place label {
+            display: inline-flex; align-items: center; gap: 0.35rem;
+            border: 1px solid rgba(15,42,58,0.12); border-radius: 999px;
+            padding: 0.4rem 0.8rem; font-size: 0.75rem; cursor: pointer; font-weight: 600;
+        }
+        .size-db-place input { accent-color: #0F2A3A; }
+        .size-db-place label:has(input:checked) { border-color: #0F2A3A; background: #0F2A3A; color: #fff; }
+        .size-db-needle { transform-origin: 140px 140px; transform-box: view-box; transition: transform 0.45s cubic-bezier(0.16,1,0.3,1); }
+        .size-db-readouts { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.35rem; }
+        .size-db-readout { border-radius: 0.9rem; padding: 0.85rem 1rem 0.95rem; border: 1px solid rgba(15,42,58,0.1); }
+        .size-db-readout.is-enc { background: rgba(5, 150, 105, 0.12); border-color: transparent; }
+        .size-db-lp { font-size: 1.65rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; color: #0F2A3A; }
+        .size-db-readout.is-enc .size-db-lp { color: #059669; }
+        .size-db-note { font-size: 11px; color: rgba(15,42,58,0.45); font-weight: 500; margin-top: 0.85rem; line-height: 1.5; }
+        #decibelmeter { scroll-margin-top: 6rem; }
         .mode-pill { display: flex; gap: 0.4rem; flex-wrap: wrap; }
         .mode-pill label { display: inline-flex; align-items: center; gap: 0.4rem; border: 1px solid rgba(15,42,58,0.12); border-radius: 999px; padding: 0.45rem 0.85rem; font-size: 0.8rem; cursor: pointer; }
         .mode-pill input { accent-color: #0F2A3A; }
@@ -134,16 +163,24 @@
     <header class="fixed top-0 left-0 right-0 z-50 px-6 lg:px-8 pt-4 lg:pt-6">
         <nav id="navPill" class="max-w-7xl mx-auto flex items-center justify-between gap-4 px-5 sm:px-6 py-3 rounded-full">
             <a href="../" class="flex items-center shrink-0"><img src="../assets/images/logo-reducd.png" alt="REDUCD" class="h-10 lg:h-11 w-auto"></a>
-            <div class="hidden md:flex flex-1 items-center justify-center gap-5 lg:gap-8">
-                <a href="../#producten" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Producten</a>
-                <a href="../#regelgeving" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Regelgeving</a>
-                <a href="../docs/" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Docs</a>
-                <a href="./" class="text-[11px] font-medium text-brand-navy uppercase tracking-widest">VLAREM</a>
-                <a href="../pro/" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Pro</a>
-                <a href="../#contact" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Contact</a>
+            <div class="hidden md:flex flex-1 items-center justify-center gap-5 lg:gap-7">
+                <a href="../#calculator" class="nav-link">Oplossingen</a>
+                <a href="../#producten" class="nav-link">Modellen</a>
+                <a href="../#installaties" class="nav-link">Resultaten</a>
+                <details class="nav-dd">
+                    <summary class="nav-link">Kennis</summary>
+                    <div class="nav-dd-menu">
+                        <a href="../#faq">FAQ</a>
+                        <a href="../blog/">Blog</a>
+                        <a href="../docs/">Documentatie</a>
+                        <a href="./">VLAREM-tool</a>
+                        <a href="../pro/">Voor professionals</a>
+                    </div>
+                </details>
+                <a href="../#contact" class="nav-link">Contact</a>
             </div>
             <div class="flex items-center gap-3 shrink-0">
-                <a data-open-lead-popup href="../#contact" class="hidden sm:inline-flex btn-primary px-5 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-wider"><span class="accent-gratis">Gratis</span> meting</a>
+                <a href="../#lead-form" class="hidden sm:inline-flex btn-primary px-5 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-wider"><span class="accent-gratis">Gratis</span> check</a>
                 <button id="menuBtn" class="md:hidden w-9 h-9 flex items-center justify-center text-brand-navy" aria-label="Menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
@@ -155,11 +192,13 @@
         <button id="closeMenu" class="absolute top-6 right-6 w-10 h-10 text-white/60" aria-label="Sluiten">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
-        <a href="../#producten" class="mobile-link text-3xl font-bold text-white">Producten</a>
-        <a href="./" class="mobile-link text-3xl font-bold text-white">VLAREM-tool</a>
-        <a href="../pro/" class="mobile-link text-3xl font-bold text-white">Voor professionals</a>
+        <a href="../#calculator" class="mobile-link text-3xl font-bold text-white">Oplossingen</a>
+        <a href="../#producten" class="mobile-link text-3xl font-bold text-white">Modellen</a>
+        <a href="../#installaties" class="mobile-link text-3xl font-bold text-white">Resultaten</a>
+        <a href="./" class="mobile-link text-xl font-semibold text-white/80">VLAREM-tool</a>
+        <a href="../pro/" class="mobile-link text-xl font-semibold text-white/80">Voor professionals</a>
         <a href="../#contact" class="mobile-link text-3xl font-bold text-white">Contact</a>
-        <a data-open-lead-popup href="../#contact" class="mobile-link bg-white text-brand-navy px-10 py-4 rounded-full font-semibold mt-4">Plan <span class="accent-gratis">gratis</span> meting</a>
+        <a href="../#lead-form" class="mobile-link bg-white text-brand-navy px-10 py-4 rounded-full font-semibold mt-4">Gratis situatiecheck</a>
     </div>
 
     <section class="pt-32 pb-12 lg:pt-40 lg:pb-16 px-6 lg:px-8">
@@ -167,7 +206,7 @@
             <div class="lg:col-span-7">
                 <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Vlaanderen · VLAREM II</span>
                 <h1 class="font-extrabold text-4xl lg:text-6xl text-brand-navy mt-4 tracking-tight leading-[1.05]">VLAREM-rekentool voor je warmtepomp</h1>
-                <p class="text-brand-navy/55 mt-5 text-lg font-light leading-relaxed max-w-2xl">De VLAREM-rekentool van REDUCD schat de theoretische restwaarde van je buitenunit aan de perceelsgrens in Vlaanderen. Kies merk en type — of vul zelf de maximale geluidsdruk in. Daarna afstand, muren en ondergrond. Dit is geen meting.</p>
+                <p class="text-brand-navy/55 mt-5 text-lg font-light leading-relaxed max-w-2xl">De VLAREM-rekentool van REDUCD schat de theoretische restwaarde van je buitenunit aan de perceelsgrens in Vlaanderen. Daaronder staat een snelle Decibelmeter: schuif LwA, afstand en muren — live. Dit is geen meting.</p>
             </div>
             <div class="lg:col-span-5 text-sm text-brand-navy/50 font-light leading-relaxed">
                 <p>Richtwaarden voor <strong class="text-brand-navy font-semibold">woongebied</strong> (VLAREM II, bijlage 4.5.4 / 2.2.1): <strong class="text-brand-navy font-semibold">45 / 40 / 35 dB(A)</strong> dag · avond · nacht. Landelijk is strenger: 40 / 35 / 30.</p>
@@ -271,8 +310,79 @@
 
             <aside class="lg:col-span-5 lg:sticky lg:top-28">
                 <div id="vlaremResult" class="bg-white rounded-3xl border border-brand-navy/8 p-6 lg:p-8 min-h-[20rem]"></div>
-                <a data-open-lead-popup href="../#contact" class="btn-primary mt-4 w-full inline-flex justify-center py-3.5 rounded-full text-sm font-semibold">Twijfel? Plan een <span class="accent-gratis">gratis</span> meting</a>
+                <a href="../#lead-form" class="btn-primary mt-4 w-full inline-flex justify-center py-3.5 rounded-full text-sm font-semibold">Twijfel? Vraag een <span class="accent-gratis">gratis</span> situatiecheck</a>
             </aside>
+        </div>
+    </section>
+
+    <section id="decibelmeter" class="px-6 lg:px-8 pb-16 lg:pb-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
+                <div>
+                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Live preview</span>
+                    <h2 class="font-extrabold text-3xl lg:text-4xl text-brand-navy mt-3 tracking-tight">Decibelmeter</h2>
+                    <p class="text-sm text-brand-navy/50 font-light mt-2 max-w-xl">Zelfde akoestische model als de rekentool hierboven. Schuif LwA, afstand en muren — zonder gate. Voor een volledige VLAREM-toetsing (dag/avond/nacht) gebruik je de tool.</p>
+                </div>
+                <a href="#vlaremGate" class="btn-outline px-5 py-2.5 rounded-full text-sm font-semibold self-start">Naar VLAREM-rekentool</a>
+            </div>
+            <div class="size-db" data-db-meter>
+                <div class="size-db-grid">
+                    <div>
+                        <div class="size-db-row" style="margin-top:0">
+                            <label for="db-type"><span class="text-[11px] font-bold uppercase tracking-widest text-brand-navy/45">Kasttype (Peutz)</span></label>
+                            <select id="db-type" name="db-type" class="size-db-select">
+                                <option value="vrijstaand" selected>Vrijstaand · −14 dB(A)</option>
+                                <option value="wand">Wand · −11 dB(A)</option>
+                            </select>
+                        </div>
+                        <div class="size-db-row">
+                            <label for="db-lw"><span class="text-[11px] font-bold uppercase tracking-widest text-brand-navy/45">Geluidsvermogen LwA</span><span class="size-db-val" data-db-lw-out>60 dB</span></label>
+                            <input id="db-lw" name="db-lw" type="range" min="45" max="78" step="1" value="60">
+                        </div>
+                        <div class="size-db-row">
+                            <label for="db-dist"><span class="text-[11px] font-bold uppercase tracking-widest text-brand-navy/45">Afstand tot perceelsgrens</span><span class="size-db-val" data-db-dist-out>5 m</span></label>
+                            <input id="db-dist" name="db-dist" type="range" min="1" max="25" step="0.5" value="5">
+                        </div>
+                        <div class="size-db-row">
+                            <p class="text-[11px] font-bold uppercase tracking-widest text-brand-navy/45 mb-2">Fysieke barrières</p>
+                            <div class="size-db-place" role="radiogroup" aria-label="Muren rond de unit">
+                                <label><input type="radio" name="db-place" value="field" checked> Vrij veld</label>
+                                <label><input type="radio" name="db-place" value="wall"> 1 muur</label>
+                                <label><input type="radio" name="db-place" value="corner"> 2 muren</label>
+                                <label><input type="radio" name="db-place" value="niche"> Nis</label>
+                            </div>
+                        </div>
+                        <p class="size-db-note" data-db-formula></p>
+                    </div>
+                    <div>
+                        <div class="size-db-dial-wrap" aria-hidden="true">
+                            <svg class="size-db-dial w-full h-auto" viewBox="0 0 280 168">
+                                <path d="M30 140 A110 110 0 0 1 95.3 48.4" fill="none" stroke="#059669" stroke-width="14" stroke-linecap="butt"/>
+                                <path d="M95.3 48.4 A110 110 0 0 1 184.7 48.4" fill="none" stroke="#d97706" stroke-width="14"/>
+                                <path d="M184.7 48.4 A110 110 0 0 1 250 140" fill="none" stroke="#dc2626" stroke-width="14"/>
+                                <path d="M30 140 A110 110 0 0 1 250 140" fill="none" stroke="rgba(15,42,58,0.12)" stroke-width="2"/>
+                                <text x="28" y="158" font-size="9" font-weight="700" fill="rgba(15,42,58,0.4)" font-family="Inter,system-ui,sans-serif">25</text>
+                                <text x="132" y="22" font-size="9" font-weight="700" fill="rgba(15,42,58,0.4)" font-family="Inter,system-ui,sans-serif">45</text>
+                                <text x="238" y="158" font-size="9" font-weight="700" fill="rgba(15,42,58,0.4)" font-family="Inter,system-ui,sans-serif">65</text>
+                                <line data-db-needle-bare class="size-db-needle" x1="140" y1="140" x2="140" y2="44" stroke="#0F2A3A" stroke-width="3" stroke-linecap="round"/>
+                                <line data-db-needle-enc class="size-db-needle" x1="140" y1="140" x2="140" y2="44" stroke="#059669" stroke-width="3.5" stroke-linecap="round"/>
+                                <circle cx="140" cy="140" r="7" fill="#0F2A3A"/>
+                            </svg>
+                        </div>
+                        <div class="size-db-readouts" aria-live="polite">
+                            <div class="size-db-readout">
+                                <p class="text-[10px] font-bold uppercase tracking-widest text-brand-navy/40">Zonder kast</p>
+                                <p class="size-db-lp mt-1" data-db-bare>— dB(A)</p>
+                            </div>
+                            <div class="size-db-readout is-enc">
+                                <p class="text-[10px] font-bold uppercase tracking-widest text-emerald-600">Met REDUCD</p>
+                                <p class="size-db-lp mt-1" data-db-enc>— dB(A)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="size-db-note">Puntbron boven de bodem: −6 dB per verdubbeling van de afstand. Eén muur +3 dB, twee muren +6 dB, nis +9 dB. Geen meting en geen juridisch advies — <a href="#vlaremGate" class="text-brand-navy font-medium underline underline-offset-2">open de volledige VLAREM-rekentool</a> of <a href="../#lead-form" class="text-brand-navy font-medium underline underline-offset-2">vraag een situatiecheck</a>.</p>
+            </div>
         </div>
     </section>
 
@@ -330,6 +440,7 @@
 
     <script src="../js/vlarem-pumps.js"></script>
     <script src="../js/vlarem-calc.js"></script>
+    <script src="../js/db-meter.js" defer></script>
     <script>
         const mobileMenu = document.getElementById('mobileMenu');
         document.getElementById('menuBtn')?.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));

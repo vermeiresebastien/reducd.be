@@ -8,10 +8,13 @@ window.REDUCD_TRACKING = {
   ga4MeasurementId: "PLACEHOLDER",
   googleAdsId: "PLACEHOLDER",
   googleAdsConversionLabel: "PLACEHOLDER",
+  googleAdsPopupConversionLabel: "PLACEHOLDER",
+  googleAdsPhoneConversionLabel: "PLACEHOLDER",
+  googleAdsCalculatorConversionLabel: "PLACEHOLDER",
   popup: {
     enabled: true,
-    delayMs: 45000,
-    scrollPercent: 55,
+    delayMs: 0,
+    scrollPercent: 0,
     exitIntent: true,
     storageKey: "reducd_lead_popup_dismissed",
     cooldownDays: 7

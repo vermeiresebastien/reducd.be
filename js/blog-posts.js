@@ -5,6 +5,9 @@
  */
 
 import { BE_BLOG_POSTS } from "./blog-be-posts.js";
+import { BLOG_REDIRECTS, clusterBoxHtml, resolveBlogRedirect } from "./blog-redirects.js";
+
+export { BLOG_REDIRECTS, clusterBoxHtml, resolveBlogRedirect };
 
 export const STATIC_BLOG_POSTS = [
   {
@@ -59,7 +62,21 @@ export const STATIC_BLOG_POSTS = [
 
       <h2>Stil, zonder het uitzicht te verliezen</h2>
       <p>Geluid oplossen mag het beeld van de tuin of gevel niet bederven. Magnelis® als standaardafwerking, of een poedercoating in elke RAL-kleur, maakt dat de kast meewerkt met de architectuur in plaats van ernaast te staan. Stil én stijlvol is geen extra optie — het is de enige combinatie die lang meegaat bij de buren én bij jezelf.</p>
-      <p>Twijfel je of geluid bij jou het probleem is, of eerder de plaatsing? Reken eerst een indicatie met de <a href="../vlarem/">VLAREM-rekentool</a>, of plan een <a data-open-lead-popup href="../index.html#contact">vrijblijvend adviesgesprek</a>. Op locatie meten zegt meer dan een brochurecijfer.</p>
+      <p>Twijfel je of geluid bij jou het probleem is, of eerder de plaatsing? Reken eerst een indicatie met de <a href="../vlarem/">VLAREM-rekentool</a>, of plan een <a href="../index.html#lead-form">gratis situatiecheck</a>. Op locatie meten alleen als de case dat vraagt.</p>
+
+      <h2>Hoeveel geluid is “normaal”?</h2>
+      <p>Op 1 meter bij de unit liggen cataloguscijfers vaak tussen ruwweg 45 en 65 dB(A), afhankelijk van type en toerental. Dat is niet wat de buren horen. Bij de perceelgrens telt afstand, weerkaatsing tussen muren, ondergrond en of de unit ’s nachts nog draait. Lucht/water-units zijn in een Vlaamse zijtuin doorgaans hoorbaarder dan een bodem/water-opstelling zonder buitenunit. “De stilste warmtepomp” in een folder wint het zelden van een unit in een akoestische hoek.</p>
+      <p>Wat je hoort, splitst zich: breedbandig geruis van de ventilator, een lagere zoem van de compressor, soms een toon bij ontdooien. In de vorst draait de unit langer en harder — precies wanneer de buurt stiller is. Dat is werking, geen defect.</p>
+
+      <h2>Merkdossiers (alleen écht modelspecifiek)</h2>
+      <p>Algemene geluidsvragen horen in deze gids. Alleen als het gedrag of de geometrie van een type ertoe doet, houden we een merkdossier:</p>
+      <ul>
+        <li><a href="./post.html?slug=geluidsoverlast-mitsubishi-warmtepomp-omkasting">Mitsubishi Ecodan / Zubadan</a></li>
+        <li><a href="./post.html?slug=geluidsoverlast-daikin-altherma-hybride-warmtepomp">Daikin Altherma Hybride</a></li>
+        <li><a href="./post.html?slug=nibe-f2040-geluid-omkasting">NIBE F2040</a></li>
+        <li><a href="./post.html?slug=intergas-xtend-geluid-omkasting">Intergas Xtend</a></li>
+        <li><a href="./post.html?slug=remeha-elga-ace-geluid-omkasting">Remeha Elga Ace</a></li>
+      </ul>
     `
   },
   {
@@ -107,7 +124,16 @@ export const STATIC_BLOG_POSTS = [
       <h2>Waar je op let bij de keuze</h2>
       <p>Past de kast bij jouw unit — vrijstaand in de tuin of een <a href="./post.html?slug=vrijstaand-of-wandmodel-warmtepomp-omkasting">wandmodel tegen de gevel</a>? Blijft er genoeg ruimte voor service en lucht (zie <a href="./post.html?slug=installatie-ruimte-rond-warmtepomp-omkasting">installatie en vrije ruimte</a>)? En sluit de afwerking aan bij kozijnen of gevel, in Magnelis of elke RAL-kleur?</p>
       <p>Wie alleen naar de laagste prijs kijkt, koopt vaak een kap. Wie naar decibels, lucht en levensduur kijkt, koopt een omkasting. De <a href="../index.html#producten">producten</a> en <a href="../index.html#specs">specificaties</a> maken dat onderscheid concreet.</p>
-      <p>Twijfel je welke term je nodig hebt voor jouw situatie? Beschrijf de opstelling via <a href="../index.html#contact">contact</a>. Wij zeggen eerlijk of een standaardmaat volstaat, of maatwerk slimmer is.</p>
+      <p>Twijfel je welke term je nodig hebt voor jouw situatie? Beschrijf de opstelling via de <a href="../index.html#lead-form">situatiecheck</a>. Wij zeggen eerlijk of een standaardmaat volstaat, of maatwerk slimmer is.</p>
+
+      <h2>De ladder: wat écht dempt</h2>
+      <ol>
+        <li>Nachtregime of te hoge stooklijn (comfort checken).</li>
+        <li>Unit uit de hoek, vrije <a href="./post.html?slug=waar-plaats-je-een-warmtepomp-vlaanderen">plaatsing</a> en <a href="./post.html?slug=installatie-ruimte-rond-warmtepomp-omkasting">luchtweg</a>.</li>
+        <li>Sokkel en dempers tegen structuurgeluid.</li>
+        <li>Geteste akoestische omkasting — geen schutting, matras of sierkap. Airco-buitenunits volgen dezelfde logica: de kast volgt de unit, niet het woord “warmtepomp”.</li>
+      </ol>
+      <p>Past geen S/L/XL (of wand S/L), dan is maatwerk de route — niet een te krappe standaardkast. Meet H×B×D inclusief voeten, beugels en leidingbochten. <a href="../akoestische-omkasting-warmtepomp/">Productpagina met dB, prijs en maten</a>.</p>
     `
   },
   {
@@ -122,7 +148,7 @@ export const STATIC_BLOG_POSTS = [
     publishedAt: "2026-06-10",
     authorName: "REDUCD",
     status: "published",
-    featured: true,
+    featured: false,
     faq: [
       {
         q: "Is er in België één landelijke decibelnorm voor een warmtepomp?",
@@ -166,7 +192,7 @@ export const STATIC_BLOG_POSTS = [
     publishedAt: "2026-05-22",
     authorName: "REDUCD",
     status: "published",
-    featured: true,
+    featured: false,
     faq: [
       {
         q: "Waarom gebruikt REDUCD Magnelis?",
@@ -237,7 +263,7 @@ export const STATIC_BLOG_POSTS = [
         <li>Kies vrijstaand als de unit los staat; wand als de gevel de vierde wand is.</li>
         <li>Stem afwerking af op de plek — Magnelis of RAL, zie <a href="./post.html?slug=magnelis-omkasting-duurzaam-materiaal">materiaal</a>.</li>
       </ul>
-      <p>Geluid volgt de zwakste zijde. Een open achterkant naar de buren ondermijnt een mooie voorkant. Daarom is het model geen catalogusplaatje maar een akoestisch plan. Lees ook hoe <a href="./post.html?slug=warmtepomp-geluid-buren-regelgeving-belgie-nederland">regels in België</a> naar geluid bij de perceelgrens kijken.</p>
+      <p>Geluid volgt de zwakste zijde. Een open achterkant naar de buren ondermijnt een mooie voorkant. Daarom is het model geen catalogusplaatje maar een akoestisch plan. Lees ook hoe <a href="./post.html?slug=warmtepomp-geluid-buren-overlast-vlaanderen">regels in België</a> naar geluid bij de perceelgrens kijken.</p>
       <p>Onzeker? Stuur foto’s en maten via <a href="../index.html#contact">contact</a>. Wij zeggen welk model past — of wanneer maatwerk stiller en netter is dan een compromis.</p>
     `
   },
@@ -279,7 +305,7 @@ export const STATIC_BLOG_POSTS = [
       <h2>Plaatsing in vier checks</h2>
       <ul>
         <li>Past het <a href="./post.html?slug=vrijstaand-of-wandmodel-warmtepomp-omkasting">juiste model</a> bij de afstand tot de muur?</li>
-        <li>Blijft de perceelgrens akoestisch haalbaar? Zie <a href="./post.html?slug=warmtepomp-geluid-buren-regelgeving-belgie-nederland">het Belgische kader</a> of de <a href="../vlarem/">VLAREM-rekentool</a>.</li>
+        <li>Blijft de perceelgrens akoestisch haalbaar? Zie <a href="./post.html?slug=warmtepomp-geluid-buren-overlast-vlaanderen">het Belgische kader</a> of de <a href="../vlarem/">VLAREM-rekentool</a>.</li>
         <li>Is de luchtweg van de unit gelijk aan die van de kast?</li>
         <li>Kan iemand volgend jaar nog een onderhoud uitvoeren?</li>
       </ul>
@@ -302,12 +328,13 @@ export function postTimestamp(post) {
 export function mergePublishedPosts(remotePosts = [], max = 80) {
   const bySlug = new Map();
   for (const post of STATIC_BLOG_POSTS) {
-    if (post.status === "published" && post.slug) {
+    if (post.status === "published" && post.slug && !BLOG_REDIRECTS[post.slug]) {
       bySlug.set(post.slug, { ...post, source: "static" });
     }
   }
   for (const post of remotePosts || []) {
     if (!post?.slug) continue;
+    if (BLOG_REDIRECTS[post.slug]) continue;
     if (post.status && post.status !== "published") continue;
     bySlug.set(post.slug, { ...post, source: "firebase" });
   }
@@ -317,7 +344,9 @@ export function mergePublishedPosts(remotePosts = [], max = 80) {
 
 export function getStaticPostBySlug(slug) {
   if (!slug) return null;
-  return STATIC_BLOG_POSTS.find((p) => p.slug === slug && p.status === "published") || null;
+  const key = String(slug).trim().toLowerCase();
+  if (BLOG_REDIRECTS[key]) return null;
+  return STATIC_BLOG_POSTS.find((p) => p.slug === key && p.status === "published") || null;
 }
 
 export function getFeaturedPosts(posts, count = 4) {
