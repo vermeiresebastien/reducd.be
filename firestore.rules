@@ -1,54 +1,198 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: posts
+    // Document ID: auto-id
+    // Fields:
+    //   - title: string (required, 1-200)
+    //   - slug: string (required, 1-80, lowercase slug)
+    //   - excerpt: string (optional, <= 1000)
+    //   - content: string (required, 1-200000)
+    //   - coverImage: string (optional, <= 500, relative path or URL)
+    //   - status: string (required, 'draft' | 'published')
+    //   - authorName: string (optional, <= 80) — public; no authorEmail (PII)
+    //   - createdAt: timestamp (required on create, immutable)
+    //   - updatedAt: timestamp (required)
+    //   - publishedAt: timestamp (required when status == 'published')
+    //
+    // Collection: admins
+    // Document ID: lowercase email
+    // Fields: none required (existence grants admin). Writes only via Console.
+    //
+    // Collection: distributors
+    // Document ID: lowercase email
+    // Fields:
+    //   - email: string (must equal document ID)
+    //   - company: string (<= 120)
+    //   - name: string (<= 80)
+    //   - active: bool
+    //   - updatedAt: timestamp
+    //
+    // Collection: orders
+    // Document ID: auto-id
+    // Fields:
+    //   - uid: string (immutable, must equal auth.uid on create)
+    //   - email: string (immutable, must equal verified auth email)
+    //   - company, contact, phone, street, postcode, city, po, notes: strings
+    //   - items: list (1-30 maps)
+    //   - units: int (1-9999)
+    //   - status: string (nieuw|bevestigd|productie|verzonden|geleverd|geannuleerd)
+    //   - createdAt: timestamp (immutable)
+    //   - updatedAt: timestamp
+    //
+    // Public unauthenticated read is explicit and only for published posts.
+    // ===============================================================
+
     function isSignedIn() {
-      return request.auth != null;
-    }
-
-    function isAdmin() {
-      return isSignedIn()
-        && request.auth.token.email != null
-        && exists(/databases/$(database)/documents/admins/$(request.auth.token.email.lower()));
-    }
-
-    // Publiek: alleen gepubliceerde posts lezen
-    match /posts/{postId} {
-      allow read: if resource.data.status == 'published'
-        || isAdmin();
-      allow create, update, delete: if isAdmin();
-    }
-
-    // Admin-allowlist: document-ID = e-mailadres (lowercase).
-    // Verplicht: maak in Console een leeg document aan per admin-e-mail,
-    // anders falen create/update/delete op /posts (isAdmin() hierboven).
-    match /admins/{email} {
-      allow read: if isSignedIn() && request.auth.token.email.lower() == email;
-      allow write: if false; // alleen via Firebase Console / Admin SDK
+      return request.auth != null
+        && request.auth.token.email is string
+        && request.auth.token.email.size() > 0
+        && request.auth.token.email_verified == true;
     }
 
     function emailKey() {
       return request.auth.token.email.lower();
     }
 
+    function isBootstrapAdmin() {
+      return isSignedIn() && emailKey() == 'info@reducd.be';
+    }
+
+    function isListedAdmin() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/admins/$(emailKey()));
+    }
+
+    function isAdmin() {
+      return isBootstrapAdmin() || isListedAdmin();
+    }
+
     function isDistributor() {
       return isSignedIn()
-        && request.auth.token.email != null
         && exists(/databases/$(database)/documents/distributors/$(emailKey()))
         && get(/databases/$(database)/documents/distributors/$(emailKey())).data.get('active', true) != false;
     }
 
+    function isStringMax(value, maxLen) {
+      return value is string && value.size() <= maxLen;
+    }
+
+    function isNonEmptyString(value, maxLen) {
+      return value is string && value.size() > 0 && value.size() <= maxLen;
+    }
+
+    function isTimestampOrNow(value) {
+      return value is timestamp;
+    }
+
+    function hasOnlyKeys(data, keys) {
+      return data.keys().hasOnly(keys);
+    }
+
+    function isValidPost(data) {
+      let allowed = ['title', 'slug', 'excerpt', 'content', 'coverImage', 'status', 'authorName', 'createdAt', 'updatedAt', 'publishedAt'];
+      return hasOnlyKeys(data, allowed)
+        && isNonEmptyString(data.title, 200)
+        && data.slug is string
+        && data.slug.size() > 0
+        && data.slug.size() <= 80
+        && data.slug.matches('^[a-z0-9]+(-[a-z0-9]+)*$')
+        && isStringMax(data.excerpt, 1000)
+        && isNonEmptyString(data.content, 200000)
+        && isStringMax(data.coverImage, 500)
+        && data.status in ['draft', 'published']
+        && isStringMax(data.authorName, 80)
+        && isTimestampOrNow(data.updatedAt)
+        && (
+          data.status == 'draft'
+          || (data.status == 'published' && data.publishedAt is timestamp)
+        );
+    }
+
+    function isValidDistributor(data, email) {
+      return hasOnlyKeys(data, ['email', 'company', 'name', 'active', 'updatedAt'])
+        && data.email == email
+        && isValidEmail(data.email)
+        && isStringMax(data.company, 120)
+        && isStringMax(data.name, 80)
+        && data.active is bool
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidEmail(value) {
+      return value is string
+        && value.size() <= 254
+        && value.matches('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$');
+    }
+
+    function isValidOrderCreate(data) {
+      return hasOnlyKeys(data, [
+          'uid', 'email', 'company', 'contact', 'phone', 'street',
+          'postcode', 'city', 'po', 'notes', 'items', 'units',
+          'status', 'createdAt', 'updatedAt'
+        ])
+        && data.uid == request.auth.uid
+        && data.email == emailKey()
+        && isValidEmail(data.email)
+        && isStringMax(data.company, 120)
+        && isStringMax(data.contact, 80)
+        && isStringMax(data.phone, 40)
+        && isStringMax(data.street, 120)
+        && isStringMax(data.postcode, 20)
+        && isStringMax(data.city, 80)
+        && isStringMax(data.po, 60)
+        && isStringMax(data.notes, 2000)
+        && data.items is list
+        && data.items.size() >= 1
+        && data.items.size() <= 30
+        && data.units is int
+        && data.units >= 1
+        && data.units <= 9999
+        && data.status == 'nieuw'
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidOrderStatus(status) {
+      return status in ['nieuw', 'bevestigd', 'productie', 'verzonden', 'geleverd', 'geannuleerd'];
+    }
+
+    match /posts/{postId} {
+      allow read: if (resource.data.status == 'published' && resource.data.keys().hasAll(['title', 'slug', 'status']))
+        || isAdmin();
+      allow create: if isAdmin()
+        && isValidPost(request.resource.data)
+        && request.resource.data.createdAt is timestamp;
+      allow update: if isAdmin()
+        && isValidPost(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt;
+      allow delete: if isAdmin();
+    }
+
+    match /admins/{email} {
+      allow read: if isSignedIn() && emailKey() == email;
+      allow write: if false;
+    }
+
     match /distributors/{email} {
       allow read: if isAdmin() || (isSignedIn() && emailKey() == email);
-      allow create, update, delete: if isAdmin();
+      allow create, update: if isAdmin() && isValidDistributor(request.resource.data, email);
+      allow delete: if isAdmin();
     }
 
     match /orders/{orderId} {
       allow read: if isAdmin()
         || (isSignedIn() && resource.data.email == emailKey());
-      allow create: if isDistributor()
-        && request.resource.data.email == emailKey()
-        && request.resource.data.uid == request.auth.uid;
-      allow update, delete: if isAdmin();
+      allow create: if isDistributor() && isValidOrderCreate(request.resource.data);
+      allow update: if isAdmin()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'updatedAt'])
+        && isValidOrderStatus(request.resource.data.status)
+        && request.resource.data.updatedAt is timestamp;
+      allow delete: if isAdmin();
     }
   }
 }

@@ -5,13 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Artikel — REDUCD</title>
   <meta name="description" content="Inzichten van REDUCD over akoestische omkastingen, warmtepompgeluid en stil wonen.">
-  <link rel="canonical" id="canonical-link" href="https://www.reducd.be/blog/">
+  <meta name="robots" id="robots-meta" content="index,follow">
+  <link rel="canonical" id="canonical-link" href="https://www.reducd.be/blog/post.html">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="nl_BE">
   <meta property="og:site_name" content="REDUCD">
   <meta property="og:title" id="og-title" content="Artikel — REDUCD">
   <meta property="og:description" id="og-description" content="Inzichten van REDUCD over akoestische omkastingen, warmtepompgeluid en stil wonen.">
-  <meta property="og:url" id="og-url" content="https://www.reducd.be/blog/">
+  <meta property="og:url" id="og-url" content="https://www.reducd.be/blog/post.html">
+  <script>
+    (function () {
+      var raw = new URLSearchParams(location.search).get("slug") || "";
+      var slug = String(raw).trim();
+      var canonical = document.getElementById("canonical-link");
+      var ogUrl = document.getElementById("og-url");
+      var robots = document.getElementById("robots-meta");
+      if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/i.test(slug)) {
+        if (robots) robots.setAttribute("content", "noindex,follow");
+        return;
+      }
+      var url = "https://www.reducd.be/blog/post.html?slug=" + encodeURIComponent(slug.toLowerCase());
+      if (canonical) canonical.href = url;
+      if (ogUrl) ogUrl.setAttribute("content", url);
+      document.title = slug.replace(/-/g, " ") + " — REDUCD";
+    })();
+  </script>
   <meta property="og:image" id="og-image" content="https://www.reducd.be/assets/images/promo-meer-rust.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" id="twitter-title" content="Artikel — REDUCD">

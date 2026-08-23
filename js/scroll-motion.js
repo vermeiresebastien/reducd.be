@@ -127,11 +127,13 @@
 
     const navPill = document.getElementById("navPill");
     if (navPill) {
+      const header = navPill.closest("header");
       const onScroll = () => {
         const cm = 96 / 2.54;
         const t = Math.min(1, Math.max(0, window.scrollY / cm));
         navPill.style.setProperty("--nav-shade", t.toFixed(3));
         navPill.classList.toggle("scrolled", window.scrollY > 60);
+        header?.classList.toggle("nav-flush", window.scrollY > 0);
         syncNavGratis();
       };
       window.addEventListener("scroll", onScroll, { passive: true });
