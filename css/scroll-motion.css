@@ -117,6 +117,16 @@ button.bg-white .accent-gratis.is-hot,
   to { opacity: 0; }
 }
 
+/* Scrolled: solid bar to the viewport top so page content cannot show in the pill gap */
+header.fixed:has(#navPill) {
+  background-color: transparent;
+  transition: padding-top 0.4s var(--ease-out), background-color 0.35s var(--ease-out);
+}
+header.fixed.nav-flush:has(#navPill) {
+  padding-top: 0 !important;
+  background-color: #ffffff;
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --scroll-blue: 0.22;
@@ -141,5 +151,8 @@ button.bg-white .accent-gratis.is-hot,
   .swoosh-underline.is-drawn .swoosh-underline__path {
     display: none;
     animation: none;
+  }
+  header.fixed:has(#navPill) {
+    transition: none;
   }
 }
