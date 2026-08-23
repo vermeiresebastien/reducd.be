@@ -86,7 +86,7 @@ button.bg-white .accent-gratis.is-hot,
   left: -2%;
   width: 108%;
   bottom: -0.06em;
-  height: 0.42em;
+  height: 0.5em;
   overflow: visible;
   pointer-events: none;
   opacity: 1;
@@ -94,8 +94,8 @@ button.bg-white .accent-gratis.is-hot,
 .swoosh-underline__path {
   fill: none;
   stroke: #0F2A3A;
-  stroke-opacity: 0.62;
-  stroke-width: 2.05;
+  stroke-opacity: 0.78;
+  stroke-width: 2.15;
   stroke-linecap: round;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
