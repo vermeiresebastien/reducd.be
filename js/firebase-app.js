@@ -101,7 +101,7 @@ function slugify(text) {
     .slice(0, 80);
 }
 
-async function listPublishedPosts(max = 50) {
+async function listPublishedPosts(max = 80) {
   const ctx = init();
   if (!ctx) return mergePublishedPosts([], max);
   try {

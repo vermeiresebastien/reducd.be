@@ -4,16 +4,18 @@
  * Firebase-posts met dezelfde slug krijgen voorrang.
  */
 
+import { BE_BLOG_POSTS } from "./blog-be-posts.js";
+
 export const STATIC_BLOG_POSTS = [
   {
     slug: "warmtepomp-geluidsoverlast-verminderen",
     title: "Warmtepomp te luid? Zo verminder je geluidsoverlast",
     metaTitle: "Warmtepomp geluidsoverlast verminderen | REDUCD",
     metaDescription:
-      "Waarom een warmtepomp hoorbaar is, wat decibels betekenen en hoe een akoestische omkasting gemiddeld 14 dB(A) reduceert. Praktisch voor België en Nederland.",
+      "Waarom een warmtepomp hoorbaar is, wat decibels betekenen en hoe een akoestische omkasting gemiddeld 14 dB(A) reduceert. Praktisch voor België.",
     excerpt:
       "Een warmtepomp is zuinig, maar het buitengeluid kan storend zijn. Wat decibels écht betekenen, en hoe je het geluid structureel terugbrengt.",
-    coverImage: "assets/images/promo-meer-rust.jpg",
+    coverImage: "assets/images/installs/install-patio-olijf.webp",
     publishedAt: "2026-08-12",
     authorName: "REDUCD",
     status: "published",
@@ -42,7 +44,7 @@ export const STATIC_BLOG_POSTS = [
 
       <h2>Stil, zonder het uitzicht te verliezen</h2>
       <p>Geluid oplossen mag het beeld van de tuin of gevel niet bederven. Magnelis® als standaardafwerking, of een poedercoating in elke RAL-kleur, maakt dat de kast meewerkt met de architectuur in plaats van ernaast te staan. Stil én stijlvol is geen extra optie — het is de enige combinatie die lang meegaat bij de buren én bij jezelf.</p>
-      <p>Twijfel je of geluid bij jou het probleem is, of eerder de plaatsing? Plan een <a href="../index.html#contact">vrijblijvend adviesgesprek</a>. Op locatie meten zegt meer dan een brochurecijfer.</p>
+      <p>Twijfel je of geluid bij jou het probleem is, of eerder de plaatsing? Reken eerst een indicatie met de <a href="../vlarem/">VLAREM-rekentool</a>, of plan een <a data-open-lead-popup href="../index.html#contact">vrijblijvend adviesgesprek</a>. Op locatie meten zegt meer dan een brochurecijfer.</p>
     `
   },
   {
@@ -53,7 +55,7 @@ export const STATIC_BLOG_POSTS = [
       "Suskast, geluidskast of akoestische omkasting? Wat het verschil is, waarom sierkappen zelden volstaan en waar je op let bij een warmtepompcover.",
     excerpt:
       "Suskast, geluidskast, omkasting: drie woorden, niet altijd hetzelfde product. Waarom een sierkap het geluid zelden oplost.",
-    coverImage: "assets/images/product-heritage.jpg",
+    coverImage: "assets/images/google/photo-14.jpg",
     publishedAt: "2026-07-08",
     authorName: "REDUCD",
     status: "published",
@@ -85,39 +87,35 @@ export const STATIC_BLOG_POSTS = [
   },
   {
     slug: "warmtepomp-geluid-buren-regelgeving-belgie-nederland",
-    title: "Warmtepomp naast de buren: wat zeggen de regels in BE en NL?",
-    metaTitle: "Warmtepomp geluid buren: regels BE & NL | REDUCD",
+    title: "Warmtepomp naast de buren: wat zeggen de regels in België?",
+    metaTitle: "Warmtepomp geluid buren: regels in België | REDUCD",
     metaDescription:
-      "Hoog-over: geluidsnormen voor buitenunits in Nederland (Bbl) en hoe België hinder via gewest en gemeente benadert. Geen juridisch advies, wel een helder kader.",
+      "Hoog-over: hoe België geluid van buitenunits via gewest, gemeente en hinderrecht benadert. Geen juridisch advies, wel een helder kader.",
     excerpt:
-      "Nederland heeft duidelijke erfgrenswaarden. België werkt via gewest, gemeente en hinderrecht. Wat je wél kunt plannen — zonder juridisch advies.",
-    coverImage: "assets/images/founder-outdoor.jpg",
+      "België werkt via gewest, gemeente en hinderrecht. Wat je wél kunt plannen — zonder juridisch advies.",
+    coverImage: "assets/images/google/photo-09.jpg",
     publishedAt: "2026-06-10",
     authorName: "REDUCD",
     status: "published",
     featured: true,
     content: `
       <p>Een warmtepomp staat zelden midden op een perceel. Vaak staat ze langs de zijgevel, bij de erfgrens of in een smalle zijtuin — precies waar de buren hun terras, slaapkamerraam of kinderkamer hebben. Dan is geluid geen alleen-jouw-probleem meer. Het wordt een burenvraag, en soms een vergunnings- of milieuvraag.</p>
-      <p>Hieronder een hoog-over kader voor Nederland en België. Het is <strong>geen juridisch advies</strong> en geen volledige weergave van elke uitzondering. Regels wijzigen, en lokale toetsing blijft nodig. Gebruik dit om het gesprek voor te bereiden, niet om een procedure te winnen.</p>
-
-      <h2>Nederland: 45 dB overdag, 40 dB ’s nachts op de erfgrens</h2>
-      <p>Sinds de aanscherping van de bouwregelgeving voor buitenopgestelde installaties (eerst via het Bouwbesluit, nu het Besluit bouwwerken leefomgeving, Bbl) geldt voor veel nieuwe situaties een helder principe: het installatiegeluid van een warmtepomp of airco mag op de perceelgrens een bepaalde waarde niet overschrijden. In de praktijk wordt dat vaak samengevat als <strong>45 dB(A) overdag</strong> en <strong>40 dB(A) in de nachtperiode</strong>.</p>
-      <p>De exacte toetsing hangt af van rekenmethode, type gebouw, of het om nieuwbouw of vervanging gaat, en hoe “erfgrens” in jouw situatie wordt geïnterpreteerd. Een fabrikantcijfer op 1 meter afstand is dus niet hetzelfde als de waarde op de grens. Reflectie tegen twee muren kan het niveau daar merkelijk verhogen.</p>
-      <p>Wie onder die grens wil blijven, heeft drie hefbomen: afstand, opstelling (geen hoek, trillingen beperken) en een geteste <a href="./post.html?slug=akoestische-omkasting-vs-suskast">akoestische omkasting</a>. Een gemiddelde reductie van 14 dB(A) is in veel tuinen het verschil tussen “net te veel” en “ rustig genoeg om het gesprek te sluiten”.</p>
+      <p>Hieronder een hoog-over kader voor België. Het is <strong>geen juridisch advies</strong> en geen volledige weergave van elke uitzondering. Regels wijzigen, en lokale toetsing blijft nodig. Gebruik dit om het gesprek voor te bereiden, niet om een procedure te winnen.</p>
 
       <h2>België: gewest, gemeente en bovenmatige hinder</h2>
-      <p>België kent geen even eenduidige nationale decibelnorm voor elke residentiële buitenunit. Geluid loopt via drie sporen. Gewestelijke milieuregels (in Vlaanderen onder meer VLAREM-kaders), gemeentelijke politieverordeningen, en het burgerlijk recht: bovenmatige hinder jegens buren. Brussel en Wallonië hebben eigen kaders.</p>
+      <p>België kent geen één landelijke decibelnorm voor elke residentiële buitenunit. Geluid loopt via drie sporen. Gewestelijke milieuregels (in Vlaanderen onder meer VLAREM-kaders), gemeentelijke politieverordeningen, en het burgerlijk recht: bovenmatige hinder jegens buren. Brussel en Wallonië hebben eigen kaders.</p>
       <p>Gevolg: twee straten verderop kan de toetsing anders voelen. Sommige gemeenten zijn streng bij klachten, andere kijken eerst naar bemiddeling. Wat wél overal geldt: een unit die ’s nachts duidelijk hoorbaar is in de slaapkamer van de buren, is een risico — menselijk én juridisch. Wachten tot er een klacht is, is duurder dan vooraf meten en dempen.</p>
+      <p>Een fabrikantcijfer op 1 meter afstand is niet hetzelfde als wat je bij de perceelgrens of het raam van de buren hoort. Reflectie tegen twee muren kan het niveau merkelijk verhogen. Wie dat risico wilt beperken, heeft drie hefbomen: afstand, opstelling (geen hoek, trillingen beperken) en een geteste <a href="./post.html?slug=akoestische-omkasting-vs-suskast">akoestische omkasting</a>. Een gemiddelde reductie van 14 dB(A) is in veel tuinen het verschil tussen “net te veel” en “rustig genoeg om het gesprek te sluiten”.</p>
 
       <h2>Wat je wél kunt doen, vandaag</h2>
       <ul>
-        <li>Vraag de installateur naar het verwachte niveau op de erfgrens, niet alleen het cataloguscijfer.</li>
+        <li>Vraag de installateur naar het verwachte niveau bij de perceelgrens, niet alleen het cataloguscijfer.</li>
         <li>Kijk naar plaatsing: afstand, geen akoestische hoek, vrije <a href="./post.html?slug=installatie-ruimte-rond-warmtepomp-omkasting">lucht en service-ruimte</a>.</li>
         <li>Overweeg een omkasting met testdata, geen sierkap. Zie <a href="../index.html#producten">producten</a> en <a href="../index.html#specs">specs</a>.</li>
-        <li>In Nederland: toets tegen de actuele Bbl-praktijk of laat een adviseur rekenen. In België: informeer bij gemeente of een milieudienst, en documenteer je maatregelen.</li>
+        <li>Informeer bij gemeente of een milieudienst, en documenteer je maatregelen.</li>
       </ul>
       <p>Goede burenrelaties beginnen bij voorspelbaar, lager geluid — niet bij een discussie over wie “eerst” de tuin had. Een stille, stijlvolle kast maakt de unit minder tot onderwerp.</p>
-      <p>Wil je een inschatting op jouw perceel? <a href="../index.html#contact">Vraag een adviesgesprek</a> met meting op locatie. Wij geven geen juridisch advies; wél een realistisch beeld van wat een omkasting akoestisch kan doen.</p>
+      <p>Wil je eerst zelf rekenen? Open de <a href="../vlarem/">VLAREM-rekentool</a>: merk en type kiezen, of dB handmatig, plus afstand en muren. Dat blijft een theoretische restwaarde. Voor een inschatting op jouw perceel: <a data-open-lead-popup href="../index.html#contact">vraag een adviesgesprek</a> met meting op locatie. Wij geven geen juridisch advies; wél een realistisch beeld van wat een omkasting akoestisch kan doen.</p>
     `
   },
   {
@@ -146,7 +144,7 @@ export const STATIC_BLOG_POSTS = [
       <p>Binnenin zit de akoestiek: gerecycled PET als absorptiemateriaal en een demper van 150 mm. PET is vezelvast, bestand tegen vocht beter dan veel klassieke minerale vullingen in deze toepassing, en past bij lokaal en circulair denken. De reductie — gemiddeld 14 dB(A) — komt uit die kern, niet uit de glans van de plaat. De testdata (Peutz, ISO 3741 en ISO 7235) staan bij de <a href="../index.html#specs">specificaties</a>.</p>
 
       <h2>Duurzaam is lokaal én lang meegaan</h2>
-      <p>Duurzaamheid is hier geen slogan op een sticker. Lokaal produceren in Nederland verkort transport en maakt maatwerk haalbaar. Gerecyclede materialen verlagen de impact van de vulling. En een kast die vijftien jaar blijft staan, vermijdt de grootste verspilling: opnieuw kopen omdat de eerste “goedkoop” was.</p>
+      <p>Duurzaamheid is hier geen slogan op een sticker. Lokaal produceren verkort transport en maakt maatwerk haalbaar. Gerecyclede materialen verlagen de impact van de vulling. En een kast die vijftien jaar blijft staan, vermijdt de grootste verspilling: opnieuw kopen omdat de eerste “goedkoop” was.</p>
       <p>Dat is Built to Last in één zin: stil vandaag, stijlvol over vijf jaar, nog steeds functioneel als de warmtepomp aan vervanging toe is. Bekijk de <a href="../index.html#producten">modellen</a> of lees hoe je <a href="./post.html?slug=vrijstaand-of-wandmodel-warmtepomp-omkasting">vrijstaand of wand</a> kiest. Vragen over afwerking aan de kust of een RAL-match? <a href="../index.html#contact">Neem contact op</a>.</p>
     `
   },
@@ -182,7 +180,7 @@ export const STATIC_BLOG_POSTS = [
         <li>Kies vrijstaand als de unit los staat; wand als de gevel de vierde wand is.</li>
         <li>Stem afwerking af op de plek — Magnelis of RAL, zie <a href="./post.html?slug=magnelis-omkasting-duurzaam-materiaal">materiaal</a>.</li>
       </ul>
-      <p>Geluid volgt de zwakste zijde. Een open achterkant naar de buren ondermijnt een mooie voorkant. Daarom is het model geen catalogusplaatje maar een akoestisch plan. Lees ook hoe <a href="./post.html?slug=warmtepomp-geluid-buren-regelgeving-belgie-nederland">regels in BE en NL</a> naar de erfgrens kijken.</p>
+      <p>Geluid volgt de zwakste zijde. Een open achterkant naar de buren ondermijnt een mooie voorkant. Daarom is het model geen catalogusplaatje maar een akoestisch plan. Lees ook hoe <a href="./post.html?slug=warmtepomp-geluid-buren-regelgeving-belgie-nederland">regels in België</a> naar geluid bij de perceelgrens kijken.</p>
       <p>Onzeker? Stuur foto’s en maten via <a href="../index.html#contact">contact</a>. Wij zeggen welk model past — of wanneer maatwerk stiller en netter is dan een compromis.</p>
     `
   },
@@ -214,14 +212,15 @@ export const STATIC_BLOG_POSTS = [
       <h2>Plaatsing in vier checks</h2>
       <ul>
         <li>Past het <a href="./post.html?slug=vrijstaand-of-wandmodel-warmtepomp-omkasting">juiste model</a> bij de afstand tot de muur?</li>
-        <li>Blijft de erfgrens akoestisch haalbaar? Zie <a href="./post.html?slug=warmtepomp-geluid-buren-regelgeving-belgie-nederland">BE/NL-kader</a>.</li>
+        <li>Blijft de perceelgrens akoestisch haalbaar? Zie <a href="./post.html?slug=warmtepomp-geluid-buren-regelgeving-belgie-nederland">het Belgische kader</a> of de <a href="../vlarem/">VLAREM-rekentool</a>.</li>
         <li>Is de luchtweg van de unit gelijk aan die van de kast?</li>
         <li>Kan iemand volgend jaar nog een onderhoud uitvoeren?</li>
       </ul>
       <p>Wie die checks afvinkt, krijgt wat de kast belooft: gemiddeld 14 dB(A) minder, een unit die mag blijven presteren, en een beeld dat bij de woning past. Standaardmaten zijn vaak binnen een week leverbaar; de intake met meting op locatie voorkomt dat die snelheid ten koste gaat van de pasvorm.</p>
-      <p>Klaar om te meten in plaats van te gissen? <a href="../index.html#contact">Plan een adviesgesprek</a> — telefonisch of op locatie, in België en Nederland.</p>
+      <p>Klaar om te meten in plaats van te gissen? <a data-open-lead-popup href="../index.html#contact">Plan een <span class="accent-gratis">gratis</span> meting</a> — telefonisch of op locatie, in België.</p>
     `
-  }
+  },
+  ...BE_BLOG_POSTS
 ];
 
 export function postTimestamp(post) {
@@ -233,7 +232,7 @@ export function postTimestamp(post) {
   return Number.isNaN(n) ? 0 : n;
 }
 
-export function mergePublishedPosts(remotePosts = [], max = 50) {
+export function mergePublishedPosts(remotePosts = [], max = 80) {
   const bySlug = new Map();
   for (const post of STATIC_BLOG_POSTS) {
     if (post.status === "published" && post.slug) {
@@ -258,6 +257,12 @@ export function getFeaturedPosts(posts, count = 4) {
   const featured = posts.filter((p) => p.featured);
   const rest = posts.filter((p) => !p.featured);
   return [...featured, ...rest].slice(0, count);
+}
+
+export function getSeriesPosts(posts, series = "vlaanderen") {
+  return (posts || [])
+    .filter((p) => p.series === series)
+    .sort((a, b) => postTimestamp(b) - postTimestamp(a));
 }
 
 export function escapeHtml(str) {
@@ -299,8 +304,8 @@ export function organizationJsonLd() {
     logo: "https://www.reducd.be/assets/images/logo-reducd.png",
     email: "info@reducd.be",
     telephone: "+32472084470",
-    areaServed: ["BE", "NL"],
-    description: "Akoestische omkastingen voor warmtepompen en airco's in België en Nederland."
+    areaServed: ["BE"],
+    description: "Akoestische omkastingen voor warmtepompen en airco's in België."
   };
 }
 
@@ -311,14 +316,63 @@ export function blogPostingJsonLd(post, pageUrl, imageUrl) {
     headline: post.title,
     description: post.metaDescription || post.excerpt || "",
     image: imageUrl || undefined,
+    inLanguage: "nl-BE",
     datePublished: typeof post.publishedAt === "string" ? post.publishedAt : undefined,
+    keywords: Array.isArray(post.keywords) ? post.keywords.join(", ") : undefined,
+    about: (post.keywords || []).map((name) => ({ "@type": "Thing", name })),
     author: { "@type": "Organization", name: post.authorName || "REDUCD" },
     publisher: {
       "@type": "Organization",
       name: "REDUCD",
       logo: { "@type": "ImageObject", url: "https://www.reducd.be/assets/images/logo-reducd.png" }
     },
-    mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl }
+    mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+    isAccessibleForFree: true,
+    spatialCoverage: { "@type": "Place", name: "België", address: { "@type": "PostalAddress", addressCountry: "BE" } }
+  };
+}
+
+export function faqPageJsonLd(faq) {
+  if (!Array.isArray(faq) || !faq.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: String(item.a || "").replace(/<[^>]+>/g, "") }
+    }))
+  };
+}
+
+export function renderFaqHtml(faq) {
+  if (!Array.isArray(faq) || !faq.length) return "";
+  return (
+    `<h2>Veelgestelde vragen</h2>` +
+    faq
+      .map(
+        (item) =>
+          `<details class="post-faq"><summary>${item.q}</summary><p>${item.a}</p></details>`
+      )
+      .join("")
+  );
+}
+
+export function blogIndexJsonLd(posts) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "REDUCD Blog",
+    inLanguage: "nl-BE",
+    description: "Inzichten over warmtepompgeluid, VLAREM, omkastingen en stil wonen in België.",
+    url: "https://www.reducd.be/blog/",
+    publisher: { "@type": "Organization", name: "REDUCD", url: "https://www.reducd.be" },
+    blogPost: (posts || []).slice(0, 40).map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.title,
+      url: `https://www.reducd.be/blog/post.html?slug=${encodeURIComponent(p.slug)}`,
+      datePublished: typeof p.publishedAt === "string" ? p.publishedAt : undefined
+    }))
   };
 }
 
@@ -360,6 +414,29 @@ export function renderPostCards(posts, { from = "root", heading = "h3" } = {}) {
             <div class="text-[10px] uppercase tracking-widest text-brand-navy/40 mb-2">${escapeHtml(formatBlogDate(p.publishedAt))}</div>
             <${heading} class="font-bold text-lg text-brand-navy tracking-tight mb-2">${escapeHtml(p.title)}</${heading}>
             <p class="text-sm text-brand-navy/55 font-light line-clamp-3">${escapeHtml(p.excerpt || "")}</p>
+          </div>
+        </a>`;
+    })
+    .join("");
+}
+
+export function renderTaperCards(posts, { from = "root" } = {}) {
+  const postHref = from === "blog" ? "./post.html" : "blog/post.html";
+  const n = Math.max(posts.length - 1, 1);
+  return posts
+    .map((p, i) => {
+      const t = (i / n).toFixed(3);
+      const cover = resolveCoverPath(p.coverImage, from);
+      const hideImg = i > 5 ? " blog-taper-card--text" : "";
+      return `
+        <a href="${postHref}?slug=${encodeURIComponent(p.slug)}" class="blog-taper-card${hideImg}" style="--t:${t}">
+          <div class="blog-taper-media">
+            <img src="${escapeHtml(cover)}" alt="" class="blog-taper-img">
+          </div>
+          <div class="blog-taper-copy">
+            <div class="blog-taper-date">${escapeHtml(formatBlogDate(p.publishedAt))}</div>
+            <h3 class="blog-taper-title">${escapeHtml(p.title)}</h3>
+            <p class="blog-taper-excerpt">${escapeHtml(p.excerpt || "")}</p>
           </div>
         </a>`;
     })

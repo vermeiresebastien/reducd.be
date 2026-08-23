@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl" class="scroll-smooth">
+<html lang="nl-BE" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,7 @@
   <link rel="apple-touch-icon" href="../assets/images/logo-reducd.png">
   <script src="../js/tracking-config.js"></script>
   <script src="../js/tracking.js" defer></script>
+  <script src="../js/lead-popup.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,14 +39,23 @@
   <style>
     body { font-family: 'Inter', sans-serif; background: #fff; color: #0F2A3A; -webkit-font-smoothing: antialiased; }
     .btn-primary { background: #0F2A3A; color: #fff; }
+    .accent-gratis { color: #D49A12; }
+    .btn-primary .accent-gratis { color: #E8B84A; }
     .article-body { font-weight: 300; line-height: 1.8; font-size: 1.125rem; }
     .article-body h2 { font-weight: 800; font-size: 1.5rem; letter-spacing: -0.025em; margin: 2.5rem 0 1rem; color: #0F2A3A; }
     .article-body p { margin: 0 0 1.25rem; color: rgba(15,42,58,0.8); }
     .article-body ul { margin: 0 0 1.25rem; padding-left: 1.25rem; list-style: disc; }
     .article-body li { margin-bottom: 0.5rem; color: rgba(15,42,58,0.8); }
     .article-body a { color: #0F2A3A; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+    .article-body .accent-gratis { color: #D49A12; }
     .article-body strong { font-weight: 600; color: #0F2A3A; }
     .article-body.plain { white-space: pre-wrap; }
+    .article-body h3 { font-weight: 700; font-size: 1.1rem; margin: 1.6rem 0 0.6rem; }
+    .article-body ol { margin: 0 0 1.25rem; padding-left: 1.25rem; list-style: decimal; }
+    .article-body .post-faq { border: 1px solid rgba(15,42,58,0.1); border-radius: 0.9rem; padding: 0; margin: 0 0 0.65rem; background: #fff; }
+    .article-body .post-faq summary { cursor: pointer; list-style: none; font-weight: 600; color: #0F2A3A; padding: 0.95rem 1.1rem; }
+    .article-body .post-faq summary::-webkit-details-marker { display: none; }
+    .article-body .post-faq p { padding: 0 1.1rem 1rem; margin: 0; }
     .bento { transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s ease; }
     .bento:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -12px rgba(15,42,58,0.12); }
   </style>
@@ -56,6 +66,7 @@
       <a href="../index.html"><img src="../assets/images/logo-reducd.png" alt="REDUCD" class="h-10"></a>
       <nav class="flex items-center gap-5 text-[11px] uppercase tracking-widest text-brand-navy/50">
         <a href="./index.html" class="hover:text-brand-navy">← Blog</a>
+        <a href="../vlarem/" class="hover:text-brand-navy">VLAREM</a>
         <a href="../index.html#contact" class="btn-primary px-4 py-2 rounded-full font-semibold text-white">Offerte</a>
       </nav>
     </div>
@@ -71,13 +82,13 @@
       <div id="post-content" class="article-body text-brand-navy/80 border-t border-brand-navy/8 pt-10" itemprop="articleBody"></div>
     </article>
 
-    <aside id="post-cta" class="hidden mt-14 rounded-2xl bg-brand-navy text-white p-8">
-      <h2 class="font-extrabold text-2xl tracking-tight mb-3">De rust is nabij</h2>
-      <p class="text-white/60 font-light mb-6">Bekijk de omkastingen, de specificaties, of plan een vrijblijvend adviesgesprek.</p>
-      <div class="flex flex-wrap gap-3">
-        <a href="../index.html#producten" class="bg-white text-brand-navy px-5 py-2.5 rounded-full text-sm font-semibold">Producten</a>
-        <a href="../index.html#specs" class="border border-white/25 px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-white/10">Specs</a>
-        <a href="../index.html#contact" class="border border-white/25 px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-white/10">Contact</a>
+    <aside id="post-cta" class="hidden mt-14 rounded-2xl bg-brand-navy text-white p-8 lg:p-10">
+      <h2 class="font-extrabold text-3xl lg:text-4xl tracking-tight mb-4">De rust is nabij</h2>
+      <p class="text-white/60 font-light mb-8 text-base lg:text-lg max-w-xl">Bekijk de omkastingen, of plan een vrijblijvende geluidsmeting op locatie.</p>
+      <div class="flex flex-col sm:flex-row flex-wrap gap-4">
+        <a data-open-lead-popup href="../index.html#contact" class="bg-white text-brand-navy px-8 py-4 rounded-full text-base font-semibold inline-flex items-center justify-center gap-2">Plan <span class="accent-gratis">gratis</span> meting</a>
+        <a href="../index.html#producten" class="border border-white/25 px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 inline-flex items-center justify-center">Producten</a>
+        <a href="../vlarem/" class="border border-white/25 px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 inline-flex items-center justify-center">VLAREM-tool</a>
       </div>
     </aside>
 
@@ -95,6 +106,7 @@
         <a href="../index.html#specs" class="hover:text-white transition-colors">Specs</a>
         <a href="../index.html#contact" class="hover:text-white transition-colors">Contact</a>
         <a href="./index.html" class="hover:text-white transition-colors">Blog</a>
+        <a href="../vlarem/" class="hover:text-white transition-colors">VLAREM-tool</a>
         <a href="../privacy.html" class="hover:text-white transition-colors">Privacy</a>
       </div>
       <p class="text-xs text-white/30">© 2026 REDUCD B.V.</p>
@@ -114,6 +126,8 @@
       organizationJsonLd,
       blogPostingJsonLd,
       breadcrumbJsonLd,
+      faqPageJsonLd,
+      renderFaqHtml,
       renderPostCards
     } from "../js/blog-posts.js";
 
@@ -164,8 +178,14 @@
       const contentEl = document.getElementById("post-content");
       const html = isHtmlContent(post.content);
       contentEl.classList.toggle("plain", !html);
-      if (html) contentEl.innerHTML = post.content;
+      const faqHtml = renderFaqHtml(post.faq);
+      if (html) contentEl.innerHTML = (post.content || "") + faqHtml;
       else contentEl.textContent = post.content || "";
+      if (!html && faqHtml) {
+        const wrap = document.createElement("div");
+        wrap.innerHTML = faqHtml;
+        contentEl.after(wrap);
+      }
       const cover = document.getElementById("post-cover");
       if (post.coverImage) {
         cover.classList.remove("hidden");
@@ -175,6 +195,8 @@
       injectJsonLd("ld-organization", organizationJsonLd());
       injectJsonLd("ld-article", blogPostingJsonLd(post, pageUrl, coverAbs));
       injectJsonLd("ld-breadcrumb", breadcrumbJsonLd(post, pageUrl));
+      const faqLd = faqPageJsonLd(post.faq);
+      if (faqLd) injectJsonLd("ld-faq", faqLd);
     }
 
     async function renderRelated(currentSlug) {
