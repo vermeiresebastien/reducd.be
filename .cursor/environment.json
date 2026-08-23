@@ -1,0 +1,16 @@
+{
+  "name": "reducd.be static site",
+  "terminals": [
+    {
+      "name": "static-server",
+      "command": "python3 -m http.server 8000 --bind 0.0.0.0",
+      "description": "Serves the static reducd.be site (root index.html plus /docs/, /vlarem/, /pro/, /blog/, /admin/) at http://localhost:8000. No build step; edits are picked up on the next request."
+    }
+  ],
+  "ports": [
+    {
+      "name": "Static site",
+      "port": 8000
+    }
+  ]
+}
