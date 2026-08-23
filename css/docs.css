@@ -18,9 +18,13 @@
 .doc-table th { text-align: left; background: #0F2A3A; color: #fff; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; padding: 0.85rem 1rem; }
 .doc-table td { padding: 0.8rem 1rem; border-bottom: 1px solid rgba(15,42,58,0.08); color: rgba(15,42,58,0.7); }
 .doc-table td:first-child { font-weight: 600; color: #0F2A3A; }
-.accent-gratis { color: #D49A12; }
-.btn-primary .accent-gratis { color: #E8B84A; }
-.doc-callout .accent-gratis { color: #E8B84A; }
+.accent-gratis { color: inherit; transition: color 0.42s ease; }
+.btn-primary .accent-gratis,
+.doc-callout .accent-gratis { color: #fff; }
+.btn-primary .accent-gratis.is-hot,
+.btn-primary.is-near .accent-gratis,
+.doc-callout .accent-gratis.is-hot,
+.doc-callout.is-near .accent-gratis { color: #E8B84A; }
 .doc-callout { background: #0F2A3A; color: #fff; border-radius: 1.15rem; padding: 1.35rem 1.5rem; margin: 1.25rem 0 1.6rem; }
 .doc-callout p { color: rgba(255,255,255,0.72); font-weight: 300; margin: 0; }
 .doc-callout strong { color: #fff; }

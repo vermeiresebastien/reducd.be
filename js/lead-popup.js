@@ -1,8 +1,9 @@
 /**
- * Lead capture popup — layout inspired by live REDUCD offer popup,
- * styled in brand navy (#0F2A3A) + white. Hooks: timer / scroll / exit-intent.
+ * Lead capture popup — mobile-first sheet, brand navy (#0F2A3A) + white.
+ * Hooks: timer / scroll / exit-intent. Submit: generate_lead / conversion.
  */
 (function () {
+  const SUBMIT_LABEL = "Plan nu uw meting";
   const DEFAULTS = {
     enabled: true,
     delayMs: 45000,
@@ -17,7 +18,7 @@
   }
 
   function isProPage() {
-    return /\/(pro|vlarem|docs)(\/|$)/i.test(location.pathname);
+    return /\/(pro|vlarem|docs|platform)(\/|$)/i.test(location.pathname);
   }
 
   function isCoolingDown(key) {
@@ -27,7 +28,6 @@
       const until = parseInt(raw, 10);
       if (Number.isFinite(until) && Date.now() < until) return true;
       localStorage.removeItem(key);
-      return false;
     } catch (e) {
       return false;
     }
@@ -41,7 +41,7 @@
   }
 
   function assetBase() {
-    if (/\/pro\/docs(\/|$)/i.test(location.pathname)) return "../../";
+    if (/\/pro\/(docs|platform)(\/|$)/i.test(location.pathname)) return "../../";
     return /\/(blog|admin|pro|vlarem|docs)(\/|$)/i.test(location.pathname) ? "../" : "";
   }
 
@@ -64,36 +64,49 @@
     wrap.innerHTML = `
       <div class="lead-popup__backdrop" data-lead-popup-close></div>
       <div class="lead-popup__panel">
-        <button type="button" class="lead-popup__close" data-lead-popup-close aria-label="Sluiten">
-          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
-
-        <div class="lead-popup__top">
-          <h2 id="leadPopupTitle" class="lead-popup__title">Wij komen bij u langs</h2>
-          <p class="lead-popup__sub">
-            voor een geluidsadvies bij u thuis — geheel vrijblijvend &amp; kosteloos,
-            incl. professionele geluidsmeting
-          </p>
-          <p class="lead-popup__value">t.w.v. €&nbsp;325</p>
-          <div class="lead-popup__hero">
-            <img src="${heroSrc()}" alt="REDUCD team bij akoestische omkasting" width="640" height="400" loading="lazy">
-          </div>
+        <div class="lead-popup__media" aria-hidden="true">
+          <img src="${heroSrc()}" alt="" width="640" height="800" loading="lazy">
         </div>
 
-        <div class="lead-popup__bottom">
-          <p class="lead-popup__prompt">
-            Laat uw gegevens achter en wij nemen binnen 48u contact met u op
-            om uw geluidsadvies <span class="lead-popup__underline">op locatie</span> in te plannen.
-          </p>
+        <div class="lead-popup__main">
+          <div class="lead-popup__bar">
+            <p class="lead-popup__eyebrow">Advies op locatie</p>
+            <button type="button" class="lead-popup__close" data-lead-popup-close aria-label="Sluiten">
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+          </div>
           <form id="leadPopupForm" class="lead-popup__form" novalidate>
-            <input type="text" name="name" class="lead-popup__input" placeholder="Naam" required autocomplete="name">
-            <input type="email" name="email" class="lead-popup__input" placeholder="E-mail" required autocomplete="email">
-            <input type="tel" name="phone" class="lead-popup__input" placeholder="Telefoonnummer" required autocomplete="tel">
-            <button type="submit" class="lead-popup__submit">Plan <span class="accent-gratis">gratis</span> meting</button>
-            <p class="lead-popup__legal">
-              Door te versturen ga je akkoord met ons
-              <a href="${privacyHref()}" data-privacy-link>privacybeleid</a>.
-            </p>
+            <div class="lead-popup__scroll">
+              <h2 id="leadPopupTitle" class="lead-popup__title">Wij komen bij u langs</h2>
+              <p class="lead-popup__sub">
+                Geluidsadvies bij u thuis — vrijblijvend en kosteloos, inclusief professionele meting.
+              </p>
+              <p class="lead-popup__value"><span>t.w.v. €&nbsp;325</span></p>
+              <p class="lead-popup__prompt">
+                We nemen binnen 48 uur contact op om de meting in te plannen.
+              </p>
+
+              <label class="lead-popup__field">
+                <span class="lead-popup__label">Naam</span>
+                <input type="text" name="name" class="lead-popup__input" autocomplete="name" autocapitalize="words" spellcheck="false" enterkeyhint="next" required>
+              </label>
+              <label class="lead-popup__field">
+                <span class="lead-popup__label">E-mail</span>
+                <input type="email" name="email" class="lead-popup__input" autocomplete="email" inputmode="email" spellcheck="false" enterkeyhint="next" required>
+              </label>
+              <label class="lead-popup__field">
+                <span class="lead-popup__label">Telefoonnummer</span>
+                <input type="tel" name="phone" class="lead-popup__input" autocomplete="tel" inputmode="tel" enterkeyhint="send" required>
+              </label>
+            </div>
+
+            <div class="lead-popup__actions">
+              <button type="submit" class="lead-popup__submit">${SUBMIT_LABEL}</button>
+              <p class="lead-popup__legal">
+                Door te versturen ga je akkoord met ons
+                <a href="${privacyHref()}" data-privacy-link>privacybeleid</a>.
+              </p>
+            </div>
           </form>
           <p class="lead-popup__success" hidden>Bedankt — we plannen spoedig uw advies op locatie.</p>
         </div>
@@ -108,138 +121,179 @@
     s.textContent = `
       .lead-popup {
         position: fixed; inset: 0; z-index: 95;
-        display: none; align-items: center; justify-content: center;
-        padding: 1rem;
+        display: none; align-items: flex-end; justify-content: center;
+        padding: 0;
+        --lead-navy: #0F2A3A;
+        --lead-muted: rgba(15,42,58,.58);
+        --lead-line: rgba(15,42,58,.1);
       }
       .lead-popup.is-open { display: flex; }
       .lead-popup__backdrop {
         position: absolute; inset: 0;
-        background: rgba(15,42,58,.78);
-        backdrop-filter: blur(2px);
+        background: rgba(15,42,58,.72);
+        backdrop-filter: blur(4px);
       }
       .lead-popup__panel {
         position: relative;
-        width: min(100%, 26.5rem);
-        max-height: min(94vh, 52rem);
-        overflow: auto;
+        display: flex; flex-direction: column;
+        width: 100%;
+        max-width: 26.5rem;
+        max-height: min(92dvh, calc(var(--lead-vvh, 100dvh) - 0.5rem));
         background: #fff;
-        color: #0F2A3A;
-        border-radius: 1.25rem;
-        box-shadow: 0 28px 80px rgba(15,42,58,.35);
+        color: var(--lead-navy);
+        border-radius: 1.35rem 1.35rem 0 0;
+        box-shadow: 0 24px 72px rgba(15,42,58,.32);
         font-family: Inter, system-ui, sans-serif;
         -webkit-font-smoothing: antialiased;
+        overflow: hidden;
+        overscroll-behavior: contain;
+      }
+      .lead-popup__main {
+        display: flex; flex-direction: column;
+        flex: 1; min-height: 0; min-width: 0;
+        background: #fff;
+        position: relative;
+      }
+      .lead-popup__bar {
+        display: flex; justify-content: space-between; align-items: center;
+        gap: .75rem;
+        flex-shrink: 0;
+        padding: .45rem .55rem .15rem 1.25rem;
+      }
+      .lead-popup__eyebrow {
+        margin: 0;
+        font-size: .68rem;
+        font-weight: 700;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: rgba(15,42,58,.45);
       }
       .lead-popup__close {
-        position: absolute; top: .85rem; right: .85rem; z-index: 2;
-        width: 2.25rem; height: 2.25rem; border: 0; border-radius: 999px;
-        background: rgba(15,42,58,.06); color: #0F2A3A;
+        width: 2.75rem; height: 2.75rem; min-width: 44px; min-height: 44px;
+        border: 1px solid rgba(15,42,58,.1); border-radius: 999px;
+        background: rgba(15,42,58,.06); color: var(--lead-navy);
         display: inline-flex; align-items: center; justify-content: center;
         cursor: pointer; transition: background .2s;
       }
       .lead-popup__close:hover { background: rgba(15,42,58,.12); }
+      .lead-popup__close:focus-visible {
+        outline: 2px solid var(--lead-navy); outline-offset: 2px;
+      }
 
-      .lead-popup__top {
-        padding: 2rem 1.6rem 0.25rem;
-        text-align: center;
+      .lead-popup__media { display: none; }
+      .lead-popup__media img {
+        display: block; width: 100%; height: 100%;
+        object-fit: cover; object-position: center 18%;
+      }
+
+      .lead-popup__form {
+        display: flex; flex-direction: column;
+        flex: 1; min-height: 0;
+      }
+      .lead-popup__scroll {
+        flex: 1; min-height: 0;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        padding: .15rem 1.25rem .35rem;
       }
       .lead-popup__title {
-        margin: 0 1.5rem .65rem;
-        font-size: clamp(1.45rem, 4.5vw, 1.85rem);
-        font-weight: 800;
+        margin: 0 0 .55rem;
+        font-size: 1.38rem;
+        font-weight: 700;
         letter-spacing: -0.03em;
-        line-height: 1.12;
-        text-transform: uppercase;
-        color: #0F2A3A;
+        line-height: 1.18;
+        color: var(--lead-navy);
       }
       .lead-popup__sub {
-        margin: 0 auto .85rem;
-        max-width: 22rem;
-        font-size: .82rem;
-        line-height: 1.5;
+        margin: 0 0 .75rem;
+        font-size: .9rem;
+        line-height: 1.45;
         font-weight: 400;
-        color: rgba(15,42,58,.62);
+        color: var(--lead-muted);
       }
       .lead-popup__value {
         margin: 0 0 1rem;
-        font-size: 1.05rem;
-        font-weight: 700;
-        color: #0F2A3A;
-        text-decoration: underline;
-        text-underline-offset: 4px;
-        text-decoration-thickness: 1.5px;
       }
-      .lead-popup__hero {
-        margin: 0 -0.15rem;
-        border-radius: .75rem .75rem 0 0;
-        overflow: hidden;
-        aspect-ratio: 16 / 11;
-        background: rgba(15,42,58,.04);
-      }
-      .lead-popup__hero img {
-        display: block; width: 100%; height: 100%;
-        object-fit: cover; object-position: center top;
-      }
-
-      .lead-popup__bottom {
-        background: #0F2A3A;
-        color: #fff;
-        padding: 1.35rem 1.5rem 1.5rem;
-        border-radius: 0 0 1.25rem 1.25rem;
+      .lead-popup__value span {
+        display: inline-block;
+        padding: .22rem .6rem;
+        border-radius: 999px;
+        background: rgba(15,42,58,.05);
+        font-size: .75rem;
+        font-weight: 600;
+        letter-spacing: .01em;
+        color: var(--lead-navy);
       }
       .lead-popup__prompt {
         margin: 0 0 1rem;
-        font-size: .84rem;
-        font-weight: 600;
+        font-size: .82rem;
         line-height: 1.45;
-        text-align: center;
+        color: var(--lead-muted);
       }
-      .lead-popup__underline {
-        text-decoration: underline;
-        text-underline-offset: 3px;
+      .lead-popup__field {
+        display: block;
+        margin: 0 0 .7rem;
       }
-      .lead-popup__form {
-        display: flex; flex-direction: column; gap: .55rem;
+      .lead-popup__label {
+        display: block;
+        margin: 0 0 .28rem .1rem;
+        font-size: .75rem;
+        font-weight: 600;
+        color: var(--lead-navy);
       }
       .lead-popup__input {
         width: 100%;
-        padding: .85rem 1rem;
-        border: 0;
-        border-radius: .55rem;
-        background: #fff;
-        color: #0F2A3A;
-        font-size: .9rem;
+        min-height: 44px;
+        padding: .75rem .95rem;
+        border: 1px solid var(--lead-line);
+        border-radius: .7rem;
+        background: #f7f9fb;
+        color: var(--lead-navy);
+        font-size: 16px;
+        line-height: 1.3;
         font-family: inherit;
       }
-      .lead-popup__input::placeholder { color: rgba(15,42,58,.4); }
       .lead-popup__input:focus {
-        outline: 2px solid rgba(255,255,255,.55);
-        outline-offset: 1px;
+        outline: none;
+        background: #fff;
+        border-color: var(--lead-navy);
+        box-shadow: 0 0 0 3px rgba(15,42,58,.1);
       }
-      .lead-popup__submit .accent-gratis { color: #D49A12; }
+
+      .lead-popup__actions {
+        flex-shrink: 0;
+        padding: .75rem 1.25rem calc(.95rem + env(safe-area-inset-bottom, 0px));
+        background: #fff;
+        border-top: 1px solid var(--lead-line);
+        box-shadow: 0 -10px 24px rgba(15,42,58,.04);
+      }
       .lead-popup__submit {
         width: 100%;
-        margin-top: .2rem;
-        padding: 1rem 1.1rem;
+        min-height: 48px;
+        padding: .9rem 1.15rem;
         border: 0;
-        border-radius: .55rem;
-        background: #fff;
-        color: #0F2A3A;
-        font-size: .72rem;
-        font-weight: 800;
-        letter-spacing: .1em;
-        text-transform: uppercase;
+        border-radius: 999px;
+        background: var(--lead-navy);
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
         font-family: inherit;
         cursor: pointer;
-        transition: transform .2s, background .2s;
+        transition: background .2s, transform .2s;
       }
-      .lead-popup__submit:hover { background: #f3f6f8; transform: translateY(-1px); }
+      .lead-popup__submit:hover { background: #1a3f54; transform: translateY(-1px); }
+      .lead-popup__submit:focus-visible {
+        outline: 2px solid var(--lead-navy); outline-offset: 3px;
+      }
       .lead-popup__submit:disabled { opacity: .7; cursor: wait; transform: none; }
       .lead-popup__legal {
-        margin: .45rem 0 0;
-        font-size: .62rem;
+        margin: .55rem 0 0;
+        font-size: .68rem;
         line-height: 1.4;
         text-align: center;
-        color: rgba(255,255,255,.45);
+        color: rgba(15,42,58,.42);
       }
       .lead-popup__legal a {
         color: inherit;
@@ -248,16 +302,39 @@
       }
       .lead-popup__success {
         margin: 0;
-        padding: 1.5rem 0 .5rem;
+        padding: 2.5rem 1.5rem 2rem;
         text-align: center;
         font-size: .95rem;
         font-weight: 600;
+        line-height: 1.45;
       }
 
-      @media (max-width: 420px) {
-        .lead-popup__top { padding: 1.65rem 1.15rem 0; }
-        .lead-popup__bottom { padding: 1.15rem 1.15rem 1.25rem; }
-        .lead-popup__hero { aspect-ratio: 16 / 12; }
+      @media (min-width: 800px) and (min-height: 640px) {
+        .lead-popup { align-items: center; padding: 1.5rem; }
+        .lead-popup__panel {
+          flex-direction: row;
+          width: min(100%, 42rem);
+          max-width: 42rem;
+          max-height: min(86dvh, 40rem);
+          min-height: 28rem;
+          border-radius: 1.35rem;
+        }
+        .lead-popup__media {
+          display: block;
+          width: 16rem;
+          height: auto;
+          align-self: stretch;
+          flex-shrink: 0;
+        }
+        .lead-popup__media img { object-position: center 12%; }
+        .lead-popup__main { min-width: 0; min-height: 0; flex: 1; }
+        .lead-popup__bar { padding: .55rem .7rem .1rem 1.6rem; }
+        .lead-popup__scroll { padding: .15rem 1.6rem .5rem; }
+        .lead-popup__title { font-size: 1.55rem; }
+        .lead-popup__actions {
+          padding: .85rem 1.6rem 1.2rem;
+          box-shadow: none;
+        }
       }
     `;
     document.head.appendChild(s);
@@ -299,18 +376,21 @@
 
     const form = modal.querySelector("#leadPopupForm");
 
+    function syncViewport() {
+      const h = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+      modal.style.setProperty("--lead-vvh", h + "px");
+    }
+
     function resetForm() {
       if (!form) return;
       form.hidden = false;
       form.reset();
-      const prompt = modal.querySelector(".lead-popup__prompt");
-      if (prompt) prompt.hidden = false;
       const ok = modal.querySelector(".lead-popup__success");
       if (ok) ok.hidden = true;
       const btn = form.querySelector('button[type="submit"]');
       if (btn) {
         btn.disabled = false;
-        btn.innerHTML = 'Plan <span class="accent-gratis">gratis</span> meting';
+        btn.textContent = SUBMIT_LABEL;
       }
     }
 
@@ -320,6 +400,7 @@
       if (!manual && autoUsed) return;
       if (!manual) autoUsed = true;
       resetForm();
+      syncViewport();
       document.getElementById("mobileMenu")?.classList.add("translate-x-full");
       modal.hidden = false;
       modal.classList.add("is-open");
@@ -328,7 +409,9 @@
         trigger: trigger || "unknown",
         content_name: "lead_popup"
       });
-      modal.querySelector('input[name="name"]')?.focus();
+      if (window.matchMedia("(min-width: 640px)").matches) {
+        modal.querySelector('input[name="name"]')?.focus();
+      }
     }
 
     function close(persist) {
@@ -349,6 +432,12 @@
       if (e.key === "Escape" && modal.classList.contains("is-open")) close(true);
     });
 
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", syncViewport);
+      window.visualViewport.addEventListener("scroll", syncViewport);
+    }
+    window.addEventListener("resize", syncViewport);
+
     form?.addEventListener("submit", (e) => {
       e.preventDefault();
       if (!form.checkValidity()) {
@@ -367,8 +456,6 @@
       });
       setTimeout(() => {
         form.hidden = true;
-        const prompt = modal.querySelector(".lead-popup__prompt");
-        if (prompt) prompt.hidden = true;
         const ok = modal.querySelector(".lead-popup__success");
         if (ok) ok.hidden = false;
         setCooldown(cfg.storageKey, cfg.cooldownDays);

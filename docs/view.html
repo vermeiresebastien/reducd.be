@@ -17,7 +17,9 @@
     <script src="../js/tracking-config.js"></script>
     <script src="../js/tracking.js" defer></script>
     <script src="../js/lead-popup.js" defer></script>
+    <script src="../js/scroll-motion.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/scroll-motion.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -39,25 +41,25 @@
         .btn-primary:hover { background: #1a3f54; transform: translateY(-2px); }
         .btn-outline { border: 1.5px solid #0F2A3A; color: #0F2A3A; transition: all 0.35s var(--ease-out); }
         .btn-outline:hover { background: #0F2A3A; color: #fff; }
-        .accent-gratis { color: #A37200; }
-        .btn-primary .accent-gratis { color: #E8B84A; }
         #navPill { background: #fff; border: 1px solid rgba(15,42,58,0.08); box-shadow: 0 4px 24px rgba(15,42,58,0.06); }
-        .form-field { width: 100%; padding: 1.1rem 1.25rem; background: #fff; border: 1px solid rgba(15,42,58,0.12); border-radius: 12px; color: #0F2A3A; font-size: 1rem; }
-        .form-field:focus { outline: none; border-color: #0F2A3A; box-shadow: 0 0 0 3px rgba(15,42,58,0.08); }
+        .form-field { width: 100%; padding: 0.7rem 0 0.55rem; background: transparent; border: 0; border-bottom: 1px solid rgba(15,42,58,0.16); border-radius: 0; color: #0F2A3A; font-size: 0.9375rem; font-weight: 400; }
+        .form-field:focus { outline: none; border-bottom-color: #0F2A3A; box-shadow: none; }
+        .form-field::placeholder { color: rgba(15,42,58,0.32); }
+        select.form-field { background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath stroke='%230F2A3A' stroke-opacity='.35' stroke-width='1.4' d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E") no-repeat right 0.15rem center; padding-right: 1.2rem; }
     </style>
 </head>
 <body>
-    <header class="fixed top-0 left-0 right-0 z-50 px-4 pt-4 lg:pt-6">
-        <nav id="navPill" class="max-w-5xl mx-auto flex items-center justify-between px-5 py-3 rounded-full">
-            <a href="../" class="flex items-center"><img src="../assets/images/logo-reducd.png" alt="REDUCD" class="h-10 lg:h-11 w-auto"></a>
-            <div class="hidden md:flex items-center gap-5 lg:gap-7">
+    <header class="fixed top-0 left-0 right-0 z-50 px-6 lg:px-8 pt-4 lg:pt-6">
+        <nav id="navPill" class="max-w-7xl mx-auto flex items-center justify-between gap-4 px-5 sm:px-6 py-3 rounded-full">
+            <a href="../" class="flex items-center shrink-0"><img src="../assets/images/logo-reducd.png" alt="REDUCD" class="h-10 lg:h-11 w-auto"></a>
+            <div class="hidden md:flex flex-1 items-center justify-center gap-5 lg:gap-8">
                 <a href="../#producten" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Producten</a>
                 <a href="./" class="text-[11px] font-medium text-brand-navy uppercase tracking-widest">Docs</a>
                 <a href="../vlarem/" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">VLAREM</a>
                 <a href="../pro/" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Pro</a>
                 <a href="../#contact" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy uppercase tracking-widest">Contact</a>
             </div>
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-3 shrink-0">
                 <a data-open-lead-popup href="../#contact" class="hidden sm:inline-flex btn-primary px-5 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-wider"><span class="accent-gratis">Gratis</span> meting</a>
                 <button id="menuBtn" class="md:hidden w-9 h-9 flex items-center justify-center text-brand-navy" aria-label="Menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -78,28 +80,29 @@
     </div>
 
     <section class="pt-32 pb-10 lg:pt-40 lg:pb-12 px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto">
+        <div class="max-w-7xl mx-auto">
             <a id="docHubLink" href="./" class="text-[11px] font-semibold uppercase tracking-widest text-brand-navy/45 hover:text-brand-navy">← Documentatie</a>
             <p class="doc-kicker mt-5" data-doc-kicker>Documentatie</p>
             <h1 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-3 tracking-tight leading-[1.08]" data-doc-title>Documentatie</h1>
-            <p class="text-brand-navy/55 mt-4 text-lg font-light leading-relaxed" data-doc-summary>Vul je gegevens in om dit document te openen.</p>
+            <p class="text-brand-navy/55 mt-4 text-lg font-light leading-relaxed" data-doc-summary>Een korte kennismaking, daarna lees je verder.</p>
         </div>
     </section>
 
     <section class="px-6 lg:px-8 pb-8" id="docGate">
         <div class="max-w-7xl mx-auto">
-            <div class="bg-brand-navy text-white rounded-3xl p-8 lg:py-16 lg:pl-16 lg:pr-10 grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-                <div class="lg:col-span-4">
-                    <p class="text-[11px] font-bold uppercase tracking-[0.22em] text-white/40 mb-3">Toegang</p>
-                    <h2 class="font-extrabold text-2xl lg:text-4xl tracking-tight mb-4 leading-[1.1]">Eerst je gegevens, daarna het document</h2>
-                    <p class="text-white/60 font-light leading-relaxed text-base lg:text-lg">We gebruiken je contactgegevens om te kunnen opvolgen — geen nieuwsbrief, geen doorverkoop. Daarna zie je de volledige tekst in sitestijl én de originele PDF.</p>
+            <div class="bg-brand-navy text-white rounded-3xl p-8 lg:py-16 lg:px-16 grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+                <div class="lg:col-span-6">
+                    <p class="text-[11px] font-bold uppercase tracking-[0.22em] text-white/40 mb-3">Documentatie</p>
+                    <h2 class="font-extrabold text-2xl lg:text-[2.35rem] tracking-tight mb-4 leading-[1.12]">Een korte kennismaking</h2>
+                    <p class="text-white/60 font-light leading-relaxed text-base lg:text-[1.05rem] max-w-md">Laat je naam, e-mail en telefoon achter. Zo kunnen we later helpen als je vragen hebt — geen nieuwsbrief. Daarna lees je de tekst hier, of als PDF.</p>
                 </div>
-                <form id="docGateForm" class="lg:col-span-8 bg-white text-brand-navy rounded-3xl p-8 sm:p-10 lg:p-12 space-y-5">
-                    <input type="text" name="name" required class="form-field" placeholder="Uw naam" autocomplete="name">
+                <form id="docGateForm" class="lg:col-span-5 lg:col-start-8 bg-white text-brand-navy rounded-3xl px-8 py-9 lg:px-10 lg:py-10">
+                    <div class="space-y-0.5">
+                    <input type="text" name="name" required class="form-field" placeholder="Naam" autocomplete="name">
                     <input type="email" name="email" required class="form-field" placeholder="E-mail" autocomplete="email">
                     <input type="tel" name="phone" required class="form-field" placeholder="Telefoon" autocomplete="tel">
                     <div id="docCompanyWrap" hidden>
-                        <input type="text" name="company" id="docCompany" class="form-field" placeholder="Bedrijf / installatiebedrijf" autocomplete="organization">
+                        <input type="text" name="company" id="docCompany" class="form-field" placeholder="Bedrijf" autocomplete="organization">
                     </div>
                     <div id="docTypeWrap">
                         <select name="customerType" class="form-field appearance-none cursor-pointer">
@@ -108,8 +111,9 @@
                             <option value="project">Projectontwikkelaar</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn-primary w-full py-4 rounded-xl font-bold text-sm uppercase tracking-widest">Document openen →</button>
-                    <p class="text-[11px] text-brand-navy/40 leading-relaxed">Door te versturen ga je akkoord met ons <a href="../privacy.html" class="underline hover:text-brand-navy">privacybeleid</a>. We gebruiken je gegevens enkel om je aanvraag te beantwoorden.</p>
+                    <button type="submit" class="btn-primary mt-7 px-7 py-3 rounded-full font-semibold text-[11px] uppercase tracking-wider">Verder lezen →</button>
+                    <p class="text-[11px] text-brand-navy/40 leading-relaxed mt-4">Akkoord met ons <a href="../privacy.html" class="underline hover:text-brand-navy">privacybeleid</a>. Alleen om je aanvraag te beantwoorden.</p>
+                    </div>
                 </form>
             </div>
         </div>
