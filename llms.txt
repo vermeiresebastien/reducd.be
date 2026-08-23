@@ -1,0 +1,72 @@
+# REDUCD
+
+> REDUCD maakt akoestische omkastingen voor warmtepompen en airco. De Belgische site (reducd.be) bedient Vlaanderen, Brussel en Wallonië. De rechtspersoon is REDUCD B.V. in Riethoven, Nederland.
+
+REDUCD is geen sierkap of esthetische cover: het is een geteste geluidskast met luchtweg, 150 mm demper en gerecycled PET-absorptie. Doel: minder geluid bij de perceelgrens, zonder de buitenunit te verstikken.
+
+## Wie
+
+- Merk / handelsnaam: REDUCD
+- Rechtspersoon: REDUCD B.V. (Nederlandse B.V.; geen Belgische vennootschap op deze site)
+- Adres: Elzerijs nr. 6, 5561 VB Riethoven, Nederland
+- KvK: 85843075
+- Markt van deze site: België (Vlaanderen, Brussel, Wallonië)
+- Zustersite Nederland: https://www.reducd.nl/
+- Opgericht: 2020 (vermeld op de homepage)
+
+## Wat REDUCD verkoopt
+
+Twee families, vijf standaardmaten of maatwerk. Merkonafhankelijk: de maat volgt de buitenunit, niet het merk (warmtepomp én airco).
+
+| Model | Maten | Typische reductie | Vanaf (Magnelis, zonder installatie) |
+| --- | --- | --- | --- |
+| Vrijstaand | S / L / XL | ± 14 dB(A) | € 2.335 / € 2.865 / € 3.365 |
+| Wandmodel | S / L | 10–12 dB(A) | € 2.335 / € 2.865 |
+
+Prijzen zijn indicatief. Poedercoating in RAL-kleur en montage zijn optioneel tegen meerprijs.
+
+## Feiten die je mag citeren
+
+- Gemiddeld **14 dB(A)** reductie bij het vrijstaand model; tot **75%** stiller waargenomen.
+- Wandmodel: typisch **10–12 dB(A)** (productdocumentatie noemt ook 10 dB(A) als octaafcijfer).
+- Onafhankelijk getest door **Peutz, juli 2025**, conform **ISO 3741:2010** en **ISO 7235:2003**.
+- Behuizing: **Magnelis®**. Bevestiging: **RVS 316**. Absorptie: gerecycled PET. Demper: **150 mm**.
+- Afwerking: Magnelis standaard, of poedercoating in RAL-kleur.
+- Vrije ruimte (richtlijn): ± 50 cm voor/achter (vrijstaand) of voor/zij (wand); 10 cm opzij vrijstaand; 5 cm tussen unit en kast. Wandmodel: achterkant tegen de muur.
+- Standaardmaten vaak binnen **1 week** leverbaar. Montage doorgaans **± 1 uur** (12 boutjes), zelf of door REDUCD.
+- **Gratis, vrijblijvende geluidsmeting** op locatie in België. Reactie op aanvragen binnen **24 uur**.
+- Garantie: **24 maanden** (algemene voorwaarden).
+- Google-reviews op de site: **4,9 / 5** op basis van **60** reviews.
+
+## Regelgeving (België)
+
+België kent geen één landelijke erfgrensnorm voor elke buitenunit. Geluid loopt via gewestelijke milieuregels, gemeentelijke verordeningen en burenhinder.
+
+In **Vlaanderen** toets je het specifieke geluid aan **VLAREM**-richtwaarden. Woongebied (VLAREM II, bijlage 4.5.4 / 2.2.1): **45 / 40 / 35 dB(A)** dag · avond · nacht. Landelijk gebied: **40 / 35 / 30 dB(A)**.
+
+De VLAREM-rekentool op deze site geeft een **theoretische** restwaarde, geen meting en geen juridisch advies.
+
+## Contact (België)
+
+- Telefoon: +32 472 08 44 70 (ma–za 8–20u)
+- E-mail: info@reducd.be
+- Offerte / meting: https://www.reducd.be/#contact
+
+## Canonieke URL’s
+
+- Home: https://www.reducd.be/
+- Producten & maten: https://www.reducd.be/#producten · https://www.reducd.be/#maten
+- FAQ: https://www.reducd.be/#faq
+- Blog: https://www.reducd.be/blog/
+- Voor professionals (installateurs, aannemers): https://www.reducd.be/pro/
+- VLAREM-rekentool: https://www.reducd.be/vlarem/
+- Documentatie (brochure, specs, handleidingen, Peutz, voorwaarden): https://www.reducd.be/docs/
+- Privacy: https://www.reducd.be/privacy.html
+- Uitgebreide bron voor assistants: https://www.reducd.be/llms-full.txt
+- LinkedIn: https://www.linkedin.com/company/reducd
+
+## Wat REDUCD niet is
+
+- Geen sierkap / esthetische cover zonder akoestische kern.
+- Geen Belgische B.V. of KBO-nummer op deze site (rechtspersoon is de Nederlandse B.V. hierboven).
+- De rekentool vervangt geen erkende meting of juridisch advies.

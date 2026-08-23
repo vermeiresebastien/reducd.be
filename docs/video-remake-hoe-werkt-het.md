@@ -5,6 +5,11 @@ Doelduur: **~105 seconden** · Formaat: **16:9** · Tone: rustig, deskundig, Ste
 
 Keyframes: `assets/images/video-keyframes/`
 
+**Audio + slideshow**
+- Audio: `assets/audio/hoe-werkt-het.m4a` (uit youtu.be/8CJLvJUjWmk)
+- Video: `assets/video/hoe-werkt-het-keyframes.mp4` (originele audio + 6 keyframes)
+- Preview: `docs/audio-keyframes-preview.html` (audio boven, keyframes eronder, sync)
+
 ---
 
 ## 1. Voice-over script (NL)

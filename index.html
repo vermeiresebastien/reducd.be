@@ -14,13 +14,13 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="nl_BE">
     <meta property="og:site_name" content="REDUCD">
-    <meta property="og:title" content="Akoestische omkasting warmtepomp | 14 dB(A) | REDUCD">
-    <meta property="og:description" content="Gemiddeld 14 dB(A) reductie, getest door Peutz. Vanaf € 2.335. Gratis geluidsmeting in België.">
+    <meta property="og:title" content="Akoestische omkasting warmtepomp | 14 dB(A) | REDUCD België">
+    <meta property="og:description" content="REDUCD: akoestische omkastingen in Vlaanderen en België. Gemiddeld 14 dB(A) (Peutz). Vanaf € 2.335. Gratis geluidsmeting.">
     <meta property="og:url" content="https://www.reducd.be/">
     <meta property="og:image" content="https://www.reducd.be/assets/images/installs/install-patio-olijf.webp">
     <meta property="og:image:alt" content="Zwarte REDUCD akoestische omkasting bij een moderne woning">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Akoestische omkasting warmtepomp | REDUCD">
+    <meta name="twitter:title" content="Akoestische omkasting warmtepomp | REDUCD België">
     <meta name="twitter:description" content="14 dB(A) reductie, vanaf € 2.335. Gratis geluidsmeting in België.">
     <meta name="twitter:image" content="https://www.reducd.be/assets/images/installs/install-patio-olijf.webp">
     <link rel="icon" href="assets/images/logo-reducd.png" type="image/png">
@@ -28,177 +28,224 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "REDUCD",
-      "url": "https://www.reducd.be",
-      "logo": "https://www.reducd.be/assets/images/logo-reducd.png",
-      "email": "info@reducd.be",
-      "telephone": "+32472084470",
-      "areaServed": ["BE"],
-      "sameAs": [
-        "https://www.linkedin.com/company/reducd"
-      ],
-      "description": "Akoestische omkastingen voor warmtepompen en airco's in België."
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "REDUCD",
-      "image": "https://www.reducd.be/assets/images/logo-reducd.png",
-      "url": "https://www.reducd.be",
-      "email": "info@reducd.be",
-      "telephone": "+32472084470",
-      "priceRange": "€€",
-      "areaServed": [
-        { "@type": "Country", "name": "Belgium" }
-      ],
-      "openingHoursSpecification": [{
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-        "opens": "08:00",
-        "closes": "20:00"
-      }],
-      "description": "Akoestische omkastingen voor warmtepompen en airco. Gemiddeld 14 dB(A) geluidsreductie, vanaf € 2.335.",
-      "knowsAbout": ["akoestische omkasting", "warmtepomp geluid", "suskast", "Magnelis", "geluidsmeting"],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "REDUCD omkastingen",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Vrijstaand model" }, "priceCurrency": "EUR", "price": "2335" },
-          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Wandmodel" }, "priceCurrency": "EUR", "price": "2335" }
-        ]
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "bestRating": "5",
-        "ratingCount": "60",
-        "reviewCount": "60"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "REDUCD",
-      "url": "https://www.reducd.be",
-      "inLanguage": "nl-BE",
-      "publisher": { "@type": "Organization", "name": "REDUCD" }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
+      "@graph": [
         {
-          "@type": "Question",
-          "name": "Hoeveel geluid reduceert een REDUCD omkasting?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Gemiddeld 14 dB(A) bij het vrijstaand model, tot 75% stiller waargenomen. Onafhankelijk getest door Peutz (juli 2025) conform ISO 3741:2010 en ISO 7235:2003. Het wandmodel reduceert typisch 10–12 dB(A)."
+          "@type": ["Organization", "LocalBusiness"],
+          "@id": "https://www.reducd.be/#business",
+          "name": "REDUCD",
+          "legalName": "REDUCD B.V.",
+          "url": "https://www.reducd.be/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.reducd.be/assets/images/logo-reducd.png"
+          },
+          "image": "https://www.reducd.be/assets/images/logo-reducd.png",
+          "email": "info@reducd.be",
+          "telephone": "+32472084470",
+          "priceRange": "€€",
+          "foundingDate": "2020",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Elzerijs nr. 6",
+            "addressLocality": "Riethoven",
+            "postalCode": "5561 VB",
+            "addressCountry": "NL"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "name": "KvK",
+            "value": "85843075"
+          },
+          "areaServed": [
+            { "@type": "Country", "name": "Belgium" },
+            { "@type": "AdministrativeArea", "name": "Flanders" }
+          ],
+          "openingHoursSpecification": [{
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "opens": "08:00",
+            "closes": "20:00"
+          }],
+          "sameAs": [
+            "https://www.linkedin.com/company/reducd",
+            "https://www.reducd.nl/",
+            "https://maps.app.goo.gl/i8iqMkF2s24Ydeah9"
+          ],
+          "description": "REDUCD maakt akoestische omkastingen voor warmtepompen en airco in België. Gemiddeld 14 dB(A) reductie (Peutz), vanaf € 2.335. Gratis geluidsmeting.",
+          "knowsAbout": ["akoestische omkasting", "warmtepomp geluid", "VLAREM", "Magnelis", "geluidsmeting"],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "bestRating": "5",
+            "ratingCount": "60",
+            "reviewCount": "60"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "REDUCD omkastingen",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@id": "https://www.reducd.be/#product-vrijstaand" } },
+              { "@type": "Offer", "itemOffered": { "@id": "https://www.reducd.be/#product-wand" } }
+            ]
           }
         },
         {
-          "@type": "Question",
-          "name": "Wat kost een akoestische omkasting van REDUCD?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Standaardmaten starten vanaf € 2.335 (Magnelis, zonder installatie). Poedercoating in RAL-kleur en montage zijn optioneel tegen meerprijs. Maatwerk op aanvraag."
+          "@type": "WebSite",
+          "@id": "https://www.reducd.be/#website",
+          "url": "https://www.reducd.be/",
+          "name": "REDUCD",
+          "inLanguage": "nl-BE",
+          "publisher": { "@id": "https://www.reducd.be/#business" }
+        },
+        {
+          "@type": "Product",
+          "@id": "https://www.reducd.be/#product-vrijstaand",
+          "name": "REDUCD vrijstaand model",
+          "description": "Akoestische omkasting voor vrijstaande warmtepomp- of airco-buitenunits. Maten S, L en XL. Gemiddeld 14 dB(A) reductie, Magnelis of RAL.",
+          "brand": { "@type": "Brand", "name": "REDUCD" },
+          "image": "https://www.reducd.be/assets/images/product-vrijstaand.webp",
+          "url": "https://www.reducd.be/#producten",
+          "material": "Magnelis",
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Geluidsreductie", "value": "± 14 dB(A)" },
+            { "@type": "PropertyValue", "name": "Demper", "value": "150 mm" },
+            { "@type": "PropertyValue", "name": "Maten", "value": "S / L / XL" }
+          ],
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "EUR",
+            "lowPrice": "2335",
+            "highPrice": "3365",
+            "offerCount": "3",
+            "availability": "https://schema.org/InStock",
+            "url": "https://www.reducd.be/#contact"
           }
         },
         {
-          "@type": "Question",
-          "name": "Wat is het verschil tussen een sierkap en een akoestische omkasting?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Een esthetische cover verhult de unit maar dempt nauwelijks. Een REDUCD-omkasting heeft een 150 mm demper, gerecycled PET-absorptie en een berekende luchtweg, zodat geluid én rendement kloppen."
+          "@type": "Product",
+          "@id": "https://www.reducd.be/#product-wand",
+          "name": "REDUCD wandmodel",
+          "description": "Akoestische omkasting voor buitenunits met de rug tegen de gevel. Maten S en L. Typisch 10–12 dB(A) reductie, Magnelis of RAL.",
+          "brand": { "@type": "Brand", "name": "REDUCD" },
+          "image": "https://www.reducd.be/assets/images/product-wand.webp",
+          "url": "https://www.reducd.be/#producten",
+          "material": "Magnelis",
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Geluidsreductie", "value": "10–12 dB(A)" },
+            { "@type": "PropertyValue", "name": "Demper", "value": "150 mm" },
+            { "@type": "PropertyValue", "name": "Maten", "value": "S / L" }
+          ],
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "EUR",
+            "lowPrice": "2335",
+            "highPrice": "2865",
+            "offerCount": "2",
+            "availability": "https://schema.org/InStock",
+            "url": "https://www.reducd.be/#contact"
           }
         },
         {
-          "@type": "Question",
-          "name": "Welke geluidsnormen gelden in België?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "België kent geen één landelijke erfgrensnorm. In Vlaanderen toets je het specifieke geluid aan VLAREM-richtwaarden (woongebied 45/40/35 dB(A)). Gebruik de VLAREM-rekentool op reducd.be/vlarem/ of plan een gratis meting."
+          "@type": "Service",
+          "@id": "https://www.reducd.be/#service-meting",
+          "name": "Gratis geluidsmeting op locatie",
+          "serviceType": "Akoestische geluidsmeting",
+          "description": "Vrijblijvende intake met geluidsmeting op locatie in België. Reactie binnen 24 uur. Geen vervanging van een erkend akoestisch onderzoek.",
+          "provider": { "@id": "https://www.reducd.be/#business" },
+          "areaServed": { "@type": "Country", "name": "Belgium" },
+          "url": "https://www.reducd.be/#contact",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
           }
         },
         {
-          "@type": "Question",
-          "name": "Kies ik een vrijstaand model of een wandmodel?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Vrijstaand (S/L/XL) past bij units in de tuin, oprit of platdak met ± 50 cm vrije ruimte. Wandmodel (S/L) is voor units met de rug tegen de gevel of weinig diepte tot pad of perceelgrens."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Hoe snel kan ik een omkasting krijgen?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Standaardmaten zijn vaak binnen een week leverbaar. Montage duurt doorgaans ongeveer een uur (12 boutjes), zelf of door het REDUCD-team. Maatwerk volgens afspraak."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is de geluidsmeting in België gratis?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ja. De intake met geluidsmeting op locatie is vrijblijvend en kosteloos. We beantwoorden aanvragen binnen 24 uur."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Hoe controleer ik of ik aan de VLAREM-normen voldoe?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Met de VLAREM-rekentool op reducd.be/vlarem/: merk en type of handmatige dB, afstand tot de perceelsgrens en opstelling. Theoretische restwaarde, geen vervanging van een meting."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Werkt een REDUCD-omkasting ook voor airco?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ja. De omkastingen zijn gemaakt voor buitenunits van warmtepompen én airco. De maat volgt de unit, niet het merk."
-          }
+          "@type": "FAQPage",
+          "@id": "https://www.reducd.be/#faq",
+          "url": "https://www.reducd.be/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Hoeveel geluid reduceert een REDUCD omkasting?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Gemiddeld 14 dB(A) bij het vrijstaand model, tot 75% stiller waargenomen. Onafhankelijk getest door Peutz (juli 2025) conform ISO 3741:2010 en ISO 7235:2003. Het wandmodel reduceert typisch 10–12 dB(A)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Wat kost een akoestische omkasting?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Standaardmaten starten vanaf € 2.335 (Magnelis, zonder installatie). Poedercoating in RAL-kleur en montage zijn optioneel tegen meerprijs. Maatwerk op aanvraag."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Wat is het verschil tussen een sierkap en een akoestische omkasting?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Een esthetische cover verhult de unit maar dempt nauwelijks. Een REDUCD-omkasting heeft een 150 mm demper, gerecycled PET-absorptie en een berekende luchtweg, zodat geluid én rendement kloppen."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Welke geluidsnormen gelden in België?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "België kent geen één landelijke erfgrensnorm. Geluid van een buitenunit loopt via gewestelijke milieuregels (Vlaanderen, Brussel, Wallonië), gemeentelijke verordeningen en burenhinder. In Vlaanderen toets je het specifieke geluid aan VLAREM-richtwaarden (woongebied 45 / 40 / 35 dB(A)). Open de VLAREM-rekentool of start met een gratis meting."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Kies ik een vrijstaand model of een wandmodel?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Vrijstaand (S / L / XL) past bij units in de tuin, oprit of platdak met ± 50 cm vrije ruimte. Wandmodel (S / L) is voor units met de rug tegen de gevel of weinig diepte tot pad of perceelgrens."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Hoe snel kan ik een omkasting krijgen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Standaardmaten zijn vaak binnen een week leverbaar. Montage duurt doorgaans ongeveer een uur (12 boutjes), zelf of door het REDUCD-team. Maatwerk volgens afspraak."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is de geluidsmeting in België gratis?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja. De intake met geluidsmeting op locatie is vrijblijvend en kosteloos. We beantwoorden aanvragen binnen 24 uur."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Hoe controleer ik of ik aan de VLAREM-normen voldoe?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Met de VLAREM-rekentool: kies merk en type (of vul dB handmatig in), de afstand tot de perceelsgrens en of je tussen muren of in een vrij veld staat. Dat geeft een theoretische restwaarde — geen meting. Daarna blijven we beschikbaar voor een gratis geluidsmeting op locatie."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Werkt een REDUCD-omkasting ook voor airco?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja. De omkastingen zijn gemaakt voor buitenunits van warmtepompen én airco. De maat volgt de unit, niet het merk."
+              }
+            }
+          ]
         }
       ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "REDUCD akoestische omkasting",
-      "description": "Akoestische omkasting voor warmtepomp en airco. Vrijstaand of wandmodel, vijf standaardmaten of maatwerk.",
-      "brand": { "@type": "Brand", "name": "REDUCD" },
-      "image": "https://www.reducd.be/assets/images/installs/install-patio-olijf.webp",
-      "url": "https://www.reducd.be/#producten",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "bestRating": "5",
-        "ratingCount": "60"
-      },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "EUR",
-        "lowPrice": "2335",
-        "highPrice": "3365",
-        "offerCount": "5",
-        "availability": "https://schema.org/InStock",
-        "url": "https://www.reducd.be/#contact"
-      }
     }
     </script>
     <script src="js/tracking-config.js"></script>
     <script src="js/tracking.js" defer></script>
     <script src="js/lead-popup.js" defer></script>
-    <script src="js/scroll-motion.js" defer></script>
+    <script src="js/scroll-motion.js?v=nav-shade" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/scroll-motion.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -250,7 +297,7 @@
         @media (hover: hover) and (pointer: fine) {
             .hero-stage:hover .hero-photo,
             .hero-stage.is-tracking .hero-photo { box-shadow: 0 32px 64px -18px rgba(15,42,58,0.28); }
-            .hero-stage:hover .hero-pct-badge { transform: translate(4px, -4px); }
+            .hero-stage:hover .hero-pct-badge { transform: translate(4px, 4px); }
         }
         .hero-db-badge {
             overflow: visible;
@@ -258,24 +305,27 @@
             animation: hero-db-radiate 1.45s var(--ease-out) 0.95s 1, hero-db-float 7.4s ease-in-out 2.2s infinite;
         }
         .hero-db-badge > * { position: relative; z-index: 1; }
-        .hero-db-metric { animation: hero-db-fade 1.15s ease 0.55s both; }
-        .hero-db-caption { animation: hero-db-fade 1.25s ease 0.7s both; }
+        .hero-db-metric { animation: hero-db-fade 1.15s ease 0.55s both; text-shadow: 0 1px 8px rgba(255,255,255,0.7); }
+        .hero-db-caption { animation: hero-db-fade 1.25s ease 0.7s both; text-shadow: 0 1px 6px rgba(255,255,255,0.55); }
         .hero-db-badge::before {
             content: "";
             position: absolute;
-            inset: 0;
+            inset: -18% -14%;
             z-index: 0;
             background: #fff;
             border: 1px solid rgba(15,42,58,0.05);
-            border-radius: 1.15rem;
+            border-radius: 68% 32% 58% 42% / 42% 58% 38% 62%;
             box-shadow: 0 12px 28px -10px rgba(15,42,58,0.16);
-            animation: hero-db-bg-fade 2.8s ease 0.4s both, hero-db-morph 18s ease-in-out 1.1s infinite;
+            animation:
+                hero-db-bg-fade 2.8s ease 0.4s both,
+                hero-db-bg-pulse 12s ease-in-out 3.2s infinite,
+                hero-db-morph 14s ease-in-out 0.6s infinite;
         }
         .hero-db-badge::after {
             content: "";
             position: absolute;
-            inset: 0;
-            border-radius: inherit;
+            inset: -18% -14%;
+            border-radius: 68% 32% 58% 42% / 42% 58% 38% 62%;
             pointer-events: none;
             z-index: 2;
             animation: hero-db-ring 1.55s var(--ease-out) 0.95s 1 forwards;
@@ -290,36 +340,28 @@
         }
         @keyframes hero-db-morph {
             0%, 100% {
-                border-radius: 1.15rem;
+                border-radius: 68% 32% 58% 42% / 42% 58% 38% 62%;
                 background: #ffffff;
             }
-            12% {
-                border-radius: 62% 38% 58% 42% / 48% 54% 46% 52%;
+            16% {
+                border-radius: 38% 62% 32% 68% / 62% 36% 64% 38%;
                 background: #fbfcfd;
             }
-            24% {
-                border-radius: 50%;
+            32% {
+                border-radius: 72% 28% 64% 36% / 34% 66% 42% 58%;
                 background: #f8fafb;
             }
-            36% {
-                border-radius: 0.4rem;
+            48% {
+                border-radius: 30% 70% 44% 56% / 58% 42% 72% 28%;
                 background: #fcfbf9;
             }
-            48% {
-                border-radius: 2rem 0.55rem 1.85rem 0.7rem;
+            64% {
+                border-radius: 58% 42% 28% 72% / 40% 60% 32% 68%;
                 background: #fafbfb;
             }
-            60% {
-                border-radius: 42% 58% 38% 62% / 60% 40% 55% 45%;
+            80% {
+                border-radius: 44% 56% 70% 30% / 68% 32% 48% 52%;
                 background: #fcfbf8;
-            }
-            74% {
-                border-radius: 999px;
-                background: #f9fafb;
-            }
-            88% {
-                border-radius: 1.85rem 1.85rem 0.45rem 0.45rem;
-                background: #fbfcfc;
             }
         }
         @keyframes hero-db-fade {
@@ -328,7 +370,11 @@
         }
         @keyframes hero-db-bg-fade {
             from { opacity: 0; }
-            to { opacity: 1; }
+            to { opacity: 0.2; }
+        }
+        @keyframes hero-db-bg-pulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.5; }
         }
         @keyframes hero-db-radiate {
             0% { transform: scale(1); }
@@ -348,6 +394,24 @@
         }
         .btn-primary { background: #0F2A3A; color: #FFFFFF; transition: all 0.35s var(--ease-out); }
         .btn-primary:hover { background: #1a3f54; transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(15,42,58,0.35); }
+        .nav-logo {
+            position: relative;
+            z-index: 7;
+            transform-origin: 0% 50%;
+            transition: transform 0.4s var(--ease-out);
+        }
+        .nav-logo:hover,
+        .nav-logo:focus-visible {
+            transform: scale(2);
+        }
+            transform: scale(var(--cta-scale));
+            transform-origin: 92% 50%;
+            will-change: transform;
+            transition: background 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+        }
+        .nav-cta:hover {
+            transform: scale(var(--cta-scale));
+        }
         .btn-outline { border: 1.5px solid #0F2A3A; color: #0F2A3A; transition: all 0.35s var(--ease-out); }
         .btn-outline:hover { background: #0F2A3A; color: #FFFFFF; }
         #lead-form { scroll-margin-top: 7rem; }
@@ -355,8 +419,29 @@
         #regelgeving, #verschil, #keuzehulp, #uitleg, #proces, #over-ons, #reviews { scroll-margin-top: 5.5rem; }
         .marquee-track { display: flex; animation: marquee 28s linear infinite; width: max-content; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        #navPill { transition: all 0.4s var(--ease-out); background: #FFFFFF; border: 1px solid rgba(15,42,58,0.08); box-shadow: 0 4px 24px rgba(15,42,58,0.06); }
-        #navPill.scrolled { box-shadow: 0 8px 32px rgba(15,42,58,0.12); border-color: rgba(15,42,58,0.1); }
+        #navPill {
+            --nav-shade: 0;
+            transition: background 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+            background: #FFFFFF;
+            border: 1px solid rgba(15,42,58,0.08);
+            box-shadow:
+                0 1px 2px rgba(15,42,58, calc(0.04 + var(--nav-shade) * 0.28)),
+                0 3px 8px rgba(15,42,58, calc(0.06 + var(--nav-shade) * 0.59));
+            overflow: visible;
+        }
+        #navPill.scrolled { border-color: rgba(15,42,58,0.1); }
+        .nav-link {
+            display: inline-block;
+            transform-origin: 50% 70%;
+            transition: color 0.28s var(--ease-out), transform 0.28s var(--ease-out);
+        }
+        .nav-link:hover,
+        .nav-link:focus-visible {
+            color: #0F2A3A;
+            transform: scale(1.16);
+            position: relative;
+            z-index: 1;
+        }
         .line-draw { height: 1px; background: linear-gradient(90deg, transparent, rgba(15,42,58,0.25), transparent); transform: scaleX(0); transition: transform 1s var(--ease-out); }
         .line-draw.visible { transform: scaleX(1); }
         .form-field { width: 100%; padding: 1rem 1.25rem; background: #FFFFFF; border: 1px solid rgba(15,42,58,0.12); border-radius: 10px; color: #0F2A3A; transition: all 0.3s ease; }
@@ -443,12 +528,11 @@
             .hero-db-metric,
             .hero-db-caption { opacity: 1; }
             .hero-db-badge {
-                background: #fff;
-                border-radius: 1rem;
-                border: 1px solid rgba(15,42,58,0.05);
-                box-shadow: 0 10px 15px -3px rgba(15,42,58,0.1);
+                background: transparent;
             }
-            .hero-db-badge::before { display: none; }
+            .hero-db-badge::before {
+                opacity: 0.2;
+            }
             .img-reveal img,
             .img-reveal:hover img { transform: none !important; transition: none; }
             .hero-photo img,
@@ -458,7 +542,11 @@
             .hero-stage:hover .hero-db-badge,
             .hero-stage:hover .hero-pct-badge { transform: none; }
             .hero-stage:hover .hero-photo { box-shadow: 0 20px 25px -5px rgba(15,42,58,0.1); }
-            .marquee-track { animation: none; }
+            .nav-link:hover,
+            .nav-link:focus-visible { transform: none; }
+            .nav-cta { transform: none; }
+            .nav-logo:hover,
+            .nav-logo:focus-visible { transform: none; }
         }
         .faq-section-body .blog-taper { margin-top: 0.15rem; }
         .blog-taper { display: flex; flex-direction: column; align-items: center; margin-top: 2.75rem; gap: clamp(0.4rem, 1vw, 0.75rem); }
@@ -481,23 +569,23 @@
 <body>
 
     <!-- Nav — white pill per brand guidelines -->
-    <header class="fixed top-0 left-0 right-0 z-50 px-6 lg:px-8 pt-4 lg:pt-6">
+    <header class="fixed top-0 left-0 right-0 z-50 px-6 lg:px-8 pt-4 lg:pt-6 overflow-visible">
         <nav id="navPill" class="max-w-7xl mx-auto flex items-center justify-between gap-4 px-5 sm:px-6 py-3 rounded-full">
-            <a href="#" class="flex items-center group shrink-0">
+            <a href="#" class="nav-logo flex items-center group shrink-0">
                 <img src="assets/images/logo-reducd.png" alt="REDUCD" class="h-10 lg:h-11 w-auto">
             </a>
             <div class="hidden lg:flex flex-1 items-center justify-center gap-5 lg:gap-8">
-                <a href="#producten" class="text-[11px] font-medium text-brand-navy/70 hover:text-brand-navy transition-colors uppercase tracking-widest">Producten</a>
-                <a href="#installaties" class="text-[11px] font-medium text-brand-navy/70 hover:text-brand-navy transition-colors uppercase tracking-widest">Installaties</a>
-                <a href="#blog" class="text-[11px] font-medium text-brand-navy/70 hover:text-brand-navy transition-colors uppercase tracking-widest">Blog</a>
-                <a href="#faq" class="text-[11px] font-medium text-brand-navy/70 hover:text-brand-navy transition-colors uppercase tracking-widest">FAQ</a>
-                <a href="docs/" class="text-[11px] font-medium text-brand-navy/70 hover:text-brand-navy transition-colors uppercase tracking-widest">Docs</a>
-                <a href="vlarem/" class="text-[11px] font-medium text-brand-navy/70 hover:text-brand-navy transition-colors uppercase tracking-widest">VLAREM</a>
-                <a href="pro/index.html" class="text-[11px] font-medium text-brand-navy/70 hover:text-brand-navy transition-colors uppercase tracking-widest">Pro</a>
-                <a href="#contact" class="text-[11px] font-medium text-brand-navy/70 hover:text-brand-navy transition-colors uppercase tracking-widest">Contact</a>
+                <a href="#producten" class="nav-link text-[11px] font-medium text-brand-navy/70 uppercase tracking-widest">Producten</a>
+                <a href="#installaties" class="nav-link text-[11px] font-medium text-brand-navy/70 uppercase tracking-widest">Installaties</a>
+                <a href="#blog" class="nav-link text-[11px] font-medium text-brand-navy/70 uppercase tracking-widest">Blog</a>
+                <a href="#faq" class="nav-link text-[11px] font-medium text-brand-navy/70 uppercase tracking-widest">FAQ</a>
+                <a href="docs/" class="nav-link text-[11px] font-medium text-brand-navy/70 uppercase tracking-widest">Docs</a>
+                <a href="vlarem/" class="nav-link text-[11px] font-medium text-brand-navy/70 uppercase tracking-widest">VLAREM</a>
+                <a href="pro/index.html" class="nav-link text-[11px] font-medium text-brand-navy/70 uppercase tracking-widest">Pro</a>
+                <a href="#contact" class="nav-link text-[11px] font-medium text-brand-navy/70 uppercase tracking-widest">Contact</a>
             </div>
             <div class="flex items-center gap-3 shrink-0">
-                <a data-open-lead-popup href="#contact" class="hidden sm:inline-flex btn-primary px-5 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-wider"><span class="accent-gratis">Gratis</span> meting</a>
+                <a data-open-lead-popup href="#contact" class="nav-cta hidden sm:inline-flex btn-primary px-5 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-wider"><span class="accent-gratis">Gratis</span> meting</a>
                 <button id="menuBtn" class="lg:hidden w-9 h-9 flex items-center justify-center text-brand-navy" aria-label="Menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
@@ -536,7 +624,7 @@
                         <span class="hero-headline-line"><span class="hero-headline-word">Duurzaam.</span></span>
                     </h1>
                     <p class="reveal reveal-delay-2 text-lg lg:text-xl text-brand-navy/60 max-w-xl leading-relaxed mb-10 font-light">
-                        Akoestische omkastingen voor warmtepompen &amp; airco. Gemiddeld <strong class="text-brand-navy font-semibold">14 dB(A)</strong> reductie — tot <strong class="text-brand-navy font-semibold">75%</strong> waargenomen stiller. Vanaf <strong class="text-brand-navy font-extrabold">€&nbsp;2.335</strong>.
+                        REDUCD is een merk van akoestische omkastingen voor warmtepompen en airco in België. Gemiddeld <strong class="text-brand-navy font-semibold">14 dB(A)</strong> reductie — tot <strong class="text-brand-navy font-semibold">75%</strong> waargenomen stiller. Vanaf <strong class="text-brand-navy font-extrabold">€&nbsp;2.335</strong>.
                     </p>
                     <div class="reveal reveal-delay-3 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                         <a data-open-lead-popup href="#contact" class="btn-primary px-8 py-4 rounded-full font-semibold text-sm inline-flex items-center justify-center gap-2 w-full sm:w-auto">
@@ -557,7 +645,7 @@
                             </div>
                             <div class="hero-db-caption text-[10px] font-semibold text-brand-navy/45 tracking-[0.12em] mt-1.5 uppercase leading-snug">gemiddelde geluidsreductie</div>
                         </div>
-                        <div class="hero-pct-badge absolute -top-4 -right-4 bg-brand-navy text-white rounded-2xl px-5 py-4 hidden sm:block">
+                        <div class="hero-pct-badge absolute -bottom-4 -right-4 bg-brand-navy text-white rounded-2xl px-5 py-4 hidden sm:block">
                             <div class="font-bold text-xl">75%</div>
                             <div class="text-[10px] uppercase tracking-widest opacity-70">stiller</div>
                         </div>
@@ -568,10 +656,10 @@
     </section>
 
     <!-- Marquee -->
-    <div class="bg-brand-navy py-4 overflow-hidden border-y border-brand-navy">
+    <div class="bg-[#c5dce8] py-4 overflow-hidden border-y border-[#b3d0de]">
         <div class="marquee-track gap-16 px-8">
-            <span class="text-xs font-bold text-white/25 uppercase tracking-[0.35em] whitespace-nowrap">Stil · Stijlvol · Duurzaam · Magnelis® · Built to Last · 5 standaardmaten · Maatwerk ·</span>
-            <span class="text-xs font-bold text-white/25 uppercase tracking-[0.35em] whitespace-nowrap">Stil · Stijlvol · Duurzaam · Magnelis® · Built to Last · 5 standaardmaten · Maatwerk ·</span>
+            <span class="text-xs font-bold text-brand-navy/40 uppercase tracking-[0.35em] whitespace-nowrap">Stil · Stijlvol · Duurzaam · Magnelis® · Built to Last · 5 standaardmaten · Maatwerk ·</span>
+            <span class="text-xs font-bold text-brand-navy/40 uppercase tracking-[0.35em] whitespace-nowrap">Stil · Stijlvol · Duurzaam · Magnelis® · Built to Last · 5 standaardmaten · Maatwerk ·</span>
         </div>
     </div>
 
@@ -656,22 +744,22 @@
             <div class="reveal-stagger grid lg:grid-cols-2 gap-5 lg:gap-6 items-stretch">
                 <!-- Vrijstaand -->
                 <div class="reveal rounded-2xl overflow-hidden ring-1 ring-brand-navy/8 bento bg-white flex flex-col">
-                    <div class="product-finish" data-product-finish data-finish-start="4" data-finish-lag="1100">
+                    <div class="product-finish" data-product-finish data-finish-start="0" data-finish-lag="1100">
                         <div class="product-finish-stage">
-                            <img src="assets/images/product-vrijstaand.webp" alt="REDUCD vrijstaand model — Magnelis® akoestische omkasting" class="product-finish-img" data-finish-label="Magnelis®" width="620" height="434" loading="lazy" decoding="async">
-                            <img src="assets/images/product-vrijstaand-zwart.png" alt="REDUCD vrijstaand model — RAL 9005" class="product-finish-img" data-finish-label="RAL 9005" width="620" height="434" loading="lazy" decoding="async">
+                            <img src="assets/images/product-vrijstaand.webp" alt="REDUCD vrijstaand model — Magnelis® akoestische omkasting" class="product-finish-img is-active" data-finish-label="Magnelis®" width="620" height="434" decoding="async">
                             <img src="assets/images/product-vrijstaand-wit.png" alt="REDUCD vrijstaand model — RAL 9010" class="product-finish-img" data-finish-label="RAL 9010" width="620" height="434" loading="lazy" decoding="async">
+                            <img src="assets/images/product-vrijstaand-zwart.png" alt="REDUCD vrijstaand model — RAL 9005" class="product-finish-img" data-finish-label="RAL 9005" width="620" height="434" loading="lazy" decoding="async">
                             <img src="assets/images/product-vrijstaand-roest.png" alt="REDUCD vrijstaand model — roestafwerking" class="product-finish-img" data-finish-label="Roest" width="620" height="434" loading="lazy" decoding="async">
-                            <img src="assets/images/product-vrijstaand-kaki.png" alt="REDUCD vrijstaand model — glans RAL 6013" class="product-finish-img is-active" data-finish-label="Glans RAL 6013" width="620" height="434" decoding="async">
+                            <img src="assets/images/product-vrijstaand-kaki.png" alt="REDUCD vrijstaand model — glans RAL 6013" class="product-finish-img" data-finish-label="Glans RAL 6013" width="620" height="434" loading="lazy" decoding="async">
                             <img src="assets/images/product-vrijstaand-wit.png" alt="REDUCD vrijstaand model — eigen kleur" class="product-finish-img" data-finish-custom data-finish-label="Eigen kleur" width="620" height="434" loading="lazy" decoding="async">
                         </div>
-                        <p class="product-finish-label" data-product-finish-label aria-live="polite">Glans RAL 6013</p>
+                        <p class="product-finish-label" data-product-finish-label aria-live="polite">Magnelis®</p>
                         <div class="product-finish-swatches" role="group" aria-label="Kies afwerking vrijstaand model">
-                            <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#c5c8c4" aria-label="Magnelis®" aria-pressed="false"></button>
-                            <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#0a0a0a" aria-label="RAL 9005" aria-pressed="false"></button>
+                            <button type="button" class="product-finish-swatch is-active" data-finish-swatch style="--swatch:#c5c8c4" aria-label="Magnelis®" aria-pressed="true"></button>
                             <button type="button" class="product-finish-swatch is-light" data-finish-swatch style="--swatch:#f3efe6" aria-label="RAL 9010" aria-pressed="false"></button>
+                            <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#0a0a0a" aria-label="RAL 9005" aria-pressed="false"></button>
                             <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#b85a2a" aria-label="Roest" aria-pressed="false"></button>
-                            <button type="button" class="product-finish-swatch is-gloss is-active" data-finish-swatch style="--swatch:#6f734d" aria-label="Glans RAL 6013" aria-pressed="true"></button>
+                            <button type="button" class="product-finish-swatch is-gloss" data-finish-swatch style="--swatch:#6f734d" aria-label="Glans RAL 6013" aria-pressed="false"></button>
                             <label class="product-finish-picker">
                                 <input type="color" value="#3d5c6e" data-finish-picker aria-label="Eigen kleur">
                             </label>
@@ -702,21 +790,21 @@
                 </div>
                 <!-- Wandmodel -->
                 <div class="reveal reveal-delay-1 rounded-2xl overflow-hidden ring-1 ring-brand-navy/8 bento bg-white flex flex-col">
-                    <div class="product-finish" data-product-finish>
+                    <div class="product-finish" data-product-finish data-finish-start="3">
                         <div class="product-finish-stage">
-                            <img src="assets/images/product-wand.webp" alt="REDUCD wandmodel — Magnelis® akoestische omkasting" class="product-finish-img is-active" data-finish-label="Magnelis®" width="620" height="434" decoding="async">
+                            <img src="assets/images/product-wand.webp" alt="REDUCD wandmodel — Magnelis® akoestische omkasting" class="product-finish-img" data-finish-label="Magnelis®" width="620" height="434" loading="lazy" decoding="async">
                             <img src="assets/images/product-wand-zwart.png" alt="REDUCD wandmodel — RAL 9005" class="product-finish-img" data-finish-label="RAL 9005" width="620" height="434" loading="lazy" decoding="async">
                             <img src="assets/images/product-wand-wit.png" alt="REDUCD wandmodel — RAL 9010" class="product-finish-img" data-finish-label="RAL 9010" width="620" height="434" loading="lazy" decoding="async">
-                            <img src="assets/images/product-wand-roest.png" alt="REDUCD wandmodel — roestafwerking" class="product-finish-img" data-finish-label="Roest" width="620" height="434" loading="lazy" decoding="async">
+                            <img src="assets/images/product-wand-roest.png" alt="REDUCD wandmodel — roestafwerking" class="product-finish-img is-active" data-finish-label="Roest" width="620" height="434" decoding="async">
                             <img src="assets/images/product-wand-kaki.png" alt="REDUCD wandmodel — glans RAL 6013" class="product-finish-img" data-finish-label="Glans RAL 6013" width="620" height="434" loading="lazy" decoding="async">
                             <img src="assets/images/product-wand-wit.png" alt="REDUCD wandmodel — eigen kleur" class="product-finish-img" data-finish-custom data-finish-label="Eigen kleur" width="620" height="434" loading="lazy" decoding="async">
                         </div>
-                        <p class="product-finish-label" data-product-finish-label aria-live="polite">Magnelis®</p>
+                        <p class="product-finish-label" data-product-finish-label aria-live="polite">Roest</p>
                         <div class="product-finish-swatches" role="group" aria-label="Kies afwerking wandmodel">
-                            <button type="button" class="product-finish-swatch is-active" data-finish-swatch style="--swatch:#c5c8c4" aria-label="Magnelis®" aria-pressed="true"></button>
+                            <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#c5c8c4" aria-label="Magnelis®" aria-pressed="false"></button>
                             <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#0a0a0a" aria-label="RAL 9005" aria-pressed="false"></button>
                             <button type="button" class="product-finish-swatch is-light" data-finish-swatch style="--swatch:#f3efe6" aria-label="RAL 9010" aria-pressed="false"></button>
-                            <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#b85a2a" aria-label="Roest" aria-pressed="false"></button>
+                            <button type="button" class="product-finish-swatch is-active" data-finish-swatch style="--swatch:#b85a2a" aria-label="Roest" aria-pressed="true"></button>
                             <button type="button" class="product-finish-swatch is-gloss" data-finish-swatch style="--swatch:#6f734d" aria-label="Glans RAL 6013" aria-pressed="false"></button>
                             <label class="product-finish-picker">
                                 <input type="color" value="#3d5c6e" data-finish-picker aria-label="Eigen kleur">
@@ -760,7 +848,7 @@
                 <div class="grid md:grid-cols-2 gap-5 lg:gap-6">
                     <div class="bg-white rounded-2xl p-7 lg:p-8 border border-brand-navy/8">
                         <h4 class="font-bold text-brand-navy text-lg mb-4">Kies vrijstaand als…</h4>
-                        <ul class="space-y-2.5 text-sm text-brand-navy/60 font-light leading-relaxed">
+                        <ul class="space-y-2.5 text-sm text-brand-navy/70 font-normal leading-relaxed">
                             <li>De unit vrij in de tuin, op de oprit of op een platdak staat</li>
                             <li>Je maximale demping wilt (± 14 dB(A))</li>
                             <li>Er rondom genoeg vrije ruimte is (≥ ± 50 cm voor/achter)</li>
@@ -769,7 +857,7 @@
                     </div>
                     <div class="bg-white rounded-2xl p-7 lg:p-8 border border-brand-navy/8">
                         <h4 class="font-bold text-brand-navy text-lg mb-4">Kies wandmodel als…</h4>
-                        <ul class="space-y-2.5 text-sm text-brand-navy/60 font-light leading-relaxed">
+                        <ul class="space-y-2.5 text-sm text-brand-navy/70 font-normal leading-relaxed">
                             <li>De unit met de rug dicht tegen de gevel hangt of staat</li>
                             <li>De diepte tot pad of erfgrens beperkt is</li>
                             <li>Je een slankere contour nodig hebt zonder volle vrijstaande kast</li>
@@ -869,19 +957,19 @@
                 <table class="w-full text-sm min-w-[720px]">
                     <thead><tr class="bg-brand-navy text-white">
                         <th class="px-5 py-4 text-left font-bold">Model</th>
-                        <th class="px-5 py-4 text-left font-medium">Maat</th>
-                        <th class="px-5 py-4 text-left font-medium">Hoogte B/b</th>
-                        <th class="px-5 py-4 text-left font-medium">Breedte B/b</th>
-                        <th class="px-5 py-4 text-left font-medium">Diepte B/b</th>
-                        <th class="px-5 py-4 text-left font-medium">dB</th>
-                        <th class="px-5 py-4 text-left font-medium">Vanaf</th>
+                        <th class="px-5 py-4 text-left font-semibold">Maat</th>
+                        <th class="px-5 py-4 text-left font-semibold">Hoogte B/b</th>
+                        <th class="px-5 py-4 text-left font-semibold">Breedte B/b</th>
+                        <th class="px-5 py-4 text-left font-semibold">Diepte B/b</th>
+                        <th class="px-5 py-4 text-left font-semibold">dB(A)</th>
+                        <th class="px-5 py-4 text-left font-semibold">Vanaf</th>
                     </tr></thead>
                     <tbody class="divide-y divide-brand-navy/8">
-                        <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">S</td><td class="px-5 py-4 text-brand-navy/65">990 / 1060</td><td class="px-5 py-4 text-brand-navy/65">1090 / 1220</td><td class="px-5 py-4 text-brand-navy/65">650 / 950</td><td class="px-5 py-4 text-brand-navy/65">± 14</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.335</td></tr>
-                        <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">L</td><td class="px-5 py-4 text-brand-navy/65">1350 / 1450</td><td class="px-5 py-4 text-brand-navy/65">1250 / 1410</td><td class="px-5 py-4 text-brand-navy/65">650 / 950</td><td class="px-5 py-4 text-brand-navy/65">± 14</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.865</td></tr>
-                        <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">XL</td><td class="px-5 py-4 text-brand-navy/65">1670 / 1770</td><td class="px-5 py-4 text-brand-navy/65">1250 / 1410</td><td class="px-5 py-4 text-brand-navy/65">650 / 950</td><td class="px-5 py-4 text-brand-navy/65">± 14</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;3.365</td></tr>
-                        <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Wand</td><td class="px-5 py-4 font-semibold">S</td><td class="px-5 py-4 text-brand-navy/65">990 / 1050</td><td class="px-5 py-4 text-brand-navy/65">1060 / 1360</td><td class="px-5 py-4 text-brand-navy/65">650 / 805</td><td class="px-5 py-4 text-brand-navy/65">10–12</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.335</td></tr>
-                        <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Wand</td><td class="px-5 py-4 font-semibold">L</td><td class="px-5 py-4 text-brand-navy/65">1310 / 1370</td><td class="px-5 py-4 text-brand-navy/65">1250 / 1550</td><td class="px-5 py-4 text-brand-navy/65">800 / 955</td><td class="px-5 py-4 text-brand-navy/65">10–12</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.865</td></tr>
+                        <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">S</td><td class="px-5 py-4 text-brand-navy/75 font-medium">990 / 1060</td><td class="px-5 py-4 text-brand-navy/75 font-medium">1090 / 1220</td><td class="px-5 py-4 text-brand-navy/75 font-medium">650 / 950</td><td class="px-5 py-4 text-brand-navy/75 font-medium">± 14</td><td class="px-5 py-4 text-brand-navy/75 font-medium">€&nbsp;2.335</td></tr>
+                        <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">L</td><td class="px-5 py-4 text-brand-navy/75 font-medium">1350 / 1450</td><td class="px-5 py-4 text-brand-navy/75 font-medium">1250 / 1410</td><td class="px-5 py-4 text-brand-navy/75 font-medium">650 / 950</td><td class="px-5 py-4 text-brand-navy/75 font-medium">± 14</td><td class="px-5 py-4 text-brand-navy/75 font-medium">€&nbsp;2.865</td></tr>
+                        <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">XL</td><td class="px-5 py-4 text-brand-navy/75 font-medium">1670 / 1770</td><td class="px-5 py-4 text-brand-navy/75 font-medium">1250 / 1410</td><td class="px-5 py-4 text-brand-navy/75 font-medium">650 / 950</td><td class="px-5 py-4 text-brand-navy/75 font-medium">± 14</td><td class="px-5 py-4 text-brand-navy/75 font-medium">€&nbsp;3.365</td></tr>
+                        <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Wand</td><td class="px-5 py-4 font-semibold">S</td><td class="px-5 py-4 text-brand-navy/75 font-medium">990 / 1050</td><td class="px-5 py-4 text-brand-navy/75 font-medium">1060 / 1360</td><td class="px-5 py-4 text-brand-navy/75 font-medium">650 / 805</td><td class="px-5 py-4 text-brand-navy/75 font-medium">10–12</td><td class="px-5 py-4 text-brand-navy/75 font-medium">€&nbsp;2.335</td></tr>
+                        <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Wand</td><td class="px-5 py-4 font-semibold">L</td><td class="px-5 py-4 text-brand-navy/75 font-medium">1310 / 1370</td><td class="px-5 py-4 text-brand-navy/75 font-medium">1250 / 1550</td><td class="px-5 py-4 text-brand-navy/75 font-medium">800 / 955</td><td class="px-5 py-4 text-brand-navy/75 font-medium">10–12</td><td class="px-5 py-4 text-brand-navy/75 font-medium">€&nbsp;2.865</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1006,12 +1094,12 @@
                     <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Over REDUCD</span>
                     <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 mb-8 leading-tight tracking-tight">Duurzaam verwarmen<br><span class="text-brand-navy/40 font-light">zonder geluidsoverlast</span></h2>
                     <div class="space-y-5 text-brand-navy/60 text-base lg:text-lg font-light leading-relaxed">
-                        <p>Bij REDUCD helpen we je om opnieuw in alle rust te wonen, zelfs mét een actieve warmtepomp. Onze geluidskasten beperken de geluidsoverlast aanzienlijk — voor jou én je buren.</p>
+                        <p>REDUCD is gespecialiseerd in akoestische omkastingen voor warmtepompen en airco in België (Vlaanderen, Brussel en Wallonië). We helpen je om opnieuw in alle rust te wonen, zelfs mét een actieve buitenunit — voor jou én je buren.</p>
                         <p>Al onze omkastingen worden lokaal geproduceerd met gerecyclede materialen. Elke kast wordt gebouwd volgens het <strong class="text-brand-navy font-semibold">Built to Last</strong>-principe.</p>
                     </div>
                     <div class="mt-10 grid grid-cols-3 gap-4">
                         <div class="bg-white rounded-xl p-5 border border-brand-navy/8 text-center"><div class="font-extrabold text-2xl text-brand-navy">2020</div><div class="text-[10px] text-brand-navy/40 uppercase tracking-widest mt-1">Opgestart</div></div>
-                        <div class="bg-white rounded-xl p-5 border border-brand-navy/8 text-center"><div class="font-extrabold text-2xl text-brand-navy">BE</div><div class="text-[10px] text-brand-navy/40 uppercase tracking-widest mt-1">Actief</div></div>
+                        <div class="bg-white rounded-xl p-5 border border-brand-navy/8 text-center"><div class="font-extrabold text-2xl text-brand-navy whitespace-nowrap">BE / NL</div><div class="text-[10px] text-brand-navy/40 uppercase tracking-widest mt-1">Actief</div></div>
                         <div class="bg-white rounded-xl p-5 border border-brand-navy/8 text-center"><div class="font-extrabold text-2xl text-brand-navy">14</div><div class="text-[10px] text-brand-navy/40 tracking-widest unit-db mt-1">dB(A)</div></div>
                     </div>
                 </div>
@@ -1084,7 +1172,7 @@
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
                     </div>
-                    <p class="text-brand-navy/65 leading-relaxed flex-1 font-light text-sm">“Dankzij de omkasting van Reducd is het geluid nu teruggebracht naar 43 dB overdag. De verwachte verlaging wordt ruimschoots gehaald. Vanaf het eerste contact voelde het goed — Sten adviseerde ons op locatie.”</p>
+                    <p class="text-brand-navy/75 font-medium leading-relaxed flex-1 font-light text-sm">“Dankzij de omkasting van Reducd is het geluid nu teruggebracht naar 43 dB overdag. De verwachte verlaging wordt ruimschoots gehaald. Vanaf het eerste contact voelde het goed — Sten adviseerde ons op locatie.”</p>
                     <div class="mt-8 pt-6 border-t border-brand-navy/8 flex items-center justify-between gap-4">
                         <div class="flex items-center gap-4 min-w-0">
                             <div class="w-10 h-10 rounded-full bg-brand-navy text-white font-bold text-sm flex items-center justify-center shrink-0">MV</div>
@@ -1124,7 +1212,7 @@
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
                     </div>
-                    <p class="text-brand-navy/65 leading-relaxed flex-1 font-light text-sm">“Super tevreden met REDUCD! Duidelijke folder, goed advies en een geluidsmeting op locatie. Goede service en vriendelijke mensen — het scheelt echt een bak herrie.”</p>
+                    <p class="text-brand-navy/75 font-medium leading-relaxed flex-1 font-light text-sm">“Super tevreden met REDUCD! Duidelijke folder, goed advies en een geluidsmeting op locatie. Goede service en vriendelijke mensen — het scheelt echt een bak herrie.”</p>
                     <div class="mt-8 pt-6 border-t border-brand-navy/10 flex items-center justify-between gap-4">
                         <div class="flex items-center gap-4 min-w-0">
                             <div class="w-10 h-10 rounded-full bg-brand-navy text-white font-bold text-sm flex items-center justify-center shrink-0">IR</div>
@@ -1146,7 +1234,7 @@
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
                     </div>
-                    <p class="text-brand-navy/65 leading-relaxed flex-1 font-light text-sm">“Vakmensen. Duidelijke informatie vooraf. De plaatsing is uitermate netjes en vakkundig afgehandeld. Geluid is enorm gereduceerd. Meer dan tevreden!”</p>
+                    <p class="text-brand-navy/75 font-medium leading-relaxed flex-1 font-light text-sm">“Vakmensen. Duidelijke informatie vooraf. De plaatsing is uitermate netjes en vakkundig afgehandeld. Geluid is enorm gereduceerd. Meer dan tevreden!”</p>
                     <div class="mt-8 pt-6 border-t border-brand-navy/8 flex items-center justify-between gap-4">
                         <div class="flex items-center gap-4 min-w-0">
                             <div class="w-10 h-10 rounded-full bg-brand-navy text-white font-bold text-sm flex items-center justify-center shrink-0">RH</div>
@@ -1166,7 +1254,7 @@
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
                     </div>
-                    <p class="text-brand-navy/65 leading-relaxed flex-1 font-light text-sm">“Professionele club. Sten is langsgekomen voor metingen en een passende offerte. De kast is mooi en reduceert het geluid heel goed. Wij zijn tevreden!”</p>
+                    <p class="text-brand-navy/75 font-medium leading-relaxed flex-1 font-light text-sm">“Professionele club. Sten is langsgekomen voor metingen en een passende offerte. De kast is mooi en reduceert het geluid heel goed. Wij zijn tevreden!”</p>
                     <div class="mt-8 pt-6 border-t border-brand-navy/8 flex items-center justify-between gap-4">
                         <div class="flex items-center gap-4 min-w-0">
                             <div class="w-10 h-10 rounded-full bg-brand-navy text-white font-bold text-sm flex items-center justify-center shrink-0">CL</div>
@@ -1186,7 +1274,7 @@
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
                         <svg class="w-4 h-4 fill-current opacity-30" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
                     </div>
-                    <p class="text-brand-navy/65 leading-relaxed flex-1 font-light text-sm">“Op maat gemaakt wandmodel. De hoge tonen horen we niet meer — de ergernis is weg. Mooie constructie van degelijk materiaal. Installatie door Reducd was netjes en snel.”</p>
+                    <p class="text-brand-navy/75 font-medium leading-relaxed flex-1 font-light text-sm">“Op maat gemaakt wandmodel. De hoge tonen horen we niet meer — de ergernis is weg. Mooie constructie van degelijk materiaal. Installatie door Reducd was netjes en snel.”</p>
                     <div class="mt-8 pt-6 border-t border-brand-navy/8 flex items-center justify-between gap-4">
                         <div class="flex items-center gap-4 min-w-0">
                             <div class="w-10 h-10 rounded-full bg-brand-navy text-white font-bold text-sm flex items-center justify-center shrink-0">RB</div>
@@ -1390,6 +1478,7 @@
                 <a href="#contact" class="hover:text-white transition-colors">Contact</a>
                 <a href="blog/" class="hover:text-white transition-colors">Alle artikelen</a>
                 <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+                <a href="llms.txt" class="hover:text-white transition-colors">AI-info</a>
                 <a href="https://www.reducd.be" class="hover:text-white transition-colors">reducd.be</a>
                 <a href="https://www.linkedin.com/company/reducd" class="hover:text-white transition-colors">LinkedIn</a>
             </div>
@@ -1461,8 +1550,15 @@
                 const lagMs = Math.max(0, parseInt(root.getAttribute('data-finish-lag') || '0', 10) || 0);
                 let idx = startAt;
                 let timer;
+                let playDelay;
+                let inView = false;
                 let customMode = false;
-                const stop = () => { if (timer) clearInterval(timer); };
+                const stop = () => {
+                    if (timer) clearInterval(timer);
+                    timer = null;
+                    if (playDelay) clearTimeout(playDelay);
+                    playDelay = null;
+                };
                 const show = (n) => {
                     customMode = false;
                     pickerWrap?.classList.remove('is-active');
@@ -1517,14 +1613,42 @@
                 }
                 show(startAt);
                 if (reduce) return;
-                const start = () => { stop(); if (customMode) return; timer = setInterval(() => show(idx + 1), 4000); };
-                root.addEventListener('mouseenter', stop);
-                root.addEventListener('mouseleave', () => { if (!customMode) start(); });
+                const start = () => { stop(); if (customMode || !inView) return; timer = setInterval(() => show(idx + 1), 4000); };
+                const arm = () => {
+                    stop();
+                    if (customMode || !inView) return;
+                    playDelay = setTimeout(() => { playDelay = null; start(); }, 650 + lagMs);
+                };
+                root.addEventListener('mouseenter', () => {
+                    stop();
+                    if (!customMode) show(startAt);
+                });
+                root.addEventListener('mouseleave', () => { if (!customMode && inView) arm(); });
                 root.addEventListener('focusin', stop);
                 root.addEventListener('focusout', (e) => {
-                    if (!root.contains(e.relatedTarget) && !customMode) start();
+                    if (!root.contains(e.relatedTarget) && !customMode && inView) arm();
                 });
-                setTimeout(start, 650 + lagMs);
+                if ('IntersectionObserver' in window) {
+                    const io = new IntersectionObserver((entries) => {
+                        const entry = entries[entries.length - 1];
+                        if (!entry) return;
+                        if (entry.isIntersecting) {
+                            const wasInView = inView;
+                            inView = true;
+                            if (!customMode && !wasInView) {
+                                show(startAt);
+                                arm();
+                            }
+                        } else {
+                            inView = false;
+                            stop();
+                        }
+                    }, { threshold: 0.35, rootMargin: '0px 0px -8% 0px' });
+                    io.observe(root);
+                } else {
+                    inView = true;
+                    arm();
+                }
             });
         })();
         (function () {
@@ -1593,6 +1717,42 @@
         (function () {
             const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+            const btn = document.querySelector('.nav-cta');
+            if (!btn || reduce || !fine) return;
+            const RADIUS = 4 * 96 / 2.54;
+            let mx = -9999, my = -9999, scale = 1, raf = 0;
+            function distToRect(x, y, r) {
+                const dx = Math.max(r.left - x, 0, x - r.right);
+                const dy = Math.max(r.top - y, 0, y - r.bottom);
+                return Math.hypot(dx, dy);
+            }
+            function tick() {
+                raf = 0;
+                const d = distToRect(mx, my, btn.getBoundingClientRect());
+                const near = Math.max(0, 1 - d / RADIUS);
+                const target = 1 + near;
+                scale += (target - scale) * (target > scale ? 0.22 : 0.14);
+                btn.style.setProperty('--cta-scale', scale.toFixed(4));
+                if (Math.abs(target - scale) > 0.002 || scale > 1.002) raf = requestAnimationFrame(tick);
+            }
+            function kick() {
+                if (!raf) raf = requestAnimationFrame(tick);
+            }
+            window.addEventListener('pointermove', (e) => {
+                if (e.pointerType === 'touch') return;
+                mx = e.clientX;
+                my = e.clientY;
+                kick();
+            }, { passive: true });
+            window.addEventListener('pointerleave', () => {
+                mx = -9999;
+                my = -9999;
+                kick();
+            });
+        })();
+        (function () {
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
             const stage = document.querySelector('.hero-stage');
             const img = stage?.querySelector('.hero-photo img');
             if (!stage || !img || reduce || !fine) return;
@@ -1609,10 +1769,10 @@
             }
             function tick() {
                 raf = 0;
-                const k = over ? 0.16 : 0.09;
+                const k = over ? 0.09 : 0.055;
                 cur.ox += (to.ox - cur.ox) * k;
                 cur.oy += (to.oy - cur.oy) * k;
-                cur.zoom += (to.zoom - cur.zoom) * (over ? 0.2 : 0.1);
+                cur.zoom += (to.zoom - cur.zoom) * (over ? 0.12 : 0.06);
                 cur.px += (to.px - cur.px) * k;
                 cur.py += (to.py - cur.py) * k;
                 apply();
@@ -1630,11 +1790,12 @@
                 const nx = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
                 const ny = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height));
                 const fromCenter = Math.hypot(nx - 0.5, ny - 0.5);
-                to.ox = 8 + nx * 84;
-                to.oy = 8 + ny * 84;
-                to.zoom = 1.34 + fromCenter * 0.22;
-                to.px = (0.5 - nx) * 54;
-                to.py = (0.5 - ny) * 42;
+                const dyn = 0.64;
+                to.ox = rest.ox;
+                to.oy = rest.oy;
+                to.zoom = rest.zoom + (0.18 + fromCenter * 0.12) * dyn;
+                to.px = 0;
+                to.py = 0;
             }
             stage.addEventListener('pointerenter', (e) => {
                 if (e.pointerType === 'touch') return;

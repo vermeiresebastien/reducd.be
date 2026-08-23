@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REDUCD — Audio + keyframes preview</title>
+  <style>
+    :root { --navy: #0F2A3A; --muted: rgba(15,42,58,0.55); }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background: #fff;
+      color: var(--navy);
+      padding: 2rem 1.25rem 4rem;
+    }
+    .wrap { max-width: 960px; margin: 0 auto; }
+    h1 { font-size: 1.5rem; margin: 0 0 0.35rem; letter-spacing: -0.02em; }
+    .meta { color: var(--muted); font-size: 0.875rem; margin-bottom: 1.5rem; }
+    .player {
+      background: var(--navy);
+      color: #fff;
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+    }
+    .player label {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 0.75rem;
+    }
+    audio { width: 100%; }
+    .time {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      font-variant-numeric: tabular-nums;
+    }
+    h2 {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 2rem 0 0.85rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+    @media (min-width: 720px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .kf {
+      border: 2px solid rgba(15,42,58,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--navy);
+      cursor: pointer;
+      opacity: 0.55;
+      transition: opacity 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .kf.is-active {
+      opacity: 1;
+      border-color: var(--navy);
+      transform: translateY(-2px);
+    }
+    .kf img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    .kf .cap {
+      padding: 0.55rem 0.7rem;
+      background: #fff;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .kf .cap strong { color: var(--navy); display: block; margin-bottom: 0.15rem; }
+    .stage {
+      margin-top: 1rem;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--navy);
+      border: 1px solid rgba(15,42,58,0.08);
+    }
+    .stage img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Hoe werkt het — audio + keyframes</h1>
+    <p class="meta">Originele audio uit <a href="https://youtu.be/8CJLvJUjWmk">youtu.be/8CJLvJUjWmk</a> · keyframes eronder gesynchroniseerd</p>
+
+    <div class="player">
+      <label>Originele audio</label>
+      <audio id="audio" controls preload="metadata" src="../audio/hoe-werkt-het.m4a"></audio>
+      <div class="time"><span id="tNow">0:00</span> / <span id="tDur">–:––</span> · shot <span id="shot">1</span>/6</div>
+    </div>
+
+    <div class="stage">
+      <img id="stageImg" src="../images/video-keyframes/kf-01-erfgrens-overlast.png" alt="Actieve keyframe">
+    </div>
+
+    <h2>Keyframes</h2>
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <script>
+    const shots = [
+      { src: "../images/video-keyframes/kf-01-erfgrens-overlast.png", title: "Erfgrens / overlast", start: 0 },
+      { src: "../images/video-keyframes/kf-04-cover-vs-akoestisch.png", title: "Cover vs akoestisch", start: null },
+      { src: "../images/video-keyframes/kf-02-product-hero.png", title: "Product hero", start: null },
+      { src: "../images/video-keyframes/kf-03-materiaal-detail.png", title: "Materiaal / Peutz", start: null },
+      { src: "../images/video-keyframes/kf-05-installatie.png", title: "Installatie", start: null },
+      { src: "../images/video-keyframes/kf-06-cta-stilte.png", title: "CTA / stilte", start: null }
+    ];
+
+    const audio = document.getElementById("audio");
+    const grid = document.getElementById("grid");
+    const stageImg = document.getElementById("stageImg");
+    const tNow = document.getElementById("tNow");
+    const tDur = document.getElementById("tDur");
+    const shotEl = document.getElementById("shot");
+    let active = 0;
+
+    function fmt(s) {
+      if (!Number.isFinite(s)) return "–:––";
+      const m = Math.floor(s / 60);
+      const sec = Math.floor(s % 60);
+      return m + ":" + String(sec).padStart(2, "0");
+    }
+
+    function assignStarts(duration) {
+      const step = duration / shots.length;
+      shots.forEach((s, i) => { s.start = i * step; s.end = (i + 1) * step; });
+    }
+
+    function renderGrid() {
+      grid.innerHTML = shots.map((s, i) => `
+        <button type="button" class="kf${i === active ? " is-active" : ""}" data-i="${i}">
+          <img src="${s.src}" alt="${s.title}">
+          <div class="cap"><strong>${s.title}</strong>${fmt(s.start)} – ${fmt(s.end)}</div>
+        </button>
+      `).join("");
+    }
+
+    function setActive(i, seek) {
+      active = i;
+      stageImg.src = shots[i].src;
+      shotEl.textContent = String(i + 1);
+      [...grid.querySelectorAll(".kf")].forEach((el, idx) => {
+        el.classList.toggle("is-active", idx === i);
+      });
+      if (seek) audio.currentTime = shots[i].start + 0.05;
+    }
+
+    audio.addEventListener("loadedmetadata", () => {
+      assignStarts(audio.duration);
+      tDur.textContent = fmt(audio.duration);
+      renderGrid();
+      setActive(0, false);
+    });
+
+    audio.addEventListener("timeupdate", () => {
+      tNow.textContent = fmt(audio.currentTime);
+      if (!shots[0].end) return;
+      let i = shots.findIndex((s) => audio.currentTime >= s.start && audio.currentTime < s.end);
+      if (i < 0) i = shots.length - 1;
+      if (i !== active) setActive(i, false);
+    });
+
+    grid.addEventListener("click", (e) => {
+      const btn = e.target.closest(".kf");
+      if (!btn) return;
+      setActive(Number(btn.dataset.i), true);
+      audio.play();
+    });
+  </script>
+</body>
+</html>

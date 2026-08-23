@@ -20,6 +20,7 @@
   </url>
   <url>
     <loc>https://www.reducd.be/blog/</loc>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -253,7 +254,20 @@
   </url>
   <url>
     <loc>https://www.reducd.be/privacy.html</loc>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.reducd.be/llms.txt</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.reducd.be/llms-full.txt</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
 </urlset>

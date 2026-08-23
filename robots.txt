@@ -1,6 +1,82 @@
+# REDUCD — https://www.reducd.be
+# AI brand file: https://www.reducd.be/llms.txt
+# Full cite file: https://www.reducd.be/llms-full.txt
+
+# Answer-engine / AI crawlers (same public paths as everyone else)
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Disallow: /pro/platform/
+Disallow: /docs/view.html
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+Disallow: /pro/platform/
+Disallow: /docs/view.html
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+Disallow: /pro/platform/
+Disallow: /docs/view.html
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+Disallow: /pro/platform/
+Disallow: /docs/view.html
+
+User-agent: Claude-User
+Allow: /
+Disallow: /admin/
+Disallow: /pro/platform/
+Disallow: /docs/view.html
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /admin/
+Disallow: /pro/platform/
+Disallow: /docs/view.html
+
+User-agent: Anthropic-AI
+Allow: /
+Disallow: /admin/
+Disallow: /pro/platform/
+Disallow: /docs/view.html
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+Disallow: /pro/platform/
+Disallow: /docs/view.html
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /admin/
+Disallow: /pro/platform/
+Disallow: /docs/view.html
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /pro/platform/
+Disallow: /docs/view.html
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /pro/platform/
+Disallow: /docs/view.html
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /pro/platform/
+Disallow: /docs/view.html
+
 User-agent: *
 Allow: /
-
 Disallow: /admin/
 Disallow: /pro/platform/
 Disallow: /docs/view.html

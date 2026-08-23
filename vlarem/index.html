@@ -3,29 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VLAREM-rekentool warmtepomp | perceelsgrens | REDUCD</title>
-    <meta name="description" content="Bereken de theoretische restwaarde van je warmtepomp aan de perceelsgrens en toets die aan de VLAREM-richtwaarden. Merk en type kiezen, of dB handmatig.">
+    <title>VLAREM-rekentool warmtepomp | perceelsgrens Vlaanderen | REDUCD</title>
+    <meta name="description" content="De VLAREM-rekentool van REDUCD schat de theoretische restwaarde van je warmtepomp aan de perceelsgrens in Vlaanderen (woongebied 45/40/35 dB(A)).">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://www.reducd.be/vlarem/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="nl_BE">
-    <meta property="og:title" content="VLAREM-rekentool warmtepomp | REDUCD">
-    <meta property="og:description" content="Theoretische restwaarde aan de perceelsgrens, getoetst aan VLAREM-richtwaarden voor Vlaanderen.">
+    <meta property="og:title" content="VLAREM-rekentool warmtepomp | REDUCD Vlaanderen">
+    <meta property="og:description" content="Theoretische restwaarde aan de perceelsgrens, getoetst aan VLAREM-richtwaarden voor Vlaanderen. Geen meting, geen juridisch advies.">
     <meta property="og:url" content="https://www.reducd.be/vlarem/">
     <meta property="og:image" content="https://www.reducd.be/assets/images/geluidsmeting.webp">
     <link rel="icon" href="../assets/images/logo-reducd.png" type="image/png">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "REDUCD VLAREM-rekentool",
-      "url": "https://www.reducd.be/vlarem/",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "Any",
-      "inLanguage": "nl-BE",
-      "description": "Theoretische berekening van de geluidsdruk van een warmtepomp aan de perceelsgrens, getoetst aan VLAREM II-richtwaarden.",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
-      "publisher": { "@type": "Organization", "name": "REDUCD", "url": "https://www.reducd.be" }
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://www.reducd.be/vlarem/#app",
+          "name": "REDUCD VLAREM-rekentool",
+          "url": "https://www.reducd.be/vlarem/",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "inLanguage": "nl-BE",
+          "description": "Theoretische berekening van de geluidsdruk van een warmtepomp aan de perceelsgrens, getoetst aan VLAREM II-richtwaarden voor Vlaanderen.",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+          "publisher": { "@id": "https://www.reducd.be/#business" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.reducd.be/" },
+            { "@type": "ListItem", "position": 2, "name": "VLAREM-rekentool", "item": "https://www.reducd.be/vlarem/" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Welke VLAREM-richtwaarden gelden in woongebied?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Richtwaarden voor woongebied (VLAREM II, bijlage 4.5.4 / 2.2.1) zijn 45 / 40 / 35 dB(A) voor dag, avond en nacht. Landelijk gebied is strenger: 40 / 35 / 30 dB(A)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is de REDUCD VLAREM-rekentool een officiële meting?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nee. De tool geeft een theoretische restwaarde aan de perceelsgrens. Het is geen meting, geen juridisch advies en geen vervanging van een erkend akoestisch onderzoek."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Hoeveel dempt een REDUCD-omkasting in de rekentool?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Optioneel toont de tool het effect van een REDUCD-omkasting met het Peutz-gemiddelde: 14 dB(A) vrijstaand en 10–12 dB(A) voor het wandmodel."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
     <script src="../js/tracking-config.js"></script>
@@ -126,7 +167,7 @@
             <div class="lg:col-span-7">
                 <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Vlaanderen · VLAREM II</span>
                 <h1 class="font-extrabold text-4xl lg:text-6xl text-brand-navy mt-4 tracking-tight leading-[1.05]">VLAREM-rekentool voor je warmtepomp</h1>
-                <p class="text-brand-navy/55 mt-5 text-lg font-light leading-relaxed max-w-2xl">Kies merk en type — of vul zelf de maximale geluidsdruk in. Daarna afstand tot de perceelsgrens, muren en ondergrond. De tool schat de restwaarde en toetst die aan de richtwaarden.</p>
+                <p class="text-brand-navy/55 mt-5 text-lg font-light leading-relaxed max-w-2xl">De VLAREM-rekentool van REDUCD schat de theoretische restwaarde van je buitenunit aan de perceelsgrens in Vlaanderen. Kies merk en type — of vul zelf de maximale geluidsdruk in. Daarna afstand, muren en ondergrond. Dit is geen meting.</p>
             </div>
             <div class="lg:col-span-5 text-sm text-brand-navy/50 font-light leading-relaxed">
                 <p>Richtwaarden voor <strong class="text-brand-navy font-semibold">woongebied</strong> (VLAREM II, bijlage 4.5.4 / 2.2.1): <strong class="text-brand-navy font-semibold">45 / 40 / 35 dB(A)</strong> dag · avond · nacht. Landelijk is strenger: 40 / 35 / 30.</p>
@@ -251,6 +292,23 @@
             </article>
         </div>
         <p class="max-w-7xl mx-auto mt-8 text-xs text-brand-navy/40 font-light leading-relaxed">Richtwaarden volgens VLAREM II bijlage 2.2.1 / 4.5.4 (Buildwise-overzicht 2023). LwA-waarden in de lijst zijn indicatief uit productliteratuur (EN 12102) en geen garantie voor jouw werkpunt.</p>
+        <div class="max-w-7xl mx-auto mt-12 space-y-4">
+            <h2 class="font-extrabold text-2xl text-brand-navy tracking-tight">Kort samengevat</h2>
+            <dl class="grid md:grid-cols-3 gap-5 text-sm">
+                <div class="rounded-2xl border border-brand-navy/8 p-6">
+                    <dt class="font-bold text-brand-navy mb-2">Welke VLAREM-richtwaarden gelden in woongebied?</dt>
+                    <dd class="text-brand-navy/55 font-light leading-relaxed">Richtwaarden voor woongebied (VLAREM II, bijlage 4.5.4 / 2.2.1) zijn 45 / 40 / 35 dB(A) voor dag, avond en nacht. Landelijk gebied is strenger: 40 / 35 / 30 dB(A).</dd>
+                </div>
+                <div class="rounded-2xl border border-brand-navy/8 p-6">
+                    <dt class="font-bold text-brand-navy mb-2">Is de REDUCD VLAREM-rekentool een officiële meting?</dt>
+                    <dd class="text-brand-navy/55 font-light leading-relaxed">Nee. De tool geeft een theoretische restwaarde aan de perceelsgrens. Het is geen meting, geen juridisch advies en geen vervanging van een erkend akoestisch onderzoek.</dd>
+                </div>
+                <div class="rounded-2xl border border-brand-navy/8 p-6">
+                    <dt class="font-bold text-brand-navy mb-2">Hoeveel dempt een REDUCD-omkasting in de rekentool?</dt>
+                    <dd class="text-brand-navy/55 font-light leading-relaxed">Optioneel toont de tool het effect van een REDUCD-omkasting met het Peutz-gemiddelde: 14 dB(A) vrijstaand en 10–12 dB(A) voor het wandmodel.</dd>
+                </div>
+            </dl>
+        </div>
     </section>
 
     <footer class="bg-brand-navy py-12 px-6 lg:px-8">
@@ -264,6 +322,7 @@
                 <a href="../blog/" class="hover:text-white">Blog</a>
                 <a href="../#contact" class="hover:text-white">Contact</a>
                 <a href="../privacy.html" class="hover:text-white">Privacy</a>
+                <a href="../llms.txt" class="hover:text-white">AI-info</a>
             </div>
             <p class="text-xs text-white/30">© 2026 REDUCD B.V.</p>
         </div>

@@ -20,7 +20,22 @@ export const STATIC_BLOG_POSTS = [
     authorName: "REDUCD",
     status: "published",
     featured: true,
+    faq: [
+      {
+        q: "Hoeveel geluid reduceert een REDUCD-omkasting?",
+        a: "Gemiddeld 14 dB(A) bij het vrijstaand model (tot 75% stiller waargenomen), getest door Peutz in juli 2025 conform ISO 3741:2010 en ISO 7235:2003. Het wandmodel reduceert typisch 10–12 dB(A)."
+      },
+      {
+        q: "Helpt een sierkap tegen warmtepompgeluid?",
+        a: "Zelden. Een sierkap verbergt de unit maar dempt nauwelijks en kan de luchtweg verstikken. Een akoestische omkasting heeft een demper, absorptie en berekende luchtweg."
+      },
+      {
+        q: "Wat kun je in België doen bij geluidsoverlast?",
+        a: "Begin bij plaatsing en vrije ruimte, reken een indicatie met de VLAREM-rekentool in Vlaanderen, en plan een gratis geluidsmeting. België kent geen één landelijke erfgrensnorm."
+      }
+    ],
     content: `
+      <p><strong>Ja: geluidsoverlast van een warmtepomp verminder je structureel met plaatsing, trillingsdemping en een geteste akoestische omkasting — bij REDUCD gemiddeld 14 dB(A) (Peutz, juli 2025) — niet met een sierkap.</strong></p>
       <p>Een warmtepomp is een van de meest logische keuzes voor duurzaam verwarmen. Toch merken veel gezinnen hetzelfde: zodra de buitenunit aanslaat, hoor je een lage zoem, een ventilator of een periodieke piek. Overdag valt dat soms weg in het omgevingsgeluid. ’s Avonds, in de tuin of bij een open raam, wordt het een constante aanwezigheid.</p>
       <p>Dat is geen reden om de warmtepomp weg te denken. Het is wel een reden om het geluid als ontwerpvraag te behandelen — net als de kleur van de gevel of de plaats van het terras.</p>
 
@@ -60,8 +75,18 @@ export const STATIC_BLOG_POSTS = [
     authorName: "REDUCD",
     status: "published",
     featured: true,
+    faq: [
+      {
+        q: "Wat is het verschil tussen een suskast en een akoestische omkasting?",
+        a: "Suskast is een vage term uit de ventilatiewereld. Een akoestische omkasting van REDUCD is een geteste geluidskast: Magnelis-behuizing, 150 mm demper, gerecycled PET en gemiddeld 14 dB(A) reductie (Peutz)."
+      },
+      {
+        q: "Dempt een esthetische cover het geluid?",
+        a: "Nauwelijks. Gladde binnenwanden kaatsen geluid terug. Te krappe openingen laten de ventilator harder werken. Het resultaat is dezelfde of soms meer overlast."
+      }
+    ],
     content: `
-      <p>Wie online zoekt naar een oplossing voor een hoorbare warmtepomp, komt al snel drie termen tegen: suskast, geluidskast en akoestische omkasting. In de volksmond worden ze door elkaar gebruikt. Technisch is het verschil groot — en dat verschil hoor je.</p>
+      <p><strong>Een sierkap of “suskast” zonder testdata is geen akoestische omkasting.</strong> REDUCD bouwt kasten met demper, luchtweg en Peutz-meting (gemiddeld 14 dB(A) vrijstaand). Wie online zoekt naar een oplossing voor een hoorbare warmtepomp, komt al snel drie termen tegen: suskast, geluidskast en akoestische omkasting. In de volksmond worden ze door elkaar gebruikt. Technisch is het verschil groot — en dat verschil hoor je.</p>
       <p>REDUCD bouwt akoestische omkastingen. We leggen hier uit wat dat betekent, zodat je geen sierkap koopt als je rust nodig hebt, en geen overgedimensioneerde box als een slanker wandmodel volstaat.</p>
 
       <h2>Suskast: een bekend woord, een vage belofte</h2>
@@ -98,7 +123,18 @@ export const STATIC_BLOG_POSTS = [
     authorName: "REDUCD",
     status: "published",
     featured: true,
+    faq: [
+      {
+        q: "Is er in België één landelijke decibelnorm voor een warmtepomp?",
+        a: "Nee. Geluid loopt via gewestelijke milieuregels, gemeentelijke verordeningen en burenhinder. In Vlaanderen toets je het specifieke geluid aan VLAREM-richtwaarden (woongebied 45 / 40 / 35 dB(A))."
+      },
+      {
+        q: "Vervangt deze uitleg juridisch advies?",
+        a: "Nee. Het is een hoog-over kader om het gesprek voor te bereiden, geen procedurestuk en geen volledige weergave van elke uitzondering."
+      }
+    ],
     content: `
+      <p><strong>België kent geen één landelijke erfgrensnorm voor elke residentiële buitenunit.</strong> Geluid loopt via gewest, gemeente en hinderrecht. In Vlaanderen toets je onder meer aan VLAREM (woongebied 45 / 40 / 35 dB(A)). Dit artikel is geen juridisch advies.</p>
       <p>Een warmtepomp staat zelden midden op een perceel. Vaak staat ze langs de zijgevel, bij de erfgrens of in een smalle zijtuin — precies waar de buren hun terras, slaapkamerraam of kinderkamer hebben. Dan is geluid geen alleen-jouw-probleem meer. Het wordt een burenvraag, en soms een vergunnings- of milieuvraag.</p>
       <p>Hieronder een hoog-over kader voor België. Het is <strong>geen juridisch advies</strong> en geen volledige weergave van elke uitzondering. Regels wijzigen, en lokale toetsing blijft nodig. Gebruik dit om het gesprek voor te bereiden, niet om een procedure te winnen.</p>
 
@@ -131,7 +167,18 @@ export const STATIC_BLOG_POSTS = [
     authorName: "REDUCD",
     status: "published",
     featured: true,
+    faq: [
+      {
+        q: "Waarom gebruikt REDUCD Magnelis?",
+        a: "Magnelis is een staalcoating van zink, aluminium en magnesium (ArcelorMittal) die beter bestand is tegen corrosie dan klassiek verzinkt plaatstaal, ook aan de kust. Afwerking kan Magnelis blijven of RAL-poedercoating."
+      },
+      {
+        q: "Welke materialen zitten in een REDUCD-omkasting?",
+        a: "Magnelis-behuizing, RVS 316-bevestiging, gerecycled PET-absorptie en een demper van 150 mm. De gemiddelde reductie van 14 dB(A) komt uit die akoestische kern."
+      }
+    ],
     content: `
+      <p><strong>REDUCD bouwt omkastingen volgens Built to Last: Magnelis-behuizing, RVS 316 en gerecycled PET — bedoeld voor het klimaat van de Lage Landen, inclusief zilte lucht.</strong></p>
       <p>Geluid is de reden waarom je een omkasting overweegt. Toch faalt een kast zelden op decibels alleen. Ze faalt op roest bij de schroeven, een deur die kromtrekt, of isolatie die na twee winters inzakt. Daarom is materiaal geen nabeschouwing. Het is het product.</p>
       <p>REDUCD bouwt volgens het principe <strong>Built to Last</strong>: lokaal geproduceerd, bedoeld voor het klimaat van de Lage Landen, inclusief zilte lucht aan de kust. Drie keuzes maken dat waar: Magnelis® voor de behuizing, RVS 316 voor de bevestiging, en gerecycled PET voor de absorptie.</p>
 
@@ -161,8 +208,18 @@ export const STATIC_BLOG_POSTS = [
     authorName: "REDUCD",
     status: "published",
     featured: false,
+    faq: [
+      {
+        q: "Wanneer kies je het vrijstaand model?",
+        a: "Als de unit vrij in de tuin, op de oprit of op een platdak staat, je maximale demping wilt (± 14 dB(A)) en er ± 50 cm vrije ruimte voor/achter is. Maten: S, L en XL."
+      },
+      {
+        q: "Wanneer kies je het wandmodel?",
+        a: "Als de unit met de rug tegen de gevel staat of de diepte tot pad of perceelgrens beperkt is. Maten S en L; typisch 10–12 dB(A) reductie."
+      }
+    ],
     content: `
-      <p>REDUCD heeft twee families: het <strong>vrijstaande model</strong> en het <strong>wandmodel</strong>. De namen klinken als een kwestie van smaak. In werkelijkheid dicteert de opstelling van de buitenunit de keuze. Kies je verkeerd, dan knel je de luchtstroom, blokkeer je onderhoud of laat je geluid langs de open zijde ontsnappen.</p>
+      <p><strong>Kies vrijstaand (S/L/XL, ± 14 dB(A)) als de unit los staat; kies het wandmodel (S/L, 10–12 dB(A)) als de gevel de vierde wand is.</strong> REDUCD heeft twee families. De namen klinken als een kwestie van smaak. In werkelijkheid dicteert de opstelling van de buitenunit de keuze. Kies je verkeerd, dan knel je de luchtstroom, blokkeer je onderhoud of laat je geluid langs de open zijde ontsnappen.</p>
       <p>Hieronder een nuchtere vergelijking, zodat je naar de <a href="../index.html#producten">productpagina</a> kunt kijken met een voorkeur — of met de juiste vragen voor het adviesgesprek.</p>
 
       <h2>Vrijstaand: tuin, oprit, platdak</h2>
@@ -197,8 +254,18 @@ export const STATIC_BLOG_POSTS = [
     authorName: "REDUCD",
     status: "published",
     featured: false,
+    faq: [
+      {
+        q: "Hoeveel vrije ruimte heeft een REDUCD-omkasting nodig?",
+        a: "Richtlijn vrijstaand: minstens 50 cm voor/achter en 10 cm opzij, plus 5 cm tussen unit en kast. Wandmodel: minstens 50 cm voor/zij, achterkant tegen de muur. De strengste eis van kast of unitfabrikant wint."
+      },
+      {
+        q: "Hoe lang duurt de montage?",
+        a: "Doorgaans ongeveer een uur met twaalf boutjes, zelf of door het REDUCD-team, als ondergrond en maten kloppen."
+      }
+    ],
     content: `
-      <p>De beste omkasting faalt als ze te krap om de unit wordt gezet, of als de unit zelf al in een hoek stikt. Installatie is daarom geen nabewerking. Het is de voorwaarde voor stilte, rendement en een kast die je over vijf jaar nog kunt openen voor onderhoud.</p>
+      <p><strong>Te weinig vrije ruimte maakt een warmtepomp warmer, luider en lastiger te onderhouden.</strong> REDUCD hanteert onder meer 50 cm als praktische zone rond de kast, bovenop wat de unitfabrikant voorschrijft. De beste omkasting faalt als ze te krap om de unit wordt gezet, of als de unit zelf al in een hoek stikt.</p>
       <p>REDUCD levert en plaatst, of je installeert zelf: twaalf bouten, vaak binnen het uur, als de ondergrond en de maten kloppen. Die “als” verdient meer aandacht dan de bouten.</p>
 
       <h2>Lucht is geen detail</h2>
@@ -299,13 +366,22 @@ export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://www.reducd.be/#business",
     name: "REDUCD",
-    url: "https://www.reducd.be",
+    legalName: "REDUCD B.V.",
+    url: "https://www.reducd.be/",
     logo: "https://www.reducd.be/assets/images/logo-reducd.png",
     email: "info@reducd.be",
     telephone: "+32472084470",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Elzerijs nr. 6",
+      addressLocality: "Riethoven",
+      postalCode: "5561 VB",
+      addressCountry: "NL"
+    },
     areaServed: ["BE"],
-    description: "Akoestische omkastingen voor warmtepompen en airco's in België."
+    description: "REDUCD maakt akoestische omkastingen voor warmtepompen en airco in België."
   };
 }
 

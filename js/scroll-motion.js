@@ -128,6 +128,9 @@
     const navPill = document.getElementById("navPill");
     if (navPill) {
       const onScroll = () => {
+        const cm = 96 / 2.54;
+        const t = Math.min(1, Math.max(0, window.scrollY / cm));
+        navPill.style.setProperty("--nav-shade", t.toFixed(3));
         navPill.classList.toggle("scrolled", window.scrollY > 60);
         syncNavGratis();
       };
