@@ -351,12 +351,14 @@
 
   function paintPlayhead(step) {
     document.querySelectorAll(".cell.playhead").forEach((c) => c.classList.remove("playhead"));
+    document.querySelectorAll(".step-headers .ph").forEach((c) => c.classList.remove("ph"));
     if (step < 0) return;
     document.querySelectorAll(`.cell[data-step="${step}"]`).forEach((c) => c.classList.add("playhead"));
+    document.querySelectorAll(`.step-headers span[data-step="${step}"]`).forEach((c) => c.classList.add("ph"));
   }
 
   function renderKick() {
-    const headers = `<div class="step-headers"><span></span>${Array.from({ length: STEPS }, (_, i) => `<span>${i + 1}</span>`).join("")}</div>`;
+    const headers = `<div class="step-headers"><span></span>${Array.from({ length: STEPS }, (_, i) => `<span data-step="${i}">${i + 1}</span>`).join("")}</div>`;
     const cells = state.kick
       .map(
         (on, step) =>
@@ -384,8 +386,8 @@
             <div class="panel-head">
               <div class="panel-title">Synth ${si + 1}</div>
               <div class="row-controls">
-                <button type="button" class="btn tiny" data-shift="${si}" data-dir="-1" title="Shift pattern backward">⟵ Shift</button>
-                <button type="button" class="btn tiny" data-shift="${si}" data-dir="1" title="Shift pattern forward">Shift ⟶</button>
+                <button type="button" class="btn tiny" data-shift="${si}" data-dir="-1" title="Shift pattern backward">Shift left</button>
+                <button type="button" class="btn tiny" data-shift="${si}" data-dir="1" title="Shift pattern forward">Shift right</button>
                 <button type="button" class="btn tiny ghost${synth.fxBypass ? " active" : ""}" data-bypass="${si}">FX ${synth.fxBypass ? "Bypassed" : "On"}</button>
                 <button type="button" class="btn tiny ghost${synth.muted ? " active" : ""}" data-mute="${si}">${synth.muted ? "Muted" : "Mute"}</button>
                 <label class="ctrl">Wave
@@ -398,7 +400,7 @@
                 </label>
               </div>
             </div>
-            <div class="step-headers"><span></span>${Array.from({ length: STEPS }, (_, i) => `<span>${i + 1}</span>`).join("")}</div>
+            <div class="step-headers"><span></span>${Array.from({ length: STEPS }, (_, i) => `<span data-step="${i}">${i + 1}</span>`).join("")}</div>
             <div class="note-grid">${rows}</div>
             <div class="fx${synth.fxBypass ? " bypassed" : ""}" data-fx="${si}">
               <div class="fx-order">Processing order: <strong style="color:var(--text)">${order.label}</strong></div>

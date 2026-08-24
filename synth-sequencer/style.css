@@ -123,9 +123,11 @@ body::before {
   color: var(--text);
   font-family: var(--font-mono);
   font-size: 0.75rem;
+  line-height: 1.2;
   padding: 8px 12px;
   border-radius: 3px;
   cursor: pointer;
+  white-space: nowrap;
   transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
 }
 
@@ -232,7 +234,10 @@ label.ctrl input[type="range"] {
 }
 
 .cell.playhead {
-  box-shadow: inset 0 0 0 2px var(--play);
+  outline: 2px solid var(--play);
+  outline-offset: -2px;
+  z-index: 1;
+  position: relative;
 }
 
 .cell.on.playhead {
@@ -288,6 +293,11 @@ label.ctrl input[type="range"] {
   text-align: center;
   font-size: 0.6rem;
   color: var(--muted);
+}
+
+.step-headers span.ph {
+  color: var(--play);
+  font-weight: 500;
 }
 
 .hint {
