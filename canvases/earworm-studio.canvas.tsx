@@ -5,8 +5,10 @@ import {
   CardHeader,
   Grid,
   H1,
+  H2,
   Pill,
   Row,
+  Select,
   Spacer,
   Stack,
   Stat,
@@ -22,6 +24,7 @@ import {
 
 type Bank = "Drums" | "Bass" | "Synth" | "Strings" | "Drop" | "Vocal";
 type Wave = OscillatorType;
+type ScaleId = "pent" | "minor" | "major" | "chrom";
 type Voice =
   | { kind: "kick"; start: number; end: number }
   | { kind: "noise"; decay: number; hp?: number; bp?: number; q?: number }
@@ -41,11 +44,91 @@ type Voice =
 type Pad = { id: string; bank: Bank; name: string; voice: Voice };
 type Hit = { padId: string; step: number; tune?: number };
 
+type SynthParams = {
+  osc1Wave: Wave;
+  osc2Wave: Wave;
+  osc1Oct: number;
+  osc1Detune: number;
+  osc2Mix: number;
+  osc2Detune: number;
+  cutoff: number;
+  res: number;
+  filtEnv: number;
+  lfoAmt: number;
+  attack: number;
+  decay: number;
+  sustain: number;
+  release: number;
+  delayTime: number;
+  feedback: number;
+  delayMix: number;
+  lfoRate: number;
+  gate: number;
+  bassWave: Wave;
+  bassSub: number;
+  bassCutoff: number;
+  bassDecay: number;
+  bassLevel: number;
+  scale: ScaleId;
+  swing: number;
+};
+
 const BANKS: Bank[] = ["Drums", "Bass", "Synth", "Strings", "Drop", "Vocal"];
 const STEPS = 16;
 const TUNE_MIN = -24;
 const TUNE_MAX = 24;
 const TUNE_STEP = 0.5;
+const ROOT_MIDI = 48;
+const NOTE_NAMES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+const SCALES: Record<ScaleId, number[]> = {
+  pent: [0, 3, 5, 7, 10, 12, 15, 17],
+  minor: [0, 2, 3, 5, 7, 8, 10, 12],
+  major: [0, 2, 4, 5, 7, 9, 11, 12],
+  chrom: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+};
+const WAVE_OPTIONS = [
+  { value: "sawtooth", label: "Saw" },
+  { value: "square", label: "Square" },
+  { value: "triangle", label: "Triangle" },
+  { value: "sine", label: "Sine" },
+];
+const SCALE_OPTIONS = [
+  { value: "pent", label: "Minor pent" },
+  { value: "minor", label: "Natural minor" },
+  { value: "major", label: "Major" },
+  { value: "chrom", label: "Chromatic" },
+];
+const WHITE_KEYS = [48, 50, 52, 53, 55, 57, 59, 60, 62, 64, 65, 67, 69, 71, 72];
+const BLACK_AFTER = [49, 51, null, 54, 56, 58, null, 61, 63, null, 66, 68, 70];
+
+const DEFAULT_SYNTH: SynthParams = {
+  osc1Wave: "sawtooth",
+  osc2Wave: "sawtooth",
+  osc1Oct: 0,
+  osc1Detune: 0,
+  osc2Mix: 35,
+  osc2Detune: 7,
+  cutoff: 1800,
+  res: 4,
+  filtEnv: 1200,
+  lfoAmt: 0,
+  attack: 0.01,
+  decay: 0.18,
+  sustain: 0.45,
+  release: 0.28,
+  delayTime: 0.22,
+  feedback: 0.28,
+  delayMix: 0.22,
+  lfoRate: 3.2,
+  gate: 0.55,
+  bassWave: "square",
+  bassSub: 0.55,
+  bassCutoff: 420,
+  bassDecay: 0.32,
+  bassLevel: 0.7,
+  scale: "pent",
+  swing: 0.08,
+};
 
 const PADS: Pad[] = [
   { id: "d-kick", bank: "Drums", name: "Kick", voice: { kind: "kick", start: 140, end: 42 } },
@@ -157,6 +240,38 @@ function formatTune(semitones: number) {
   const value = snapTune(semitones);
   const sign = value > 0 ? "+" : "";
   return `${sign}${value.toFixed(1)} st`;
+}
+
+function midiToHz(midi: number) {
+  return 440 * Math.pow(2, (midi - 69) / 12);
+}
+
+function midiName(midi: number) {
+  return NOTE_NAMES[((midi % 12) + 12) % 12] + (Math.floor(midi / 12) - 1);
+}
+
+function freqToMidi(freq: number) {
+  return 69 + 12 * Math.log2(Math.max(20, freq) / 440);
+}
+
+function voiceFreq(voice: Voice) {
+  if (voice.kind === "kick") return voice.start;
+  if (voice.kind === "osc") return voice.freq;
+  if (voice.kind === "fm") return voice.car;
+  if (voice.kind === "formant") return voice.freq;
+  if (voice.kind === "rise") return voice.from;
+  return 440;
+}
+
+function analogNotes(pad: Pad, midi: number) {
+  if (pad.id === "s-fifth") return [midi, midi + 7];
+  if (pad.id === "s-chord") return [midi, midi + 4, midi + 7];
+  return [midi];
+}
+
+function inScale(midi: number, scale: ScaleId) {
+  const iv = ((midi - ROOT_MIDI) % 12 + 12) % 12;
+  return SCALES[scale].some((step) => step % 12 === iv);
 }
 
 function noiseBuffer(ctx: AudioContext) {
@@ -312,14 +427,153 @@ type Engine = {
   ctx: AudioContext;
   master: GainNode;
   noise: AudioBuffer;
+  filter: BiquadFilterNode;
+  delay: DelayNode;
+  feedback: GainNode;
+  delayGain: GainNode;
+  dry: GainNode;
+  lfo: OscillatorNode;
+  lfoGain: GainNode;
 };
 
 function createEngine(): Engine {
   const ctx = new AudioContext();
   const master = ctx.createGain();
   master.gain.value = 0.8;
+
+  const filter = ctx.createBiquadFilter();
+  filter.type = "lowpass";
+  filter.frequency.value = DEFAULT_SYNTH.cutoff;
+  filter.Q.value = DEFAULT_SYNTH.res;
+
+  const dry = ctx.createGain();
+  dry.gain.value = 1;
+  const delay = ctx.createDelay(1);
+  delay.delayTime.value = DEFAULT_SYNTH.delayTime;
+  const feedback = ctx.createGain();
+  feedback.gain.value = DEFAULT_SYNTH.feedback;
+  const delayGain = ctx.createGain();
+  delayGain.gain.value = DEFAULT_SYNTH.delayMix;
+
+  const lfo = ctx.createOscillator();
+  lfo.frequency.value = DEFAULT_SYNTH.lfoRate;
+  const lfoGain = ctx.createGain();
+  lfoGain.gain.value = DEFAULT_SYNTH.lfoAmt;
+  lfo.connect(lfoGain);
+  lfoGain.connect(filter.frequency);
+  lfo.start();
+
+  filter.connect(dry);
+  filter.connect(delay);
+  delay.connect(feedback);
+  feedback.connect(delay);
+  delay.connect(delayGain);
+  dry.connect(master);
+  delayGain.connect(master);
   master.connect(ctx.destination);
-  return { ctx, master, noise: noiseBuffer(ctx) };
+
+  return {
+    ctx,
+    master,
+    noise: noiseBuffer(ctx),
+    filter,
+    delay,
+    feedback,
+    delayGain,
+    dry,
+    lfo,
+    lfoGain,
+  };
+}
+
+function applySynthGraph(engine: Engine, params: SynthParams) {
+  const now = engine.ctx.currentTime;
+  engine.filter.frequency.setTargetAtTime(params.cutoff, now, 0.03);
+  engine.filter.Q.setTargetAtTime(params.res, now, 0.03);
+  engine.delay.delayTime.setTargetAtTime(params.delayTime, now, 0.03);
+  engine.feedback.gain.setTargetAtTime(params.feedback, now, 0.03);
+  engine.delayGain.gain.setTargetAtTime(params.delayMix, now, 0.03);
+  engine.lfo.frequency.setTargetAtTime(params.lfoRate, now, 0.03);
+  engine.lfoGain.gain.setTargetAtTime(params.lfoAmt, now, 0.03);
+}
+
+function analogVoice(engine: Engine, params: SynthParams, midi: number, time: number, dur: number, level: number) {
+  const { ctx, filter } = engine;
+  const o1 = ctx.createOscillator();
+  const o2 = ctx.createOscillator();
+  const mix1 = ctx.createGain();
+  const mix2 = ctx.createGain();
+  const env = ctx.createGain();
+  const hz = midiToHz(midi + params.osc1Oct * 12);
+  o1.type = params.osc1Wave;
+  o2.type = params.osc2Wave;
+  o1.frequency.setValueAtTime(hz, time);
+  o2.frequency.setValueAtTime(hz, time);
+  o1.detune.setValueAtTime(params.osc1Detune, time);
+  o2.detune.setValueAtTime(params.osc2Detune, time);
+  mix1.gain.value = 0.55 * level;
+  mix2.gain.value = (params.osc2Mix / 100) * 0.5 * level;
+  const attack = params.attack;
+  const decay = params.decay;
+  const sustain = Math.max(0.0001, params.sustain);
+  const release = params.release;
+  env.gain.setValueAtTime(0.0001, time);
+  env.gain.exponentialRampToValueAtTime(1, time + attack);
+  env.gain.exponentialRampToValueAtTime(sustain, time + attack + decay);
+  env.gain.setValueAtTime(sustain, time + dur);
+  env.gain.exponentialRampToValueAtTime(0.0001, time + dur + release);
+  const peak = params.cutoff + params.filtEnv;
+  filter.frequency.cancelScheduledValues(time);
+  filter.frequency.setValueAtTime(params.cutoff, time);
+  filter.frequency.linearRampToValueAtTime(peak, time + attack);
+  filter.frequency.linearRampToValueAtTime(params.cutoff, time + attack + decay + 0.05);
+  o1.connect(mix1);
+  o2.connect(mix2);
+  mix1.connect(env);
+  mix2.connect(env);
+  env.connect(filter);
+  o1.start(time);
+  o2.start(time);
+  o1.stop(time + dur + release + 0.02);
+  o2.stop(time + dur + release + 0.02);
+}
+
+function analogBass(engine: Engine, params: SynthParams, midi: number, time: number, dur: number, level: number) {
+  const { ctx, master } = engine;
+  const sub = ctx.createOscillator();
+  const osc = ctx.createOscillator();
+  const subG = ctx.createGain();
+  const oscG = ctx.createGain();
+  const filt = ctx.createBiquadFilter();
+  const env = ctx.createGain();
+  const hz = midiToHz(midi);
+  sub.type = "sine";
+  osc.type = params.bassWave;
+  sub.frequency.setValueAtTime(hz, time);
+  osc.frequency.setValueAtTime(hz, time);
+  osc.detune.setValueAtTime(-8, time);
+  subG.gain.value = params.bassSub * 0.75 * level;
+  oscG.gain.value = 0.42 * level;
+  filt.type = "lowpass";
+  filt.Q.value = 7;
+  filt.frequency.setValueAtTime(Math.max(80, params.bassCutoff * 2.4), time);
+  filt.frequency.exponentialRampToValueAtTime(Math.max(60, params.bassCutoff), time + 0.09);
+  const peak = Math.max(0.0001, params.bassLevel);
+  env.gain.setValueAtTime(0.0001, time);
+  env.gain.exponentialRampToValueAtTime(peak, time + 0.008);
+  env.gain.exponentialRampToValueAtTime(Math.max(0.0001, peak * 0.42), time + 0.07);
+  env.gain.setValueAtTime(Math.max(0.0001, peak * 0.42), time + dur);
+  env.gain.exponentialRampToValueAtTime(0.0001, time + dur + params.bassDecay);
+  sub.connect(subG);
+  osc.connect(oscG);
+  subG.connect(filt);
+  oscG.connect(filt);
+  filt.connect(env);
+  env.connect(master);
+  sub.start(time);
+  osc.start(time);
+  sub.stop(time + dur + params.bassDecay + 0.02);
+  osc.stop(time + dur + params.bassDecay + 0.02);
 }
 
 function hitKey(hit: Hit) {
@@ -354,6 +608,128 @@ function sliderStyle(accent: string, track: string): CSSProperties {
   };
 }
 
+function ParamSlider({
+  label,
+  value,
+  min,
+  max,
+  step,
+  format,
+  onChange,
+}: {
+  label: string;
+  value: number;
+  min: number;
+  max: number;
+  step: number;
+  format?: (n: number) => string;
+  onChange: (n: number) => void;
+}) {
+  const theme = useHostTheme();
+  const digits = step < 1 ? (step < 0.01 ? 3 : 2) : 0;
+  return (
+    <Stack gap={6}>
+      <Row align="center">
+        <Text tone="secondary" size="small">
+          {label}
+        </Text>
+        <Spacer />
+        <Text size="small">{format ? format(value) : Number(value).toFixed(digits)}</Text>
+      </Row>
+      <input
+        type="range"
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        onChange={(event) => onChange(Number(event.target.value))}
+        style={sliderStyle(theme.accent.primary, theme.fill.tertiary)}
+      />
+    </Stack>
+  );
+}
+
+function Keybed({
+  bank,
+  scale,
+  held,
+  onDown,
+  onUp,
+}: {
+  bank: Bank;
+  scale: ScaleId;
+  held: number | null;
+  onDown: (midi: number) => void;
+  onUp: () => void;
+}) {
+  const theme = useHostTheme();
+  return (
+    <Stack gap={8}>
+      <Row align="center">
+        <Text weight="medium">{bank === "Bass" ? "Bass keys" : "Lead keys"}</Text>
+        <Spacer />
+        <Text tone="tertiary" size="small">
+          Live analog voice · scale notes marked
+        </Text>
+      </Row>
+      <Row gap={3} align="end">
+        {WHITE_KEYS.map((midi, index) => {
+          const black = BLACK_AFTER[index];
+          const scaled = inScale(midi, scale);
+          const down = held === midi;
+          return (
+            <div key={midi} style={{ flex: 1, position: "relative", height: 72 }}>
+              <button
+                onPointerDown={() => onDown(midi)}
+                onPointerUp={onUp}
+                onPointerLeave={onUp}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: 4,
+                  cursor: "pointer",
+                  background: down ? theme.accent.primary : scaled ? theme.fill.primary : theme.fill.tertiary,
+                  border: `1px solid ${down ? theme.accent.primary : theme.stroke.primary}`,
+                  color: down ? theme.text.onAccent : theme.text.tertiary,
+                  fontSize: 10,
+                }}
+              >
+                {midiName(midi)}
+              </button>
+              {black != null ? (
+                <button
+                  onPointerDown={(event) => {
+                    event.stopPropagation();
+                    onDown(black);
+                  }}
+                  onPointerUp={onUp}
+                  onPointerLeave={onUp}
+                  style={{
+                    position: "absolute",
+                    left: "58%",
+                    top: 0,
+                    width: "70%",
+                    height: "58%",
+                    borderRadius: 4,
+                    cursor: "pointer",
+                    zIndex: 1,
+                    background: held === black ? theme.accent.primary : theme.fill.secondary,
+                    border: `1px solid ${theme.stroke.primary}`,
+                    color: held === black ? theme.text.onAccent : theme.text.secondary,
+                    fontSize: 9,
+                  }}
+                >
+                  {midiName(black)}
+                </button>
+              ) : null}
+            </div>
+          );
+        })}
+      </Row>
+    </Stack>
+  );
+}
+
 export default function EarwormStudio() {
   const theme = useHostTheme();
   const [bank, setBank] = useCanvasState<Bank>("bank", "Drums");
@@ -365,8 +741,11 @@ export default function EarwormStudio() {
   const [selectedPad, setSelectedPad] = useCanvasState("selectedPad", "d-kick");
   const [selectedStep, setSelectedStep] = useCanvasState("selectedStep", 0);
   const [draftTune, setDraftTune] = useCanvasState("draftTune", 0);
+  const [synth, setSynth] = useCanvasState<SynthParams>("synth", DEFAULT_SYNTH);
   const [step, setStep] = useState(0);
   const [flash, setFlash] = useState<string | null>(null);
+  const [heldKey, setHeldKey] = useState<number | null>(null);
+  const [engineOn, setEngineOn] = useState(false);
 
   const engineRef = useRef<Engine | null>(null);
   const hitsRef = useRef(hits);
@@ -374,10 +753,10 @@ export default function EarwormStudio() {
   const volumeRef = useRef(volume);
   const durationRef = useRef(duration);
   const playingRef = useRef(playing);
+  const synthRef = useRef(synth);
   const stepRef = useRef(0);
   const nextTimeRef = useRef(0);
   const timerRef = useRef<number | null>(null);
-
   const playheadRef = useRef(0);
   const draftTuneRef = useRef(0);
 
@@ -386,6 +765,7 @@ export default function EarwormStudio() {
   volumeRef.current = volume;
   durationRef.current = duration;
   playingRef.current = playing;
+  synthRef.current = synth;
   draftTuneRef.current = draftTune;
 
   const pads = useMemo(() => PADS.filter((pad) => pad.bank === bank), [bank]);
@@ -396,8 +776,18 @@ export default function EarwormStudio() {
   }, [hits]);
 
   function engine() {
-    if (!engineRef.current) engineRef.current = createEngine();
+    if (!engineRef.current) {
+      engineRef.current = createEngine();
+      applySynthGraph(engineRef.current, synthRef.current);
+      setEngineOn(true);
+    }
     return engineRef.current;
+  }
+
+  function holdFor(preview: boolean, extra = 0) {
+    const stepLen = 60 / tempoRef.current / 4;
+    const base = preview ? 0.32 : stepLen;
+    return Math.max(0.04, base * (synthRef.current.gate + extra) * (durationRef.current / 1.2));
   }
 
   function trigger(padId: string, when?: number, semitones = 0) {
@@ -405,20 +795,43 @@ export default function EarwormStudio() {
     if (!pad) return;
     const audio = engine();
     void audio.ctx.resume();
-    playVoice(
-      audio.ctx,
-      audio.master,
-      audio.noise,
-      pad.voice,
-      when ?? audio.ctx.currentTime,
-      durationRef.current,
-      volumeRef.current / 100,
-      semitones,
-    );
+    applySynthGraph(audio, synthRef.current);
+    const time = when ?? audio.ctx.currentTime;
+    const level = volumeRef.current / 100;
+    const params = synthRef.current;
+    if (pad.bank === "Synth") {
+      const midi = freqToMidi(voiceFreq(pad.voice)) + semitones;
+      const dur = holdFor(when == null);
+      for (const note of analogNotes(pad, midi)) analogVoice(audio, params, note, time, dur, level);
+    } else if (pad.bank === "Bass") {
+      analogBass(
+        audio,
+        params,
+        freqToMidi(voiceFreq(pad.voice)) + semitones,
+        time,
+        holdFor(when == null, 0.15),
+        level,
+      );
+    } else {
+      playVoice(audio.ctx, audio.master, audio.noise, pad.voice, time, durationRef.current, level, semitones);
+    }
     if (when == null) {
       setFlash(padId);
       window.setTimeout(() => setFlash((id) => (id === padId ? null : id)), 90);
     }
+  }
+
+  function playKey(midi: number) {
+    const audio = engine();
+    void audio.ctx.resume();
+    applySynthGraph(audio, synthRef.current);
+    const time = audio.ctx.currentTime;
+    const level = volumeRef.current / 100;
+    const params = synthRef.current;
+    const pitchedMidi = midi + snapTune(draftTuneRef.current);
+    setHeldKey(midi);
+    if (bank === "Bass") analogBass(audio, params, pitchedMidi - 12, time, 0.32, level);
+    else analogVoice(audio, params, pitchedMidi, time, 0.35, level);
   }
 
   function schedule() {
@@ -427,10 +840,12 @@ export default function EarwormStudio() {
     const stepLen = 60 / tempoRef.current / 4;
     while (nextTimeRef.current < audio.ctx.currentTime + 0.12) {
       const current = stepRef.current;
+      const swing = current % 2 === 1 ? stepLen * synthRef.current.swing : 0;
+      const when = nextTimeRef.current + swing;
       playheadRef.current = current;
       setStep(current);
       for (const hit of hitsRef.current) {
-        if (hit.step === current) trigger(hit.padId, nextTimeRef.current, hitTune(hit));
+        if (hit.step === current) trigger(hit.padId, when, hitTune(hit));
       }
       nextTimeRef.current += stepLen;
       stepRef.current = (current + 1) % STEPS;
@@ -496,6 +911,14 @@ export default function EarwormStudio() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (engineRef.current) applySynthGraph(engineRef.current, synth);
+  }, [synth]);
+
+  function patchSynth<K extends keyof SynthParams>(key: K, value: SynthParams[K]) {
+    setSynth((current) => ({ ...current, [key]: value }));
+  }
+
   function applyTune(next: number) {
     const snapped = snapTune(next);
     setDraftTune(snapped);
@@ -540,6 +963,7 @@ export default function EarwormStudio() {
   const selectedHits = hits.filter((hit) => hit.padId === selectedPad);
   const selected = PAD_MAP.get(selectedPad);
   const transportLabel = playing ? "playing" : step === 0 ? "stopped" : "paused";
+  const analogBank = bank === "Synth" || bank === "Bass";
 
   return (
     <Stack gap={20}>
@@ -549,6 +973,10 @@ export default function EarwormStudio() {
             earworm
           </Text>
           <H1>Studio</H1>
+          <Text tone="tertiary" size="small">
+            {engineOn ? "Audio unlocked" : "Click Play or a pad to unlock audio"}
+            {" · pads + analog"}
+          </Text>
         </Stack>
         <Row gap={16}>
           <Stat value={`${volume}%`} label="Volume" />
@@ -588,13 +1016,302 @@ export default function EarwormStudio() {
               <Stack gap={4}>
                 <Text weight="medium">{pad.name}</Text>
                 <Text tone="tertiary" size="small">
-                  {count > 0 ? `${count} in loop` : pad.bank}
+                  {count > 0 ? `${count} in loop` : pad.bank === "Synth" || pad.bank === "Bass" ? "Analog" : pad.bank}
                 </Text>
               </Stack>
             </button>
           );
         })}
       </Grid>
+
+      {bank === "Synth" ? (
+        <Stack gap={12}>
+          <Row align="center">
+            <H2>Analog lead</H2>
+            <Spacer />
+            <Text tone="tertiary" size="small">
+              Dual osc · filter · delay · shapes every Synth pad
+            </Text>
+          </Row>
+          <Grid columns={3} gap={14}>
+            <Stack gap={10}>
+              <Text weight="medium">Osc 1</Text>
+              <Select
+                value={synth.osc1Wave}
+                onChange={(value) => patchSynth("osc1Wave", value as Wave)}
+                options={WAVE_OPTIONS}
+              />
+              <ParamSlider
+                label="Octave"
+                value={synth.osc1Oct}
+                min={-2}
+                max={2}
+                step={1}
+                onChange={(value) => patchSynth("osc1Oct", value)}
+              />
+              <ParamSlider
+                label="Detune"
+                value={synth.osc1Detune}
+                min={-50}
+                max={50}
+                step={1}
+                onChange={(value) => patchSynth("osc1Detune", value)}
+              />
+            </Stack>
+            <Stack gap={10}>
+              <Text weight="medium">Osc 2</Text>
+              <Select
+                value={synth.osc2Wave}
+                onChange={(value) => patchSynth("osc2Wave", value as Wave)}
+                options={WAVE_OPTIONS}
+              />
+              <ParamSlider
+                label="Mix"
+                value={synth.osc2Mix}
+                min={0}
+                max={100}
+                step={1}
+                onChange={(value) => patchSynth("osc2Mix", value)}
+              />
+              <ParamSlider
+                label="Detune"
+                value={synth.osc2Detune}
+                min={-50}
+                max={50}
+                step={1}
+                onChange={(value) => patchSynth("osc2Detune", value)}
+              />
+            </Stack>
+            <Stack gap={10}>
+              <Text weight="medium">Filter</Text>
+              <ParamSlider
+                label="Cutoff"
+                value={synth.cutoff}
+                min={80}
+                max={8000}
+                step={1}
+                onChange={(value) => patchSynth("cutoff", value)}
+              />
+              <ParamSlider
+                label="Res"
+                value={synth.res}
+                min={0.1}
+                max={18}
+                step={0.1}
+                onChange={(value) => patchSynth("res", value)}
+              />
+              <ParamSlider
+                label="Env"
+                value={synth.filtEnv}
+                min={0}
+                max={5000}
+                step={1}
+                onChange={(value) => patchSynth("filtEnv", value)}
+              />
+              <ParamSlider
+                label="LFO"
+                value={synth.lfoAmt}
+                min={0}
+                max={2000}
+                step={1}
+                onChange={(value) => patchSynth("lfoAmt", value)}
+              />
+            </Stack>
+            <Stack gap={10}>
+              <Text weight="medium">Envelope</Text>
+              <ParamSlider
+                label="Attack"
+                value={synth.attack}
+                min={0.001}
+                max={1.5}
+                step={0.001}
+                onChange={(value) => patchSynth("attack", value)}
+              />
+              <ParamSlider
+                label="Decay"
+                value={synth.decay}
+                min={0.01}
+                max={1.8}
+                step={0.01}
+                onChange={(value) => patchSynth("decay", value)}
+              />
+              <ParamSlider
+                label="Sustain"
+                value={synth.sustain}
+                min={0}
+                max={1}
+                step={0.01}
+                onChange={(value) => patchSynth("sustain", value)}
+              />
+              <ParamSlider
+                label="Release"
+                value={synth.release}
+                min={0.02}
+                max={2.5}
+                step={0.01}
+                onChange={(value) => patchSynth("release", value)}
+              />
+            </Stack>
+            <Stack gap={10}>
+              <Text weight="medium">Delay / LFO</Text>
+              <ParamSlider
+                label="Time"
+                value={synth.delayTime}
+                min={0.05}
+                max={0.75}
+                step={0.01}
+                onChange={(value) => patchSynth("delayTime", value)}
+              />
+              <ParamSlider
+                label="Fbk"
+                value={synth.feedback}
+                min={0}
+                max={0.85}
+                step={0.01}
+                onChange={(value) => patchSynth("feedback", value)}
+              />
+              <ParamSlider
+                label="Mix"
+                value={synth.delayMix}
+                min={0}
+                max={0.7}
+                step={0.01}
+                onChange={(value) => patchSynth("delayMix", value)}
+              />
+              <ParamSlider
+                label="Rate"
+                value={synth.lfoRate}
+                min={0.1}
+                max={12}
+                step={0.1}
+                onChange={(value) => patchSynth("lfoRate", value)}
+              />
+            </Stack>
+            <Stack gap={10}>
+              <Text weight="medium">Voice</Text>
+              <Select
+                value={synth.scale}
+                onChange={(value) => patchSynth("scale", value as ScaleId)}
+                options={SCALE_OPTIONS}
+              />
+              <ParamSlider
+                label="Gate"
+                value={synth.gate}
+                min={0.08}
+                max={0.98}
+                step={0.01}
+                onChange={(value) => patchSynth("gate", value)}
+              />
+              <ParamSlider
+                label="Swing"
+                value={Math.round(synth.swing * 100)}
+                min={0}
+                max={60}
+                step={1}
+                format={(value) => `${value}%`}
+                onChange={(value) => patchSynth("swing", value / 100)}
+              />
+            </Stack>
+          </Grid>
+        </Stack>
+      ) : null}
+
+      {bank === "Bass" ? (
+        <Stack gap={12}>
+          <Row align="center">
+            <H2>Analog bass</H2>
+            <Spacer />
+            <Text tone="tertiary" size="small">
+              Sub + osc · shapes every Bass pad
+            </Text>
+          </Row>
+          <Grid columns={5} gap={14}>
+            <Stack gap={10}>
+              <Text weight="medium">Wave</Text>
+              <Select
+                value={synth.bassWave}
+                onChange={(value) => patchSynth("bassWave", value as Wave)}
+                options={WAVE_OPTIONS}
+              />
+            </Stack>
+            <ParamSlider
+              label="Sub"
+              value={synth.bassSub}
+              min={0}
+              max={1}
+              step={0.01}
+              onChange={(value) => patchSynth("bassSub", value)}
+            />
+            <ParamSlider
+              label="Cutoff"
+              value={synth.bassCutoff}
+              min={80}
+              max={1200}
+              step={1}
+              onChange={(value) => patchSynth("bassCutoff", value)}
+            />
+            <ParamSlider
+              label="Decay"
+              value={synth.bassDecay}
+              min={0.08}
+              max={1.2}
+              step={0.01}
+              onChange={(value) => patchSynth("bassDecay", value)}
+            />
+            <ParamSlider
+              label="Level"
+              value={synth.bassLevel}
+              min={0}
+              max={1}
+              step={0.01}
+              onChange={(value) => patchSynth("bassLevel", value)}
+            />
+          </Grid>
+          <Row gap={16} wrap>
+            <Stack gap={6} style={{ flex: 1, minWidth: 160 }}>
+              <Text tone="secondary" size="small">
+                Scale
+              </Text>
+              <Select
+                value={synth.scale}
+                onChange={(value) => patchSynth("scale", value as ScaleId)}
+                options={SCALE_OPTIONS}
+              />
+            </Stack>
+            <Stack gap={6} style={{ flex: 1, minWidth: 160 }}>
+              <ParamSlider
+                label="Gate"
+                value={synth.gate}
+                min={0.08}
+                max={0.98}
+                step={0.01}
+                onChange={(value) => patchSynth("gate", value)}
+              />
+            </Stack>
+            <Stack gap={6} style={{ flex: 1, minWidth: 160 }}>
+              <ParamSlider
+                label="Swing"
+                value={Math.round(synth.swing * 100)}
+                min={0}
+                max={60}
+                step={1}
+                format={(value) => `${value}%`}
+                onChange={(value) => patchSynth("swing", value / 100)}
+              />
+            </Stack>
+          </Row>
+        </Stack>
+      ) : null}
+
+      {analogBank ? (
+        <Keybed
+          bank={bank}
+          scale={synth.scale}
+          held={heldKey}
+          onDown={playKey}
+          onUp={() => setHeldKey(null)}
+        />
+      ) : null}
 
       <Stack gap={8}>
         <Row align="center">
@@ -744,9 +1461,10 @@ export default function EarwormStudio() {
               </Row>
             </Row>
             <Text tone="tertiary" size="small">
-              Play resumes from the playhead. Pause freezes the step. Stop resets to 1. Rewind jumps
-              to the start. Click a pad to preview at the current tune. Paint steps for the selected
-              pad; click a filled step once to select it, again to remove it.
+              Click Play or a pad once to unlock audio. Play resumes from the playhead. Pause freezes
+              the step. Stop resets to 1. Rewind jumps to the start. Synth and Bass pads use the analog
+              voice; other banks stay one-shot. Paint steps for the selected pad; click a filled step
+              once to select it, again to remove it.
             </Text>
           </Stack>
         </CardBody>
