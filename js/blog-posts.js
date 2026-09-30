@@ -23,7 +23,7 @@ export const STATIC_BLOG_POSTS = [
     faq: [
       {
         q: "Hoeveel geluid reduceert een REDUCD-omkasting?",
-        a: "Gemiddeld 14 dB(A) bij het vrijstaand model (tot 75% stiller waargenomen), getest door Peutz in juli 2025 conform ISO 3741:2010 en ISO 7235:2003. Het wandmodel reduceert typisch 10–12 dB(A)."
+        a: "Het vrijstaand model haalt in het Peutz-lab een gemiddelde reductie van 14 dB(A) (juli 2025, ISO 3741:2010 en ISO 7235:2003). 14 dB(A) is een sterke vermindering van de waargenomen geluidssterkte. Het wandmodel reduceert typisch 10–12 dB(A)."
       },
       {
         q: "Helpt een sierkap tegen warmtepompgeluid?",
@@ -45,7 +45,7 @@ export const STATIC_BLOG_POSTS = [
       <ul>
         <li>3 dB verschil is akoestisch meetbaar, maar voor het oor vaak nog subtiel;</li>
         <li>10 dB klinkt als ongeveer een halvering of verdubbeling van de luidheid;</li>
-        <li>een reductie van gemiddeld <strong>14 dB(A)</strong> wordt daardoor ervaren als tot zo’n <strong>75% stiller</strong>.</li>
+        <li>een reductie van gemiddeld <strong>14 dB(A)</strong> is een sterke vermindering van de waargenomen geluidssterkte.</li>
       </ul>
       <p>Precies daarom is “een beetje dempen” zelden genoeg. Wie structureel rust wil, heeft een oplossing nodig die het geluid absorbeert én de luchtstroom van de unit respecteert.</p>
 

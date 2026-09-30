@@ -99,7 +99,7 @@
           "name": "Hoeveel geluid reduceert een REDUCD omkasting?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Gemiddeld 14 dB(A) bij het vrijstaand model, tot 75% stiller waargenomen. Onafhankelijk getest door Peutz (juli 2025) conform ISO 3741:2010 en ISO 7235:2003. Het wandmodel reduceert typisch 10–12 dB(A)."
+            "text": "Het vrijstaand model haalt in het Peutz-lab een gemiddelde reductie van 14 dB(A) (juli 2025, ISO 3741:2010 en ISO 7235:2003). 14 dB(A) is een sterke vermindering van de waargenomen geluidssterkte. Het wandmodel reduceert typisch 10–12 dB(A). De geluidsbelasting bij u thuis hangt ook af van de warmtepomp, de afstand en de omgeving."
           }
         },
         {
@@ -107,7 +107,7 @@
           "name": "Wat kost een akoestische omkasting van REDUCD?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Standaardmaten starten vanaf € 2.335 (Magnelis, zonder installatie). Poedercoating in RAL-kleur en montage zijn optioneel tegen meerprijs. Maatwerk op aanvraag."
+            "text": "Standaardmaten starten vanaf € 2.335 (Magnelis, excl. montage). Poedercoating in een RAL-kleur is optioneel. Montage wordt berekend op locatie en opstelling. Maatwerk op aanvraag."
           }
         },
         {
@@ -115,7 +115,7 @@
           "name": "Wat is het verschil tussen een sierkap en een akoestische omkasting?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Een esthetische cover verhult de unit maar dempt nauwelijks. Een REDUCD-omkasting heeft een 150 mm demper, gerecycled PET-absorptie en een berekende luchtweg, zodat geluid én rendement kloppen."
+            "text": "Een esthetische cover verhult de unit maar dempt nauwelijks. Een REDUCD-omkasting heeft een 150 mm demper, gerecycled PET-absorptie en een berekende luchtweg. Ze is ontworpen om het vereiste luchtdebiet te behouden."
           }
         },
         {
@@ -139,7 +139,7 @@
           "name": "Hoe snel kan ik een omkasting krijgen?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Standaardmaten zijn vaak binnen een week leverbaar. Montage duurt doorgaans ongeveer een uur (12 boutjes), zelf of door het REDUCD-team. Maatwerk volgens afspraak."
+            "text": "Standaardmaten zijn vaak binnen een week leverbaar. Een standaardmontage duurt doorgaans 1,5 à 2 uur, zelf of door het REDUCD-team. Maatwerk volgens afspraak."
           }
         },
         {
@@ -164,6 +164,46 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Ja. De omkastingen zijn gemaakt voor buitenunits van warmtepompen én airco. De maat volgt de unit, niet het merk."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan ik de kast zelf plaatsen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Een standaardmontage duurt doorgaans 1,5 à 2 uur. U kunt zelf plaatsen, uw installateur laten plaatsen, of het REDUCD-team inschakelen. De warmtepomp blijft in bedrijf."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan mijn installateur de warmtepomp nog onderhouden?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Panelen gaan los zonder de kast te slopen. Klein onderhoud verloopt via het bovendeel. Groter onderhoud via het voor- of zijpaneel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat als mijn warmtepomp niet in S, L of XL past?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dan is maatwerk de volgende stap, met dezelfde materialen en luchtlogica. Stuur de maten en een foto van de buitenunit via de situatiecheck."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat kost montage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Montage hangt af van locatie en opstelling. Er staat geen vaste montageprijs op de site. De gratis situatiecheck geeft een indicatie van product plus montage voor uw adres."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan ik eerst alleen een meting laten uitvoeren?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. De intake met geluidsmeting op locatie is vrijblijvend en kosteloos, ook als u nog geen omkasting bestelt."
           }
         }
       ]
@@ -308,6 +348,19 @@
           .blog-taper-card { width: calc(100% - var(--t) * 18%); grid-template-columns: 4.4rem 1fr; }
           .blog-taper-card--text { grid-template-columns: 1fr; }
         }
+        #calculator, #peutz, #werking, #prijs, #vragen { scroll-margin-top: 6.5rem; }
+        .path-card { transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease, border-color 0.35s ease; }
+        .path-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px -18px rgba(15,42,58,0.28); border-color: rgba(15,42,58,0.22); }
+        .calc-choice { border: 1.5px solid rgba(15,42,58,0.12); background: #fff; border-radius: 1rem; padding: 1.1rem 1rem; text-align: left; transition: border-color 0.2s ease, background 0.2s ease; }
+        .calc-choice.is-active { border-color: #0F2A3A; background: rgba(15,42,58,0.04); }
+        .calc-diagram { position: relative; height: 9.5rem; border: 1.5px dashed rgba(15,42,58,0.28); border-radius: 0.85rem; background: rgba(15,42,58,0.03); }
+        .calc-diagram span { position: absolute; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(15,42,58,0.45); }
+        .form-path { flex: 1; border-radius: 999px; border: 1px solid rgba(15,42,58,0.12); background: #fff; color: rgba(15,42,58,0.62); font-size: 0.78rem; font-weight: 600; padding: 0.7rem 0.85rem; }
+        .form-path.is-active { background: #0F2A3A; color: #fff; border-color: #0F2A3A; }
+        #stickyCta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.7rem 0.9rem calc(0.7rem + env(safe-area-inset-bottom, 0px)); background: #fff; border-top: 1px solid rgba(15,42,58,0.1); box-shadow: 0 -10px 30px rgba(15,42,58,0.08); transition: transform 0.35s var(--ease-out); }
+        #stickyCta.is-hidden { transform: translateY(110%); pointer-events: none; }
+        @media (min-width: 768px) { #stickyCta { display: none; } }
+        @media (max-width: 767px) { body { padding-bottom: 5.4rem; } }
     </style>
 </head>
 <body>
@@ -318,18 +371,15 @@
             <a href="#" class="flex items-center group">
                 <img src="assets/images/logo-reducd.png" alt="REDUCD" class="h-10 lg:h-11 w-auto">
             </a>
-            <div class="hidden md:flex items-center gap-5 lg:gap-7">
+            <div class="hidden md:flex items-center gap-5 lg:gap-6">
                 <a href="#producten" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Producten</a>
-                <a href="#installaties" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Installaties</a>
-                <a href="#blog" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Blog</a>
-                <a href="#faq" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">FAQ</a>
-                <a href="docs/" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Docs</a>
-                <a href="vlarem/" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">VLAREM</a>
-                <a href="pro/index.html" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Pro</a>
-                <a href="#contact" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Contact</a>
+                <a href="#werking" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Werking</a>
+                <a href="#peutz" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Peutz</a>
+                <a href="#installaties" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Plaatsingen</a>
+                <a href="pro/index.html" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Professionals</a>
             </div>
             <div class="flex items-center gap-3">
-                <a data-open-lead-popup href="#contact" class="hidden sm:inline-flex btn-primary px-5 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-wider"><span class="accent-gratis">Gratis</span> meting</a>
+                <a data-open-lead-popup href="#contact" class="hidden sm:inline-flex btn-primary px-5 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-wider"><span class="accent-gratis">Gratis</span> check</a>
                 <button id="menuBtn" class="md:hidden w-9 h-9 flex items-center justify-center text-brand-navy" aria-label="Menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
@@ -342,54 +392,51 @@
         <button id="closeMenu" class="absolute top-6 right-6 w-10 h-10 text-white/60 hover:text-white" aria-label="Sluiten">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
+        <a href="#calculator" class="mobile-link text-3xl font-bold text-white tracking-tight">Bereken mijn oplossing</a>
         <a href="#producten" class="mobile-link text-3xl font-bold text-white tracking-tight">Producten</a>
-        <a href="#installaties" class="mobile-link text-3xl font-bold text-white tracking-tight">Installaties</a>
-        <a href="#blog" class="mobile-link text-3xl font-bold text-white tracking-tight">Blog</a>
-        <a href="#faq" class="mobile-link text-3xl font-bold text-white tracking-tight">FAQ</a>
-        <a href="docs/" class="mobile-link text-3xl font-bold text-white tracking-tight">Documentatie</a>
-        <a href="vlarem/" class="mobile-link text-3xl font-bold text-white tracking-tight">VLAREM-tool</a>
+        <a href="#peutz" class="mobile-link text-3xl font-bold text-white tracking-tight">Peutz-meting</a>
+        <a href="#installaties" class="mobile-link text-3xl font-bold text-white tracking-tight">Plaatsingen</a>
         <a href="pro/index.html" class="mobile-link text-3xl font-bold text-white tracking-tight">Voor professionals</a>
-        <a href="#contact" class="mobile-link text-3xl font-bold text-white tracking-tight">Contact</a>
-        <a data-open-lead-popup href="#contact" class="mobile-link bg-white text-brand-navy px-10 py-4 rounded-full font-semibold mt-4">Plan <span class="accent-gratis">gratis</span> meting</a>
+        <a href="#faq" class="mobile-link text-3xl font-bold text-white tracking-tight">FAQ</a>
+        <a data-open-lead-popup href="#contact" class="mobile-link bg-white text-brand-navy px-10 py-4 rounded-full font-semibold mt-4"><span class="accent-gratis">Gratis</span> situatiecheck</a>
     </div>
 
-    <!-- HERO — white background, navy typography -->
-    <section class="relative min-h-screen flex items-center bg-white pt-28 pb-20">
+    <!-- HERO -->
+    <section class="relative flex items-center bg-white pt-28 pb-14 lg:pb-20">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 <div class="lg:col-span-7">
-                    <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-navy/10 bg-brand-navy/[0.03] mb-8">
-                        <span class="w-1.5 h-1.5 rounded-full bg-brand-navy"></span>
-                        <span class="text-[11px] font-semibold text-brand-navy/60 uppercase tracking-[0.2em]">België · Vrij advies op locatie</span>
-                    </div>
-                    <h1 class="reveal reveal-delay-1 font-extrabold text-[clamp(2.75rem,7vw,5.5rem)] leading-[1.02] tracking-tight text-brand-navy mb-8">
-                        Stil.<br>Stijlvol.<br>Duurzaam.
+                    <p class="reveal text-[11px] font-semibold text-brand-navy/50 uppercase tracking-[0.2em] mb-5">Akoestische omkasting voor warmtepompen</p>
+                    <h1 class="reveal reveal-delay-1 font-extrabold text-[clamp(2.15rem,4.6vw,3.65rem)] leading-[1.08] tracking-tight text-brand-navy mb-5">
+                        Uw warmtepomp maakt te veel lawaai?
                     </h1>
-                    <p class="reveal reveal-delay-2 text-lg lg:text-xl text-brand-navy/60 max-w-xl leading-relaxed mb-10 font-light">
-                        Akoestische omkastingen voor warmtepompen &amp; airco. Gemiddeld <strong class="text-brand-navy font-semibold">14 dB(A)</strong> reductie — tot <strong class="text-brand-navy font-semibold">75%</strong> waargenomen stiller. Vanaf <strong class="text-brand-navy font-semibold">€&nbsp;2.335</strong>.
+                    <p class="reveal reveal-delay-2 text-lg lg:text-xl text-brand-navy max-w-xl leading-snug mb-4 font-medium">
+                        REDUCD vermindert het geluid tot 14&nbsp;dB(A). Onafhankelijk getest door Peutz.
+                    </p>
+                    <p class="reveal reveal-delay-2 text-base lg:text-lg text-brand-navy/60 max-w-xl leading-relaxed mb-8 font-light">
+                        Een professionele akoestische omkasting voor warmtepompen en airco’s — ontworpen met aandacht voor geluidsreductie, luchtstroom en pasvorm.
                     </p>
                     <div class="reveal reveal-delay-3 flex flex-wrap gap-4">
-                        <a data-open-lead-popup href="#contact" class="btn-primary px-8 py-4 rounded-full font-semibold text-sm inline-flex items-center gap-2">
-                            Plan <span class="accent-gratis">gratis</span> meting
+                        <a href="#calculator" class="btn-primary px-8 py-4 rounded-full font-semibold text-sm inline-flex items-center gap-2">
+                            Bereken mijn oplossing
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                         </a>
-                        <a href="#maten" class="btn-outline px-8 py-4 rounded-full font-semibold text-sm bg-white">Bekijk maten &amp; prijs</a>
+                        <a data-open-lead-popup href="#contact" class="btn-outline px-8 py-4 rounded-full font-semibold text-sm bg-white"><span class="accent-gratis">Gratis</span> situatiecheck</a>
                     </div>
+                    <p class="reveal reveal-delay-3 mt-4 text-sm text-brand-navy/45 font-light">Gratis · ongeveer 2 minuten · zonder verplichting</p>
+                    <p class="reveal mt-6 text-sm font-medium text-brand-navy/75">Vanaf €&nbsp;2.335 excl. montage · Peutz getest · Belgische productie</p>
+                    <p class="reveal mt-1 text-sm text-brand-navy/50">14&nbsp;dB(A) gemeten · 4,9/5 uit 60+ reviews</p>
                 </div>
                 <div class="lg:col-span-5 reveal reveal-delay-2">
                     <div class="relative">
                         <div class="img-reveal aspect-[4/5] shadow-xl shadow-brand-navy/10 ring-1 ring-brand-navy/5">
-                            <img src="assets/images/hero-homepage.jpg" alt="REDUCD akoestische omkasting voor warmtepomp, met team" width="960" height="1200" fetchpriority="high" decoding="async" class="w-full h-full object-cover object-top">
+                            <img src="assets/images/hero-homepage.jpg" alt="REDUCD akoestische omkasting voor een warmtepomp bij een woning" width="960" height="1200" fetchpriority="high" decoding="async" class="w-full h-full object-cover object-top">
                         </div>
                         <div class="absolute -bottom-5 -left-5 bg-white rounded-2xl p-6 shadow-lg border border-brand-navy/5 hidden sm:block">
                             <div class="flex items-baseline leading-none whitespace-nowrap">
                                 <span class="font-extrabold text-7xl text-brand-navy tracking-tight">−14</span><span class="unit-db text-3xl font-extrabold text-brand-navy tracking-tight">dB(A)</span>
                             </div>
-                            <div class="text-[10px] font-semibold text-brand-navy/45 tracking-[0.2em] mt-1 uppercase">gemiddeld</div>
-                        </div>
-                        <div class="absolute -top-4 -right-4 bg-brand-navy text-white rounded-2xl px-5 py-4 hidden sm:block">
-                            <div class="font-bold text-xl">75%</div>
-                            <div class="text-[10px] uppercase tracking-widest opacity-70">stiller</div>
+                            <div class="text-[10px] font-semibold text-brand-navy/45 tracking-[0.2em] mt-1 uppercase">Peutz · lab</div>
                         </div>
                     </div>
                 </div>
@@ -397,37 +444,47 @@
         </div>
     </section>
 
-    <!-- Marquee -->
-    <div class="bg-brand-navy py-4 overflow-hidden border-y border-brand-navy">
-        <div class="marquee-track gap-16 px-8">
-            <span class="text-xs font-bold text-white/25 uppercase tracking-[0.35em] whitespace-nowrap">Stil · Stijlvol · Duurzaam · Magnelis® · Built to Last · 5 standaardmaten · Maatwerk ·</span>
-            <span class="text-xs font-bold text-white/25 uppercase tracking-[0.35em] whitespace-nowrap">Stil · Stijlvol · Duurzaam · Magnelis® · Built to Last · 5 standaardmaten · Maatwerk ·</span>
-        </div>
-    </div>
-
-    <!-- VALUES -->
-    <section class="py-24 lg:py-32 px-6 lg:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal mb-16 lg:mb-20">
-                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Kernwaarden</span>
-                <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Drie woorden.<br><span class="text-brand-navy/30 font-light">Eén belofte.</span></h2>
+    <section class="border-y border-brand-navy/8 bg-white" aria-label="Kernbewijs">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-8 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div>
+                <p class="font-bold text-brand-navy tracking-tight">Peutz getest</p>
+                <p class="text-sm text-brand-navy/50 font-light mt-1">Onafhankelijk akoestisch laboratorium, juli 2025</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-5 lg:gap-6">
-                <div class="reveal bento bg-brand-navy rounded-2xl p-8 lg:p-10 text-white">
-                    <span class="text-[11px] font-bold text-white/40 uppercase tracking-[0.2em]">01 — Stil</span>
-                    <h3 class="font-extrabold text-3xl mt-6 mb-4 tracking-tight">14 dB(A) reductie</h3>
-                    <p class="text-white/55 leading-relaxed text-sm lg:text-base">Gemiddelde reductie — tot 75% waargenomen stiller. Meer rust voor jou én je buren.</p>
-                </div>
-                <div class="reveal reveal-delay-1 bento bg-white rounded-2xl p-8 lg:p-10 border border-brand-navy/8">
-                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.2em]">02 — Stijlvol</span>
-                    <h3 class="font-extrabold text-3xl mt-6 mb-4 text-brand-navy tracking-tight">RAL-kleur</h3>
-                    <p class="text-brand-navy/55 leading-relaxed text-sm lg:text-base">Magnelis® standaard of poedercoating in RAL-kleur. Naadloos afgestemd op je gevel of tuin.</p>
-                </div>
-                <div class="reveal reveal-delay-2 bento bg-brand-navy/[0.04] rounded-2xl p-8 lg:p-10 border border-brand-navy/8">
-                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.2em]">03 — Duurzaam</span>
-                    <h3 class="font-extrabold text-3xl mt-6 mb-4 text-brand-navy tracking-tight">Built to Last</h3>
-                    <p class="text-brand-navy/55 leading-relaxed text-sm lg:text-base">Lokaal geproduceerd met gerecyclede materialen. Bestand tegen iedere bui, zelfs aan de kust.</p>
-                </div>
+            <div>
+                <p class="font-bold text-brand-navy tracking-tight">Tot 14 dB(A)</p>
+                <p class="text-sm text-brand-navy/50 font-light mt-1">Gemeten reductie, vrijstaand model</p>
+            </div>
+            <div>
+                <p class="font-bold text-brand-navy tracking-tight">Berekende luchtweg</p>
+                <p class="text-sm text-brand-navy/50 font-light mt-1">Ontworpen rond het vereiste luchtdebiet</p>
+            </div>
+            <div>
+                <p class="font-bold text-brand-navy tracking-tight">Belgische productie</p>
+                <p class="text-sm text-brand-navy/50 font-light mt-1">Gemaakt en geplaatst in België</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 lg:px-8 py-10 lg:py-12 bg-brand-navy/[0.03]" aria-label="Kies uw situatie">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em] mb-5">Waar begint u?</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <a href="vlarem/" class="path-card block rounded-2xl bg-white border border-brand-navy/8 p-6">
+                    <p class="font-bold text-brand-navy text-lg tracking-tight">Burenklacht?</p>
+                    <p class="text-sm text-brand-navy/55 font-light mt-2 leading-relaxed">Meet hoeveel geluid u moet verminderen.</p>
+                </a>
+                <a href="#producten" class="path-card block rounded-2xl bg-white border border-brand-navy/8 p-6">
+                    <p class="font-bold text-brand-navy text-lg tracking-tight">Nieuwe warmtepomp?</p>
+                    <p class="text-sm text-brand-navy/55 font-light mt-2 leading-relaxed">Kies vooraf de juiste omkasting.</p>
+                </a>
+                <a href="pro/index.html" class="path-card block rounded-2xl bg-white border border-brand-navy/8 p-6">
+                    <p class="font-bold text-brand-navy text-lg tracking-tight">Installateur?</p>
+                    <p class="text-sm text-brand-navy/55 font-light mt-2 leading-relaxed">Technische fiches en modellen.</p>
+                </a>
+                <a href="docs/" class="path-card block rounded-2xl bg-white border border-brand-navy/8 p-6">
+                    <p class="font-bold text-brand-navy text-lg tracking-tight">Architect of project?</p>
+                    <p class="text-sm text-brand-navy/55 font-light mt-2 leading-relaxed">Specificaties, maten en maatwerk.</p>
+                </a>
             </div>
         </div>
     </section>
@@ -456,26 +513,84 @@
                         <li>Gemiddeld 14 dB(A) reductie (Peutz, juli 2025)</li>
                         <li>150 mm demper + gerecycled PET-absorptie</li>
                         <li>Vrije ruimte en luchtweg meegenomen in het ontwerp</li>
-                        <li>Gericht op rust én haalbare erfgrenswaarden</li>
+                        <li>Ontworpen om geluid te dempen mét een berekende luchtweg</li>
                     </ul>
                 </div>
             </div>
-            <div class="reveal mt-10 flex flex-wrap gap-4">
-                <a data-open-lead-popup href="#contact" class="inline-flex bg-white text-brand-navy px-7 py-3.5 rounded-full text-sm font-semibold">Plan <span class="accent-gratis">gratis</span> meting</a>
-                <a href="blog/post.html?slug=akoestische-omkasting-vs-suskast" class="inline-flex border border-white/30 text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 transition-colors">Lees het verschil</a>
+            <div class="reveal mt-10 flex flex-wrap items-center gap-4">
+                <a href="#peutz" class="inline-flex bg-white text-brand-navy px-7 py-3.5 rounded-full text-sm font-semibold">Bekijk de Peutz-meting</a>
+                <a href="blog/post.html?slug=akoestische-omkasting-vs-suskast" class="text-sm text-white/70 underline underline-offset-4 hover:text-white">Lees het verschil met een suskast</a>
             </div>
         </div>
     </section>
 
+    <section id="peutz" class="py-24 lg:py-28 px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal max-w-3xl">
+                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Bewijs</span>
+                <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 tracking-tight leading-tight">14 dB(A). Gemeten, niet beloofd.</h2>
+                <p class="text-brand-navy/60 mt-5 text-base lg:text-lg font-light leading-relaxed">REDUCD werd onafhankelijk getest door Peutz volgens ISO 3741:2010 en ISO 7235:2003. Laboratorium voor Akoestiek, Mook, 23 juli 2025. 14 dB(A) is een sterke vermindering van de waargenomen geluidssterkte.</p>
+            </div>
+            <div class="reveal mt-12 grid md:grid-cols-2 gap-5">
+                <div class="rounded-2xl bg-brand-navy text-white p-8 lg:p-10">
+                    <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 mb-3">Vrijstaand model</p>
+                    <p class="font-extrabold text-5xl tracking-tight">Tot −14 dB(A)</p>
+                    <p class="text-white/55 text-sm font-light mt-4 leading-relaxed">Labgemiddelde over het A-gewogen spectrum. S, L en XL.</p>
+                </div>
+                <div class="rounded-2xl border border-brand-navy/10 p-8 lg:p-10">
+                    <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-navy/40 mb-3">Wandmodel</p>
+                    <p class="font-extrabold text-5xl tracking-tight text-brand-navy">10–12 dB(A)</p>
+                    <p class="text-brand-navy/55 text-sm font-light mt-4 leading-relaxed">Typische reductie. Het labgemiddelde van het wandmodel is 10 dB(A).</p>
+                </div>
+            </div>
+            <p class="reveal mt-8 text-sm text-brand-navy/50 font-light leading-relaxed max-w-3xl">De werkelijke geluidsbelasting hangt af van de warmtepomp, de opstelling, de afstand en de omgeving. Daarom combineren we de labresultaten met een beoordeling van uw situatie.</p>
+            <div class="reveal mt-8 flex flex-wrap gap-4">
+                <a href="docs/view.html?id=meetrapport&amp;for=particulier" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold">Bekijk het meetrapport</a>
+                <a data-open-lead-popup href="#contact" class="btn-outline px-6 py-3 rounded-full text-sm font-semibold">Laat mijn situatie controleren</a>
+            </div>
+            <a href="#reviews" class="reveal mt-10 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 rounded-2xl border border-brand-navy/8 bg-brand-navy/[0.03] p-6 hover:border-brand-navy/20 transition-colors">
+                <p class="font-bold text-brand-navy tracking-tight shrink-0">4,9/5 · 60+ reviews</p>
+                <p class="text-sm text-brand-navy/60 font-light leading-relaxed">“Dankzij de omkasting is het geluid nu teruggebracht naar 43 dB overdag.” — Marco V. G., Google</p>
+            </a>
+        </div>
+    </section>
+
+    <section id="werking" class="py-24 lg:py-28 px-6 lg:px-8 bg-brand-navy/[0.03]">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Waarom het werkt</span>
+                <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Minder geluid, lucht die blijft stromen, een kast die past.</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-5">
+                <div class="reveal bento bg-brand-navy rounded-2xl p-8 text-white">
+                    <span class="text-[11px] font-bold text-white/40 uppercase tracking-[0.2em]">01 — Geluidsreductie</span>
+                    <h3 class="font-extrabold text-2xl mt-6 mb-3 tracking-tight">Tot 14 dB(A), onafhankelijk getest</h3>
+                    <p class="text-white/55 text-sm leading-relaxed">Gerecycled PET absorbeert in de kast. De 150 mm demper laat lucht door en houdt geluid tegen.</p>
+                </div>
+                <div class="reveal reveal-delay-1 bento bg-white rounded-2xl p-8 border border-brand-navy/8">
+                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.2em]">02 — Luchtstroom</span>
+                    <h3 class="font-extrabold text-2xl mt-6 mb-3 text-brand-navy tracking-tight">Ontworpen voor voldoende debiet</h3>
+                    <p class="text-brand-navy/55 text-sm leading-relaxed">De luchtweg en de anti-recirculatieplaat zijn berekend. Drukval hangt af van het debiet en staat in de technische fiche.</p>
+                </div>
+                <div class="reveal reveal-delay-2 bento bg-white rounded-2xl p-8 border border-brand-navy/8">
+                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.2em]">03 — Pasvorm</span>
+                    <h3 class="font-extrabold text-2xl mt-6 mb-3 text-brand-navy tracking-tight">Voor uw unit en opstelling</h3>
+                    <p class="text-brand-navy/55 text-sm leading-relaxed">Vrijstaand of tegen de gevel, S / L / XL of maatwerk. Panelen gaan los voor onderhoud.</p>
+                </div>
+            </div>
+            <p class="reveal mt-8 text-sm text-brand-navy/50 font-light max-w-3xl">Magnelis®, RVS 316 en Belgische productie ondersteunen die drie punten. Het materiaal is het bewijs, niet de reden om te kopen.</p>
+        </div>
+    </section>
+
     <!-- PRODUCTS -->
-    <section id="producten" class="py-24 lg:py-32 px-6 lg:px-8 bg-brand-navy/[0.03]">
+    <section id="producten" class="py-24 lg:py-32 px-6 lg:px-8 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
                 <div>
-                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Producten</span>
-                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Vrijstaand &amp; wandmodel</h2>
+                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Welk model</span>
+                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Welke oplossing past bij uw warmtepomp?</h2>
                 </div>
-                <p class="text-brand-navy/55 max-w-md text-base lg:text-lg font-light leading-relaxed">Vijf standaardmaten of maatwerk. Vanaf €&nbsp;2.335 (Magnelis, zonder installatie).</p>
+                <p class="text-brand-navy/55 max-w-md text-base lg:text-lg font-light leading-relaxed">Niet elke warmtepomp heeft dezelfde oplossing nodig. Vijf standaardmaten, of maatwerk. Vanaf €&nbsp;2.335 excl. montage.</p>
             </div>
             <div class="grid lg:grid-cols-2 gap-5 lg:gap-6 items-stretch">
                 <!-- Vrijstaand -->
@@ -502,7 +617,7 @@
                     <div class="p-6 lg:p-8 border-t border-brand-navy/8">
                         <span class="inline-block px-3 py-1 rounded-full bg-brand-navy/[0.06] text-[10px] font-bold uppercase tracking-widest text-brand-navy mb-3">Populair</span>
                         <h3 class="font-extrabold text-2xl lg:text-3xl text-brand-navy mb-2 tracking-tight">Vrijstaand model</h3>
-                        <p class="text-brand-navy/55 max-w-lg text-sm mb-6 leading-relaxed">Tuin, oprit of platdak. Drie maten (S / L / XL). Volledige levering en installatie door REDUCD.</p>
+                        <p class="text-brand-navy/55 max-w-lg text-sm mb-6 leading-relaxed">Voor een unit in de tuin, op de oprit of op een plat dak. Drie maten. Tot 14 dB(A) in het lab. Vanaf €&nbsp;2.335.</p>
                         <div class="flex gap-8 text-brand-navy">
                             <div><div class="font-bold text-xl lg:text-2xl">3</div><div class="text-[10px] text-brand-navy/40 uppercase tracking-widest">Maten</div></div>
                             <div><div class="font-bold text-xl lg:text-2xl">14</div><div class="text-[10px] text-brand-navy/40 tracking-widest unit-db">dB(A)</div></div>
@@ -533,7 +648,7 @@
                     </div>
                     <div class="p-6 lg:p-8 border-t border-brand-navy/8">
                         <h3 class="font-extrabold text-2xl lg:text-3xl text-brand-navy mb-2 tracking-tight">Wandmodel</h3>
-                        <p class="text-brand-navy/55 text-sm mb-6 leading-relaxed">Compact bij de gevel. Twee maten (S / L). Ideaal bij weinig diepte tot pad of erfgrens.</p>
+                        <p class="text-brand-navy/55 text-sm mb-6 leading-relaxed">Voor een unit met de rug tegen de gevel. Twee maten. Typisch 10–12 dB(A). Vanaf €&nbsp;2.335.</p>
                         <div class="flex gap-8 text-brand-navy">
                             <div><div class="font-bold text-xl lg:text-2xl">2</div><div class="text-[10px] text-brand-navy/40 uppercase tracking-widest">Maten</div></div>
                             <div><div class="font-bold text-xl lg:text-2xl">10–12</div><div class="text-[10px] text-brand-navy/40 tracking-widest unit-db">dB(A)</div></div>
@@ -549,7 +664,7 @@
                         <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Keuzehulp</span>
                         <h3 class="font-extrabold text-2xl lg:text-3xl text-brand-navy mt-3 tracking-tight">Welk model past bij jouw situatie?</h3>
                     </div>
-                    <a data-open-lead-popup href="#contact" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold self-start">Twijfel? Plan een <span class="accent-gratis">gratis</span> meting</a>
+                    <a href="#calculator" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold self-start">Ik weet het niet — doe de maatcheck</a>
                 </div>
                 <div class="grid md:grid-cols-2 gap-5 lg:gap-6">
                     <div class="bg-white rounded-2xl p-7 lg:p-8 border border-brand-navy/8">
@@ -575,13 +690,82 @@
         </div>
     </section>
 
-    <!-- CTA band -->
-    <section class="py-14 px-6 lg:px-8 bg-white border-y border-brand-navy/8">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-            <p class="text-brand-navy font-semibold text-lg tracking-tight">Klaar voor stilte? We meten gratis op locatie.</p>
-            <div class="flex flex-wrap gap-3">
-                <a data-open-lead-popup href="#contact" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold">Plan <span class="accent-gratis">gratis</span> meting</a>
-                <a href="#contact" class="btn-outline px-6 py-3 rounded-full text-sm font-semibold">Vraag offerte</a>
+    <section id="calculator" class="py-24 lg:py-28 px-6 lg:px-8 bg-brand-navy/[0.03]">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            <div class="lg:col-span-5">
+                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Maatcheck</span>
+                <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 tracking-tight leading-tight">Bereken welke omkasting past.</h2>
+                <p class="text-brand-navy/55 mt-5 font-light leading-relaxed">Niet elke warmtepomp heeft dezelfde oplossing nodig. We kijken naar de opstelling en de buitenmaten van de unit. De uitkomst is indicatief: 5 cm speling rond de unit, zoals in de technische fiche.</p>
+                <div class="calc-diagram mt-8" aria-hidden="true">
+                    <span style="left:0.8rem;top:0.7rem">Hoogte</span>
+                    <span style="right:0.8rem;bottom:0.7rem">Breedte</span>
+                    <span style="left:0.8rem;bottom:0.7rem">Diepte</span>
+                </div>
+                <p class="mt-4 text-xs text-brand-navy/40 font-light">Meet de buitenunit, niet de bestaande kap. Hoogte, breedte en diepte in millimeter.</p>
+            </div>
+            <div class="lg:col-span-7">
+                <form id="fit-calc" class="bg-white rounded-2xl border border-brand-navy/8 p-6 lg:p-8" novalidate>
+                    <p class="text-sm font-semibold text-brand-navy mb-3">1. Waar staat de buitenunit?</p>
+                    <div class="grid sm:grid-cols-2 gap-3 mb-6">
+                        <button type="button" class="calc-choice is-active" data-setup="vrijstaand">
+                            <span class="block font-bold text-brand-navy">Vrijstaand</span>
+                            <span class="block text-sm text-brand-navy/50 font-light mt-1">Tuin, oprit of plat dak</span>
+                        </button>
+                        <button type="button" class="calc-choice" data-setup="wand">
+                            <span class="block font-bold text-brand-navy">Tegen de gevel</span>
+                            <span class="block text-sm text-brand-navy/50 font-light mt-1">Rug naar de muur</span>
+                        </button>
+                    </div>
+                    <p class="text-sm font-semibold text-brand-navy mb-3">2. Hoe groot is de unit?</p>
+                    <div class="grid grid-cols-3 gap-3">
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-brand-navy/40">Hoogte
+                            <input id="calc-h" class="form-field mt-2" inputmode="numeric" placeholder="800" aria-label="Hoogte in millimeter">
+                        </label>
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-brand-navy/40">Breedte
+                            <input id="calc-w" class="form-field mt-2" inputmode="numeric" placeholder="900" aria-label="Breedte in millimeter">
+                        </label>
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-brand-navy/40">Diepte
+                            <input id="calc-d" class="form-field mt-2" inputmode="numeric" placeholder="400" aria-label="Diepte in millimeter">
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary mt-6 px-6 py-3.5 rounded-full text-sm font-semibold">Toon mijn oplossing</button>
+                    <div id="calc-result" class="mt-6 hidden" aria-live="polite"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="vragen" class="py-24 lg:py-28 px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Voor u koopt</span>
+                <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 tracking-tight leading-tight">Vijf vragen vóór u een akoestische omkasting koopt</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+                <article class="reveal rounded-2xl border border-brand-navy/8 p-7">
+                    <h3 class="font-bold text-brand-navy text-lg">Past ze rond mijn warmtepomp?</h3>
+                    <p class="text-sm text-brand-navy/55 font-light mt-3 leading-relaxed">De maatcheck vergelijkt uw buitenmaten met de binnenmaten van S, L en XL, met 5 cm speling. Twijfelt u, stuur een foto mee.</p>
+                    <a href="#calculator" class="inline-flex mt-4 text-sm font-semibold text-brand-navy underline underline-offset-4">Naar de maatcheck</a>
+                </article>
+                <article class="reveal rounded-2xl border border-brand-navy/8 p-7">
+                    <h3 class="font-bold text-brand-navy text-lg">Verliest mijn warmtepomp rendement?</h3>
+                    <p class="text-sm text-brand-navy/55 font-light mt-3 leading-relaxed">De kast is ontworpen om het vereiste luchtdebiet te behouden, met een berekende luchtweg en een anti-recirculatieplaat. De drukval hangt af van het debiet en staat in de technische fiche. Dat is geen garantie van nul rendementsverlies op elk toestel.</p>
+                    <a href="docs/" class="inline-flex mt-4 text-sm font-semibold text-brand-navy underline underline-offset-4">Technische fiche</a>
+                </article>
+                <article class="reveal rounded-2xl border border-brand-navy/8 p-7">
+                    <h3 class="font-bold text-brand-navy text-lg">Kan mijn installateur er nog bij?</h3>
+                    <p class="text-sm text-brand-navy/55 font-light mt-3 leading-relaxed">Ja. Klein onderhoud via het bovendeel (4× M6). Groter onderhoud via het voor- of zijpaneel: 8× M6 bij vrijstaand, 6× M6 bij het wandmodel. De warmtepomp blijft in bedrijf.</p>
+                </article>
+                <article class="reveal rounded-2xl border border-brand-navy/8 p-7">
+                    <h3 class="font-bold text-brand-navy text-lg">Hoeveel geluid wordt werkelijk minder?</h3>
+                    <p class="text-sm text-brand-navy/55 font-light mt-3 leading-relaxed">In het lab: gemiddeld 14 dB(A) vrijstaand, 10 dB(A) voor het wandmodel (Peutz, juli 2025). Op uw perceel hangt het resultaat af van afstand, reflecties en het toestel. Een meting op locatie maakt dat concreet.</p>
+                    <a href="#peutz" class="inline-flex mt-4 text-sm font-semibold text-brand-navy underline underline-offset-4">Peutz-resultaat</a>
+                </article>
+                <article class="reveal md:col-span-2 rounded-2xl border border-brand-navy/8 p-7">
+                    <h3 class="font-bold text-brand-navy text-lg">Wat betaal ik in totaal?</h3>
+                    <p class="text-sm text-brand-navy/55 font-light mt-3 leading-relaxed">U betaalt de omkasting plus, als u dat wilt, montage. De productprijs staat hieronder. Montage wordt berekend op locatie en opstelling — er is geen vaste montageprijs, omdat een oprit in Antwerpen niet hetzelfde werk is als een plat dak.</p>
+                    <a href="#prijs" class="inline-flex mt-4 text-sm font-semibold text-brand-navy underline underline-offset-4">Bekijk de productprijzen</a>
+                </article>
             </div>
         </div>
     </section>
@@ -591,10 +775,10 @@
         <div class="max-w-7xl mx-auto">
             <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
                 <div>
-                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Installaties</span>
-                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Naadloos in elke omgeving</h2>
+                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Plaatsingen</span>
+                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Zo staat de kast er echt.</h2>
                 </div>
-                <p class="text-brand-navy/55 max-w-md text-base lg:text-lg font-light leading-relaxed">Van moderne nieuwbouw tot karakteristieke tuin — in elke gewenste RAL-kleur of Magnelis® afwerking.</p>
+                <p class="text-brand-navy/55 max-w-md text-base lg:text-lg font-light leading-relaxed">Magnelis of een RAL-kleur, in een tuin en niet als een technische doos. Veldmetingen per adres volgen na de situatiecheck. Het labcijfer blijft 14 dB(A).</p>
             </div>
             <div class="grid md:grid-cols-3 gap-5 lg:gap-6">
                 <div class="reveal bento rounded-2xl overflow-hidden ring-1 ring-brand-navy/8">
@@ -602,8 +786,8 @@
                         <img src="assets/images/product-heritage.jpg" alt="Echte Magnelis omkasting bij bakstenen woning" class="w-full h-full object-cover" loading="lazy" decoding="async">
                     </div>
                     <div class="p-6">
-                        <h3 class="font-bold text-brand-navy mb-1">Heritage garden</h3>
-                        <p class="text-brand-navy/50 text-sm">Echte installatie bij een herenwoning</p>
+                        <h3 class="font-bold text-brand-navy mb-1">Herenwoning · vrijstaand</h3>
+                        <p class="text-brand-navy/50 text-sm">Magnelis, naast baksteen. Geen veld-dB op deze foto — wel een echte plaatsing.</p>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-1 bento rounded-2xl overflow-hidden ring-1 ring-brand-navy/8">
@@ -611,8 +795,8 @@
                         <img src="assets/images/installs/install-hout-zwart.jpg" alt="Zwarte akoestische omkasting bij houten terraswand" class="w-full h-full object-cover object-center" loading="lazy" decoding="async">
                     </div>
                     <div class="p-6">
-                        <h3 class="font-bold text-brand-navy mb-1">Modern patio</h3>
-                        <p class="text-brand-navy/50 text-sm">Mat zwart, bij houten gevel</p>
+                        <h3 class="font-bold text-brand-navy mb-1">Terras · RAL 9005</h3>
+                        <p class="text-brand-navy/50 text-sm">Mat zwart bij een houten gevel. De kleur volgt het schrijnwerk, niet de techniek.</p>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-2 bento rounded-2xl overflow-hidden ring-1 ring-brand-navy/8">
@@ -620,11 +804,70 @@
                         <img src="assets/images/installs/install-poolhouse-wand.jpg" alt="Wandmodel REDUCD omkasting naast een poolhouse" class="w-full h-full object-cover object-bottom" loading="lazy" decoding="async">
                     </div>
                     <div class="p-6">
-                        <h3 class="font-bold text-brand-navy mb-1">Outdoor living</h3>
-                        <p class="text-brand-navy/50 text-sm">Wandmodel bij poolhouse</p>
+                        <h3 class="font-bold text-brand-navy mb-1">Poolhouse · wandmodel</h3>
+                        <p class="text-brand-navy/50 text-sm">Rug naar de wand, waar een vrijstaande kast te diep zou staan.</p>
                     </div>
                 </div>
             </div>
+            <div class="reveal mt-8 rounded-2xl bg-brand-navy text-white p-7 lg:p-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <div>
+                    <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 mb-2">Lab, geen tuinfoto</p>
+                    <p class="font-bold text-xl tracking-tight">Peutz · juli 2025 · vrijstaand −14 dB(A) gemiddeld</p>
+                    <p class="text-white/55 text-sm font-light mt-2 max-w-xl">Een voor/na op uw perceel meten we ter plaatse. Die cijfers publiceren we alleen als de meetpunten, het toestel en de omstandigheden vastliggen.</p>
+                </div>
+                <a href="docs/view.html?id=meetrapport&amp;for=particulier" class="inline-flex bg-white text-brand-navy px-6 py-3 rounded-full text-sm font-semibold shrink-0">Volledig meetrapport</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="prijs" class="py-24 lg:py-28 px-6 lg:px-8 bg-brand-navy/[0.03]">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Prijs</span>
+                <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 tracking-tight leading-tight">Wat kost de omkasting?</h2>
+                <p class="text-brand-navy/55 mt-5 font-light leading-relaxed">De productprijs is openbaar. Montage is dat niet, omdat ze afhangt van locatie en opstelling. Een situatiecheck geeft het totaal voor uw adres, vóór u beslist.</p>
+            </div>
+            <div class="reveal overflow-x-auto rounded-xl ring-1 ring-brand-navy/8 bg-white">
+                <table class="w-full text-sm min-w-[640px]">
+                    <thead><tr class="bg-brand-navy text-white">
+                        <th class="px-5 py-4 text-left font-bold">Situatie</th>
+                        <th class="px-5 py-4 text-left font-medium">Product</th>
+                        <th class="px-5 py-4 text-left font-medium">Montage</th>
+                        <th class="px-5 py-4 text-left font-medium">Totaal</th>
+                    </tr></thead>
+                    <tbody class="divide-y divide-brand-navy/8">
+                        <tr><td class="px-5 py-4 font-semibold">Vrijstaand S</td><td class="px-5 py-4">€&nbsp;2.335</td><td class="px-5 py-4 text-brand-navy/60">Op locatie</td><td class="px-5 py-4 text-brand-navy/60">Na situatiecheck</td></tr>
+                        <tr><td class="px-5 py-4 font-semibold">Vrijstaand L</td><td class="px-5 py-4">€&nbsp;2.865</td><td class="px-5 py-4 text-brand-navy/60">Op locatie</td><td class="px-5 py-4 text-brand-navy/60">Na situatiecheck</td></tr>
+                        <tr><td class="px-5 py-4 font-semibold">Vrijstaand XL</td><td class="px-5 py-4">€&nbsp;3.365</td><td class="px-5 py-4 text-brand-navy/60">Op locatie</td><td class="px-5 py-4 text-brand-navy/60">Na situatiecheck</td></tr>
+                        <tr><td class="px-5 py-4 font-semibold">Wandmodel S</td><td class="px-5 py-4">€&nbsp;2.335</td><td class="px-5 py-4 text-brand-navy/60">Op locatie</td><td class="px-5 py-4 text-brand-navy/60">Na situatiecheck</td></tr>
+                        <tr><td class="px-5 py-4 font-semibold">Wandmodel L</td><td class="px-5 py-4">€&nbsp;2.865</td><td class="px-5 py-4 text-brand-navy/60">Op locatie</td><td class="px-5 py-4 text-brand-navy/60">Na situatiecheck</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="reveal mt-4 text-xs text-brand-navy/40 font-light">Prijzen Magnelis®, excl. montage en excl. optionele poedercoating. Indicatief. Maatwerk op aanvraag.</p>
+            <div class="reveal mt-12 grid lg:grid-cols-2 gap-5">
+                <div class="rounded-2xl bg-white border border-brand-navy/8 p-7">
+                    <h3 class="font-bold text-brand-navy text-lg mb-4">Wat u krijgt</h3>
+                    <ul class="space-y-2 text-sm text-brand-navy/60 font-light leading-relaxed">
+                        <li>Akoestische omkasting met 150 mm demper</li>
+                        <li>Gerecyclede PET-absorptie en anti-recirculatieplaat</li>
+                        <li>Bevestiging in RVS 316</li>
+                        <li>Indicatieve pasvormcontrole via de maatcheck</li>
+                        <li>Labresultaat van Peutz (ISO 3741 en ISO 7235)</li>
+                        <li>Levering; montage door uzelf, uw installateur of REDUCD</li>
+                    </ul>
+                </div>
+                <div class="rounded-2xl bg-brand-navy text-white p-7">
+                    <h3 class="font-bold text-lg mb-4">Wat u niet krijgt</h3>
+                    <ul class="space-y-2 text-sm text-white/60 font-light leading-relaxed">
+                        <li>Een sierkap die de unit vooral verstopt</li>
+                        <li>Een houten doos zonder berekende luchtweg</li>
+                        <li>Een belofte dat uw perceel daardoor automatisch aan elke geluidsregel voldoet</li>
+                        <li>Een vaste montageprijs die voor elk dak en elke oprit klopt</li>
+                    </ul>
+                </div>
+            </div>
+            <a data-open-lead-popup href="#contact" class="reveal btn-primary mt-8 inline-flex px-6 py-3 rounded-full text-sm font-semibold">Vraag het totaal voor mijn adres</a>
         </div>
     </section>
 
@@ -688,8 +931,9 @@
         <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div class="reveal lg:col-span-5">
                 <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Regelgeving</span>
-                <h2 class="font-extrabold text-3xl lg:text-5xl text-brand-navy mt-4 tracking-tight leading-tight">Gewest, gemeente én buren</h2>
-                <p class="text-brand-navy/55 mt-5 text-base font-light leading-relaxed">In België is er geen één landelijke decibelnorm voor elke buitenunit. Geluid loopt via <strong class="text-brand-navy font-semibold">gewestelijke milieuregels</strong>, <strong class="text-brand-navy font-semibold">gemeentelijke verordeningen</strong> en <strong class="text-brand-navy font-semibold">burenhinder</strong>. Plan daarom altijd met een meting op locatie — niet alleen met cataloguscijfers.</p>
+                <h2 class="font-extrabold text-3xl lg:text-5xl text-brand-navy mt-4 tracking-tight leading-tight">Helpt dit binnen de geluidsgrenzen te blijven?</h2>
+                <p class="text-brand-navy/55 mt-5 text-base font-light leading-relaxed">Dat hangt niet alleen van de warmtepomp af. Afstand tot de perceelsgrens, opstelling, reflecties, achtergrondgeluid en lokale regels spelen mee. België heeft geen één landelijke erfgrensnorm. De omkasting is ontworpen om de geluidsbelasting te helpen beperken. Ze maakt een installatie niet automatisch conform.</p>
+                <p class="text-brand-navy/45 mt-4 text-sm font-light leading-relaxed">De VLAREM-rekentool is indicatief. Voor een definitieve beoordeling adviseren we een meting op locatie.</p>
                 <div class="mt-8 flex flex-wrap gap-3">
                     <a href="vlarem/" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold">VLAREM-rekentool</a>
                     <a href="blog/post.html?slug=warmtepomp-geluid-buren-regelgeving-belgie-nederland" class="btn-outline px-6 py-3 rounded-full text-sm font-semibold">Lees het Belgische kader</a>
@@ -719,12 +963,8 @@
                     <h2 class="font-extrabold text-3xl lg:text-4xl text-brand-navy mt-4 tracking-tight">Hoe werkt het — in 2 minuten</h2>
                     <p class="text-brand-navy/55 mt-4 max-w-md font-light leading-relaxed text-sm lg:text-base">Korte uitleg over demping, luchtweg en installatie. Download daarna brochure of handleiding.</p>
                     <div class="mt-6 flex flex-wrap gap-3">
-                        <a href="mailto:info@reducd.be?subject=Brochure%20aanvragen" class="btn-outline px-5 py-2.5 rounded-full text-sm font-semibold">Brochure (PDF)</a>
-                        <a href="mailto:info@reducd.be?subject=Installatiehandleiding%20aanvragen" class="btn-outline px-5 py-2.5 rounded-full text-sm font-semibold">Handleiding</a>
-                    </div>
-                    <div class="mt-6 flex flex-wrap gap-3">
-                        <a data-open-lead-popup href="#contact" class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold">Plan <span class="accent-gratis">gratis</span> meting</a>
-                        <a href="#contact" class="btn-outline px-5 py-2.5 rounded-full text-sm font-semibold">Vraag offerte</a>
+                        <a href="#calculator" class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold">Bereken mijn oplossing</a>
+                        <a href="docs/" class="text-sm font-semibold text-brand-navy/60 underline underline-offset-4 self-center">Technische documentatie</a>
                     </div>
                 </div>
                 <div class="lg:col-span-6 flex lg:justify-end">
@@ -754,35 +994,34 @@
         <div class="max-w-7xl mx-auto">
             <div class="reveal text-center mb-16 lg:mb-20">
                 <span class="text-[11px] font-bold text-white/40 uppercase tracking-[0.25em]">Proces</span>
-                <h2 class="font-extrabold text-4xl lg:text-5xl mt-4 tracking-tight">Van idee tot installatie</h2>
-                <p class="text-white/50 mt-4 text-base lg:text-lg font-light max-w-xl mx-auto leading-relaxed">Vier stappen naar jouw stille warmtepomp. Gratis intake met geluidsmeting op locatie.</p>
+                <h2 class="font-extrabold text-4xl lg:text-5xl mt-4 tracking-tight">Van lawaai tot plaatsing</h2>
+                <p class="text-white/50 mt-4 text-base lg:text-lg font-light max-w-xl mx-auto leading-relaxed">Eerst de juiste kast, dan een check op locatie. De intake met geluidsmeting is vrijblijvend.</p>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 <div class="reveal bento rounded-2xl p-8 border border-white/10 bg-white/5 text-center">
                     <div class="w-11 h-11 rounded-full border border-white/20 text-white font-bold flex items-center justify-center mx-auto mb-6">1</div>
-                    <h4 class="font-bold text-lg mb-3">Inspiratie</h4>
-                    <p class="text-white/45 text-sm leading-relaxed">Bekijk modellen, vraag een brochure aan.</p>
+                    <h4 class="font-bold text-lg mb-3">Maten</h4>
+                    <p class="text-white/45 text-sm leading-relaxed">Hoogte, breedte en diepte van de buitenunit.</p>
                 </div>
                 <div class="reveal reveal-delay-1 bento rounded-2xl p-8 border border-white/10 bg-white/5 text-center">
                     <div class="w-11 h-11 rounded-full border border-white/20 text-white font-bold flex items-center justify-center mx-auto mb-6">2</div>
-                    <h4 class="font-bold text-lg mb-3">Intake</h4>
-                    <p class="text-white/45 text-sm leading-relaxed">Gratis en vrijblijvend — telefonisch of op locatie.</p>
+                    <h4 class="font-bold text-lg mb-3">Model</h4>
+                    <p class="text-white/45 text-sm leading-relaxed">Vrijstaand of wand, met een indicatieve prijs.</p>
                 </div>
                 <div class="reveal reveal-delay-2 bento rounded-2xl p-8 border border-white/10 bg-white/5 text-center">
                     <div class="w-11 h-11 rounded-full border border-white/20 text-white font-bold flex items-center justify-center mx-auto mb-6">3</div>
-                    <h4 class="font-bold text-lg mb-3">Offerte</h4>
-                    <p class="text-white/45 text-sm leading-relaxed">Binnen enkele dagen. Reactie binnen 24 uur.</p>
+                    <h4 class="font-bold text-lg mb-3">Check</h4>
+                    <p class="text-white/45 text-sm leading-relaxed">Gratis op locatie, met foto en meting. Reactie binnen 24 uur.</p>
                 </div>
                 <div class="reveal reveal-delay-3 bento rounded-2xl p-8 border border-white/10 bg-white/5 text-center">
                     <div class="w-11 h-11 rounded-full border border-white/20 text-white font-bold flex items-center justify-center mx-auto mb-6">4</div>
-                    <h4 class="font-bold text-lg mb-3">Installatie</h4>
-                    <p class="text-white/45 text-sm leading-relaxed">12 boutjes, binnen 1 uur. Of door ons team.</p>
+                    <h4 class="font-bold text-lg mb-3">Plaatsing</h4>
+                    <p class="text-white/45 text-sm leading-relaxed">Standaardmontage doorgaans binnen 1,5 à 2 uur.</p>
                 </div>
             </div>
             <div class="reveal mt-12 flex flex-wrap justify-center gap-3">
-                <a data-open-lead-popup href="#contact" class="inline-flex bg-white text-brand-navy px-7 py-3.5 rounded-full text-sm font-semibold">Plan <span class="accent-gratis">gratis</span> meting</a>
-                <a href="#contact" class="inline-flex border border-white/30 text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 transition-colors">Vraag offerte</a>
-                <a href="docs/view.html?id=brochure&amp;for=particulier" class="inline-flex border border-white/30 text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 transition-colors">Brochure</a>
+                <a href="#calculator" class="inline-flex bg-white text-brand-navy px-7 py-3.5 rounded-full text-sm font-semibold">Bereken mijn oplossing</a>
+                <a data-open-lead-popup href="#contact" class="inline-flex border border-white/30 text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 transition-colors"><span class="accent-gratis">Gratis</span> situatiecheck</a>
             </div>
         </div>
     </section>
@@ -798,16 +1037,9 @@
                 </div>
                 <div class="reveal reveal-delay-1 order-1 lg:order-2">
                     <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Over REDUCD</span>
-                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 mb-8 leading-tight tracking-tight">Duurzaam verwarmen<br><span class="text-brand-navy/40 font-light">zonder geluidsoverlast</span></h2>
-                    <div class="space-y-5 text-brand-navy/60 text-base lg:text-lg font-light leading-relaxed">
-                        <p>Bij REDUCD helpen we je om opnieuw in alle rust te wonen, zelfs mét een actieve warmtepomp. Onze geluidskasten beperken de geluidsoverlast aanzienlijk — voor jou én je buren.</p>
-                        <p>Al onze omkastingen worden lokaal geproduceerd met gerecyclede materialen. Elke kast wordt gebouwd volgens het <strong class="text-brand-navy font-semibold">Built to Last</strong>-principe.</p>
-                    </div>
-                    <div class="mt-10 grid grid-cols-3 gap-4">
-                        <div class="bg-white rounded-xl p-5 border border-brand-navy/8 text-center"><div class="font-extrabold text-2xl text-brand-navy">2020</div><div class="text-[10px] text-brand-navy/40 uppercase tracking-widest mt-1">Opgestart</div></div>
-                        <div class="bg-white rounded-xl p-5 border border-brand-navy/8 text-center"><div class="font-extrabold text-2xl text-brand-navy">BE</div><div class="text-[10px] text-brand-navy/40 uppercase tracking-widest mt-1">Actief</div></div>
-                        <div class="bg-white rounded-xl p-5 border border-brand-navy/8 text-center"><div class="font-extrabold text-2xl text-brand-navy">14</div><div class="text-[10px] text-brand-navy/40 tracking-widest unit-db mt-1">dB(A)</div></div>
-                    </div>
+                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 mb-6 leading-tight tracking-tight">Belgische akoestische engineering</h2>
+                    <p class="text-brand-navy/60 text-base lg:text-lg font-light leading-relaxed">REDUCD ontwikkelt en produceert akoestische omkastingen voor warmtepompen en airco-buitenunits in België.</p>
+                    <p class="mt-6 text-sm font-medium text-brand-navy/70">Peutz getest · Belgische productie · 60+ reviews</p>
                 </div>
             </div>
         </div>
@@ -820,7 +1052,7 @@
                 <div class="rounded-2xl bg-brand-navy text-white p-8 lg:p-10">
                     <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 mb-4">Onafhankelijke proof</p>
                     <h3 class="font-extrabold text-2xl lg:text-3xl tracking-tight mb-3">Peutz · juli 2025</h3>
-                    <p class="text-white/60 text-sm font-light leading-relaxed mb-6">Geluidsmetingen conform ISO 3741:2010 &amp; ISO 7235:2003. Gemiddeld <strong class="text-white font-semibold">14 dB(A)</strong> reductie — tot 75% waargenomen stiller.</p>
+                    <p class="text-white/60 text-sm font-light leading-relaxed mb-6">Onafhankelijk getest volgens ISO 3741:2010 en ISO 7235:2003. Gemiddeld <strong class="text-white font-semibold">14 dB(A)</strong> bij het vrijstaand model. Geen certificering door Peutz — wel een labmeting.</p>
                     <a href="docs/view.html?id=meetrapport&amp;for=particulier" class="inline-flex bg-white text-brand-navy px-5 py-2.5 rounded-full text-sm font-semibold">Lees meetrapport</a>
                 </div>
                 <div class="rounded-2xl border border-brand-navy/10 bg-brand-navy/[0.03] p-8 lg:p-10 flex flex-col justify-between">
@@ -1045,6 +1277,18 @@
                 <h3 class="font-extrabold text-2xl lg:text-3xl text-brand-navy mt-3 tracking-tight">Per merk, regel en situatie</h3>
             </div>
             <div id="home-blog-taper" class="blog-taper"></div>
+            <nav class="reveal mt-12" aria-label="Gerelateerde onderwerpen">
+                <p class="text-[11px] font-bold text-brand-navy/40 uppercase tracking-[0.2em] mb-3">Verder per situatie</p>
+                <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-brand-navy/60">
+                    <a class="underline underline-offset-4 hover:text-brand-navy" href="blog/post.html?slug=warmtepomp-geluidsoverlast-verminderen">Te veel lawaai</a>
+                    <a class="underline underline-offset-4 hover:text-brand-navy" href="blog/post.html?slug=warmtepomp-geluid-buren-overlast-vlaanderen">Buren</a>
+                    <a class="underline underline-offset-4 hover:text-brand-navy" href="vlarem/">VLAREM-rekentool</a>
+                    <a class="underline underline-offset-4 hover:text-brand-navy" href="blog/post.html?slug=geluidsoverlast-daikin-altherma-hybride-warmtepomp">Daikin</a>
+                    <a class="underline underline-offset-4 hover:text-brand-navy" href="blog/post.html?slug=nibe-f2040-geluid-omkasting">NIBE</a>
+                    <a class="underline underline-offset-4 hover:text-brand-navy" href="blog/post.html?slug=geluidsoverlast-mitsubishi-warmtepomp-omkasting">Mitsubishi</a>
+                    <a class="underline underline-offset-4 hover:text-brand-navy" href="#calculator">Maatcheck</a>
+                </div>
+            </nav>
         </div>
     </section>
 
@@ -1056,21 +1300,21 @@
                     <div>
                         <span class="block text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">FAQ</span>
                         <h2 class="font-extrabold text-2xl lg:text-3xl text-brand-navy mt-2 tracking-tight">Veelgestelde vragen</h2>
-                        <span class="block text-sm text-brand-navy/50 font-light mt-2">Klik om te openen · 9 vragen</span>
+                        <span class="block text-sm text-brand-navy/50 font-light mt-2">Klik om te openen · 14 vragen</span>
                     </div>
                 </summary>
                 <div class="faq-section-body">
                 <details class="faq-item">
                     <summary>Hoeveel geluid reduceert een REDUCD omkasting?</summary>
-                    <p class="faq-a">Gemiddeld 14 dB(A) bij het vrijstaand model, tot 75% stiller waargenomen. Onafhankelijk getest door Peutz (juli 2025) conform ISO 3741:2010 en ISO 7235:2003. Het wandmodel reduceert typisch 10–12 dB(A).</p>
+                    <p class="faq-a">Het vrijstaand model haalt in het Peutz-lab een gemiddelde reductie van 14 dB(A) (juli 2025, ISO 3741:2010 en ISO 7235:2003). 14 dB(A) is een sterke vermindering van de waargenomen geluidssterkte. Het wandmodel reduceert typisch 10–12 dB(A). Bij u thuis spelen ook de warmtepomp, de afstand en de omgeving mee.</p>
                 </details>
                 <details class="faq-item">
                     <summary>Wat kost een akoestische omkasting?</summary>
-                    <p class="faq-a">Standaardmaten starten vanaf €&nbsp;2.335 (Magnelis, zonder installatie). Poedercoating in RAL-kleur en montage zijn optioneel tegen meerprijs. Maatwerk op aanvraag.</p>
+                    <p class="faq-a">Standaardmaten starten vanaf €&nbsp;2.335 (Magnelis, excl. montage). Poedercoating in een RAL-kleur is optioneel. Montage wordt berekend op locatie en opstelling. Maatwerk op aanvraag.</p>
                 </details>
                 <details class="faq-item">
                     <summary>Wat is het verschil tussen een sierkap en een akoestische omkasting?</summary>
-                    <p class="faq-a">Een esthetische cover verhult de unit maar dempt nauwelijks. Een REDUCD-omkasting heeft een 150 mm demper, gerecycled PET-absorptie en een berekende luchtweg, zodat geluid én rendement kloppen.</p>
+                    <p class="faq-a">Een esthetische cover verhult de unit maar dempt nauwelijks. Een REDUCD-omkasting heeft een 150 mm demper, gerecycled PET-absorptie en een berekende luchtweg. Ze is ontworpen om het vereiste luchtdebiet te behouden.</p>
                 </details>
                 <details class="faq-item">
                     <summary>Welke geluidsnormen gelden in België?</summary>
@@ -1082,7 +1326,7 @@
                 </details>
                 <details class="faq-item">
                     <summary>Hoe snel kan ik een omkasting krijgen?</summary>
-                    <p class="faq-a">Standaardmaten zijn vaak binnen een week leverbaar. Montage duurt doorgaans ongeveer een uur (12 boutjes), zelf of door het REDUCD-team. Maatwerk volgens afspraak.</p>
+                    <p class="faq-a">Standaardmaten zijn vaak binnen een week leverbaar. Een standaardmontage duurt doorgaans 1,5 à 2 uur, zelf of door het REDUCD-team. Maatwerk volgens afspraak.</p>
                 </details>
                 <details class="faq-item">
                     <summary>Is de geluidsmeting in België gratis?</summary>
@@ -1096,6 +1340,26 @@
                     <summary>Werkt een REDUCD-omkasting ook voor airco?</summary>
                     <p class="faq-a">Ja. De omkastingen zijn gemaakt voor buitenunits van warmtepompen én airco. De maat volgt de unit, niet het merk.</p>
                 </details>
+                <details class="faq-item">
+                    <summary>Kan ik de kast zelf plaatsen?</summary>
+                    <p class="faq-a">Ja. Een standaardmontage duurt doorgaans 1,5 à 2 uur. U kunt zelf plaatsen, uw installateur laten plaatsen, of het REDUCD-team inschakelen. De warmtepomp blijft in bedrijf.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Kan mijn installateur de warmtepomp nog onderhouden?</summary>
+                    <p class="faq-a">Ja. Panelen gaan los zonder de kast te slopen. Klein onderhoud verloopt via het bovendeel (4× M6). Groter onderhoud via het voor- of zijpaneel: 8× M6 bij vrijstaand, 6× M6 bij het wandmodel.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Wat als mijn warmtepomp niet in S, L of XL past?</summary>
+                    <p class="faq-a">Dan is maatwerk de volgende stap, met dezelfde materialen en luchtlogica. Stuur de maten en een foto van de buitenunit via de situatiecheck.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Wat kost montage?</summary>
+                    <p class="faq-a">Montage hangt af van locatie en opstelling. Er staat geen vaste montageprijs op de site. De gratis situatiecheck geeft een indicatie van product plus montage voor uw adres.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Kan ik eerst alleen een meting laten uitvoeren?</summary>
+                    <p class="faq-a">Ja. De intake met geluidsmeting op locatie is vrijblijvend en kosteloos, ook als u nog geen omkasting bestelt.</p>
+                </details>
                 <a href="#contact" class="btn-primary inline-flex mt-8 px-6 py-3 rounded-full text-sm font-semibold">Vraag staat er niet bij? Mail ons</a>
                 </div>
             </details>
@@ -1106,16 +1370,9 @@
     <section id="contact" class="py-24 lg:py-32 px-6 lg:px-8 bg-brand-navy/[0.03]">
         <div class="max-w-7xl mx-auto">
             <div class="reveal text-center mb-16">
-                <h2 class="font-extrabold text-4xl lg:text-6xl text-brand-navy tracking-tight mb-6">De rust is nabij</h2>
-                <p class="text-brand-navy/55 text-lg lg:text-xl max-w-xl mx-auto font-light leading-relaxed">Plan een vrijblijvend adviesgesprek met geluidsmeting op locatie. Wij beantwoorden aanvragen binnen 24 uur. Vanaf €&nbsp;2.335.</p>
-                <div class="mt-10 flex flex-col sm:flex-row flex-wrap justify-center items-stretch sm:items-center gap-4 max-w-md sm:max-w-none mx-auto">
-                    <a data-open-lead-popup href="#lead-form" class="btn-primary px-10 py-5 rounded-full text-base lg:text-lg font-semibold inline-flex items-center justify-center gap-3 shadow-lg shadow-brand-navy/20">
-                        Plan <span class="accent-gratis">gratis</span> meting
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                    <a href="mailto:info@reducd.be?subject=Offerte%20aanvragen" class="btn-outline px-8 py-4 rounded-full text-sm font-semibold inline-flex items-center justify-center">Vraag offerte</a>
-                </div>
-                <p class="mt-5 text-sm font-medium text-brand-navy/50 tracking-wide">Gratis · vrijblijvend · reactie binnen 24 uur</p>
+                <h2 class="font-extrabold text-4xl lg:text-6xl text-brand-navy tracking-tight mb-6">Laat uw situatie controleren</h2>
+                <p class="text-brand-navy/55 text-lg lg:text-xl max-w-xl mx-auto font-light leading-relaxed">Twee paden. Een korte check als u wilt weten wat past, of een uitgebreidere aanvraag als u een offerte wilt. Reactie binnen 24 uur.</p>
+                <p class="mt-5 text-sm font-medium text-brand-navy/50 tracking-wide">Gratis · vrijblijvend · Peutz getest</p>
             </div>
             <div class="grid lg:grid-cols-2 gap-12 items-start">
                 <div class="reveal space-y-4">
@@ -1130,28 +1387,53 @@
                 </div>
                 <div class="reveal reveal-delay-1">
                     <form id="lead-form" class="bg-white rounded-2xl p-8 lg:p-10 border border-brand-navy/8 shadow-sm" onsubmit="handleSubmit(event)">
-                        <h3 class="font-bold text-2xl text-brand-navy mb-8 tracking-tight">Plan <span class="accent-gratis">gratis</span> meting / offerte</h3>
+                        <div class="flex flex-col sm:flex-row gap-2 mb-6" role="tablist" aria-label="Type aanvraag">
+                            <button type="button" class="form-path is-active" data-form-path="check">Ik wil weten wat ik nodig heb</button>
+                            <button type="button" class="form-path" data-form-path="offerte">Ik wil een offerte</button>
+                        </div>
+                        <input type="hidden" name="intent" value="check">
                         <div class="space-y-4">
                             <input type="text" name="name" required class="form-field" placeholder="Uw naam" autocomplete="name">
                             <div class="grid sm:grid-cols-2 gap-4">
                                 <input type="email" name="email" required class="form-field" placeholder="E-mail" autocomplete="email">
-                                <input type="tel" name="phone" class="form-field" placeholder="Telefoon" autocomplete="tel">
+                                <input type="tel" name="phone" required class="form-field" placeholder="Telefoon" autocomplete="tel">
                             </div>
-                            <select name="customerType" class="form-field appearance-none cursor-pointer">
-                                <option value="">Type klant...</option>
-                                <option>Particulier</option>
-                                <option>Installateur / aannemer</option>
-                                <option>Projectontwikkelaar</option>
-                            </select>
-                            <textarea name="message" rows="3" class="form-field resize-none" placeholder="Vertel ons over uw project..."></textarea>
+                            <div data-for="check">
+                                <input type="text" name="postcode" required class="form-field" placeholder="Postcode" inputmode="numeric" autocomplete="postal-code">
+                            </div>
+                            <div data-for="offerte" hidden>
+                                <div class="space-y-4">
+                                    <select name="customerType" class="form-field appearance-none cursor-pointer">
+                                        <option value="">Type klant...</option>
+                                        <option>Particulier</option>
+                                        <option>Installateur / aannemer</option>
+                                        <option>Architect / project</option>
+                                    </select>
+                                    <textarea name="message" rows="3" class="form-field resize-none" placeholder="Merk, model en wat u wilt weten..."></textarea>
+                                </div>
+                            </div>
+                            <label class="block text-sm text-brand-navy/70">
+                                <span class="block font-semibold text-brand-navy mb-1">Foto van de buitenunit</span>
+                                <span class="block text-xs text-brand-navy/45 font-light mb-2">Voorkant, zijkant of typeplaatje. Optioneel, en het maakt de check concreter.</span>
+                                <input type="file" name="photos" accept="image/*" multiple capture="environment" class="block w-full text-sm text-brand-navy/70 file:mr-3 file:rounded-full file:border-0 file:bg-brand-navy file:px-4 file:py-2 file:text-xs file:font-semibold file:text-white">
+                            </label>
+                            <p id="photo-note" class="text-[11px] text-brand-navy/40 leading-relaxed hidden"></p>
                             <button type="submit" class="btn-primary w-full py-4 rounded-xl font-bold text-sm uppercase tracking-widest mt-2">Versturen →</button>
-                            <p class="text-[11px] text-brand-navy/40 leading-relaxed">Door te versturen ga je akkoord met ons <a href="privacy.html" class="underline hover:text-brand-navy">privacybeleid</a>. We gebruiken je gegevens enkel om je aanvraag te beantwoorden.</p>
+                            <p class="text-[11px] text-brand-navy/40 leading-relaxed">Door te versturen ga je akkoord met ons <a href="privacy.html" class="underline hover:text-brand-navy">privacybeleid</a>. Foto’s kunt u ook mailen naar info@reducd.be. We gebruiken uw gegevens enkel om de aanvraag te beantwoorden.</p>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+
+    <div id="stickyCta" class="md:hidden">
+        <div class="min-w-0">
+            <p class="text-sm font-semibold text-brand-navy leading-tight">Gratis situatiecheck</p>
+            <p class="text-[11px] text-brand-navy/45">Peutz getest · antwoord binnen 24u</p>
+        </div>
+        <a data-open-lead-popup href="#contact" class="btn-primary shrink-0 px-4 py-2.5 rounded-full text-xs font-semibold">Plan gratis check</a>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-brand-navy py-12 px-6 lg:px-8">
@@ -1200,14 +1482,120 @@
         document.getElementById('menuBtn')?.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
         document.getElementById('closeMenu')?.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
         document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('translate-x-full')));
+        function setFormPath(path) {
+            const form = document.getElementById('lead-form');
+            if (!form) return;
+            if (form.intent) form.intent.value = path;
+            form.querySelectorAll('[data-form-path]').forEach((btn) => {
+                const on = btn.getAttribute('data-form-path') === path;
+                btn.classList.toggle('is-active', on);
+                btn.setAttribute('aria-selected', on ? 'true' : 'false');
+            });
+            form.querySelectorAll('[data-for]').forEach((block) => {
+                const on = block.getAttribute('data-for') === path;
+                block.hidden = !on;
+                block.querySelectorAll('input, select, textarea').forEach((field) => {
+                    if (field.required) field.disabled = !on;
+                });
+            });
+        }
+        document.querySelectorAll('[data-form-path]').forEach((btn) => {
+            btn.addEventListener('click', () => setFormPath(btn.getAttribute('data-form-path')));
+        });
+        setFormPath('check');
         function handleSubmit(e) {
             e.preventDefault();
-            const btn = e.target.querySelector('button[type="submit"]');
+            const form = e.target;
+            if (!form.checkValidity()) { form.reportValidity(); return; }
+            const btn = form.querySelector('button[type="submit"]');
             const orig = btn.textContent;
             btn.textContent = 'Verzenden...'; btn.disabled = true;
-            const type = e.target.customerType?.value || '';
-            window.REDUCD?.trackLead?.({ content_name: 'adviesgesprek', customer_type: type || 'particulier', lead_source: 'contact_form' });
-            setTimeout(() => { btn.textContent = '✓ Verstuurd!'; setTimeout(() => { btn.textContent = orig; btn.disabled = false; e.target.reset(); }, 2000); }, 1200);
+            const files = form.photos?.files ? [...form.photos.files].map((f) => f.name) : [];
+            window.REDUCD?.trackLead?.({
+                content_name: form.intent?.value === 'offerte' ? 'offerte' : 'situatiecheck',
+                customer_type: form.customerType?.value || 'particulier',
+                lead_source: 'contact_form',
+                photo_count: files.length
+            });
+            const note = document.getElementById('photo-note');
+            if (note) {
+                note.classList.toggle('hidden', !files.length);
+                note.textContent = files.length
+                    ? 'Foto’s geselecteerd: ' + files.join(', ') + '. Mail ze naar info@reducd.be — een beeldbestand gaat niet mee met dit formulier.'
+                    : '';
+            }
+            setTimeout(() => {
+                btn.textContent = '✓ Verstuurd!';
+                setTimeout(() => {
+                    btn.textContent = orig;
+                    btn.disabled = false;
+                    form.reset();
+                    setFormPath('check');
+                    if (note) { note.textContent = ''; note.classList.add('hidden'); }
+                }, 2200);
+            }, 1200);
+        }
+        (function () {
+            const MODELS = {
+                vrijstaand: [
+                    { name: 'REDUCD Vrijstaand S', price: 2335, db: 'Tot 14 dB(A)', h: 990, w: 1090, d: 650 },
+                    { name: 'REDUCD Vrijstaand L', price: 2865, db: 'Tot 14 dB(A)', h: 1350, w: 1250, d: 650 },
+                    { name: 'REDUCD Vrijstaand XL', price: 3365, db: 'Tot 14 dB(A)', h: 1670, w: 1250, d: 650 }
+                ],
+                wand: [
+                    { name: 'REDUCD Wandmodel S', price: 2335, db: 'Typisch 10–12 dB(A)', h: 990, w: 1060, d: 650 },
+                    { name: 'REDUCD Wandmodel L', price: 2865, db: 'Typisch 10–12 dB(A)', h: 1310, w: 1250, d: 800 }
+                ]
+            };
+            const form = document.getElementById('fit-calc');
+            const result = document.getElementById('calc-result');
+            if (!form || !result) return;
+            let setup = 'vrijstaand';
+            form.querySelectorAll('[data-setup]').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    setup = btn.getAttribute('data-setup');
+                    form.querySelectorAll('[data-setup]').forEach((b) => b.classList.toggle('is-active', b === btn));
+                });
+            });
+            const mm = (id) => {
+                const n = parseInt(String(document.getElementById(id).value).replace(/\D/g, ''), 10);
+                return Number.isFinite(n) ? n : NaN;
+            };
+            const euro = (n) => '€\u00a0' + n.toLocaleString('nl-BE');
+            const fits = (model, unit) => {
+                const depthNeed = setup === 'wand' ? 50 : 100;
+                return unit.h + 50 <= model.h && unit.w + 100 <= model.w && unit.d + depthNeed <= model.d;
+            };
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const unit = { h: mm('calc-h'), w: mm('calc-w'), d: mm('calc-d') };
+                result.classList.remove('hidden');
+                if ([unit.h, unit.w, unit.d].some((n) => !Number.isFinite(n) || n < 200 || n > 2500)) {
+                    result.innerHTML = '<p class="text-sm text-brand-navy/70">Vul hoogte, breedte en diepte in millimeter in, tussen 200 en 2500.</p>';
+                    return;
+                }
+                const match = MODELS[setup].find((model) => fits(model, unit));
+                if (!match) {
+                    result.innerHTML = '<div class="rounded-xl bg-brand-navy/[0.04] p-5"><p class="font-bold text-brand-navy">Maatwerk</p><p class="text-sm text-brand-navy/60 font-light mt-2 leading-relaxed">Deze maten vallen buiten S, L en XL, met 5 cm speling. Stuur een foto mee, dan bekijken we een kast op maat.</p><button type="button" class="btn-primary mt-4 px-5 py-2.5 rounded-full text-sm font-semibold" data-quote="Maatwerk">Laat dit controleren</button></div>';
+                } else {
+                    result.innerHTML = '<div class="rounded-xl border border-brand-navy/10 p-5"><p class="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-navy/40">Uw resultaat · indicatief</p><p class="font-extrabold text-2xl text-brand-navy tracking-tight mt-2">' + match.name + '</p><ul class="mt-4 space-y-1.5 text-sm text-brand-navy/70"><li>Past rond uw unit: ja, met 5 cm speling</li><li>Reductie in het lab: ' + match.db + '</li><li>Materiaal: Magnelis</li><li>Prijs: ' + euro(match.price) + ' excl. montage</li></ul><p class="text-xs text-brand-navy/45 font-light mt-3">De reductie op uw perceel hangt af van toestel, afstand en omgeving.</p><div class="mt-4 flex flex-wrap gap-3"><button type="button" class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold" data-quote="' + match.name + '">Vraag exacte offerte</button><a data-open-lead-popup href="#contact" class="btn-outline px-5 py-2.5 rounded-full text-sm font-semibold">Gratis situatiecheck</a></div></div>';
+                }
+                result.querySelector('[data-quote]')?.addEventListener('click', () => {
+                    setFormPath('offerte');
+                    const lead = document.getElementById('lead-form');
+                    if (lead?.message) {
+                        lead.message.value = 'Maatcheck: ' + (match ? match.name : 'maatwerk') + '. Unit ' + unit.h + ' × ' + unit.w + ' × ' + unit.d + ' mm (' + (setup === 'wand' ? 'tegen gevel' : 'vrijstaand') + '). Graag een exacte offerte.';
+                    }
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        })();
+        const sticky = document.getElementById('stickyCta');
+        const contactSection = document.getElementById('contact');
+        if (sticky && contactSection) {
+            new IntersectionObserver((entries) => {
+                sticky.classList.toggle('is-hidden', entries.some((entry) => entry.isIntersecting));
+            }, { threshold: 0.12 }).observe(contactSection);
         }
         document.querySelectorAll('[data-track-contact]').forEach(a => a.addEventListener('click', () => {
             window.REDUCD?.trackContact?.(a.getAttribute('data-track-contact'));
