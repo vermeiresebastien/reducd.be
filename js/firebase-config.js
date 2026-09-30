@@ -4,12 +4,13 @@
  * Na config: maak ook Firestore doc admins/{jouw-email} aan (vereist voor writes).
  */
 window.REDUCD_FIREBASE = {
-  apiKey: "PLACEHOLDER",
-  authDomain: "PLACEHOLDER.firebaseapp.com",
-  projectId: "PLACEHOLDER",
-  storageBucket: "PLACEHOLDER.appspot.com",
-  messagingSenderId: "PLACEHOLDER",
-  appId: "PLACEHOLDER"
+  apiKey: "AIzaSyCL_7reEhrNiu4GI6mhEA61GKzuOQcrh28",
+  authDomain: "reducdbe.firebaseapp.com",
+  projectId: "reducdbe",
+  storageBucket: "reducdbe.firebasestorage.app",
+  messagingSenderId: "811821158715",
+  appId: "1:811821158715:web:a64e84deced50108bfe71e",
+  measurementId: "G-90BCMWGBJ1"
 };
 
 /** Google-accounts die blog mogen beheren */

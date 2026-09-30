@@ -5,7 +5,7 @@
  */
 window.REDUCD_TRACKING = {
   metaPixelId: "PLACEHOLDER",
-  ga4MeasurementId: "PLACEHOLDER",
+  ga4MeasurementId: "G-90BCMWGBJ1",
   googleAdsId: "PLACEHOLDER",
   googleAdsConversionLabel: "PLACEHOLDER",
   popup: {
