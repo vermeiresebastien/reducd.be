@@ -348,7 +348,7 @@
           .blog-taper-card { width: calc(100% - var(--t) * 18%); grid-template-columns: 4.4rem 1fr; }
           .blog-taper-card--text { grid-template-columns: 1fr; }
         }
-        #calculator, #peutz, #werking, #vragen { scroll-margin-top: 6.5rem; }
+        #calculator, #verschil, #werking, #vragen { scroll-margin-top: 6.5rem; }
         .path-card { transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease, border-color 0.35s ease; }
         .path-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px -18px rgba(15,42,58,0.28); border-color: rgba(15,42,58,0.22); }
         .calc-choice { border: 1.5px solid rgba(15,42,58,0.12); background: #fff; border-radius: 1rem; padding: 1.1rem 1rem; text-align: left; transition: border-color 0.2s ease, background 0.2s ease; }
@@ -374,7 +374,7 @@
             <div class="hidden md:flex items-center gap-5 lg:gap-6">
                 <a href="#producten" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Producten</a>
                 <a href="#werking" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Hoe het werkt</a>
-                <a href="#peutz" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Resultaten</a>
+                <a href="#verschil" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Resultaten</a>
                 <a href="#installaties" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Plaatsingen</a>
                 <a href="pro/index.html" class="text-[11px] font-medium text-brand-navy/55 hover:text-brand-navy transition-colors uppercase tracking-widest">Professionals</a>
             </div>
@@ -394,7 +394,7 @@
         </button>
         <a href="#producten" class="mobile-link text-3xl font-bold text-white tracking-tight">Producten</a>
         <a href="#werking" class="mobile-link text-3xl font-bold text-white tracking-tight">Hoe het werkt</a>
-        <a href="#peutz" class="mobile-link text-3xl font-bold text-white tracking-tight">Resultaten</a>
+        <a href="#verschil" class="mobile-link text-3xl font-bold text-white tracking-tight">Resultaten</a>
         <a href="#installaties" class="mobile-link text-3xl font-bold text-white tracking-tight">Plaatsingen</a>
         <a href="pro/index.html" class="mobile-link text-3xl font-bold text-white tracking-tight">Voor professionals</a>
         <a data-open-lead-popup href="#contact" class="mobile-link bg-white text-brand-navy px-10 py-4 rounded-full font-semibold mt-4"><span class="accent-gratis">Gratis</span> geluidsmeting</a>
@@ -444,50 +444,26 @@
         </div>
     </section>
 
-    <section class="px-6 lg:px-8 py-10 lg:py-12 bg-brand-navy/[0.03]" aria-label="Kernbewijs">
+    <section class="px-6 lg:px-8 py-10 lg:py-12 bg-brand-navy/[0.03]" aria-label="Waar begint u">
         <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-4">
-                <div class="path-card rounded-2xl bg-white border border-brand-navy/8 p-6">
-                    <p class="font-bold text-brand-navy text-lg tracking-tight">Peutz getest</p>
-                    <p class="text-sm text-brand-navy/55 font-light mt-2 leading-relaxed">Onafhankelijk akoestisch laboratoriumrapport.</p>
-                </div>
-                <div class="path-card rounded-2xl bg-white border border-brand-navy/8 p-6">
-                    <p class="font-bold text-brand-navy text-lg tracking-tight">Ontworpen voor Vlaanderen</p>
-                    <p class="text-sm text-brand-navy/55 font-light mt-2 leading-relaxed">Rekening houdend met VLAREM II.</p>
-                </div>
-                <div class="path-card rounded-2xl bg-white border border-brand-navy/8 p-6">
-                    <p class="font-bold text-brand-navy text-lg tracking-tight">Vrije luchtstroom</p>
-                    <p class="text-sm text-brand-navy/55 font-light mt-2 leading-relaxed">Ontworpen om de werking van uw warmtepomp te behouden.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="peutz" class="py-20 lg:py-24 px-6 lg:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal max-w-3xl">
-                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Minder geluid. Meer rust.</span>
-                <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 tracking-tight leading-tight">Een warmtepomp hoeft niet de hele dag aanwezig te zijn.</h2>
-                <p class="text-brand-navy/60 mt-5 text-base lg:text-lg font-light leading-relaxed">REDUCD is een akoestische omkasting die het geluid van uw buitenunit sterk vermindert, zonder de luchtstroom onnodig te beperken.</p>
-                <p class="text-brand-navy/60 mt-4 text-base lg:text-lg font-light leading-relaxed">Het resultaat: minder gebrom op uw terras, in uw tuin en aan de perceelsgrens.</p>
-            </div>
-            <div class="reveal mt-12">
-                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Onafhankelijk getest</span>
-                <div class="mt-5 grid md:grid-cols-3 gap-5">
-                    <div class="rounded-2xl bg-brand-navy text-white p-7 lg:p-8">
-                        <p class="font-extrabold text-5xl tracking-tight">−14 dB(A)</p>
-                        <p class="text-sm text-white/60 font-light mt-4 leading-relaxed">Gemiddelde reductie in de Peutz-test.</p>
-                    </div>
-                    <div class="rounded-2xl border border-brand-navy/10 p-7 lg:p-8">
-                        <p class="font-extrabold text-2xl text-brand-navy tracking-tight">ISO 3741 / ISO 7235</p>
-                        <p class="text-sm text-brand-navy/55 font-light mt-4 leading-relaxed">Getest in een onafhankelijk akoestisch laboratorium.</p>
-                    </div>
-                    <div class="rounded-2xl border border-brand-navy/10 p-7 lg:p-8">
-                        <p class="font-extrabold text-2xl text-brand-navy tracking-tight">Tot 75% minder ervaren geluid*</p>
-                        <p class="text-sm text-brand-navy/55 font-light mt-4 leading-relaxed">Een verschil van 10 dB(A) wordt door het menselijk oor ongeveer als een halvering van de luidheid ervaren.</p>
-                    </div>
-                </div>
-                <p class="mt-5 text-xs text-brand-navy/45 font-light leading-relaxed max-w-3xl">* De ervaren geluidsreductie hangt af van de situatie, de bron en de omgeving. De gemeten reductie van de omkasting is de relevante technische maatstaf.</p>
+            <p class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.3em] mb-8">Waar begint u?</p>
+            <div class="grid md:grid-cols-2 gap-5 lg:gap-6">
+                <a data-open-lead-popup href="#contact" class="path-card rounded-2xl bg-white border border-brand-navy/10 p-7 lg:p-8 block">
+                    <h2 class="font-bold text-brand-navy text-xl lg:text-2xl tracking-tight">Burenklacht?</h2>
+                    <p class="text-base text-brand-navy/55 font-light mt-4 leading-relaxed">Laat meten hoeveel geluid u moet verminderen.</p>
+                </a>
+                <a href="#calculator" class="path-card rounded-2xl bg-white border border-brand-navy/10 p-7 lg:p-8 block">
+                    <h2 class="font-bold text-brand-navy text-xl lg:text-2xl tracking-tight">Nieuwe warmtepomp?</h2>
+                    <p class="text-base text-brand-navy/55 font-light mt-4 leading-relaxed">Kies vooraf de juiste omkasting.</p>
+                </a>
+                <a href="pro/index.html" class="path-card rounded-2xl bg-white border border-brand-navy/10 p-7 lg:p-8 block">
+                    <h2 class="font-bold text-brand-navy text-xl lg:text-2xl tracking-tight">Installateur?</h2>
+                    <p class="text-base text-brand-navy/55 font-light mt-4 leading-relaxed">Technische fiches en modellen.</p>
+                </a>
+                <a href="pro/index.html" class="path-card rounded-2xl bg-white border border-brand-navy/10 p-7 lg:p-8 block">
+                    <h2 class="font-bold text-brand-navy text-xl lg:text-2xl tracking-tight">Architect of project?</h2>
+                    <p class="text-base text-brand-navy/55 font-light mt-4 leading-relaxed">Specificaties, maten en maatwerk.</p>
+                </a>
             </div>
         </div>
     </section>
@@ -620,18 +596,12 @@
                             <img src="assets/images/product-vrijstaand.webp" alt="REDUCD vrijstaand model — Magnelis® akoestische omkasting" class="product-finish-img is-active" data-finish-label="Magnelis®" width="620" height="434" decoding="async">
                             <img src="assets/images/product-vrijstaand-zwart.png" alt="REDUCD vrijstaand model — RAL 9005" class="product-finish-img" data-finish-label="RAL 9005" width="620" height="434" loading="lazy" decoding="async">
                             <img src="assets/images/product-vrijstaand-wit.png" alt="REDUCD vrijstaand model — RAL 9010" class="product-finish-img" data-finish-label="RAL 9010" width="620" height="434" loading="lazy" decoding="async">
-                            <img src="assets/images/product-vrijstaand-roest.png" alt="REDUCD vrijstaand model — roestafwerking" class="product-finish-img" data-finish-label="Roest" width="620" height="434" loading="lazy" decoding="async">
-                            <img src="assets/images/product-vrijstaand-kaki.png" alt="REDUCD vrijstaand model — glans RAL 6013" class="product-finish-img" data-finish-label="Glans RAL 6013" width="620" height="434" loading="lazy" decoding="async">
-                            <img src="assets/images/product-vrijstaand-oranje.png" alt="REDUCD vrijstaand model — RAL 2004" class="product-finish-img" data-finish-label="RAL 2004" width="620" height="434" loading="lazy" decoding="async">
                         </div>
                         <p class="product-finish-label" data-product-finish-label aria-live="polite">Magnelis®</p>
                         <div class="product-finish-swatches" role="group" aria-label="Kies afwerking vrijstaand model">
                             <button type="button" class="product-finish-swatch is-active" data-finish-swatch style="--swatch:#c5c8c4" aria-label="Magnelis®" aria-pressed="true"></button>
                             <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#0a0a0a" aria-label="RAL 9005" aria-pressed="false"></button>
                             <button type="button" class="product-finish-swatch is-light" data-finish-swatch style="--swatch:#f3efe6" aria-label="RAL 9010" aria-pressed="false"></button>
-                            <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#b85a2a" aria-label="Roest" aria-pressed="false"></button>
-                            <button type="button" class="product-finish-swatch is-gloss" data-finish-swatch style="--swatch:#6f734d" aria-label="Glans RAL 6013" aria-pressed="false"></button>
-                            <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#e25303" aria-label="RAL 2004" aria-pressed="false"></button>
                         </div>
                     </div>
                     <div class="p-6 lg:p-8 border-t border-brand-navy/8">
@@ -652,18 +622,12 @@
                             <img src="assets/images/product-wand.webp" alt="REDUCD wandmodel — Magnelis® akoestische omkasting" class="product-finish-img is-active" data-finish-label="Magnelis®" width="620" height="434" decoding="async">
                             <img src="assets/images/product-wand-zwart.png" alt="REDUCD wandmodel — RAL 9005" class="product-finish-img" data-finish-label="RAL 9005" width="620" height="434" loading="lazy" decoding="async">
                             <img src="assets/images/product-wand-wit.png" alt="REDUCD wandmodel — RAL 9010" class="product-finish-img" data-finish-label="RAL 9010" width="620" height="434" loading="lazy" decoding="async">
-                            <img src="assets/images/product-wand-roest.png" alt="REDUCD wandmodel — roestafwerking" class="product-finish-img" data-finish-label="Roest" width="620" height="434" loading="lazy" decoding="async">
-                            <img src="assets/images/product-wand-kaki.png" alt="REDUCD wandmodel — glans RAL 6013" class="product-finish-img" data-finish-label="Glans RAL 6013" width="620" height="434" loading="lazy" decoding="async">
-                            <img src="assets/images/product-wand-oranje.png" alt="REDUCD wandmodel — RAL 2004" class="product-finish-img" data-finish-label="RAL 2004" width="620" height="434" loading="lazy" decoding="async">
                         </div>
                         <p class="product-finish-label" data-product-finish-label aria-live="polite">Magnelis®</p>
                         <div class="product-finish-swatches" role="group" aria-label="Kies afwerking wandmodel">
                             <button type="button" class="product-finish-swatch is-active" data-finish-swatch style="--swatch:#c5c8c4" aria-label="Magnelis®" aria-pressed="true"></button>
                             <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#0a0a0a" aria-label="RAL 9005" aria-pressed="false"></button>
                             <button type="button" class="product-finish-swatch is-light" data-finish-swatch style="--swatch:#f3efe6" aria-label="RAL 9010" aria-pressed="false"></button>
-                            <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#b85a2a" aria-label="Roest" aria-pressed="false"></button>
-                            <button type="button" class="product-finish-swatch is-gloss" data-finish-swatch style="--swatch:#6f734d" aria-label="Glans RAL 6013" aria-pressed="false"></button>
-                            <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#e25303" aria-label="RAL 2004" aria-pressed="false"></button>
                         </div>
                     </div>
                     <div class="p-6 lg:p-8 border-t border-brand-navy/8">
@@ -675,6 +639,43 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div id="specs" class="reveal mt-12 lg:mt-16 rounded-3xl bg-brand-navy/[0.03] border border-brand-navy/8 p-6 lg:p-8">
+                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
+                    <div>
+                        <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Specificaties</span>
+                        <h3 class="font-extrabold text-2xl lg:text-3xl text-brand-navy mt-3 tracking-tight">Maten, materialen en richtprijzen</h3>
+                    </div>
+                    <p class="text-brand-navy/55 text-sm lg:max-w-md font-light leading-relaxed">Binnenmaten / buitenmaten in mm. Exacte selectie na inmeting of unit-afmetingen.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                    <div class="bento bg-white rounded-xl p-5 border border-brand-navy/8"><div class="text-[10px] font-bold text-brand-navy/45 uppercase tracking-widest mb-2">Behuizing</div><div class="font-bold text-lg text-brand-navy">Magnelis®</div></div>
+                    <div class="bento bg-white rounded-xl p-5 border border-brand-navy/8"><div class="text-[10px] font-bold text-brand-navy/45 uppercase tracking-widest mb-2">Bevestiging</div><div class="font-bold text-lg text-brand-navy">RVS 316</div></div>
+                    <div class="bento bg-white rounded-xl p-5 border border-brand-navy/8"><div class="text-[10px] font-bold text-brand-navy/45 uppercase tracking-widest mb-2">Absorptie</div><div class="font-bold text-lg text-brand-navy">Gerecycled PET</div></div>
+                    <div class="bento bg-white rounded-xl p-5 border border-brand-navy/8"><div class="text-[10px] font-bold text-brand-navy/45 uppercase tracking-widest mb-2">Demper</div><div class="font-bold text-lg text-brand-navy">150 mm</div></div>
+                </div>
+                <div class="overflow-x-auto spec-scroll rounded-xl ring-1 ring-brand-navy/8 bg-white">
+                    <table class="w-full text-sm min-w-[720px]">
+                        <thead><tr class="bg-brand-navy text-white">
+                            <th class="px-5 py-4 text-left font-bold">Model</th>
+                            <th class="px-5 py-4 text-left font-medium">Maat</th>
+                            <th class="px-5 py-4 text-left font-medium">Hoogte B/b</th>
+                            <th class="px-5 py-4 text-left font-medium">Breedte B/b</th>
+                            <th class="px-5 py-4 text-left font-medium">Diepte B/b</th>
+                            <th class="px-5 py-4 text-left font-medium">dB</th>
+                            <th class="px-5 py-4 text-left font-medium">Vanaf</th>
+                        </tr></thead>
+                        <tbody class="divide-y divide-brand-navy/8">
+                            <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">S</td><td class="px-5 py-4 text-brand-navy/65">990 / 1060</td><td class="px-5 py-4 text-brand-navy/65">1090 / 1220</td><td class="px-5 py-4 text-brand-navy/65">650 / 950</td><td class="px-5 py-4 text-brand-navy/65">± 14</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.335</td></tr>
+                            <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">L</td><td class="px-5 py-4 text-brand-navy/65">1350 / 1450</td><td class="px-5 py-4 text-brand-navy/65">1250 / 1410</td><td class="px-5 py-4 text-brand-navy/65">650 / 950</td><td class="px-5 py-4 text-brand-navy/65">± 14</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.865</td></tr>
+                            <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">XL</td><td class="px-5 py-4 text-brand-navy/65">1670 / 1770</td><td class="px-5 py-4 text-brand-navy/65">1250 / 1410</td><td class="px-5 py-4 text-brand-navy/65">650 / 950</td><td class="px-5 py-4 text-brand-navy/65">± 14</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;3.365</td></tr>
+                            <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Wand</td><td class="px-5 py-4 font-semibold">S</td><td class="px-5 py-4 text-brand-navy/65">990 / 1050</td><td class="px-5 py-4 text-brand-navy/65">1060 / 1360</td><td class="px-5 py-4 text-brand-navy/65">650 / 805</td><td class="px-5 py-4 text-brand-navy/65">10–12</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.335</td></tr>
+                            <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Wand</td><td class="px-5 py-4 font-semibold">L</td><td class="px-5 py-4 text-brand-navy/65">1310 / 1370</td><td class="px-5 py-4 text-brand-navy/65">1250 / 1550</td><td class="px-5 py-4 text-brand-navy/65">800 / 955</td><td class="px-5 py-4 text-brand-navy/65">10–12</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.865</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-4 text-xs text-brand-navy/40 font-light">Prijzen Magnelis® standaard, zonder installatie (indicatief). Poedercoating RAL en montage tegen meerprijs. Maatwerk op aanvraag.</p>
             </div>
 
         </div>
@@ -792,7 +793,7 @@
                 <article class="reveal rounded-2xl border border-brand-navy/8 p-7">
                     <h3 class="font-bold text-brand-navy text-lg">Hoeveel geluid wordt werkelijk minder?</h3>
                     <p class="text-sm text-brand-navy/55 font-light mt-3 leading-relaxed">In het lab: gemiddeld 14 dB(A) vrijstaand, 10 dB(A) voor het wandmodel (Peutz, juli 2025). Op uw perceel hangt het resultaat af van afstand, reflecties en het toestel. Een meting op locatie maakt dat concreet.</p>
-                    <a href="#peutz" class="inline-flex mt-4 text-sm font-semibold text-brand-navy underline underline-offset-4">Peutz-resultaat</a>
+                    <a href="#verschil" class="inline-flex mt-4 text-sm font-semibold text-brand-navy underline underline-offset-4">Bekijk het verschil</a>
                 </article>
                 <article class="reveal md:col-span-2 rounded-2xl border border-brand-navy/8 p-7">
                     <h3 class="font-bold text-brand-navy text-lg">Wat betaal ik in totaal?</h3>
@@ -1032,60 +1033,6 @@
         </div>
     </section>
 
-    <section id="specs" class="py-24 lg:py-32 px-6 lg:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal mb-16">
-                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Technisch</span>
-                <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 tracking-tight">Specificaties</h2>
-                <div class="line-draw mt-8 max-w-xs"></div>
-            </div>
-            <div class="reveal grid lg:grid-cols-2 gap-10 lg:gap-14 mb-12 items-center">
-                <div class="img-reveal aspect-[4/5] sm:aspect-[16/11] ring-1 ring-brand-navy/8">
-                    <img src="assets/images/detail-louver.jpg" alt="REDUCD louver detail" class="w-full h-full object-cover">
-                </div>
-                <div class="flex flex-col justify-center gap-6">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bento bg-brand-navy/[0.03] rounded-xl p-5 border border-brand-navy/8"><div class="text-[10px] font-bold text-brand-navy/45 uppercase tracking-widest mb-2">Behuizing</div><div class="font-bold text-lg text-brand-navy">Magnelis®</div></div>
-                        <div class="bento bg-brand-navy/[0.03] rounded-xl p-5 border border-brand-navy/8"><div class="text-[10px] font-bold text-brand-navy/45 uppercase tracking-widest mb-2">Bevestiging</div><div class="font-bold text-lg text-brand-navy">RVS 316</div></div>
-                        <div class="bento bg-brand-navy/[0.03] rounded-xl p-5 border border-brand-navy/8"><div class="text-[10px] font-bold text-brand-navy/45 uppercase tracking-widest mb-2">Absorptie</div><div class="font-bold text-lg text-brand-navy">Gerecycled PET</div></div>
-                        <div class="bento bg-brand-navy/[0.03] rounded-xl p-5 border border-brand-navy/8"><div class="text-[10px] font-bold text-brand-navy/45 uppercase tracking-widest mb-2">Demper</div><div class="font-bold text-lg text-brand-navy">150 mm</div></div>
-                    </div>
-                    <p class="text-brand-navy/55 text-sm leading-relaxed">Getest door Peutz, juli 2025 — conform ISO 3741:2010 &amp; ISO 7235:2003. Levering standaardmaten vaak binnen 1 week.</p>
-                    <p class="text-brand-navy font-semibold">Vanaf €&nbsp;2.335 · Magnelis® · zonder installatie</p>
-                </div>
-            </div>
-
-            <div id="maten" class="reveal mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-                <div>
-                    <h3 class="font-extrabold text-2xl lg:text-3xl text-brand-navy tracking-tight">Vijf standaardmaten</h3>
-                    <p class="text-brand-navy/50 text-sm mt-2 font-light">Binnenmaten / buitenmaten in mm. Exacte selectie na inmeting of unit-afmetingen.</p>
-                </div>
-                <a href="#contact" class="btn-outline px-5 py-2.5 rounded-full text-sm font-semibold self-start">Offerte op maat</a>
-            </div>
-            <div class="reveal overflow-x-auto spec-scroll rounded-xl ring-1 ring-brand-navy/8 bg-white">
-                <table class="w-full text-sm min-w-[720px]">
-                    <thead><tr class="bg-brand-navy text-white">
-                        <th class="px-5 py-4 text-left font-bold">Model</th>
-                        <th class="px-5 py-4 text-left font-medium">Maat</th>
-                        <th class="px-5 py-4 text-left font-medium">Hoogte B/b</th>
-                        <th class="px-5 py-4 text-left font-medium">Breedte B/b</th>
-                        <th class="px-5 py-4 text-left font-medium">Diepte B/b</th>
-                        <th class="px-5 py-4 text-left font-medium">dB</th>
-                        <th class="px-5 py-4 text-left font-medium">Vanaf</th>
-                    </tr></thead>
-                    <tbody class="divide-y divide-brand-navy/8">
-                        <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">S</td><td class="px-5 py-4 text-brand-navy/65">990 / 1060</td><td class="px-5 py-4 text-brand-navy/65">1090 / 1220</td><td class="px-5 py-4 text-brand-navy/65">650 / 950</td><td class="px-5 py-4 text-brand-navy/65">± 14</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.335</td></tr>
-                        <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">L</td><td class="px-5 py-4 text-brand-navy/65">1350 / 1450</td><td class="px-5 py-4 text-brand-navy/65">1250 / 1410</td><td class="px-5 py-4 text-brand-navy/65">650 / 950</td><td class="px-5 py-4 text-brand-navy/65">± 14</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.865</td></tr>
-                        <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">XL</td><td class="px-5 py-4 text-brand-navy/65">1670 / 1770</td><td class="px-5 py-4 text-brand-navy/65">1250 / 1410</td><td class="px-5 py-4 text-brand-navy/65">650 / 950</td><td class="px-5 py-4 text-brand-navy/65">± 14</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;3.365</td></tr>
-                        <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Wand</td><td class="px-5 py-4 font-semibold">S</td><td class="px-5 py-4 text-brand-navy/65">990 / 1050</td><td class="px-5 py-4 text-brand-navy/65">1060 / 1360</td><td class="px-5 py-4 text-brand-navy/65">650 / 805</td><td class="px-5 py-4 text-brand-navy/65">10–12</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.335</td></tr>
-                        <tr class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Wand</td><td class="px-5 py-4 font-semibold">L</td><td class="px-5 py-4 text-brand-navy/65">1310 / 1370</td><td class="px-5 py-4 text-brand-navy/65">1250 / 1550</td><td class="px-5 py-4 text-brand-navy/65">800 / 955</td><td class="px-5 py-4 text-brand-navy/65">10–12</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.865</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="reveal mt-4 text-xs text-brand-navy/40 font-light">Prijzen Magnelis® standaard, zonder installatie (indicatief). Poedercoating RAL en montage tegen meerprijs. Maatwerk op aanvraag.</p>
-        </div>
-    </section>
-
     <!-- REGELGEVING -->
     <section id="regelgeving" class="py-24 lg:py-28 px-6 lg:px-8 bg-brand-navy/[0.03]">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -1320,7 +1267,7 @@
     <div id="stickyCta" class="md:hidden">
         <div class="min-w-0">
             <p class="text-sm font-semibold text-brand-navy leading-tight">Gratis geluidsmeting</p>
-            <p class="text-[11px] text-brand-navy/45">Peutz getest · antwoord binnen 24u</p>
+            <p class="text-[11px] text-brand-navy/45">Vrijblijvend · reactie binnen 48u</p>
         </div>
         <a data-open-lead-popup href="#contact" class="btn-primary shrink-0 px-4 py-2.5 rounded-full text-xs font-semibold">Gratis check</a>
     </div>
