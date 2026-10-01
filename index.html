@@ -406,7 +406,7 @@
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 <div class="lg:col-span-6">
                     <p class="reveal text-[11px] font-semibold text-brand-navy/50 uppercase tracking-[0.2em] mb-5">Akoestische omkastingen voor warmtepompen en airco.</p>
-                    <h1 class="reveal reveal-delay-1 font-semibold italic text-[clamp(2.15rem,4.6vw,3.65rem)] leading-[1.08] tracking-tight text-brand-navy mb-3">
+                    <h1 class="reveal reveal-delay-1 font-semibold text-[clamp(2.15rem,4.6vw,3.65rem)] leading-[1.08] tracking-tight text-brand-navy mb-3">
                         Uw warmtepomp<br>
                         hoeft niet de<br>
                         <strong class="font-black">luidste buur</strong><br>
@@ -503,7 +503,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="reveal max-w-2xl mb-14">
                 <span class="text-[11px] font-bold text-emerald-300 uppercase tracking-[0.25em]">Technisch onderscheid</span>
-                <h2 class="font-extrabold text-3xl lg:text-5xl mt-4 tracking-tight leading-tight">Geen sierkap. Een <span class="font-black uppercase tracking-wide bg-brand-blue px-1.5 box-decoration-clone">akoestische</span> omkasting.</h2>
+                <h2 class="font-extrabold text-3xl lg:text-5xl mt-4 tracking-tight leading-tight">Geen sierkap. Een <span class="font-black uppercase tracking-wide">akoestische</span> omkasting.</h2>
                 <p class="text-white/60 mt-5 text-base lg:text-lg font-light leading-relaxed">Een esthetische cover verhult de unit slechts visueel. Een REDUCD-omkasting dempt het geluid aantoonbaar — gecertificeerd door Peutz, met berekende luchtweg en 150 mm demper.</p>
             </div>
             <div class="grid md:grid-cols-2 gap-6 lg:gap-10">
@@ -1494,6 +1494,12 @@
                 imgs.forEach((img) => { if (!img.complete) { const preload = new Image(); preload.src = img.src; } });
                 let idx = 0;
                 let timer;
+                let dwellAt = 0;
+                const direction = i % 2 === 0 ? 1 : -1;
+                const dwells = i % 2 === 0
+                    ? [4000]
+                    : [5600, 2400, 5000, 2800, 6400, 2200];
+                const nextDwell = () => dwells[dwellAt++ % dwells.length];
                 const show = (n) => {
                     idx = ((n % imgs.length) + imgs.length) % imgs.length;
                     imgs.forEach((img, j) => img.classList.toggle('is-active', j === idx));
@@ -1508,13 +1514,19 @@
                     btn.addEventListener('click', () => show(j));
                 });
                 if (reduce) return;
-                const start = () => { stop(); timer = setInterval(() => show(idx + 1), 4000); };
-                const stop = () => { if (timer) clearInterval(timer); };
+                const stop = () => { if (timer) { clearTimeout(timer); timer = 0; } };
+                const start = () => {
+                    stop();
+                    timer = setTimeout(function tick() {
+                        show(idx + direction);
+                        timer = setTimeout(tick, nextDwell());
+                    }, nextDwell());
+                };
                 root.addEventListener('mouseenter', stop);
                 root.addEventListener('mouseleave', start);
                 root.addEventListener('focusin', stop);
                 root.addEventListener('focusout', start);
-                setTimeout(start, 800 + i * 1400);
+                setTimeout(start, i % 2 === 0 ? 700 : 1700);
             });
         })();
         document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
