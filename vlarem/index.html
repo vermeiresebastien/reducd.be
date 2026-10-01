@@ -82,7 +82,7 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { brand: { navy: '#0F2A3A', white: '#FFFFFF' } },
+                    colors: { brand: { navy: '#0E2836', white: '#FFFFFF' } },
                     fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
                 }
             }
@@ -90,43 +90,43 @@
     </script>
     <style>
         :root { --ease-out: cubic-bezier(0.16, 1, 0.3, 1); }
-        body { font-family: 'Inter', sans-serif; background: #fff; color: #0F2A3A; -webkit-font-smoothing: antialiased; }
-        .btn-primary { background: #0F2A3A; color: #fff; transition: all 0.35s var(--ease-out); }
-        .btn-primary:hover { background: #1a3f54; transform: translateY(-2px); }
-        .btn-outline { border: 1.5px solid #0F2A3A; color: #0F2A3A; transition: all 0.35s var(--ease-out); }
-        .btn-outline:hover { background: #0F2A3A; color: #fff; }
-        #navPill { background: #fff; border: 1px solid rgba(15,42,58,0.08); box-shadow: 0 4px 24px rgba(15,42,58,0.06); }
-        .form-field { width: 100%; padding: 0.95rem 1.1rem; background: #fff; border: 1px solid rgba(15,42,58,0.12); border-radius: 10px; color: #0F2A3A; }
-        .form-field:focus { outline: none; border-color: #0F2A3A; box-shadow: 0 0 0 3px rgba(15,42,58,0.08); }
-        .gate-field { width: 100%; padding: 0.7rem 0 0.55rem; background: transparent; border: 0; border-bottom: 1px solid rgba(15,42,58,0.16); border-radius: 0; color: #0F2A3A; font-size: 0.9375rem; font-weight: 400; }
-        .gate-field:focus { outline: none; border-bottom-color: #0F2A3A; box-shadow: none; }
-        .gate-field::placeholder { color: rgba(15,42,58,0.32); }
-        select.gate-field { background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath stroke='%230F2A3A' stroke-opacity='.35' stroke-width='1.4' d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E") no-repeat right 0.15rem center; padding-right: 1.2rem; }
+        body { font-family: 'Inter', sans-serif; background: #F7F7F4; color: #0E2836; -webkit-font-smoothing: antialiased; }
+        .btn-primary { background: #0E2836; color: #fff; transition: all 0.35s var(--ease-out); }
+        .btn-primary:hover { background: #173D4D; transform: translateY(-2px); }
+        .btn-outline { border: 1.5px solid #0E2836; color: #0E2836; transition: all 0.35s var(--ease-out); }
+        .btn-outline:hover { background: #0E2836; color: #fff; }
+        #navPill { background: #fff; border: 1px solid rgba(14,40,54,0.08); box-shadow: 0 4px 24px rgba(14,40,54,0.06); }
+        .form-field { width: 100%; padding: 0.95rem 1.1rem; background: #fff; border: 1px solid rgba(14,40,54,0.12); border-radius: 10px; color: #0E2836; }
+        .form-field:focus { outline: none; border-color: #0E2836; box-shadow: 0 0 0 3px rgba(14,40,54,0.08); }
+        .gate-field { width: 100%; padding: 0.7rem 0 0.55rem; background: transparent; border: 0; border-bottom: 1px solid rgba(14,40,54,0.16); border-radius: 0; color: #0E2836; font-size: 0.9375rem; font-weight: 400; }
+        .gate-field:focus { outline: none; border-bottom-color: #0E2836; box-shadow: none; }
+        .gate-field::placeholder { color: rgba(14,40,54,0.32); }
+        select.gate-field { background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath stroke='%230E2836' stroke-opacity='.35' stroke-width='1.4' d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E") no-repeat right 0.15rem center; padding-right: 1.2rem; }
         .form-field:disabled { opacity: 0.5; }
-        label.field { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(15,42,58,0.45); margin-bottom: 0.45rem; }
+        label.field { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(14,40,54,0.45); margin-bottom: 0.45rem; }
         .vlarem-hero-result { border-radius: 1.25rem; padding: 1.5rem 1.6rem; margin-bottom: 1.25rem; }
-        .vlarem-hero-result.is-ok { background: rgba(15,42,58,0.05); }
-        .vlarem-hero-result.is-fail { background: #0F2A3A; color: #fff; }
+        .vlarem-hero-result.is-ok { background: rgba(14,40,54,0.05); }
+        .vlarem-hero-result.is-fail { background: #0E2836; color: #fff; }
         .vlarem-kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.5; margin-bottom: 0.35rem; }
         .vlarem-lp { font-size: 3.4rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin: 0.2rem 0 0.75rem; }
         .vlarem-lp span { font-size: 1.1rem; font-weight: 600; letter-spacing: 0; }
         .vlarem-periods { display: grid; gap: 0.65rem; }
-        .vlarem-row { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: 0.85rem 0; border-bottom: 1px solid rgba(15,42,58,0.08); font-size: 0.92rem; }
-        .vlarem-muted { display: block; font-weight: 400; font-size: 0.78rem; color: rgba(15,42,58,0.45); margin-top: 0.15rem; }
-        .vlarem-ok { color: #1a6b4a; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+        .vlarem-row { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: 0.85rem 0; border-bottom: 1px solid rgba(14,40,54,0.08); font-size: 0.92rem; }
+        .vlarem-muted { display: block; font-weight: 400; font-size: 0.78rem; color: rgba(14,40,54,0.45); margin-top: 0.15rem; }
+        .vlarem-ok { color: #468662; } font-weight: 700; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
         .vlarem-fail { color: #9b2c2c; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
         .vlarem-hero-result.is-fail .vlarem-fail { color: #ffb4b4; }
         .vlarem-hero-result.is-fail .vlarem-ok { color: #b8e6cf; }
-        .vlarem-margin { font-size: 0.8rem; color: rgba(15,42,58,0.45); margin-left: 0.35rem; }
-        .vlarem-enc { margin-top: 1.1rem; padding: 1rem 1.1rem; border-radius: 0.9rem; background: rgba(15,42,58,0.04); font-size: 0.92rem; line-height: 1.55; }
+        .vlarem-margin { font-size: 0.8rem; color: rgba(14,40,54,0.45); margin-left: 0.35rem; }
+        .vlarem-enc { margin-top: 1.1rem; padding: 1rem 1.1rem; border-radius: 0.9rem; background: rgba(14,40,54,0.04); font-size: 0.92rem; line-height: 1.55; }
         .vlarem-break { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.25rem; }
-        .vlarem-break div { background: rgba(15,42,58,0.03); border-radius: 0.75rem; padding: 0.75rem 0.85rem; }
-        .vlarem-break dt { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(15,42,58,0.4); }
+        .vlarem-break div { background: rgba(14,40,54,0.03); border-radius: 0.75rem; padding: 0.75rem 0.85rem; }
+        .vlarem-break dt { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(14,40,54,0.4); }
         .vlarem-break dd { margin: 0.2rem 0 0; font-weight: 600; }
-        .vlarem-formula { margin-top: 1rem; font-size: 0.75rem; color: rgba(15,42,58,0.4); font-family: ui-monospace, monospace; }
+        .vlarem-formula { margin-top: 1rem; font-size: 0.75rem; color: rgba(14,40,54,0.4); font-family: ui-monospace, monospace; }
         .mode-pill { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-        .mode-pill label { display: inline-flex; align-items: center; gap: 0.4rem; border: 1px solid rgba(15,42,58,0.12); border-radius: 999px; padding: 0.45rem 0.85rem; font-size: 0.8rem; cursor: pointer; }
-        .mode-pill input { accent-color: #0F2A3A; }
+        .mode-pill label { display: inline-flex; align-items: center; gap: 0.4rem; border: 1px solid rgba(14,40,54,0.12); border-radius: 999px; padding: 0.45rem 0.85rem; font-size: 0.8rem; cursor: pointer; }
+        .mode-pill input { accent-color: #0E2836; }
         #mobileMenu { transition: transform 0.45s var(--ease-out); }
     </style>
 </head>
@@ -259,7 +259,7 @@
 
                 <div class="border-t border-brand-navy/8 pt-6 space-y-3">
                     <label class="flex items-start gap-3 cursor-pointer">
-                        <input id="withEnclosure" type="checkbox" class="mt-1 accent-brand-navy" style="accent-color:#0F2A3A">
+                        <input id="withEnclosure" type="checkbox" class="mt-1 accent-brand-navy" style="accent-color:#0E2836">
                         <span><strong>Toon ook met REDUCD-omkasting</strong><span class="block text-sm text-brand-navy/50 font-light">Peutz-gemiddelde: 14 dB(A) vrijstaand, 10–12 dB(A) wandmodel.</span></span>
                     </label>
                     <div id="enclosureWrap" hidden>

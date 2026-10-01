@@ -152,7 +152,7 @@
     el.innerHTML = `
       <style>
         #cookie-banner .cookie-inner { position:fixed;bottom:0;left:0;right:0;z-index:80;padding:1rem;pointer-events:none; }
-        #cookie-banner .cookie-panel { max-width:42rem;margin:0 auto;pointer-events:auto;background:#0F2A3A;color:#fff;border-radius:1rem;padding:1.25rem 1.5rem;box-shadow:0 16px 48px rgba(15,42,58,.35);font-family:Inter,system-ui,sans-serif; }
+        #cookie-banner .cookie-panel { max-width:42rem;margin:0 auto;pointer-events:auto;background:#0E2836;color:#fff;border-radius:1rem;padding:1.25rem 1.5rem;box-shadow:0 16px 48px rgba(14,40,54,.35);font-family:Inter,system-ui,sans-serif; }
         #cookie-banner .cookie-actions { display:flex;flex-wrap:wrap;gap:.5rem; }
         @media (max-width: 480px) {
           #cookie-banner .cookie-inner { padding:.75rem; }
@@ -169,7 +169,7 @@
             <a href="privacy.html" data-privacy-link style="color:#fff;text-decoration:underline;text-underline-offset:2px;">Privacybeleid</a>
           </p>
           <div class="cookie-actions">
-            <button type="button" data-consent="accepted" style="background:#fff;color:#0F2A3A;border:0;border-radius:999px;padding:.65rem 1.1rem;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;">Alles accepteren</button>
+            <button type="button" data-consent="accepted" style="background:#fff;color:#0E2836;border:0;border-radius:999px;padding:.65rem 1.1rem;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;">Alles accepteren</button>
             <button type="button" data-consent="rejected" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:.65rem 1.1rem;font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;">Alleen noodzakelijk</button>
           </div>
         </div>

@@ -2,8 +2,8 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-bounce: cubic-bezier(0.22, 1.2, 0.36, 1);
   --scroll-blue: 0;
-  --page-white: #ffffff;
-  --page-baby-blue: #e8f1f8;
+  --page-white: #F7F7F4;
+  --page-baby-blue: #EEF1F2;
 }
 
 html {
@@ -53,7 +53,7 @@ html {
 a.bg-white .accent-gratis,
 button.bg-white .accent-gratis,
 .lead-popup__submit .accent-gratis {
-  color: #0F2A3A;
+  color: #0E2836;
 }
 
 .accent-gratis.is-hot,
@@ -93,7 +93,7 @@ button.bg-white .accent-gratis.is-hot,
 }
 .swoosh-underline__path {
   fill: none;
-  stroke: #0F2A3A;
+  stroke: #0E2836;
   stroke-opacity: 0.78;
   stroke-width: 2.15;
   stroke-linecap: round;
@@ -124,7 +124,7 @@ header.fixed:has(#navPill) {
 }
 header.fixed.nav-flush:has(#navPill) {
   padding-top: 0 !important;
-  background-color: #ffffff;
+  background-color: #F7F7F4;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -144,7 +144,7 @@ header.fixed.nav-flush:has(#navPill) {
     transition: none;
   }
   .swoosh-underline {
-    box-shadow: inset 0 -1px 0 rgba(15, 42, 58, 0.28);
+    box-shadow: inset 0 -1px 0 rgba(14, 40, 54, 0.28);
   }
   .swoosh-underline__svg,
   .swoosh-underline.is-drawn .swoosh-underline__svg,

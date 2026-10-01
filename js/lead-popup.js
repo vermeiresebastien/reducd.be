@@ -1,5 +1,5 @@
 /**
- * Lead capture popup — mobile-first sheet, brand navy (#0F2A3A) + white.
+ * Lead capture popup — mobile-first sheet, brand navy (#0E2836) + white.
  * Hooks: timer / scroll / exit-intent. Submit: generate_lead / conversion.
  */
 (function () {
@@ -123,14 +123,14 @@
         position: fixed; inset: 0; z-index: 95;
         display: none; align-items: flex-end; justify-content: center;
         padding: 0;
-        --lead-navy: #0F2A3A;
-        --lead-muted: rgba(15,42,58,.58);
-        --lead-line: rgba(15,42,58,.1);
+        --lead-navy: #0E2836;
+        --lead-muted: rgba(14,40,54,.58);
+        --lead-line: rgba(14,40,54,.1);
       }
       .lead-popup.is-open { display: flex; }
       .lead-popup__backdrop {
         position: absolute; inset: 0;
-        background: rgba(15,42,58,.72);
+        background: rgba(14,40,54,.72);
         backdrop-filter: blur(4px);
       }
       .lead-popup__panel {
@@ -142,7 +142,7 @@
         background: #fff;
         color: var(--lead-navy);
         border-radius: 1.35rem 1.35rem 0 0;
-        box-shadow: 0 24px 72px rgba(15,42,58,.32);
+        box-shadow: 0 24px 72px rgba(14,40,54,.32);
         font-family: Inter, system-ui, sans-serif;
         -webkit-font-smoothing: antialiased;
         overflow: hidden;
@@ -166,16 +166,16 @@
         font-weight: 700;
         letter-spacing: .16em;
         text-transform: uppercase;
-        color: rgba(15,42,58,.45);
+        color: rgba(14,40,54,.45);
       }
       .lead-popup__close {
         width: 2.75rem; height: 2.75rem; min-width: 44px; min-height: 44px;
-        border: 1px solid rgba(15,42,58,.1); border-radius: 999px;
-        background: rgba(15,42,58,.06); color: var(--lead-navy);
+        border: 1px solid rgba(14,40,54,.1); border-radius: 999px;
+        background: rgba(14,40,54,.06); color: var(--lead-navy);
         display: inline-flex; align-items: center; justify-content: center;
         cursor: pointer; transition: background .2s;
       }
-      .lead-popup__close:hover { background: rgba(15,42,58,.12); }
+      .lead-popup__close:hover { background: rgba(14,40,54,.12); }
       .lead-popup__close:focus-visible {
         outline: 2px solid var(--lead-navy); outline-offset: 2px;
       }
@@ -219,7 +219,7 @@
         display: inline-block;
         padding: .22rem .6rem;
         border-radius: 999px;
-        background: rgba(15,42,58,.05);
+        background: rgba(14,40,54,.05);
         font-size: .75rem;
         font-weight: 600;
         letter-spacing: .01em;
@@ -258,7 +258,7 @@
         outline: none;
         background: #fff;
         border-color: var(--lead-navy);
-        box-shadow: 0 0 0 3px rgba(15,42,58,.1);
+        box-shadow: 0 0 0 3px rgba(14,40,54,.1);
       }
 
       .lead-popup__actions {
@@ -266,7 +266,7 @@
         padding: .75rem 1.25rem calc(.95rem + env(safe-area-inset-bottom, 0px));
         background: #fff;
         border-top: 1px solid var(--lead-line);
-        box-shadow: 0 -10px 24px rgba(15,42,58,.04);
+        box-shadow: 0 -10px 24px rgba(14,40,54,.04);
       }
       .lead-popup__submit {
         width: 100%;
@@ -283,7 +283,7 @@
         cursor: pointer;
         transition: background .2s, transform .2s;
       }
-      .lead-popup__submit:hover { background: #1a3f54; transform: translateY(-1px); }
+      .lead-popup__submit:hover { background: #173D4D; transform: translateY(-1px); }
       .lead-popup__submit:focus-visible {
         outline: 2px solid var(--lead-navy); outline-offset: 3px;
       }
@@ -293,7 +293,7 @@
         font-size: .68rem;
         line-height: 1.4;
         text-align: center;
-        color: rgba(15,42,58,.42);
+        color: rgba(14,40,54,.42);
       }
       .lead-popup__legal a {
         color: inherit;
