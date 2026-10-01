@@ -32,13 +32,13 @@ Merkonafhankelijk. Past o.a. bij Daikin, NIBE, Vaillant en andere buitenunits, o
 
 Bron: maattabel homepage https://www.reducd.be/#maten — prijzen Magnelis®, zonder installatie, indicatief.
 
-| Type | Maat | Hoogte B/b | Breedte B/b | Diepte B/b | dB(A) | Vanaf |
-| --- | --- | --- | --- | --- | --- | --- |
-| Vrijstaand | S | 990 / 1060 | 1090 / 1220 | 650 / 950 | ± 14 | € 2.335 |
-| Vrijstaand | L | 1350 / 1450 | 1250 / 1410 | 650 / 950 | ± 14 | € 2.865 |
-| Vrijstaand | XL | 1670 / 1770 | 1250 / 1410 | 650 / 950 | ± 14 | € 3.365 |
-| Wand | S | 990 / 1050 | 1060 / 1360 | 650 / 805 | 10–12 | € 2.335 |
-| Wand | L | 1310 / 1370 | 1250 / 1550 | 800 / 955 | 10–12 | € 2.865 |
+| Type | Maat | Hoogte B/b | Breedte B/b | Diepte B/b | Gewicht | dB(A) | Vanaf |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Vrijstaand | S | 990 / 1060 | 1090 / 1220 | 650 / 950 | circa 160 kg | ± 14 | € 2.335 |
+| Vrijstaand | L | 1350 / 1450 | 1250 / 1410 | 650 / 950 | circa 250 kg | ± 14 | € 2.865 |
+| Vrijstaand | XL | 1670 / 1770 | 1250 / 1410 | 650 / 950 | circa 330 kg | ± 14 | € 3.365 |
+| Wand | S | 990 / 1050 | 1060 / 1360 | 650 / 805 | circa 160 kg | 10–12 | € 2.335 |
+| Wand | L | 1310 / 1370 | 1250 / 1550 | 800 / 955 | circa 250 kg | 10–12 | € 2.865 |
 
 Keuzehulp: vrijstaand bij unit in tuin, oprit of platdak en maximale demping; wandmodel als de rug tegen de gevel staat of de diepte tot pad/perceelgrens beperkt is.
 

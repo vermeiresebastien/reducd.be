@@ -65,11 +65,11 @@
       "</div>" +
       "<h2>Afmetingen (mm) · binnen / buiten</h2>" +
       '<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>Model</th><th>H</th><th>B</th><th>D</th><th>Gewicht</th></tr></thead><tbody>' +
-      "<tr><td>Vrijstaand S</td><td>990 / 1060</td><td>1090 / 1220</td><td>650 / 950</td><td>160 kg</td></tr>" +
-      "<tr><td>Vrijstaand L</td><td>1350 / 1450</td><td>1250 / 1410</td><td>650 / 950</td><td>250 kg</td></tr>" +
-      "<tr><td>Vrijstaand XL</td><td>1670 / 1770</td><td>1250 / 1410</td><td>650 / 950</td><td>330 kg</td></tr>" +
-      "<tr><td>Wand S</td><td>990 / 1050</td><td>1060 / 1360</td><td>650 / 805</td><td>160 kg</td></tr>" +
-      "<tr><td>Wand L</td><td>1310 / 1370</td><td>1250 / 1550</td><td>800 / 955</td><td>250 kg</td></tr>" +
+      "<tr><td>Vrijstaand S</td><td>990 / 1060</td><td>1090 / 1220</td><td>650 / 950</td><td>circa 160 kg</td></tr>" +
+      "<tr><td>Vrijstaand L</td><td>1350 / 1450</td><td>1250 / 1410</td><td>650 / 950</td><td>circa 250 kg</td></tr>" +
+      "<tr><td>Vrijstaand XL</td><td>1670 / 1770</td><td>1250 / 1410</td><td>650 / 950</td><td>circa 330 kg</td></tr>" +
+      "<tr><td>Wand S</td><td>990 / 1050</td><td>1060 / 1360</td><td>650 / 805</td><td>circa 160 kg</td></tr>" +
+      "<tr><td>Wand L</td><td>1310 / 1370</td><td>1250 / 1550</td><td>800 / 955</td><td>circa 250 kg</td></tr>" +
       "</tbody></table></div>" +
       "<p>Maten volgens de technische specificaties (maart 2026). De brochure 2025 noemt voor wand S een buitenhoogte van 1030 mm — de actuele specificatie is 1050 mm.</p>" +
       "<h2>Built to Last</h2>" +
@@ -107,7 +107,7 @@
       "<tr><td>Hoogte binnen / buiten</td><td>990 / 1060</td><td>1350 / 1450</td><td>1670 / 1770</td></tr>" +
       "<tr><td>Breedte binnen / buiten</td><td>1090 / 1220</td><td>1250 / 1410</td><td>1250 / 1410</td></tr>" +
       "<tr><td>Diepte binnen / buiten</td><td>650 / 950</td><td>650 / 950</td><td>650 / 950</td></tr>" +
-      "<tr><td>Gewicht</td><td>160 kg</td><td>250 kg</td><td>330 kg</td></tr>" +
+      "<tr><td>Gewicht</td><td>circa 160 kg</td><td>circa 250 kg</td><td>circa 330 kg</td></tr>" +
       "</tbody></table></div>" +
       "<p>Demperdikte standaard 150 mm. Maatwerk: diepte aanpasbaar, bijvoorbeeld een V-demper van 300 mm voor extra demping.</p>" +
       "<h2>Akoestiek — Peutz, 23 juli 2025</h2>" +
@@ -163,7 +163,7 @@
       "<tr><td>Hoogte binnen / buiten</td><td>990 / 1050</td><td>1310 / 1370</td></tr>" +
       "<tr><td>Breedte binnen / buiten</td><td>1060 / 1360</td><td>1250 / 1550</td></tr>" +
       "<tr><td>Diepte binnen / buiten</td><td>650 / 805</td><td>800 / 955</td></tr>" +
-      "<tr><td>Gewicht</td><td>160 kg</td><td>250 kg</td></tr>" +
+      "<tr><td>Gewicht</td><td>circa 160 kg</td><td>circa 250 kg</td></tr>" +
       "</tbody></table></div>" +
       "<p>Voor- en zijdermper standaard 150 mm. Maatwerk: o.a. V-demper 300 mm.</p>" +
       "<h2>Akoestiek — Peutz, 23 juli 2025</h2>" +

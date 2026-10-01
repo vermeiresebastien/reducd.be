@@ -74,8 +74,8 @@
         "@type": "AggregateRating",
         "ratingValue": "4.9",
         "bestRating": "5",
-        "ratingCount": "60",
-        "reviewCount": "60"
+        "ratingCount": "80",
+        "reviewCount": "80"
       }
     }
     </script>
@@ -222,7 +222,7 @@
         "@type": "AggregateRating",
         "ratingValue": "4.9",
         "bestRating": "5",
-        "ratingCount": "60"
+        "ratingCount": "80"
       },
       "offers": {
         "@type": "AggregateOffer",
@@ -401,7 +401,8 @@
           .blog-taper-card--text { grid-template-columns: 1fr; }
         }
         #calculator, #verschil, #werking, #vragen { scroll-margin-top: 6.5rem; }
-        .path-card { transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease, border-color 0.35s ease; }
+        #afwijkende-maten { scroll-margin-top: 8.5rem; }
+        .path-card { display: block; cursor: pointer; position: relative; z-index: 1; transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease, border-color 0.35s ease; }
         .path-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px -18px rgba(14,40,54,0.28); border-color: rgba(14,40,54,0.22); }
         .calc-choice { border: 1.5px solid rgba(14,40,54,0.12); background: #fff; border-radius: 1rem; padding: 1.1rem 1rem; text-align: left; transition: border-color 0.2s ease, background 0.2s ease; }
         .calc-choice.is-active { border-color: #2F64E8; background: rgba(47,100,232,0.06); }
@@ -466,13 +467,13 @@
                     </h1>
                     <p class="reveal reveal-delay-1 font-semibold text-[clamp(1.35rem,2.6vw,2rem)] leading-tight tracking-tight text-brand-navy mb-5">
                         Wij maken uw warmtepomp tot wel<br>
-                        <strong class="font-black text-brand-green">14 dB<span class="text-[0.72em]">(A)</span></strong> stiller!
+                        <strong class="font-black">14 dB<span class="text-[0.72em]">(A)</span> stiller.</strong>
                     </p>
                     <p class="reveal reveal-delay-2 text-base lg:text-lg text-brand-ink max-w-xl leading-relaxed mb-8 font-light">
                         Meer rust in uw tuin, minder geluid bij de buren en een oplossing die rekening houdt met de Belgische geluidsregels en wetgeving.
                     </p>
                     <p class="reveal reveal-delay-2 text-sm text-brand-ink max-w-xl leading-relaxed mb-8 font-light">
-                        REDUCD haalt gemiddeld <span class="text-brand-green font-semibold">14 dB(A)</span> geluidsreductie, onafhankelijk getest door Peutz volgens ISO 3741 en ISO 7235. Vanaf <span class="text-brand-green font-bold">€&nbsp;2.335.</span>
+                        REDUCD haalt gemiddeld <span class="text-brand-green font-semibold">14 dB(A)</span> geluidsreductie, onafhankelijk getest door Peutz volgens ISO 3741 en ISO 7235. Vanaf <span class="font-bold">€&nbsp;2.335.</span>
                     </p>
                     <div class="reveal reveal-delay-3 flex flex-wrap gap-4">
                         <a data-open-lead-popup href="#contact" class="btn-primary px-8 py-4 rounded-full font-semibold text-sm inline-flex items-center gap-2">
@@ -527,12 +528,12 @@
                     <h2 class="font-bold text-brand-navy text-xl lg:text-2xl tracking-tight">Nieuwe warmtepomp?</h2>
                     <p class="text-base text-brand-ink font-light mt-4 leading-relaxed">Kies vooraf de juiste omkasting.</p>
                 </a>
-                <a href="pro/index.html" class="path-card rounded-2xl bg-white border border-brand-navy/10 p-7 lg:p-8 block">
+                <a href="pro/" class="path-card rounded-2xl bg-white border border-brand-navy/10 p-7 lg:p-8">
                     <h2 class="font-bold text-brand-navy text-xl lg:text-2xl tracking-tight">Installateur?</h2>
                     <p class="text-base text-brand-ink font-light mt-4 leading-relaxed">Technische fiches en modellen.</p>
                 </a>
-                <a href="pro/index.html" class="path-card rounded-2xl bg-white border border-brand-navy/10 p-7 lg:p-8 block">
-                    <h2 class="font-bold text-brand-navy text-xl lg:text-2xl tracking-tight">Architect of project?</h2>
+                <a href="pro/" class="path-card rounded-2xl bg-white border border-brand-navy/10 p-7 lg:p-8">
+                    <h2 class="font-bold text-brand-navy text-xl lg:text-2xl tracking-tight">Architect / Project lead</h2>
                     <p class="text-base text-brand-ink font-light mt-4 leading-relaxed">Specificaties, maten en maatwerk.</p>
                 </a>
             </div>
@@ -571,8 +572,10 @@
         <div class="max-w-7xl mx-auto">
             <div class="reveal max-w-2xl mb-14">
                 <span class="text-[11px] font-bold text-white/50 uppercase tracking-[0.25em]">Technisch onderscheid</span>
-                <h2 class="font-extrabold text-3xl lg:text-5xl mt-4 tracking-tight leading-tight">Geen sierkap. Een akoestische omkasting die zijn titel waardig is.</h2>
-                <p class="text-white/60 mt-5 text-base lg:text-lg font-light leading-relaxed">Een esthetische cover verhult de unit slechts visueel. Een REDUCD-omkasting dempt het geluid aantoonbaar — gecertificeerd door Peutz, met berekende luchtweg en 150 mm demper.</p>
+                <h2 class="font-extrabold text-3xl lg:text-5xl mt-4 tracking-tight leading-tight">REDUCD is voor ieder een bewuste keuze:</h2>
+                <p class="text-white/60 mt-5 text-base lg:text-lg font-light leading-relaxed">Een esthetische cover verhult een unit voornamelijk visueel. Een REDUCD-omkasting gaat verder: ze dempt het geluid aantoonbaar. De akoestische prestaties zijn gecertificeerd en berusten op een zorgvuldig berekende luchtweg in combinatie met een 150 mm dikke demper.</p>
+                <p class="text-white/60 mt-4 text-base lg:text-lg font-light leading-relaxed">De geluidsreductie van REDUCD is het resultaat van een doordachte combinatie van hoogwaardige, dens akoestische materialen en een grote massa aan staal. Die massa en materiaalopbouw zorgen ervoor dat geluid niet alleen wordt afgeschermd, maar daadwerkelijk wordt gedempt.</p>
+                <p class="text-white/60 mt-4 text-base lg:text-lg font-light leading-relaxed">Bij de productie van onze omkastingen kiezen we bewust voor materialen die een lange levensduur bieden. Zo streven we naar een oplossing die niet alleen akoestisch sterk presteert, maar ook duurzaam is voor zowel de planeet als de klant.</p>
             </div>
             <div class="grid md:grid-cols-2 gap-6 lg:gap-10">
                 <div class="reveal border border-white/15 rounded-2xl p-8 lg:p-10 bg-white/[0.02]">
@@ -631,7 +634,7 @@
             <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
                 <div>
                     <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Vrijstaand of wandmodel?</span>
-                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Niet elke installatie staat op dezelfde plaats.</h2>
+                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Keuze tussen een (dichter) vrijstaand model en een (opener) wandmodel.</h2>
                 </div>
                 <p class="text-brand-ink max-w-md text-base lg:text-lg font-light leading-relaxed">Daarom zijn er twee uitvoeringen: een vrijstaand model voor tuin, oprit of plat dak, en een wandmodel voor installaties dicht tegen een gevel.</p>
             </div>
@@ -642,12 +645,14 @@
                         <div class="product-finish-stage">
                             <img src="assets/images/product-vrijstaand.webp" alt="REDUCD vrijstaand model — Magnelis® akoestische omkasting" class="product-finish-img" data-finish-label="Magnelis®" width="620" height="434" decoding="async">
                             <img src="assets/images/product-vrijstaand-zwart.png" alt="REDUCD vrijstaand model — RAL 9005" class="product-finish-img" data-finish-label="RAL 9005" width="620" height="434" loading="lazy" decoding="async">
+                            <img src="assets/images/product-vrijstaand-wit.png" alt="REDUCD vrijstaand model — RAL 9010" class="product-finish-img" data-finish-label="RAL 9010" width="620" height="434" loading="lazy" decoding="async">
                             <img src="assets/images/product-vrijstaand-kaki.png" alt="REDUCD vrijstaand model — glans RAL 6013" class="product-finish-img is-active" data-finish-label="Glans RAL 6013" width="620" height="434" loading="lazy" decoding="async">
                         </div>
                         <p class="product-finish-label" data-product-finish-label aria-live="polite">Glans RAL 6013</p>
                         <div class="product-finish-swatches" role="group" aria-label="Kies afwerking vrijstaand model">
                             <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#c5c8c4" aria-label="Magnelis®" aria-pressed="false"></button>
                             <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#0a0a0a" aria-label="RAL 9005" aria-pressed="false"></button>
+                            <button type="button" class="product-finish-swatch is-light" data-finish-swatch style="--swatch:#f3efe6" aria-label="RAL 9010" aria-pressed="false"></button>
                             <button type="button" class="product-finish-swatch is-gloss is-active" data-finish-swatch style="--swatch:#6f734d" aria-label="Glans RAL 6013" aria-pressed="true"></button>
                         </div>
                     </div>
@@ -690,7 +695,13 @@
                 </div>
             </div>
 
-            <details id="specs" class="reveal faq-section mt-12 lg:mt-16">
+            <div id="afwijkende-maten" class="reveal mt-12 lg:mt-16 max-w-3xl">
+                <h2 class="font-extrabold text-3xl lg:text-4xl text-brand-navy tracking-tight leading-tight">Afwijkende maten</h2>
+                <p class="text-brand-ink mt-5 text-base lg:text-lg font-light leading-relaxed">Soms is een pomp net te groot voor een standaard omkasting. Of vraagt de beschikbare ruimte of de gewenste esthetiek om een afwijkende maat.</p>
+                <p class="text-brand-ink mt-4 text-base lg:text-lg font-light leading-relaxed">Ook dan biedt REDUCD een oplossing. We kunnen onze omkastingen op maat uitvoeren, afgestemd op de specifieke afmetingen en situatie. Maatwerk is bij REDUCD steeds mogelijk wanneer de situatie daarom vraagt.</p>
+            </div>
+
+            <details id="specs" class="reveal faq-section mt-8 lg:mt-10">
                 <summary>
                     <div>
                         <span class="block text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Specificaties</span>
@@ -707,22 +718,23 @@
                     <div class="bento bg-white rounded-xl p-5 border border-brand-navy/8"><div class="text-[10px] font-bold text-brand-navy/45 uppercase tracking-widest mb-2">Demper</div><div class="font-bold text-lg text-brand-navy">150 mm</div></div>
                 </div>
                 <div class="overflow-x-auto spec-scroll rounded-xl ring-1 ring-brand-navy/8 bg-white">
-                    <table class="w-full text-sm min-w-[720px]">
+                    <table class="w-full text-sm min-w-[820px]">
                         <thead><tr class="bg-brand-navy text-white">
                             <th class="px-5 py-4 text-left font-bold">Model</th>
                             <th class="px-5 py-4 text-left font-medium">Maat</th>
                             <th class="px-5 py-4 text-left font-medium">Hoogte B/b</th>
                             <th class="px-5 py-4 text-left font-medium">Breedte B/b</th>
                             <th class="px-5 py-4 text-left font-medium">Diepte B/b</th>
+                            <th class="px-5 py-4 text-left font-medium">Gewicht</th>
                             <th class="px-5 py-4 text-left font-medium">dB</th>
                             <th class="px-5 py-4 text-left font-medium">Vanaf</th>
                         </tr></thead>
                         <tbody class="divide-y divide-brand-navy/8">
-                            <tr class="hover:bg-brand-cool transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">S</td><td class="px-5 py-4 text-brand-ink">990 / 1060</td><td class="px-5 py-4 text-brand-ink">1090 / 1220</td><td class="px-5 py-4 text-brand-ink">650 / 950</td><td class="px-5 py-4 text-brand-green font-semibold">± 14</td><td class="px-5 py-4 text-brand-ink">€&nbsp;2.335</td></tr>
-                            <tr class="hover:bg-brand-cool transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">L</td><td class="px-5 py-4 text-brand-ink">1350 / 1450</td><td class="px-5 py-4 text-brand-ink">1250 / 1410</td><td class="px-5 py-4 text-brand-ink">650 / 950</td><td class="px-5 py-4 text-brand-green font-semibold">± 14</td><td class="px-5 py-4 text-brand-ink">€&nbsp;2.865</td></tr>
-                            <tr class="hover:bg-brand-cool transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">XL</td><td class="px-5 py-4 text-brand-ink">1670 / 1770</td><td class="px-5 py-4 text-brand-ink">1250 / 1410</td><td class="px-5 py-4 text-brand-ink">650 / 950</td><td class="px-5 py-4 text-brand-green font-semibold">± 14</td><td class="px-5 py-4 text-brand-ink">€&nbsp;3.365</td></tr>
-                            <tr class="hover:bg-brand-cool transition-colors"><td class="px-5 py-4 font-bold">Wand</td><td class="px-5 py-4 font-semibold">S</td><td class="px-5 py-4 text-brand-ink">990 / 1050</td><td class="px-5 py-4 text-brand-ink">1060 / 1360</td><td class="px-5 py-4 text-brand-ink">650 / 805</td><td class="px-5 py-4 text-brand-green font-semibold">10–12</td><td class="px-5 py-4 text-brand-ink">€&nbsp;2.335</td></tr>
-                            <tr class="hover:bg-brand-cool transition-colors"><td class="px-5 py-4 font-bold">Wand</td><td class="px-5 py-4 font-semibold">L</td><td class="px-5 py-4 text-brand-ink">1310 / 1370</td><td class="px-5 py-4 text-brand-ink">1250 / 1550</td><td class="px-5 py-4 text-brand-ink">800 / 955</td><td class="px-5 py-4 text-brand-green font-semibold">10–12</td><td class="px-5 py-4 text-brand-ink">€&nbsp;2.865</td></tr>
+                            <tr class="hover:bg-brand-cool transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">S</td><td class="px-5 py-4 text-brand-ink">990 / 1060</td><td class="px-5 py-4 text-brand-ink">1090 / 1220</td><td class="px-5 py-4 text-brand-ink">650 / 950</td><td class="px-5 py-4 text-brand-ink">circa 160 kg</td><td class="px-5 py-4 text-brand-green font-semibold">± 14</td><td class="px-5 py-4 text-brand-ink">€&nbsp;2.335</td></tr>
+                            <tr class="hover:bg-brand-cool transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">L</td><td class="px-5 py-4 text-brand-ink">1350 / 1450</td><td class="px-5 py-4 text-brand-ink">1250 / 1410</td><td class="px-5 py-4 text-brand-ink">650 / 950</td><td class="px-5 py-4 text-brand-ink">circa 250 kg</td><td class="px-5 py-4 text-brand-green font-semibold">± 14</td><td class="px-5 py-4 text-brand-ink">€&nbsp;2.865</td></tr>
+                            <tr class="hover:bg-brand-cool transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">XL</td><td class="px-5 py-4 text-brand-ink">1670 / 1770</td><td class="px-5 py-4 text-brand-ink">1250 / 1410</td><td class="px-5 py-4 text-brand-ink">650 / 950</td><td class="px-5 py-4 text-brand-ink">circa 330 kg</td><td class="px-5 py-4 text-brand-green font-semibold">± 14</td><td class="px-5 py-4 text-brand-ink">€&nbsp;3.365</td></tr>
+                            <tr class="hover:bg-brand-cool transition-colors"><td class="px-5 py-4 font-bold">Wand</td><td class="px-5 py-4 font-semibold">S</td><td class="px-5 py-4 text-brand-ink">990 / 1050</td><td class="px-5 py-4 text-brand-ink">1060 / 1360</td><td class="px-5 py-4 text-brand-ink">650 / 805</td><td class="px-5 py-4 text-brand-ink">circa 160 kg</td><td class="px-5 py-4 text-brand-green font-semibold">10–12</td><td class="px-5 py-4 text-brand-ink">€&nbsp;2.335</td></tr>
+                            <tr class="hover:bg-brand-cool transition-colors"><td class="px-5 py-4 font-bold">Wand</td><td class="px-5 py-4 font-semibold">L</td><td class="px-5 py-4 text-brand-ink">1310 / 1370</td><td class="px-5 py-4 text-brand-ink">1250 / 1550</td><td class="px-5 py-4 text-brand-ink">800 / 955</td><td class="px-5 py-4 text-brand-ink">circa 250 kg</td><td class="px-5 py-4 text-brand-green font-semibold">10–12</td><td class="px-5 py-4 text-brand-ink">€&nbsp;2.865</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -987,7 +999,7 @@
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
                         </div>
-                        <p class="text-sm text-brand-ink font-light"><strong class="text-brand-navy font-semibold">4,9 / 5</strong> · op basis van 60 Google-reviews</p>
+                        <p class="text-sm text-brand-ink font-light"><strong class="text-brand-navy font-semibold">4,9 / 5</strong> · 80 Google reviews</p>
                     </div>
                 </div>
                 <a data-open-lead-popup href="#contact" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold inline-flex items-center gap-2 self-start">
@@ -1145,7 +1157,7 @@
             <div class="reveal text-center mb-16">
                 <h2 class="font-extrabold text-4xl lg:text-6xl text-brand-navy tracking-tight mb-6">Bent u ook klaar om de rust terug te vinden?</h2>
                 <p class="text-brand-ink text-lg lg:text-xl max-w-xl mx-auto font-light leading-relaxed">Is uw warmtepomp een bron van ergernis geworden? Of wilt u problemen met buren vermijden voordat ze ontstaan?</p>
-                <p class="mt-5 text-sm font-medium text-brand-ink tracking-wide">Wij begeleiden u graag in die zoektocht. Stuur ons uw situatie, en dan bekijken we samen wat mogelijk is.</p>
+                <p class="mt-5 text-sm font-medium text-brand-ink tracking-wide">Wij staan u daar met plezier in bij. Neem gerust contact op om uw specifieke situatie door te nemen en te zien wat de mogelijkheden zijn.</p>
             </div>
             <div class="grid lg:grid-cols-2 gap-12 items-start">
                 <div class="reveal space-y-4">
