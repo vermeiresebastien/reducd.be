@@ -77,7 +77,7 @@
           </div>
           <form id="leadPopupForm" class="lead-popup__form" novalidate>
             <div class="lead-popup__scroll">
-              <h2 id="leadPopupTitle" class="lead-popup__title">Wij komen bij u langs</h2>
+              <h2 id="leadPopupTitle" class="lead-popup__title">Wij helpen u graag verder</h2>
               <p class="lead-popup__sub">
                 Geluidsadvies bij u thuis — vrijblijvend en kosteloos, inclusief professionele meting.
               </p>
@@ -183,7 +183,7 @@
       .lead-popup__media { display: none; }
       .lead-popup__media img {
         display: block; width: 100%; height: 100%;
-        object-fit: cover; object-position: center 18%;
+        object-fit: cover; object-position: 88% 30%;
       }
 
       .lead-popup__form {
@@ -313,20 +313,20 @@
         .lead-popup { align-items: center; padding: 1.5rem; }
         .lead-popup__panel {
           flex-direction: row;
-          width: min(100%, 42rem);
-          max-width: 42rem;
+          width: min(100%, 46rem);
+          max-width: 46rem;
           max-height: min(86dvh, 40rem);
           min-height: 28rem;
           border-radius: 1.35rem;
         }
         .lead-popup__media {
           display: block;
-          width: 16rem;
+          width: 20rem;
           height: auto;
           align-self: stretch;
           flex-shrink: 0;
         }
-        .lead-popup__media img { object-position: center 12%; }
+        .lead-popup__media img { object-position: 84% 32%; }
         .lead-popup__main { min-width: 0; min-height: 0; flex: 1; }
         .lead-popup__bar { padding: .55rem .7rem .1rem 1.6rem; }
         .lead-popup__scroll { padding: .15rem 1.6rem .5rem; }
