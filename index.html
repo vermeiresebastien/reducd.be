@@ -320,9 +320,9 @@
         .faq-item summary::after { content: ""; width: 0.55rem; height: 0.55rem; flex-shrink: 0; border-right: 1.5px solid #0F2A3A; border-bottom: 1.5px solid #0F2A3A; transform: rotate(45deg); margin-top: -0.25rem; transition: transform 0.25s var(--ease-out); }
         .faq-item[open] summary::after { transform: rotate(225deg); margin-top: 0.2rem; }
         .faq-item .faq-a { padding: 0 1.5rem 1.35rem; color: rgba(15,42,58,0.58); font-weight: 300; line-height: 1.7; }
-        .product-finish { position: relative; background: #fff; aspect-ratio: 16 / 11; }
-        .product-finish-stage { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1.75rem 2.5rem 3.25rem; }
-        .product-finish-img { position: absolute; height: 220px; width: auto; max-width: calc(100% - 4rem); object-fit: contain; opacity: 0; transition: opacity 0.85s ease; pointer-events: none; }
+        .product-finish { position: relative; background: #fff; aspect-ratio: 5 / 4; }
+        .product-finish-stage { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1.1rem 1.25rem 3rem; }
+        .product-finish-img { position: absolute; height: calc(100% - 1.1rem); width: auto; max-width: calc(100% - 1.5rem); object-fit: contain; opacity: 0; transition: opacity 0.85s ease; pointer-events: none; }
         .product-finish-img.is-active { opacity: 1; }
         .product-finish-label { position: absolute; left: 1.25rem; bottom: 1rem; margin: 0; max-width: calc(100% - 8.5rem); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(15,42,58,0.38); }
         .product-finish-swatches { position: absolute; right: 1.15rem; bottom: 0.95rem; display: flex; align-items: center; gap: 0.38rem; z-index: 2; }
@@ -617,14 +617,16 @@
                 </div>
             </div>
 
-            <div id="specs" class="reveal mt-12 lg:mt-16 rounded-3xl bg-brand-navy/[0.03] border border-brand-navy/8 p-6 lg:p-8">
-                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
+            <details id="specs" class="reveal faq-section mt-12 lg:mt-16">
+                <summary>
                     <div>
-                        <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Specificaties</span>
-                        <h3 class="font-extrabold text-2xl lg:text-3xl text-brand-navy mt-3 tracking-tight">Maten, materialen en richtprijzen</h3>
+                        <span class="block text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Specificaties</span>
+                        <h3 class="font-extrabold text-2xl lg:text-3xl text-brand-navy mt-2 tracking-tight">Maten, materialen en richtprijzen</h3>
+                        <span class="block text-sm text-brand-navy/50 font-light mt-2">Klik <span class="text-blue-600 underline underline-offset-2">hier</span> om te openen</span>
                     </div>
-                    <p class="text-brand-navy/55 text-sm lg:max-w-md font-light leading-relaxed">Binnenmaten / buitenmaten in mm. Exacte selectie na inmeting of unit-afmetingen.</p>
-                </div>
+                </summary>
+                <div class="faq-section-body">
+                <p class="text-brand-navy/55 text-sm lg:max-w-md font-light leading-relaxed mb-8">Binnenmaten / buitenmaten in mm. Exacte selectie na inmeting of unit-afmetingen.</p>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                     <div class="bento bg-white rounded-xl p-5 border border-brand-navy/8"><div class="text-[10px] font-bold text-brand-navy/45 uppercase tracking-widest mb-2">Behuizing</div><div class="font-bold text-lg text-brand-navy">Magnelis®</div></div>
                     <div class="bento bg-white rounded-xl p-5 border border-brand-navy/8"><div class="text-[10px] font-bold text-brand-navy/45 uppercase tracking-widest mb-2">Bevestiging</div><div class="font-bold text-lg text-brand-navy">RVS 316</div></div>
@@ -658,7 +660,8 @@
                     <p class="mt-4 text-brand-navy/60 text-sm lg:text-base font-light leading-relaxed">We combineren akoestische prestaties met een doordacht ontwerp, zodat uw buitenunit minder aanwezig is — zowel qua geluid als qua uitzicht.</p>
                     <p class="mt-4 text-sm font-medium text-brand-navy/70">Lokaal geproduceerd. Duurzaam gebouwd. Ontworpen voor buiten.</p>
                 </div>
-            </div>
+                </div>
+            </details>
 
         </div>
     </section>
@@ -709,56 +712,6 @@
                     <button type="submit" class="btn-primary mt-6 px-6 py-3.5 rounded-full text-sm font-semibold">Toon mijn oplossing</button>
                     <div id="calc-result" class="mt-6 hidden" aria-live="polite"></div>
                 </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- INSTALLATIES -->
-    <section id="installaties" class="py-24 lg:py-32 px-6 lg:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
-                <div>
-                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Plaatsingen</span>
-                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Ook mooi in uw tuin</h2>
-                </div>
-                <p class="text-brand-navy/55 max-w-md text-base lg:text-lg font-light leading-relaxed">Een warmtepomp is technisch noodzakelijk, maar daarom hoeft ze nog geen blikvanger te zijn. Kies uit Magnelis® zink-magnesium of een hoogwaardige poedercoating in een RAL-kleur naar keuze.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-5 lg:gap-6">
-                <div class="reveal bento rounded-2xl overflow-hidden ring-1 ring-brand-navy/8">
-                    <div class="img-reveal aspect-[4/5] rounded-none">
-                        <img src="assets/images/product-heritage.jpg" alt="Echte Magnelis omkasting bij bakstenen woning" class="w-full h-full object-cover" loading="lazy" decoding="async">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-brand-navy mb-1">Herenwoning · vrijstaand</h3>
-                        <p class="text-brand-navy/50 text-sm">Magnelis, naast baksteen. Geen veld-dB op deze foto — wel een echte plaatsing.</p>
-                    </div>
-                </div>
-                <div class="reveal reveal-delay-1 bento rounded-2xl overflow-hidden ring-1 ring-brand-navy/8">
-                    <div class="img-reveal aspect-[4/5] rounded-none">
-                        <img src="assets/images/installs/install-hout-zwart.jpg" alt="Zwarte akoestische omkasting bij houten terraswand" class="w-full h-full object-cover object-center" loading="lazy" decoding="async">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-brand-navy mb-1">Terras · RAL 9005</h3>
-                        <p class="text-brand-navy/50 text-sm">Mat zwart bij een houten gevel. De kleur volgt het schrijnwerk, niet de techniek.</p>
-                    </div>
-                </div>
-                <div class="reveal reveal-delay-2 bento rounded-2xl overflow-hidden ring-1 ring-brand-navy/8">
-                    <div class="img-reveal aspect-[4/5] rounded-none">
-                        <img src="assets/images/installs/install-poolhouse-wand.jpg" alt="Wandmodel REDUCD omkasting naast een poolhouse" class="w-full h-full object-cover object-bottom" loading="lazy" decoding="async">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-brand-navy mb-1">Poolhouse · wandmodel</h3>
-                        <p class="text-brand-navy/50 text-sm">Rug naar de wand, waar een vrijstaande kast te diep zou staan.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="reveal mt-8 rounded-2xl bg-brand-navy text-white p-7 lg:p-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-                <div>
-                    <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 mb-2">Lab, geen tuinfoto</p>
-                    <p class="font-bold text-xl tracking-tight">Peutz · juli 2025 · vrijstaand −14 dB(A) gemiddeld</p>
-                    <p class="text-white/55 text-sm font-light mt-2 max-w-xl">Een voor/na op uw perceel meten we ter plaatse. Die cijfers publiceren we alleen als de meetpunten, het toestel en de omstandigheden vastliggen.</p>
-                </div>
-                <a href="docs/view.html?id=meetrapport&amp;for=particulier" class="inline-flex bg-white text-brand-navy px-6 py-3 rounded-full text-sm font-semibold shrink-0">Volledig meetrapport</a>
             </div>
         </div>
     </section>
@@ -1117,9 +1070,9 @@
     <section id="contact" class="py-24 lg:py-32 px-6 lg:px-8 bg-brand-navy/[0.03]">
         <div class="max-w-7xl mx-auto">
             <div class="reveal text-center mb-16">
-                <h2 class="font-extrabold text-4xl lg:text-6xl text-brand-navy tracking-tight mb-6">Klaar voor meer rust?</h2>
-                <p class="text-brand-navy/55 text-lg lg:text-xl max-w-xl mx-auto font-light leading-relaxed">Heeft uw warmtepomp te veel geluid? Of wilt u problemen met buren vermijden voordat ze ontstaan?</p>
-                <p class="mt-5 text-sm font-medium text-brand-navy/50 tracking-wide">Stuur ons uw situatie. Wij bekijken wat mogelijk is.</p>
+                <h2 class="font-extrabold text-4xl lg:text-6xl text-brand-navy tracking-tight mb-6">Bent u ook klaar om de rust terug te vinden?</h2>
+                <p class="text-brand-navy/55 text-lg lg:text-xl max-w-xl mx-auto font-light leading-relaxed">Is uw warmtepomp een bron van ergernis geworden? Of wilt u problemen met buren vermijden voordat ze ontstaan?</p>
+                <p class="mt-5 text-sm font-medium text-brand-navy/50 tracking-wide">Wij begeleiden u graag in die zoektocht. Stuur ons uw situatie, en dan bekijken we samen wat mogelijk is.</p>
             </div>
             <div class="grid lg:grid-cols-2 gap-12 items-start">
                 <div class="reveal space-y-4">
@@ -1170,6 +1123,56 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSTALLATIES -->
+    <section id="installaties" class="py-24 lg:py-32 px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+                <div>
+                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Plaatsingen</span>
+                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Ook mooi in uw tuin</h2>
+                </div>
+                <p class="text-brand-navy/55 max-w-md text-base lg:text-lg font-light leading-relaxed">Een warmtepomp is technisch noodzakelijk, maar daarom hoeft ze nog geen blikvanger te zijn. Kies uit Magnelis® zink-magnesium of een hoogwaardige poedercoating in een RAL-kleur naar keuze.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-5 lg:gap-6">
+                <div class="reveal bento rounded-2xl overflow-hidden ring-1 ring-brand-navy/8">
+                    <div class="img-reveal aspect-[4/5] rounded-none">
+                        <img src="assets/images/product-heritage.jpg" alt="Echte Magnelis omkasting bij bakstenen woning" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-brand-navy mb-1">Herenwoning · vrijstaand</h3>
+                        <p class="text-brand-navy/50 text-sm">Magnelis, naast baksteen. Geen veld-dB op deze foto — wel een echte plaatsing.</p>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-1 bento rounded-2xl overflow-hidden ring-1 ring-brand-navy/8">
+                    <div class="img-reveal aspect-[4/5] rounded-none">
+                        <img src="assets/images/installs/install-hout-zwart.jpg" alt="Zwarte akoestische omkasting bij houten terraswand" class="w-full h-full object-cover object-center" loading="lazy" decoding="async">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-brand-navy mb-1">Terras · RAL 9005</h3>
+                        <p class="text-brand-navy/50 text-sm">Mat zwart bij een houten gevel. De kleur volgt het schrijnwerk, niet de techniek.</p>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-2 bento rounded-2xl overflow-hidden ring-1 ring-brand-navy/8">
+                    <div class="img-reveal aspect-[4/5] rounded-none">
+                        <img src="assets/images/installs/install-poolhouse-wand.jpg" alt="Wandmodel REDUCD omkasting naast een poolhouse" class="w-full h-full object-cover object-bottom" loading="lazy" decoding="async">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-brand-navy mb-1">Poolhouse · wandmodel</h3>
+                        <p class="text-brand-navy/50 text-sm">Rug naar de wand, waar een vrijstaande kast te diep zou staan.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal mt-8 rounded-2xl bg-brand-navy text-white p-7 lg:p-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <div>
+                    <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 mb-2">Lab, geen tuinfoto</p>
+                    <p class="font-bold text-xl tracking-tight">Peutz · juli 2025 · vrijstaand −14 dB(A) gemiddeld</p>
+                    <p class="text-white/55 text-sm font-light mt-2 max-w-xl">Een voor/na op uw perceel meten we ter plaatse. Die cijfers publiceren we alleen als de meetpunten, het toestel en de omstandigheden vastliggen.</p>
+                </div>
+                <a href="docs/view.html?id=meetrapport&amp;for=particulier" class="inline-flex bg-white text-brand-navy px-6 py-3 rounded-full text-sm font-semibold shrink-0">Volledig meetrapport</a>
             </div>
         </div>
     </section>
