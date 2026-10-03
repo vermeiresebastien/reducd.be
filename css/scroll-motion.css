@@ -2,8 +2,8 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-bounce: cubic-bezier(0.22, 1.2, 0.36, 1);
   --scroll-blue: 0;
-  --page-white: #F7F7F4;
-  --page-baby-blue: #EEF1F2;
+  --page-white: #F4F6F8;
+  --page-baby-blue: #E4ECFB;
 }
 
 html {
@@ -124,7 +124,7 @@ header.fixed:has(#navPill) {
 }
 header.fixed.nav-flush:has(#navPill) {
   padding-top: 0 !important;
-  background-color: #F7F7F4;
+  background-color: #F4F6F8;
 }
 
 @media (prefers-reduced-motion: reduce) {
