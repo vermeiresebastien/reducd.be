@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quad Sequencer — 4 synths + kick</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312110f'/%3E%3Crect x='4' y='18' width='4' height='10' fill='%23d4a35c'/%3E%3Crect x='10' y='10' width='4' height='18' fill='%236ea8a0'/%3E%3Crect x='16' y='14' width='4' height='14' fill='%23c9a66b'/%3E%3Crect x='22' y='8' width='4' height='20' fill='%238f9bc7'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app" id="app">
+      <header class="brand">
+        <div>
+          <h1>Quad Sequencer</h1>
+          <p>
+            Four synths on one clock. Fourteen scale degrees (2×7) across sixteen steps,
+            shared key/mode, global transpose, per-synth pattern shift, and distinct FX chains.
+          </p>
+        </div>
+      </header>
+
+      <section class="panel">
+        <div class="transport">
+          <button type="button" class="btn primary" id="playBtn">Play</button>
+          <div class="transport-controls">
+            <label class="ctrl">BPM
+              <input id="bpm" type="number" min="40" max="200" step="1" />
+            </label>
+            <label class="ctrl">Key
+              <select id="key"></select>
+            </label>
+            <label class="ctrl">Mode
+              <select id="mode"></select>
+            </label>
+            <button type="button" class="btn tiny" id="semiDown" title="Pitch all notes down 1 semitone">−1 st</button>
+            <button type="button" class="btn tiny" id="semiUp" title="Pitch all notes up 1 semitone">+1 st</button>
+            <button type="button" class="btn tiny" id="octDown" title="Pitch all notes down 1 octave">−Oct</button>
+            <button type="button" class="btn tiny" id="octUp" title="Pitch all notes up 1 octave">+Oct</button>
+            <button type="button" class="btn tiny" id="transposeReset">Reset</button>
+            <label class="ctrl">Transpose
+              <span class="val" id="transposeLabel">0 st</span>
+            </label>
+          </div>
+        </div>
+        <p class="hint">
+          Key and mode rebuild the 14-note lanes for every synth. Semitone/octave moves the whole project pitch.
+          Shift moves each synth’s 16-step pattern forward or backward without changing the other synths.
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div class="panel-title" style="color: var(--kick)">Kick</div>
+          <div class="row-controls">
+            <label class="ctrl">Pitch <span class="val" data-readout="kickPitch">48</span>
+              <input id="kickPitch" type="range" min="24" max="60" step="1" />
+            </label>
+            <label class="ctrl">Decay <span class="val" data-readout="kickDecay">0.28</span>
+              <input id="kickDecay" type="range" min="0.08" max="0.8" step="0.01" />
+            </label>
+            <label class="ctrl">Level <span class="val" data-readout="kickLevel">0.85</span>
+              <input id="kickLevel" type="range" min="0" max="1" step="0.01" />
+            </label>
+          </div>
+        </div>
+        <div id="kickGrid"></div>
+      </section>
+
+      <div id="synths"></div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
