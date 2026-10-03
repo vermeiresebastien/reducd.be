@@ -29,7 +29,7 @@
     <link rel="icon" href="assets/images/logo-reducd.png" type="image/png">
     <link rel="apple-touch-icon" href="assets/images/logo-reducd.png">
     <link rel="alternate" type="text/plain" title="LLM information" href="https://www.reducd.be/llms.txt">
-    <link rel="preload" as="image" href="assets/images/hero-homepage.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/images/installs/install-patio-olijf.webp" fetchpriority="high">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -153,7 +153,7 @@
             "@type": "ImageObject",
             "url": "https://www.reducd.be/assets/images/hero-homepage.jpg"
           },
-          "dateModified": "2026-08-23"
+          "dateModified": "2026-10-03"
         }
       ]
     }
@@ -281,720 +281,22 @@
         <script src="js/maps-config.js"></script>
         <script src="js/parcel-map.js" defer></script>
     <link rel="stylesheet" href="css/app.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/tools.css">
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap" rel="stylesheet">
-<style>
-        :root { --ease-out: cubic-bezier(0.16, 1, 0.3, 1); }
-        body { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #0F2A3A; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out); }
-        .reveal.visible { opacity: 1; transform: none; }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .bento { transition: transform 0.45s var(--ease-out), box-shadow 0.45s ease; }
-        .bento:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -12px rgba(15,42,58,0.12); }
-        .img-reveal { overflow: hidden; border-radius: 1rem; }
-        .img-reveal img { transition: transform 1s var(--ease-out); transform: scale(1.06); }
-        .img-reveal:hover img { transform: scale(1); }
-        .img-reveal.hero-shot img {
-            transform-origin: 72% 0%;
-            object-position: 72% top;
-            transform: scale(1.04);
-            animation: hero-zoom-in 5.2s var(--ease-out) forwards;
-        }
-        .img-reveal.hero-shot.is-tracking img {
-            animation: none;
-            transition: transform 0.45s var(--ease-out);
-        }
-        @keyframes hero-zoom-in {
-            from { transform: scale(1); }
-            to { transform: scale(1.04); }
-        }
-        .btn-primary { background: #0F2A3A; color: #FFFFFF; transition: all 0.35s var(--ease-out); }
-        .btn-primary:hover { background: #1a3f54; transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(15,42,58,0.35); }
-        .btn-outline { border: 1.5px solid #0F2A3A; color: #0F2A3A; transition: all 0.35s var(--ease-out); }
-        .btn-outline:hover { background: #0F2A3A; color: #FFFFFF; }
-        .accent-gratis { color: #D49A12; opacity: 0; visibility: hidden; }
-        .btn-primary .accent-gratis { color: #E8B84A; }
-        .accent-gratis.is-on { visibility: visible; opacity: 1; animation: gratis-flash 1.6s ease-in-out; }
-        @keyframes gratis-flash {
-            0% { opacity: 1; color: #FFF59D; text-shadow: 0 0 12px rgba(255, 235, 59, 0.95); }
-            18% { color: #FFEB3B; text-shadow: 0 0 16px rgba(255, 235, 59, 0.9); }
-            36% { color: #E8B84A; text-shadow: none; }
-            54% { color: #FFEB3B; text-shadow: 0 0 14px rgba(255, 235, 59, 0.85); }
-            72% { color: #E8B84A; text-shadow: none; }
-            86% { color: #FFEB3B; text-shadow: 0 0 10px rgba(255, 235, 59, 0.7); }
-            100% { color: #E8B84A; text-shadow: none; }
-        }
-        @keyframes hero-cta-in {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .hero-cta-fade {
-            opacity: 0;
-            animation: hero-cta-in 1.1s var(--ease-out) 1.6s forwards;
-        }
-        .belofte-dots {
-            display: inline-block;
-            width: 1.15em;
-            text-align: left;
-        }
-        .belofte-dots::after {
-            content: "";
-            animation: belofte-dots 1.5s steps(4, end) infinite;
-        }
-        @keyframes belofte-dots {
-            0% { content: ""; }
-            25% { content: "."; }
-            50% { content: ".."; }
-            75%, 100% { content: "..."; }
-        }
-        .hero-title {
-            position: relative;
-            overflow: visible;
-            padding-bottom: 0.18em;
-        }
-        .hero-title .hero-word {
-            display: inline-block;
-            transform-origin: left 0.08em;
-            transition: transform 0.7s var(--ease-out), color 0.5s var(--ease-out);
-            cursor: default;
-            position: relative;
-            color: inherit;
-            -webkit-text-fill-color: currentColor;
-            -webkit-text-stroke: 0 currentColor;
-            background: none;
-        }
-        .hero-title .hero-word:hover,
-        .hero-title .hero-word.is-intro { z-index: 30; }
-        .hero-title .hero-word--stil.is-intro,
-        .hero-title .hero-word--stil:hover {
-            color: #c5eaf4 !important;
-            -webkit-text-fill-color: currentColor !important;
-            -webkit-text-stroke: 0 currentColor !important;
-            background: none;
-            transform: scale(2.85);
-        }
-        .hero-title .hero-word--stijlvol:hover {
-            transform: scale(1.95);
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-            background-color: #fff;
-            background-image: url("assets/images/hero-stijlvol-panter.png?v=2");
-            background-size: 0.52em 0.52em;
-            background-repeat: repeat;
-            -webkit-background-clip: text;
-            background-clip: text;
-        }
-        .hero-title .hero-word--duurzaam.is-intro,
-        .hero-title .hero-word--duurzaam:hover {
-            color: #07141c !important;
-            -webkit-text-fill-color: currentColor !important;
-            -webkit-text-stroke: 0 currentColor !important;
-            background: none;
-        }
-        .hero-title .hero-word--duurzaam:hover { transform: scale(1.95); }
-        .hero-title .hero-word.is-intro { z-index: 30; }
-        .hero-title .hero-word--stijlvol.is-intro { transform: scale(1.95); }
-        .hero-title .hero-word--duurzaam.is-intro { transform: scale(1.55); }
-        .hero-title.is-focus-stijlvol .hero-word--stil { transform: translateY(-0.06em); }
-        .hero-title.is-focus-stijlvol .hero-word--duurzaam { transform: translateY(0.1em); }
-        .hero-title.is-focus-duurzaam .hero-word--stil { transform: translateY(-0.04em); }
-        .hero-title.is-focus-duurzaam .hero-word--stijlvol { transform: translateY(-0.08em); }
-        .hero-stil-badge {
-            display: inline-flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-items: baseline;
-            justify-content: center;
-            gap: 0.18em;
-            position: absolute;
-            left: 2.55em;
-            top: 0.22em;
-            margin: 0;
-            background: #0F2A3A;
-            color: #fff;
-            border-radius: 0.85rem;
-            padding: 0.28rem 0.48rem;
-            line-height: 1.15;
-            z-index: 36;
-            opacity: 1;
-            font-size: 0.58rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: lowercase;
-            white-space: nowrap;
-            transform-origin: left top;
-            animation: hero-stil-wander 0.72s steps(2, jump-end) infinite;
-            will-change: transform;
-            transition: left 0.7s var(--ease-out), opacity 3s ease;
-        }
-        .hero-title.is-focus-stil .hero-stil-badge,
-        .hero-title:has(.hero-word--stil:hover) .hero-stil-badge,
-        .hero-title:has(.hero-word--stil.is-intro) .hero-stil-badge {
-            left: 4.5em;
-            opacity: 1;
-            transition: left 0.7s var(--ease-out), opacity 0.7s var(--ease-out);
-        }
-        .hero-stil-badge.is-settled { opacity: 0; pointer-events: none; }
-        .hero-db-stat {
-            --db: 1;
-            --db-glow: 0;
-            --db-hide: 1;
-            z-index: 15;
-            text-rendering: geometricPrecision;
-            opacity: var(--db-hide);
-            pointer-events: none;
-        }
-        .hero-db-num {
-            color: #62b7e2;
-            text-shadow:
-                0 0 calc(16px * var(--db-glow)) rgba(98, 183, 226, calc(0.95 * var(--db-glow))),
-                0 0 calc(36px * var(--db-glow)) rgba(98, 183, 226, calc(0.5 * var(--db-glow))),
-                0 0 calc(64px * var(--db-glow)) rgba(186, 228, 252, calc(0.35 * var(--db-glow)));
-        }
-        .hero-db-stat .hero-db-minus {
-            font-size: 4.5rem;
-            line-height: 1;
-        }
-        .hero-db-stat .hero-db-num {
-            font-size: calc(4.5rem * var(--db));
-            line-height: 1;
-        }
-        .hero-db-stat .hero-db-unit {
-            font-size: 1.875rem;
-            line-height: 1;
-        }
-        .hero-stil-badge strong { display: inline; font-size: 1em; font-weight: 800; letter-spacing: -0.03em; text-transform: none; }
-        .hero-stil-badge .hero-stil-note { display: inline; font-size: 1em; font-weight: 700; letter-spacing: 0.02em; text-transform: lowercase; opacity: 0.85; }
-        @keyframes hero-stil-wander {
-            0%   { transform: translate(0, 0) scale(0.667); }
-            7%   { transform: translate(16px, -12px) scale(1); }
-            14%  { transform: translate(-18px, 9px) scale(0.7); }
-            21%  { transform: translate(11px, 18px) scale(0.96); }
-            28%  { transform: translate(-14px, -16px) scale(0.667); }
-            35%  { transform: translate(22px, 5px) scale(1); }
-            42%  { transform: translate(-8px, 14px) scale(0.78); }
-            49%  { transform: translate(13px, -19px) scale(0.92); }
-            56%  { transform: translate(-20px, -6px) scale(0.667); }
-            63%  { transform: translate(7px, 17px) scale(1); }
-            70%  { transform: translate(-16px, 11px) scale(0.74); }
-            77%  { transform: translate(19px, -8px) scale(0.88); }
-            84%  { transform: translate(-11px, -15px) scale(1); }
-            91%  { transform: translate(15px, 8px) scale(0.667); }
-            100% { transform: translate(0, 0) scale(0.82); }
-        }
-        #skyClouds {
-            position: fixed;
-            inset: 0;
-            z-index: 25;
-            pointer-events: none;
-            overflow: hidden;
-            opacity: 0.245;
-        }
-        .sky-cloud {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(36px);
-            background: radial-gradient(ellipse at 40% 40%,
-                rgba(125, 206, 250, 0.7) 0%,
-                rgba(147, 213, 248, 0.45) 36%,
-                rgba(186, 228, 252, 0.18) 58%,
-                rgba(186, 228, 252, 0) 72%);
-            will-change: transform;
-        }
-        .sky-cloud--soft {
-            background: radial-gradient(ellipse at 50% 50%,
-                rgba(165, 220, 250, 0.65) 0%,
-                rgba(186, 228, 252, 0.32) 42%,
-                rgba(210, 236, 252, 0) 70%);
-            filter: blur(52px);
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .hero-stil-badge {
-                animation: none;
-                transform: scale(0.667);
-            }
-            .hero-cta-fade { opacity: 1; animation: none; }
-            .belofte-dots::after { animation: none; content: "..."; }
-            .hero-title .hero-word:hover,
-            .hero-title .hero-word--stil:hover,
-            .hero-title .hero-word--stijlvol:hover,
-            .hero-title .hero-word--duurzaam:hover,
-            .hero-title .hero-word.is-intro,
-            .hero-title .hero-word--stil.is-intro,
-            .hero-title .hero-word--stijlvol.is-intro,
-            .hero-title .hero-word--duurzaam.is-intro,
-            .hero-title.is-focus-stijlvol .hero-word--stil,
-            .hero-title.is-focus-stijlvol .hero-word--duurzaam,
-            .hero-title.is-focus-duurzaam .hero-word--stil,
-            .hero-title.is-focus-duurzaam .hero-word--stijlvol,
-            .hero-title:has(.hero-word--duurzaam:hover) .hero-word--stil,
-            .hero-title:has(.hero-word--duurzaam:hover) .hero-word--stijlvol { transform: none; }
-            .hero-title.is-focus-stil .hero-stil-badge,
-            .hero-title:has(.hero-word--stil:hover) .hero-stil-badge,
-            .hero-title:has(.hero-word--stil.is-intro) .hero-stil-badge { left: 2.55em; }
-            .img-reveal.hero-shot img,
-            .img-reveal.hero-shot.is-tracking img { animation: none; transform: scale(1.04); object-position: 72% top; transform-origin: 72% 0%; }
-            #skyClouds { opacity: 0.126; }
-            .sky-cloud { filter: blur(36px); }
-            .marquee-ribbon::before,
-            .marquee-track { animation: none; }
-        }
-        #lead-form { scroll-margin-top: 7rem; }
-        #contact { scroll-margin-top: 5.5rem; }
-        #calculator, #perceelkaart { scroll-margin-top: 6rem; }
-        .size-calc {
-            --fit: #0F2A3A;
-            --fit-soft: rgba(15, 42, 58, 0.08);
-        }
-        .size-calc[data-fit="spacious"] { --fit: #2563eb; --fit-soft: rgba(37, 99, 235, 0.12); }
-        .size-calc[data-fit="perfect"] { --fit: #059669; --fit-soft: rgba(5, 150, 105, 0.12); }
-        .size-calc[data-fit="tight"] { --fit: #d97706; --fit-soft: rgba(217, 119, 6, 0.14); }
-        .size-calc[data-fit="custom"] { --fit: #4338ca; --fit-soft: rgba(67, 56, 202, 0.12); }
-        .size-calc-panel {
-            background: #fff;
-            border: 1px solid rgba(15,42,58,0.08);
-            border-radius: 1.25rem;
-            overflow: hidden;
-        }
-        form.size-calc-panel { overflow: visible; }
-        .size-field { position: relative; }
-        .size-field.is-over .form-field {
-            border-color: #4338ca;
-            box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.14);
-        }
-        .size-field.is-over .form-field:focus {
-            border-color: #4338ca;
-            box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.2);
-        }
-        .size-tip {
-            display: none;
-            position: relative;
-            z-index: 6;
-            margin: 0.45rem 0 0;
-            padding: 0.55rem 0.7rem 0.6rem;
-            background: #4338ca;
-            color: #fff;
-            font-size: 11px;
-            font-weight: 600;
-            line-height: 1.45;
-            border-radius: 8px;
-            box-shadow: 0 10px 28px rgba(67, 56, 202, 0.28);
-        }
-        .size-tip::before {
-            content: "";
-            position: absolute;
-            top: -5px;
-            left: 1rem;
-            border: 6px solid transparent;
-            border-top-width: 0;
-            border-bottom-color: #4338ca;
-        }
-        .size-field.is-over .size-tip { display: block; }
-        .size-type { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-        .size-extras { margin-top: 1.25rem; padding-top: 1.15rem; border-top: 1px solid rgba(15,42,58,0.08); }
-        .size-extras-title { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(15,42,58,0.45); margin-bottom: 0.65rem; }
-        .size-confirm { margin: 0.85rem 0 0; padding: 0.85rem 1rem; border-radius: 0.9rem; background: rgba(15,42,58,0.035); border: 1px solid rgba(15,42,58,0.08); }
-        .size-confirm p { font-size: 0.9rem; font-weight: 600; color: #0F2A3A; margin: 0 0 0.55rem; }
-        .size-total { font-size: 0.8rem; color: rgba(15,42,58,0.5); margin: 0.75rem 0 0; line-height: 1.45; }
-        .size-more { margin-top: 0.4rem; }
-        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-        .size-type label {
-            display: inline-flex; align-items: center; gap: 0.4rem;
-            border: 1px solid rgba(15,42,58,0.12); border-radius: 999px;
-            padding: 0.45rem 0.9rem; font-size: 0.8rem; cursor: pointer; font-weight: 600;
-        }
-        .size-type input { accent-color: #0F2A3A; }
-        .size-type label:has(input:checked) {
-            border-color: #0F2A3A; background: #0F2A3A; color: #fff;
-        }
-        .size-result {
-            border-bottom: 1px solid rgba(15,42,58,0.08);
-            background: var(--fit-soft);
-            transition: background 0.35s ease;
-        }
-        .size-fit-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.85rem 0 0.15rem; }
-        .size-fit-pills span {
-            font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-            padding: 0.28rem 0.55rem; border-radius: 999px;
-            border: 1px solid rgba(15,42,58,0.1); color: rgba(15,42,58,0.32);
-            transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
-        }
-        .size-calc[data-fit="spacious"] [data-fit-pill="spacious"] { color: #2563eb; border-color: #2563eb; background: rgba(37,99,235,0.1); }
-        .size-calc[data-fit="perfect"] [data-fit-pill="perfect"] { color: #059669; border-color: #059669; background: rgba(5,150,105,0.1); }
-        .size-calc[data-fit="tight"] [data-fit-pill="tight"] { color: #d97706; border-color: #d97706; background: rgba(217,119,6,0.12); }
-        .size-calc[data-fit="custom"] [data-fit-pill="custom"] { color: #4338ca; border-color: #4338ca; background: rgba(67,56,202,0.1); }
-        .size-fit-kicker {
-            font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
-            color: var(--fit);
-        }
-        .size-fit-label { font-size: 1.65rem; font-weight: 800; letter-spacing: -0.04em; color: #0F2A3A; }
-        .size-gauge {
-            position: relative; height: 8px; border-radius: 999px;
-            background: rgba(15,42,58,0.08); margin: 0.85rem 0 1.1rem;
-        }
-        .size-gauge-fill {
-            height: 100%; width: 0; border-radius: inherit; background: var(--fit);
-            transition: width 0.4s var(--ease-out), background 0.35s ease;
-        }
-        .size-gauge-mark {
-            position: absolute; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px;
-            border-radius: 999px; background: #fff; border: 2px solid var(--fit);
-            left: 0; transition: left 0.4s var(--ease-out), border-color 0.35s ease;
-        }
-        .size-gauge-ticks { display: flex; justify-content: space-between; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(15,42,58,0.38); margin-top: -0.15rem; }
-        .size-result-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; align-items: center; }
-        .size-svg-wrap { background: #fff; border-radius: 1rem; border: 1px solid rgba(15,42,58,0.08); }
-        .size-svg { overflow: visible; }
-        .size-svg .enc-stroke { stroke: var(--fit); transition: stroke 0.35s ease; }
-        .size-svg .enc-fill { fill: var(--fit-soft); transition: fill 0.35s ease; }
-        .size-svg .unit-fill { fill: var(--fit); fill-opacity: 0.28; stroke: var(--fit); transition: fill 0.35s ease, stroke 0.35s ease; }
-        .size-svg .gap-fill { fill: var(--fit); fill-opacity: 0.18; transition: fill 0.35s ease; }
-        .size-svg .enc-depth { fill: var(--fit); fill-opacity: 0.14; stroke: var(--fit); stroke-width: 1.4; transition: fill 0.35s ease, stroke 0.35s ease; }
-        .size-svg .unit-depth { fill: var(--fit); fill-opacity: 0.22; stroke: var(--fit); stroke-width: 1.2; transition: fill 0.35s ease, stroke 0.35s ease; }
-        .size-svg .dim { fill: var(--fit); font-size: 11px; font-weight: 700; font-family: Inter, system-ui, sans-serif; }
-        .size-svg .dim-label { font-size: 10px; }
-        .size-svg .dim-stroke { stroke: var(--fit); fill: none; transition: stroke 0.35s ease; }
-        .size-svg-caption {
-            text-align: center;
-            font-size: 11px;
-            color: rgba(15,42,58,0.45);
-            margin: 0.45rem 0 0;
-            font-weight: 500;
-            letter-spacing: 0.01em;
-        }
-        .size-svg-caption strong { color: var(--fit); font-weight: 700; }
-        .size-compare { margin-top: 1.75rem; }
-        .size-compare-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 0.85rem;
-        }
-        @media (min-width: 768px) {
-            .size-compare-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        }
-        .size-compare-card {
-            text-align: left;
-            width: 100%;
-            background: #fff;
-            border: 1px solid rgba(15,42,58,0.1);
-            border-radius: 1.15rem;
-            padding: 1.25rem 1.35rem 1.35rem;
-            cursor: pointer;
-            color: inherit;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-        }
-        .size-compare-card:hover,
-        .size-compare-card:focus-visible {
-            border-color: rgba(15,42,58,0.28);
-            outline: none;
-        }
-        .size-compare-card.is-pick {
-            border-color: var(--fit);
-            background: var(--fit-soft);
-            box-shadow: 0 0 0 1px var(--fit);
-        }
-        .size-compare-card.is-view {
-            border-color: #0F2A3A;
-            box-shadow: inset 0 0 0 1px #0F2A3A;
-        }
-        .size-compare-card.is-na {
-            cursor: not-allowed;
-            opacity: 0.55;
-            background: rgba(15,42,58,0.03);
-        }
-        .size-compare-card.is-na:hover { border-color: rgba(15,42,58,0.1); }
-        .size-compare-kicker {
-            font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-            color: rgba(15,42,58,0.38);
-        }
-        .size-compare-card.is-pick .size-compare-kicker { color: var(--fit); }
-        .size-compare-size { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: #0F2A3A; }
-        .size-compare-dl { margin: 1rem 0 0; }
-        .size-compare-dl div {
-            display: grid;
-            grid-template-columns: 6.5rem 1fr;
-            gap: 0.5rem;
-            padding: 0.55rem 0;
-            border-top: 1px solid rgba(15,42,58,0.08);
-            font-size: 0.8rem;
-        }
-        .size-compare-dl dt { color: rgba(15,42,58,0.42); font-weight: 600; }
-        .size-compare-dl dd { margin: 0; color: #0F2A3A; font-weight: 600; }
-        .size-compare-fit { font-weight: 700; }
-        .size-compare-card[data-card-fit="spacious"] .size-compare-fit { color: #2563eb; }
-        .size-compare-card[data-card-fit="perfect"] .size-compare-fit { color: #059669; }
-        .size-compare-card[data-card-fit="tight"] .size-compare-fit { color: #d97706; }
-        .size-compare-card[data-card-fit="custom"] .size-compare-fit,
-        .size-compare-card[data-card-fit="nofit"] .size-compare-fit { color: #4338ca; }
-        .parcel-map-shell {
-            background: #fff;
-            border: 1px solid rgba(15,42,58,0.08);
-            border-radius: 1.25rem;
-            padding: 1.25rem 1.25rem 1rem;
-            overflow: hidden;
-        }
-        @media (min-width: 1024px) {
-            .parcel-map-shell { padding: 1.5rem 1.5rem 1.15rem; }
-        }
-        .parcel-map-toolbar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.65rem;
-            align-items: stretch;
-            margin-bottom: 0.85rem;
-            position: relative;
-            z-index: 20;
-        }
-        .parcel-search { position: relative; flex: 1 1 16rem; min-width: 0; }
-        .parcel-search .form-field { margin: 0; width: 100%; }
-        .parcel-suggest {
-            position: absolute;
-            left: 0; right: 0; top: calc(100% + 4px);
-            margin: 0; padding: 0.35rem;
-            list-style: none;
-            background: #fff;
-            border: 1px solid rgba(15,42,58,0.12);
-            border-radius: 0.85rem;
-            box-shadow: 0 16px 40px -12px rgba(15,42,58,0.22);
-            max-height: 16rem;
-            overflow: auto;
-            z-index: 30;
-        }
-        .parcel-opt {
-            display: block;
-            width: 100%;
-            text-align: left;
-            padding: 0.65rem 0.75rem;
-            border: 0;
-            background: transparent;
-            border-radius: 0.55rem;
-            font-size: 0.875rem;
-            color: #0F2A3A;
-            cursor: pointer;
-        }
-        .parcel-opt:hover,
-        .parcel-opt[aria-selected="true"] { background: rgba(15,42,58,0.06); }
-        .parcel-ext {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.45rem 0.85rem;
-            border-radius: 999px;
-            border: 1px solid rgba(15,42,58,0.14);
-            color: rgba(15,42,58,0.7);
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            background: #fff;
-            transition: border-color 0.2s ease, color 0.2s ease;
-        }
-        .parcel-ext:hover { border-color: rgba(15,42,58,0.35); color: #0F2A3A; }
-        .parcel-status {
-            font-size: 0.8rem;
-            color: rgba(15,42,58,0.5);
-            font-weight: 400;
-            margin: 0 0 0.65rem;
-            min-height: 1.2em;
-        }
-        .parcel-map-frame {
-            width: 100%;
-            height: min(68vh, 560px);
-            min-height: 320px;
-            border-radius: 1rem;
-            overflow: hidden;
-            background: #d7dde2;
-            border: 1px solid rgba(15,42,58,0.08);
-            z-index: 1;
-        }
-        .parcel-map-frame .leaflet-container { width: 100%; height: 100%; font: inherit; }
-        .parcel-disclaimer {
-            margin: 0.85rem 0 0;
-            font-size: 0.72rem;
-            line-height: 1.45;
-            color: rgba(15,42,58,0.42);
-            font-weight: 400;
-        }
-        .parcel-disclaimer code {
-            font-size: 0.7rem;
-            background: rgba(15,42,58,0.05);
-            padding: 0.1rem 0.35rem;
-            border-radius: 0.25rem;
-        }
-        .parcel-gmap-toggles { margin-bottom: 0.75rem; }
-        .parcel-chip {
-            border: 1px solid rgba(15,42,58,0.14);
-            background: #fff;
-            color: rgba(15,42,58,0.65);
-            font-size: 0.72rem;
-            font-weight: 600;
-            padding: 0.4rem 0.7rem;
-            border-radius: 999px;
-            cursor: pointer;
-        }
-        .parcel-chip[aria-pressed="true"] {
-            border-color: #0F2A3A;
-            color: #0F2A3A;
-            background: rgba(15,42,58,0.06);
-        }
-        tr.is-size-hit td { background: rgba(15, 42, 58, 0.055); box-shadow: inset 3px 0 0 #0F2A3A; }
-        .marquee-track { display: flex; animation: marquee 28s linear infinite; width: max-content; position: relative; z-index: 1; }
-        .mq-letter { font-weight: 300; }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .marquee-ribbon {
-            position: relative;
-            background: #173545;
-            border-color: #1a3d50;
-        }
-        .marquee-ribbon::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            background: linear-gradient(105deg,
-                rgba(23, 53, 69, 0) 0%,
-                rgba(48, 92, 112, 0.18) 42%,
-                rgba(72, 118, 138, 0.22) 50%,
-                rgba(48, 92, 112, 0.18) 58%,
-                rgba(23, 53, 69, 0) 100%);
-            background-size: 220% 100%;
-            animation: marquee-sheen 22s linear infinite;
-        }
-        @keyframes marquee-sheen {
-            0% { background-position: 120% 0; }
-            100% { background-position: -120% 0; }
-        }
-        #navPill { transition: box-shadow 0.35s var(--ease-out), border-color 0.35s var(--ease-out); background: #FFFFFF; border-bottom: 1px solid rgba(15,42,58,0.08); box-shadow: none; }
-        #navPill.scrolled { box-shadow: 0 16px 40px rgba(15,42,58,0.18); border-color: rgba(15,42,58,0.12); }
-        .nav-link { font-size: 11px; font-weight: 500; color: rgba(15,42,58,0.55); letter-spacing: 0.16em; text-transform: uppercase; }
-        .nav-link:hover { color: #0F2A3A; }
-        .nav-dd { position: relative; }
-        .nav-dd > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 0.25rem; }
-        .nav-dd > summary::-webkit-details-marker { display: none; }
-        .nav-dd-menu {
-            position: absolute; top: calc(100% + 0.65rem); left: 50%; transform: translateX(-50%);
-            min-width: 12.5rem; padding: 0.55rem 0; background: #fff;
-            border: 1px solid rgba(15,42,58,0.1); border-radius: 0.9rem;
-            box-shadow: 0 16px 40px rgba(15,42,58,0.12); z-index: 20;
-        }
-        .nav-dd-menu a {
-            display: block; padding: 0.45rem 1rem; font-size: 0.8rem; font-weight: 600; color: #0F2A3A;
-        }
-        .nav-dd-menu a:hover { background: rgba(15,42,58,0.05); }
-        .field-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(15,42,58,0.45); margin-bottom: 0.4rem; }
-        .field-hint { font-size: 11px; color: rgba(15,42,58,0.42); margin-top: 0.35rem; line-height: 1.45; font-weight: 400; }
-        .lead-form .lead-pro { display: none; }
-        .lead-form[data-journey="installateur"] .lead-pro,
-        .lead-form[data-journey="bedrijf"] .lead-pro { display: block; }
-        .lead-check { display: flex; gap: 0.7rem; align-items: flex-start; font-size: 0.8rem; line-height: 1.45; color: rgba(15,42,58,0.7); }
-        .lead-check input { margin-top: 0.2rem; accent-color: #0F2A3A; }
-        .lead-extras { border: 1px solid rgba(15,42,58,0.1); border-radius: 12px; padding: 0; background: rgba(15,42,58,0.02); }
-        .lead-extras > summary { list-style: none; cursor: pointer; padding: 0.95rem 1.1rem; font-size: 0.82rem; font-weight: 650; color: #0F2A3A; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
-        .lead-extras > summary::-webkit-details-marker { display: none; }
-        .lead-extras > summary::after { content: ""; width: 0.5rem; height: 0.5rem; border-right: 1.5px solid #0F2A3A; border-bottom: 1.5px solid #0F2A3A; transform: rotate(45deg); margin-top: -0.2rem; transition: transform 0.2s ease; }
-        .lead-extras[open] > summary::after { transform: rotate(225deg); margin-top: 0.15rem; }
-        .lead-extras-body { padding: 0 1.1rem 1.15rem; display: flex; flex-direction: column; gap: 1rem; }
-        .addr-wrap { position: relative; }
-        .addr-list { position: absolute; left: 0; right: 0; top: calc(100% + 0.35rem); z-index: 30; margin: 0; padding: 0.35rem 0; list-style: none; background: #fff; border: 1px solid rgba(15,42,58,0.12); border-radius: 12px; box-shadow: 0 16px 40px rgba(15,42,58,0.14); max-height: 14rem; overflow: auto; }
-        .addr-opt { display: block; width: 100%; text-align: left; padding: 0.7rem 1rem; background: none; border: 0; font: inherit; font-size: 0.9rem; color: #0F2A3A; cursor: pointer; }
-        .addr-opt:hover, .addr-opt[aria-selected="true"] { background: rgba(15,42,58,0.06); }
-        .line-draw { height: 1px; background: linear-gradient(90deg, transparent, rgba(15,42,58,0.25), transparent); transform: scaleX(0); transition: transform 1s var(--ease-out); }
-        .line-draw.visible { transform: scaleX(1); }
-        .form-field { width: 100%; padding: 1rem 1.25rem; background: #FFFFFF; border: 1px solid rgba(15,42,58,0.12); border-radius: 10px; color: #0F2A3A; transition: all 0.3s ease; }
-        .form-field:focus { outline: none; border-color: #0F2A3A; box-shadow: 0 0 0 3px rgba(15,42,58,0.08); }
-        .form-field:focus-visible { outline: 2px solid #0F2A3A; outline-offset: 2px; }
-        .form-field::placeholder { color: rgba(15,42,58,0.35); }
-        .spec-scroll { scrollbar-width: none; }
-        .spec-scroll::-webkit-scrollbar { display: none; }
-        .google-photo-track { scrollbar-width: none; scroll-behavior: smooth; }
-        .google-photo-track::-webkit-scrollbar { display: none; }
-        .google-photo-btn { width: 2rem; height: 2rem; border-radius: 9999px; border: 1px solid rgba(15,42,58,0.12); color: #0F2A3A; background: #fff; display: inline-flex; align-items: center; justify-content: center; transition: background 0.25s ease, border-color 0.25s ease; }
-        .google-photo-btn:hover { background: #0F2A3A; color: #fff; border-color: #0F2A3A; }
-        .google-photo-thumb { cursor: zoom-in; padding: 0; border: 0; }
-        .google-photo-lightbox { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(15,42,58,0.88); }
-        .google-photo-lightbox.is-open { display: flex; }
-        .google-photo-lightbox img[data-google-photo-full] { max-width: min(92vw, 920px); max-height: 88vh; object-fit: contain; border-radius: 0.75rem; box-shadow: 0 24px 64px rgba(0,0,0,0.35); }
-        .google-photo-lightbox-close,
-        .google-photo-lightbox-nav { position: absolute; width: 2.75rem; height: 2.75rem; border-radius: 9999px; border: 0; background: #fff; color: #0F2A3A; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s ease, transform 0.2s ease; }
-        .google-photo-lightbox-close:hover,
-        .google-photo-lightbox-nav:hover { background: #f0f4f6; transform: scale(1.05); }
-        .google-photo-lightbox-close { top: 1.25rem; right: 1.25rem; }
-        .google-photo-lightbox-nav { top: 50%; transform: translateY(-50%); }
-        .google-photo-lightbox-nav:hover { transform: translateY(-50%) scale(1.05); }
-        .google-photo-lightbox-nav.prev { left: 1rem; }
-        .google-photo-lightbox-nav.next { right: 1rem; }
-        .google-photo-lightbox-count { position: absolute; bottom: 1.25rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.75); font-size: 0.75rem; letter-spacing: 0.12em; font-weight: 500; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #FFFFFF; }
-        ::-webkit-scrollbar-thumb { background: #0F2A3A; border-radius: 3px; }
-        #mobileMenu { transition: transform 0.45s var(--ease-out); }
-        .faq-section { background: #fff; border: 1px solid rgba(15,42,58,0.08); border-radius: 1.25rem; }
-        .faq-section > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; padding: 1.5rem 1.75rem; }
-        .faq-section > summary::-webkit-details-marker { display: none; }
-        .faq-section > summary::after { content: ""; width: 0.65rem; height: 0.65rem; flex-shrink: 0; border-right: 1.75px solid #0F2A3A; border-bottom: 1.75px solid #0F2A3A; transform: rotate(45deg); margin-top: -0.3rem; transition: transform 0.25s var(--ease-out); }
-        .faq-section[open] > summary::after { transform: rotate(225deg); margin-top: 0.15rem; }
-        .faq-section-body { padding: 0 1.75rem 1.75rem; }
-        .faq-item { background: #fff; border: 1px solid rgba(15,42,58,0.08); border-radius: 1rem; }
-        .faq-item + .faq-item { margin-top: 0.75rem; }
-        .faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 1.5rem; font-weight: 600; color: #0F2A3A; }
-        .faq-item summary::-webkit-details-marker { display: none; }
-        .faq-item summary::after { content: ""; width: 0.55rem; height: 0.55rem; flex-shrink: 0; border-right: 1.5px solid #0F2A3A; border-bottom: 1.5px solid #0F2A3A; transform: rotate(45deg); margin-top: -0.25rem; transition: transform 0.25s var(--ease-out); }
-        .faq-item[open] summary::after { transform: rotate(225deg); margin-top: 0.2rem; }
-        .faq-item .faq-a { padding: 0 1.5rem 1.35rem; color: rgba(15,42,58,0.58); font-weight: 300; line-height: 1.7; }
-        .product-finish { position: relative; background: #fff; aspect-ratio: 16 / 11; overflow: hidden; }
-        .product-finish-stage { position: absolute; inset: 0; overflow: hidden; }
-        .product-finish-img { position: absolute; left: 50%; top: 45%; width: 84%; height: 80%; object-fit: contain; object-position: center; opacity: 0; transform: translate(-50%, -50%) scale(1.2); transition: opacity 0.85s ease; pointer-events: none; }
-        .product-finish-img.is-active { opacity: 1; }
-        .product-finish-label { position: absolute; left: 1.25rem; bottom: 1rem; margin: 0; max-width: calc(100% - 8.5rem); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(15,42,58,0.38); }
-        .product-finish-swatches { position: absolute; right: 1.15rem; bottom: 0.95rem; display: flex; align-items: center; gap: 0.38rem; z-index: 2; }
-        .product-finish-swatch { width: 0.82rem; height: 0.82rem; padding: 0; border-radius: 999px; background: var(--swatch, #c5c8c4); border: 1px solid rgba(15,42,58,0.16); box-shadow: inset 0 1px 0 rgba(255,255,255,0.28); cursor: pointer; }
-        .product-finish-swatch.is-light { border-color: rgba(15,42,58,0.28); }
-        .product-finish-swatch.is-gloss { background-image: linear-gradient(145deg, rgba(255,255,255,0.5), transparent 46%); }
-        .product-finish-swatch.is-active { outline: 1.5px solid #0F2A3A; outline-offset: 2px; }
-        .product-finish-swatch:focus-visible { outline: 1.5px solid #0F2A3A; outline-offset: 2px; }
-        .unit-db { text-transform: none; }
-        @media (prefers-reduced-motion: reduce) { .product-finish-img { transition: none; } }
-        .blog-taper { display: flex; flex-direction: column; align-items: center; margin-top: 2.75rem; gap: clamp(0.4rem, 1vw, 0.75rem); }
-        .blog-taper-card { width: calc(100% - var(--t) * 38%); display: grid; grid-template-columns: minmax(4.5rem, 8.5rem) 1fr; gap: clamp(0.65rem, 1.6vw, 1.15rem); align-items: center; padding: calc(1.05rem - var(--t) * 0.45rem) calc(1.15rem - var(--t) * 0.4rem); border-radius: calc(1.05rem - var(--t) * 0.3rem); background: #fff; border: 1px solid rgba(15,42,58,0.08); text-decoration: none; color: inherit; opacity: calc(1 - var(--t) * 0.42); transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease, width 0.35s var(--ease-out), opacity 0.35s ease; }
-        .blog-taper-card:hover, .blog-taper-card:focus-visible { transform: translateY(-3px); box-shadow: 0 18px 36px -16px rgba(15,42,58,0.16); opacity: 1; }
-        .blog-taper-media { overflow: hidden; border-radius: 0.7rem; background: rgba(15,42,58,0.04); aspect-ratio: 16 / 10; }
-        .blog-taper-img { width: 100%; height: 100%; object-fit: cover; }
-        .blog-taper-date { font-size: calc(9px - var(--t) * 1px); letter-spacing: 0.16em; text-transform: uppercase; color: rgba(15,42,58,0.38); margin-bottom: 0.25rem; }
-        .blog-taper-title { font-weight: 700; letter-spacing: -0.03em; color: #0F2A3A; font-size: calc(1.02rem - var(--t) * 0.28rem); line-height: 1.25; margin: 0 0 0.28rem; }
-        .blog-taper-excerpt { margin: 0; font-weight: 300; color: rgba(15,42,58,0.52); font-size: calc(0.86rem - var(--t) * 0.16rem); line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .blog-taper-card--text { grid-template-columns: 1fr; }
-        .blog-taper-card--text .blog-taper-media { display: none; }
-        .blog-taper-card--text .blog-taper-excerpt { display: none; }
-        @media (max-width: 640px) {
-          .blog-taper-card { width: calc(100% - var(--t) * 18%); grid-template-columns: 4.4rem 1fr; }
-          .blog-taper-card--text { grid-template-columns: 1fr; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,520;1,9..144,480&family=Inter:wght@300..800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="skyClouds" aria-hidden="true">
-        <span class="sky-cloud sky-cloud--soft" data-speed="0.08" style="width: 85vmax; height: 48vmax; left: -22%; top: -8%;"></span>
-        <span class="sky-cloud" data-speed="0.16" style="width: 62vmax; height: 36vmax; left: 28%; top: 18%;"></span>
-        <span class="sky-cloud sky-cloud--soft" data-speed="0.24" style="width: 90vmax; height: 52vmax; right: -30%; top: 42%;"></span>
-        <span class="sky-cloud" data-speed="0.12" style="width: 70vmax; height: 40vmax; left: -18%; top: 70%;"></span>
-        <span class="sky-cloud sky-cloud--soft" data-speed="0.2" style="width: 78vmax; height: 44vmax; left: 35%; top: 105%;"></span>
-        <span class="sky-cloud" data-speed="0.28" style="width: 96vmax; height: 56vmax; right: -20%; top: 145%;"></span>
-        <span class="sky-cloud sky-cloud--soft" data-speed="0.14" style="width: 88vmax; height: 50vmax; left: -25%; top: 190%;"></span>
-    </div>
-
-    <!-- Nav — white pill per brand guidelines -->
-    <header class="fixed top-0 left-0 right-0 z-50">
-        <nav id="navPill" class="w-full flex items-center justify-between px-6 lg:px-8 py-3">
-            <a href="#" class="flex items-center group">
-                <img src="assets/images/logo-reducd.png" alt="REDUCD" class="h-10 lg:h-11 w-auto">
-            </a>
-            <div class="hidden md:flex items-center gap-5 lg:gap-7">
-                <a href="#calculator" class="nav-link">Oplossingen</a>
-                <a href="#producten" class="nav-link">Modellen</a>
-                <a href="#installaties" class="nav-link">Resultaten</a>
+    <header class="site-header" id="siteHeader">
+        <nav id="navPill">
+            <a href="#" class="site-logo"><img src="assets/images/logo-reducd.png" alt="REDUCD"></a>
+            <div class="site-links">
+                <a href="#producten">Modellen</a>
+                <a href="#installaties">Resultaten</a>
+                <a href="#calculator">Maatcheck</a>
                 <details class="nav-dd">
-                    <summary class="nav-link">Kennis</summary>
+                    <summary>Kennis</summary>
                     <div class="nav-dd-menu">
                         <a href="#faq">FAQ</a>
                         <a href="blog/">Blog</a>
@@ -1003,174 +305,136 @@
                         <a href="pro/index.html">Voor professionals</a>
                     </div>
                 </details>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#contact">Contact</a>
             </div>
-            <div class="flex items-center gap-3">
-                <a href="#lead-form" class="hidden sm:inline-flex btn-primary px-5 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-wider"><span class="accent-gratis">Gratis</span> check</a>
-                <button id="menuBtn" class="md:hidden w-9 h-9 flex items-center justify-center text-brand-navy" aria-label="Menu">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <div style="display:flex;align-items:center;gap:0.4rem">
+                <a href="#lead-form" class="btn btn-light nav-cta">Gratis check</a>
+                <button id="menuBtn" class="menu-btn" aria-label="Menu">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </div>
         </nav>
     </header>
 
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 z-[60] bg-brand-navy translate-x-full flex flex-col items-center justify-center gap-8">
-        <button id="closeMenu" class="absolute top-6 right-6 w-10 h-10 text-white/60 hover:text-white" aria-label="Sluiten">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    <div id="mobileMenu">
+        <button id="closeMenu" aria-label="Sluiten">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
-        <a href="#calculator" class="mobile-link text-3xl font-bold text-white tracking-tight">Oplossingen</a>
-        <a href="#producten" class="mobile-link text-3xl font-bold text-white tracking-tight">Modellen</a>
-        <a href="#installaties" class="mobile-link text-3xl font-bold text-white tracking-tight">Resultaten</a>
-        <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-white/35">Kennis</p>
-        <a href="#faq" class="mobile-link text-xl font-semibold text-white/80 tracking-tight">FAQ</a>
-        <a href="blog/" class="mobile-link text-xl font-semibold text-white/80 tracking-tight">Blog</a>
-        <a href="docs/" class="mobile-link text-xl font-semibold text-white/80 tracking-tight">Documentatie</a>
-        <a href="vlarem/" class="mobile-link text-xl font-semibold text-white/80 tracking-tight">VLAREM-tool</a>
-        <a href="pro/index.html" class="mobile-link text-xl font-semibold text-white/80 tracking-tight">Voor professionals</a>
-        <a href="#contact" class="mobile-link text-3xl font-bold text-white tracking-tight">Contact</a>
-        <a href="#lead-form" class="mobile-link bg-white text-brand-navy px-10 py-4 rounded-full font-semibold mt-4">Gratis situatiecheck</a>
+        <a href="#producten" class="mobile-link">Modellen</a>
+        <a href="#installaties" class="mobile-link">Resultaten</a>
+        <a href="#calculator" class="mobile-link">Maatcheck</a>
+        <a href="#faq" class="mobile-link sub">FAQ</a>
+        <a href="blog/" class="mobile-link sub">Blog</a>
+        <a href="docs/" class="mobile-link sub">Documentatie</a>
+        <a href="vlarem/" class="mobile-link sub">VLAREM-tool</a>
+        <a href="pro/index.html" class="mobile-link sub">Voor professionals</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="#lead-form" class="mobile-link btn btn-light">Gratis situatiecheck</a>
     </div>
 
-    <!-- HERO — white background, navy typography -->
-    <section class="relative min-h-screen flex items-center bg-white pt-28 pb-20">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-                <div class="lg:col-span-7">
-                    <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-navy/10 bg-brand-navy/[0.03] mb-8">
-                        <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                        <span class="text-[11px] font-semibold text-brand-navy/60 uppercase tracking-[0.2em]">België · Gratis situatiecheck</span>
-                    </div>
-                    <h1 class="reveal reveal-delay-1 relative z-20 font-extrabold text-[clamp(2.15rem,5.2vw,4.15rem)] leading-[1.06] tracking-tight text-brand-navy mb-5">Maak uw warmtepomp tot <span class="underline underline-offset-[0.12em] decoration-2">14 dB(A) stiller</span>.</h1>
-                    <p class="hero-title reveal relative z-20 font-extrabold text-[clamp(1.35rem,3vw,2.2rem)] leading-[1.1] tracking-tight text-brand-navy mb-6">
-                        <span class="hero-word hero-word--stil">Stil.</span><span class="hero-stil-badge" title="Waargenomen luidheid, geen geluidsenergie en geen garantie">tot <strong class="hero-stil-fidget">75%</strong> <span class="hero-stil-note">stiller*</span></span><br>
-                        <span class="hero-word hero-word--stijlvol">Stijlvol.</span><br>
-                        <span class="hero-word hero-word--duurzaam">Duurzaam.</span>
-                    </p>
-                    <p class="reveal reveal-delay-2 text-lg lg:text-xl text-brand-navy/60 max-w-xl leading-relaxed mb-10 font-light">
-                        Akoestische omkastingen voor warmtepompen &amp; airco. Gemiddeld <strong class="text-brand-navy font-semibold">14 dB(A)</strong> reductie — tot <strong class="text-brand-navy font-semibold">75%</strong> stiller in waargenomen luidheid, niet in geluidsenergie, en geen garantie voor elke situatie. Vanaf <strong class="text-brand-navy font-extrabold">€&nbsp;2.335</strong>.
-                    </p>
-                    <div class="reveal reveal-delay-3 flex flex-wrap gap-4">
-                        <a href="#lead-form" class="btn-primary px-8 py-4 rounded-full font-semibold text-sm inline-flex items-center gap-2">
-                            <span class="hero-cta-fade">Vraag een gratis situatiecheck aan</span>
-                            <svg class="hero-cta-fade w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                        </a>
-                        <a href="#maten" class="btn-outline px-8 py-4 rounded-full font-semibold text-sm bg-white">Bekijk maten &amp; prijs</a>
-                    </div>
-                </div>
-                <div class="lg:col-span-5 reveal reveal-delay-2">
-                    <div class="relative">
-                        <div class="img-reveal hero-shot aspect-[4/5] shadow-xl shadow-brand-navy/10 ring-1 ring-brand-navy/5">
-                            <img src="assets/images/hero-homepage.jpg" alt="REDUCD akoestische omkasting voor warmtepomp, met team" width="960" height="1200" fetchpriority="high" decoding="async" class="w-full h-full object-cover">
-                        </div>
-                        <div class="hero-db-stat absolute -bottom-5 -left-5 hidden sm:block">
-                            <div class="p-6">
-                                <div class="flex items-baseline leading-none whitespace-nowrap">
-                                    <span class="hero-db-minus font-extrabold text-brand-navy tracking-tight">−</span><span class="hero-db-num font-extrabold tracking-tight">14</span><span class="hero-db-unit unit-db font-extrabold text-brand-navy tracking-tight">dB(A)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section class="hero">
+        <div class="hero-media">
+            <img src="assets/images/installs/install-patio-olijf.webp" alt="Zwarte REDUCD akoestische omkasting bij een patio met olijfboom" width="1600" height="1067" fetchpriority="high" decoding="async">
+            <div class="hero-shade"></div>
+        </div>
+        <div class="hero-copy">
+            <p class="eyebrow reveal"><i></i> België · gratis situatiecheck</p>
+            <h1 class="reveal">Uw warmtepomp hoeft niet de <em>luidste buur</em> te zijn.</h1>
+            <p class="hero-lede reveal">Een akoestische omkasting, geen sierkap. Gemiddeld 14&nbsp;dB(A) stiller — getest door Peutz. Vanaf €&nbsp;2.335. Eerst een situatiecheck; reactie binnen 24 uur.</p>
+            <div class="hero-actions reveal">
+                <a href="#lead-form" class="btn btn-ink">Vraag een gratis situatiecheck</a>
+                <a href="#calculator" class="btn btn-ghost">Bereken je maat</a>
             </div>
+            <ul class="hero-meta reveal">
+                <li>Peutz · ISO 3741 / 7235</li>
+                <li>4,9/5 · 60 Google-reviews</li>
+                <li>Vaak binnen 1 week</li>
+            </ul>
+            <p class="hero-note reveal">* Gemiddelde reductie vrijstaand model. Tot 75% stiller in waargenomen luidheid — niet in geluidsenergie, geen garantie voor elke situatie.</p>
         </div>
     </section>
 
-    <!-- Marquee -->
-    <div class="marquee-ribbon py-4 overflow-hidden border-y">
-        <div class="marquee-track gap-16 px-8">
-            <span class="text-[10px] italic font-light text-white/40 uppercase tracking-[0.4em] whitespace-nowrap">Stil · Stijlvol · Duurzaam · Magnelis® · Built to Last · 5 standaardmaten · Maatwerk ·</span>
-            <span class="text-[10px] italic font-light text-white/40 uppercase tracking-[0.4em] whitespace-nowrap">Stil · Stijlvol · Duurzaam · Magnelis® · Built to Last · 5 standaardmaten · Maatwerk ·</span>
-        </div>
-        <script>
-            document.querySelectorAll('.marquee-track > span').forEach(function (span) {
-                var t = span.textContent;
-                var n = Math.max(t.length - 1, 1);
-                var html = '';
-                for (var i = 0; i < t.length; i++) {
-                    var w = 300 + Math.round(500 * i / n);
-                    html += '<span class="mq-letter" style="--w:' + w + '">' + (t[i] === ' ' ? '&nbsp;' : t[i]) + '</span>';
-                }
-                span.innerHTML = html;
-            });
-        </script>
-    </div>
-
-    <!-- VALUES -->
-    <section class="py-24 lg:py-32 px-6 lg:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal mb-16 lg:mb-20">
-                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Kernwaarden</span>
-                <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Drie woorden.<br><span class="text-brand-navy/30 font-light">Eén belofte<span class="belofte-dots" aria-hidden="true"></span></span></h2>
-            </div>
-            <div class="grid md:grid-cols-3 gap-5 lg:gap-6">
-                <div class="reveal bento bg-brand-navy rounded-2xl p-8 lg:p-10 text-white">
-                    <span class="text-[11px] font-bold text-white/40 uppercase tracking-[0.2em]">01 — Stil</span>
-                    <h3 class="font-extrabold text-3xl mt-6 mb-4 tracking-tight">14 dB(A) reductie</h3>
-                    <p class="text-white/55 leading-relaxed text-sm lg:text-base">Gemiddelde reductie. Tot 75% stiller in waargenomen luidheid — niet in geluidsenergie, en geen garantie voor elke opstelling.</p>
-                </div>
-                <div class="reveal reveal-delay-1 bento bg-white rounded-2xl p-8 lg:p-10 border border-brand-navy/8">
-                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.2em]">02 — Stijlvol</span>
-                    <h3 class="font-extrabold text-3xl mt-6 mb-4 text-brand-navy tracking-tight">RAL-kleur</h3>
-                    <p class="text-brand-navy/55 leading-relaxed text-sm lg:text-base">Magnelis® standaard of poedercoating in RAL-kleur. Naadloos afgestemd op je gevel of tuin.</p>
-                </div>
-                <div class="reveal reveal-delay-2 bento bg-brand-navy/[0.04] rounded-2xl p-8 lg:p-10 border border-brand-navy/8">
-                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.2em]">03 — Duurzaam</span>
-                    <h3 class="font-extrabold text-3xl mt-6 mb-4 text-brand-navy tracking-tight">Built to Last</h3>
-                    <p class="text-brand-navy/55 leading-relaxed text-sm lg:text-base">Lokaal geproduceerd met gerecyclede materialen. Bestand tegen iedere bui, zelfs aan de kust.</p>
-                </div>
-            </div>
+    <section class="trust" aria-label="Vertrouwen">
+        <div class="wrap trust-grid">
+            <div><b>14 dB(A)</b><span>Peutz, juli 2025</span></div>
+            <div><b>4,9 / 5</b><span>60+ Google-reviews</span></div>
+            <div><b>€ 2.335</b><span>Vanaf · Magnelis®</span></div>
+            <div><b>24 uur</b><span>Reactie op aanvraag</span></div>
         </div>
     </section>
 
-    <!-- COVER VS AKOESTISCH -->
-    <section id="verschil" class="py-24 lg:py-28 px-6 lg:px-8 bg-brand-navy text-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal max-w-2xl mb-14">
-                <span class="text-[11px] font-bold text-white/40 uppercase tracking-[0.25em]">Verschil</span>
-                <h2 class="font-extrabold text-3xl lg:text-5xl mt-4 tracking-tight leading-tight">Geen sierkap. Een akoestische omkasting.</h2>
-                <p class="text-white/55 mt-5 text-base lg:text-lg font-light leading-relaxed">Een esthetische cover verhult de unit. Een REDUCD-omkasting dempt het geluid — getest, met luchtweg en demper — zodat jij én de buren het verschil merken.</p>
+    <section class="section problem" id="probleem">
+        <div class="wrap split">
+            <div class="reveal">
+                <p class="eyebrow"><i></i> Het probleem</p>
+                <div class="section-head" style="margin-bottom:0">
+                    <h2>De unit doet wat hij moet. Het geluid niet.</h2>
+                    <p class="lede">Warmtepompen en airco’s horen bij een stille tuin — niet bij een klacht van de buren of een VLAREM-toets aan de erfgrens. Een sierkap verhult de machine. Hij dempt hem niet.</p>
+                </div>
+                <div class="fact-row">
+                    <div class="fact">
+                        <strong>Burenhinder is geen detail</strong>
+                        <p>In België loopt geluid via gewest, gemeente én buren. Eén klacht is duurder dan een kast.</p>
+                    </div>
+                    <div class="fact">
+                        <strong>Vlaanderen toetst VLAREM</strong>
+                        <p>Woongebied: 45 / 40 / 35 dB(A). Start met een situatiecheck, niet met giswerk.</p>
+                    </div>
+                    <div class="fact">
+                        <strong>Meting volgt alleen als het moet</strong>
+                        <p>Eerst check op afstand. Op locatie meten we enkel als de case daarvoor kwalificeert.</p>
+                    </div>
+                </div>
             </div>
-            <div class="grid md:grid-cols-2 gap-6 lg:gap-10">
-                <div class="reveal border border-white/15 rounded-2xl p-8 lg:p-10">
-                    <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 mb-4">Esthetische cover</p>
-                    <ul class="space-y-3 text-white/55 text-sm font-light leading-relaxed">
+            <figure class="split-visual reveal">
+                <img src="assets/images/installs/install-riet-tuin.jpg" alt="Wandmodel REDUCD tegen een witte gevel met rietdak" loading="lazy" decoding="async">
+            </figure>
+        </div>
+    </section>
+
+    <section class="section contrast" id="verschil">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow"><i></i> Verschil</p>
+                <h2>Geen sierkap. Een akoestische omkasting.</h2>
+                <p class="lede">Een esthetische cover verhult de unit. Een REDUCD-omkasting heeft een 150&nbsp;mm demper, gerecycled PET en een berekende luchtweg — zodat geluid én rendement kloppen.</p>
+            </div>
+            <div class="compare">
+                <article class="compare-no reveal">
+                    <h3>Esthetische cover</h3>
+                    <ul>
                         <li>Verbergt de unit, dempt nauwelijks</li>
                         <li>Vaak geen berekende luchtweg → risico op recirculatie</li>
                         <li>Geen onafhankelijke dB-data</li>
                         <li>Past bij “mooi wegwerken”, niet bij erfgrensnormen</li>
                     </ul>
-                </div>
-                <div class="reveal reveal-delay-1 bg-white text-brand-navy rounded-2xl p-8 lg:p-10">
-                    <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-navy/45 mb-4">REDUCD akoestische omkasting</p>
-                    <ul class="space-y-3 text-brand-navy/70 text-sm font-light leading-relaxed">
+                </article>
+                <article class="compare-yes reveal">
+                    <h3>REDUCD omkasting</h3>
+                    <ul>
                         <li>Gemiddeld 14 dB(A) reductie (Peutz, juli 2025)</li>
                         <li>150 mm demper + gerecycled PET-absorptie</li>
                         <li>Vrije ruimte en luchtweg meegenomen in het ontwerp</li>
                         <li>Gericht op rust én haalbare erfgrenswaarden</li>
                     </ul>
-                </div>
+                </article>
             </div>
-            <div class="reveal mt-10 flex flex-wrap gap-4">
-                <a href="#lead-form" class="inline-flex bg-white text-brand-navy px-7 py-3.5 rounded-full text-sm font-semibold">Gratis situatiecheck</a>
-                <a href="blog/post.html?slug=akoestische-omkasting-vs-suskast" class="inline-flex border border-white/30 text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 transition-colors">Lees het verschil</a>
+            <div class="hero-actions reveal" style="margin-top:1.6rem">
+                <a href="#lead-form" class="btn btn-light">Gratis situatiecheck</a>
+                <a href="blog/post.html?slug=akoestische-omkasting-vs-suskast" class="btn btn-ghost">Lees het verschil</a>
             </div>
         </div>
     </section>
 
-    <!-- PRODUCTS -->
-    <section id="producten" class="py-24 lg:py-32 px-6 lg:px-8 bg-brand-navy/[0.03]">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
-                <div>
-                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Producten</span>
-                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Vrijstaand &amp; wandmodel</h2>
-                </div>
-                <p class="text-brand-navy/55 max-w-md text-base lg:text-lg font-light leading-relaxed">Vijf standaardmaten of maatwerk. Vanaf €&nbsp;2.335 (Magnelis, zonder installatie).</p>
+    <section class="section models" id="producten">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow"><i></i> Producten</p>
+                <h2>Vrijstaand of wand. Vijf standaardmaten.</h2>
+                <p class="lede">Vanaf €&nbsp;2.335 (Magnelis®, zonder installatie). RAL-poedercoating en montage optioneel. Maatwerk op aanvraag.</p>
             </div>
-            <div class="grid lg:grid-cols-2 gap-5 lg:gap-6 items-stretch">
-                <!-- Vrijstaand -->
-                <div class="reveal rounded-2xl overflow-hidden ring-1 ring-brand-navy/8 bento bg-white flex flex-col">
+            <div class="model-grid">
+                <article class="model reveal">
                     <div class="product-finish" data-product-finish>
                         <div class="product-finish-stage">
                             <img src="assets/images/product-vrijstaand.webp" alt="REDUCD vrijstaand model — Magnelis® akoestische omkasting" class="product-finish-img is-active" data-finish-label="Magnelis®" width="620" height="434" decoding="async">
@@ -1184,19 +448,18 @@
                             <button type="button" class="product-finish-swatch is-light" data-finish-swatch style="--swatch:#f3efe6" aria-label="RAL 9010" aria-pressed="false"></button>
                         </div>
                     </div>
-                    <div class="p-6 lg:p-8 border-t border-brand-navy/8 flex-1 flex flex-col">
-                        <span class="inline-block px-3 py-1 rounded-full bg-brand-navy/[0.06] text-[10px] font-bold uppercase tracking-widest text-brand-navy mb-3">Populair</span>
-                        <h3 class="font-extrabold text-2xl lg:text-3xl text-brand-navy mb-2 tracking-tight">Vrijstaand model</h3>
-                        <p class="text-brand-navy/55 max-w-lg text-sm mb-6 leading-relaxed flex-1">Tuin, oprit of platdak. Volledige levering en installatie door REDUCD.</p>
-                        <div class="flex gap-8 text-brand-navy">
-                            <div><div class="font-bold text-xl lg:text-2xl tracking-tight">S / L / XL</div><div class="text-[10px] text-brand-navy/40 uppercase tracking-widest">Maten</div></div>
-                            <div><div class="font-bold text-xl lg:text-2xl">14</div><div class="text-[10px] text-brand-navy/40 tracking-widest unit-db">dB(A)</div></div>
-                            <div><div class="font-bold text-xl lg:text-2xl">50cm</div><div class="text-[10px] text-brand-navy/40 uppercase tracking-widest">Ruimte</div></div>
+                    <div class="model-body">
+                        <span class="chip">Populair</span>
+                        <h3>Vrijstaand</h3>
+                        <p>Tuin, oprit of platdak. Maximale demping als er ± 50 cm vrije ruimte is.</p>
+                        <div class="model-stats">
+                            <div><b>S / L / XL</b><span>Maten</span></div>
+                            <div><b>14 dB(A)</b><span>Gemiddeld</span></div>
+                            <div><b>50 cm</b><span>Ruimte</span></div>
                         </div>
                     </div>
-                </div>
-                <!-- Wandmodel -->
-                <div class="reveal reveal-delay-1 rounded-2xl overflow-hidden ring-1 ring-brand-navy/8 bento bg-white flex flex-col">
+                </article>
+                <article class="model reveal">
                     <div class="product-finish product-finish--narrow" data-product-finish>
                         <div class="product-finish-stage">
                             <img src="assets/images/product-wand-roest.png" alt="REDUCD wandmodel — roestafwerking" class="product-finish-img is-active" data-finish-label="Roest" width="620" height="434" decoding="async">
@@ -1210,58 +473,188 @@
                             <button type="button" class="product-finish-swatch" data-finish-swatch style="--swatch:#c5c8c4" aria-label="Magnelis®" aria-pressed="false"></button>
                         </div>
                     </div>
-                    <div class="p-6 lg:p-8 border-t border-brand-navy/8 flex-1 flex flex-col">
-                        <span class="inline-block px-3 py-1 rounded-full bg-brand-navy/[0.06] text-[10px] font-bold uppercase tracking-widest text-brand-navy mb-3">Compact</span>
-                        <h3 class="font-extrabold text-2xl lg:text-3xl text-brand-navy mb-2 tracking-tight">Wandmodel</h3>
-                        <p class="text-brand-navy/55 max-w-lg text-sm mb-6 leading-relaxed flex-1">Bij de gevel, bij weinig diepte tot pad of erfgrens. Volledige levering en installatie door REDUCD.</p>
-                        <div class="flex gap-8 text-brand-navy">
-                            <div><div class="font-bold text-xl lg:text-2xl tracking-tight">S / L</div><div class="text-[10px] text-brand-navy/40 uppercase tracking-widest">Maten</div></div>
-                            <div><div class="font-bold text-xl lg:text-2xl">10–12</div><div class="text-[10px] text-brand-navy/40 tracking-widest unit-db">dB(A)</div></div>
-                            <div><div class="font-bold text-xl lg:text-2xl">Gevel</div><div class="text-[10px] text-brand-navy/40 uppercase tracking-widest">Plaatsing</div></div>
+                    <div class="model-body">
+                        <span class="chip">Compact</span>
+                        <h3>Wandmodel</h3>
+                        <p>Rug tegen de gevel, weinig diepte tot pad of erfgrens. Typisch 10–12 dB(A).</p>
+                        <div class="model-stats">
+                            <div><b>S / L</b><span>Maten</span></div>
+                            <div><b>10–12 dB(A)</b><span>Typisch</span></div>
+                            <div><b>Gevel</b><span>Plaatsing</span></div>
                         </div>
                     </div>
+                </article>
+            </div>
+            <div id="keuzehulp" class="choose">
+                <article class="reveal">
+                    <h4>Kies vrijstaand als…</h4>
+                    <ul>
+                        <li>De unit vrij in de tuin, op de oprit of op een platdak staat</li>
+                        <li>Je maximale demping wilt (± 14 dB(A))</li>
+                        <li>Er rondom genoeg vrije ruimte is (≥ ± 50 cm)</li>
+                        <li>De kast als meubel in de tuin mag meewerken</li>
+                    </ul>
+                </article>
+                <article class="reveal">
+                    <h4>Kies wandmodel als…</h4>
+                    <ul>
+                        <li>De unit met de rug dicht tegen de gevel hangt of staat</li>
+                        <li>De diepte tot pad of erfgrens beperkt is</li>
+                        <li>Je een slankere contour nodig hebt</li>
+                        <li>Service via demontage eenvoudig moet blijven</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section gallery" id="installaties">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow"><i></i> Installaties</p>
+                <h2>In de tuin, niet ernaast gezet.</h2>
+                <p class="lede">Van patio tot rietdak. Magnelis® of elke RAL. Dit zijn echte plaatsingen — geen renders.</p>
+            </div>
+            <div class="mosaic">
+                <figure class="shot-lg reveal">
+                    <img src="assets/images/installs/install-patio-olijf.webp" alt="Zwarte REDUCD omkasting bij een patio met olijfboom" loading="lazy" decoding="async">
+                    <figcaption><h3>Patio · Magnelis zwart</h3><p>Vrijstaand, bij nieuwbouw</p></figcaption>
+                </figure>
+                <figure class="shot-sm reveal">
+                    <img src="assets/images/installs/install-bos-groen.jpg" alt="Groene akoestische omkasting bij houten tuinlodge" loading="lazy" decoding="async">
+                    <figcaption><h3>Boslodge</h3><p>RAL groen, bij houten cabin</p></figcaption>
+                </figure>
+                <figure class="shot-sm reveal">
+                    <img src="assets/images/installs/install-terras-hout.jpg" alt="REDUCD omkasting in een hoek van een houten terras" loading="lazy" decoding="async">
+                    <figcaption><h3>Terras · zwart hout</h3><p>Compact, in de architectuur</p></figcaption>
+                </figure>
+            </div>
+            <div class="gallery-links reveal">
+                <a href="projecten/" class="btn btn-line">Meer projecten</a>
+                <a href="#maten" class="btn btn-line">Maten en prijzen</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section proof" id="reviews">
+        <div class="wrap">
+            <div class="proof-top">
+                <article class="proof-card proof-dark reveal">
+                    <p class="eyebrow" style="color:rgba(255,255,255,0.45)"><i></i> Onafhankelijk</p>
+                    <h3>Peutz · juli 2025</h3>
+                    <p>Geluidsmetingen conform ISO 3741:2010 &amp; ISO 7235:2003. Gemiddeld 14 dB(A) reductie — tot 75% waargenomen stiller.</p>
+                    <a href="docs/view.html?id=meetrapport&amp;for=particulier" class="btn btn-light" style="margin-top:1.1rem">Lees meetrapport</a>
+                </article>
+                <article class="proof-card proof-light reveal">
+                    <p class="eyebrow"><i></i> Google</p>
+                    <h3>4,9 / 5</h3>
+                    <p>Op basis van 60 Google-reviews. Klanten over rust, plaatsing en advies.</p>
+                    <a href="https://maps.app.goo.gl/i8iqMkF2s24Ydeah9" target="_blank" rel="noopener noreferrer" class="btn btn-line" style="margin-top:1.1rem">Alle reviews</a>
+                </article>
+            </div>
+            <div class="gphotos reveal" id="googlePhotos">
+                <div class="gphotos-head">
+                    <p>Foto’s van Google</p>
+                    <div>
+                        <button type="button" class="google-photo-btn" data-google-photo-prev aria-label="Vorige foto’s">‹</button>
+                        <button type="button" class="google-photo-btn" data-google-photo-next aria-label="Volgende foto’s">›</button>
+                    </div>
+                </div>
+                <div class="google-photo-track" data-google-photo-track></div>
+            </div>
+            <div class="quotes">
+                <article class="quote reveal">
+                    <p>“Dankzij de omkasting van Reducd is het geluid nu teruggebracht naar 43 dB overdag. De verwachte verlaging wordt ruimschoots gehaald.”</p>
+                    <footer>Marco V. G. · Google · 5/5</footer>
+                </article>
+                <article class="quote quote-ink reveal">
+                    <p>“Het geluid is merkbaar afgenomen; het verschil is groot en onze buren zijn ook erg tevreden. Geen goedkope uitgave, maar het geld waard.”</p>
+                    <footer>Adriaan A. · Google · 5/5</footer>
+                </article>
+                <article class="quote reveal">
+                    <p>“Super tevreden. Goed advies, een geluidsmeting op locatie en het scheelt echt een bak herrie.”</p>
+                    <footer>Ivo R. · Google · 5/5</footer>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section process" id="proces">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow"><i></i> Hoe het werkt</p>
+                <h2>Eerst een check. Daarna pas een kast.</h2>
+                <p class="lede">Geen verkooppraatje aan de deur. We kijken of een omkasting hier zin heeft — en of een meting nodig is.</p>
+            </div>
+            <div class="steps">
+                <article class="step reveal"><b>01</b><h3>Situatiecheck</h3><p>Foto’s, maten, adres. Gratis. Reactie binnen 24 uur.</p></article>
+                <article class="step reveal"><b>02</b><h3>Advies</h3><p>Vrijstaand of wand, maat, eventueel meting op locatie.</p></article>
+                <article class="step reveal"><b>03</b><h3>Offerte</h3><p>Standaardmaten vaak binnen een week leverbaar.</p></article>
+                <article class="step reveal"><b>04</b><h3>Plaatsing</h3><p>Twaalf boutjes, ongeveer een uur. Zelf of door ons.</p></article>
+            </div>
+            <div class="hero-actions reveal" style="margin-top:1.6rem">
+                <a href="#lead-form" class="btn btn-light">Gratis situatiecheck</a>
+                <a href="docs/view.html?id=brochure&amp;for=particulier" class="btn btn-ghost">Brochure</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section problem" id="regelgeving">
+        <div class="wrap split">
+            <div class="reveal">
+                <p class="eyebrow"><i></i> Regelgeving</p>
+                <div class="section-head" style="margin-bottom:1.2rem">
+                    <h2>Gewest, gemeente én buren.</h2>
+                    <p class="lede">België kent geen één landelijke erfgrensnorm. In Vlaanderen toets je het specifieke geluid aan VLAREM-richtwaarden. Elders gelden gewestkaders en burenhinder.</p>
+                </div>
+                <div class="hero-actions">
+                    <a href="vlarem/" class="btn btn-ink">VLAREM-rekentool</a>
+                    <a href="blog/post.html?slug=warmtepomp-geluid-buren-overlast-vlaanderen" class="btn btn-line">Belgisch kader</a>
                 </div>
             </div>
+            <div class="region-grid reveal">
+                <article class="region">
+                    <small>Vlaanderen</small>
+                    <h3>VLAREM</h3>
+                    <p>Woongebied 45 / 40 / 35 dB(A), plus wat je gemeente extra toetst bij klacht of vergunning.</p>
+                </article>
+                <article class="region">
+                    <small>Brussel &amp; Wallonië</small>
+                    <h3>Lokaal</h3>
+                    <p>Eigen gewestkaders én burenhinder. Een situatiecheck blijft de veiligste start.</p>
+                </article>
+            </div>
+        </div>
+    </section>
 
-            <!-- Keuzehulp -->
-            <div id="keuzehulp" class="reveal mt-16 lg:mt-20">
-                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
-                    <div>
-                        <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Keuzehulp</span>
-                        <h3 class="font-extrabold text-2xl lg:text-3xl text-brand-navy mt-3 tracking-tight">Welk model past bij jouw situatie?</h3>
-                    </div>
-                    <a href="#lead-form" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold self-start">Twijfel? Vraag een situatiecheck</a>
+    <section class="section gallery" id="uitleg">
+        <div class="wrap split">
+            <div class="reveal">
+                <p class="eyebrow"><i></i> Uitleg</p>
+                <div class="section-head" style="margin-bottom:1rem">
+                    <h2>Hoe het werkt — in twee minuten.</h2>
+                    <p class="lede">Korte uitleg over demping, luchtweg en installatie. Brochure en handleiding op aanvraag.</p>
                 </div>
-                <div class="grid md:grid-cols-2 gap-5 lg:gap-6">
-                    <div class="bg-white rounded-2xl p-7 lg:p-8 border border-brand-navy/8">
-                        <h4 class="font-bold text-brand-navy text-lg mb-4">Kies vrijstaand als…</h4>
-                        <ul class="space-y-2.5 text-sm text-brand-navy/60 font-light leading-relaxed">
-                            <li>De unit vrij in de tuin, op de oprit of op een platdak staat</li>
-                            <li>Je maximale demping wilt (± 14 dB(A))</li>
-                            <li>Er rondom genoeg vrije ruimte is (≥ ± 50 cm voor/achter)</li>
-                            <li>Je de kast als “meubel” in de tuin wilt laten meewerken</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white rounded-2xl p-7 lg:p-8 border border-brand-navy/8">
-                        <h4 class="font-bold text-brand-navy text-lg mb-4">Kies wandmodel als…</h4>
-                        <ul class="space-y-2.5 text-sm text-brand-navy/60 font-light leading-relaxed">
-                            <li>De unit met de rug dicht tegen de gevel hangt of staat</li>
-                            <li>De diepte tot pad of erfgrens beperkt is</li>
-                            <li>Je een slankere contour nodig hebt zonder volle vrijstaande kast</li>
-                            <li>Service aan de unit via demontage eenvoudig moet blijven</li>
-                        </ul>
-                    </div>
+                <div class="hero-actions">
+                    <a href="#lead-form" class="btn btn-ink">Gratis situatiecheck</a>
+                    <a href="mailto:info@reducd.be?subject=Brochure%20aanvragen" class="btn btn-line">Brochure</a>
+                </div>
+            </div>
+            <div class="reveal">
+                <div class="video-frame">
+                    <iframe src="https://www.youtube-nocookie.com/embed/8CJLvJUjWmk" title="Hoe werkt een REDUCD akoestische omkasting" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
+    <div class="tools-band">
     <!-- CALCULATOR -->
     <section id="calculator" class="size-calc py-24 lg:py-32 px-6 lg:px-8 bg-white" data-fit="idle">
         <div class="max-w-7xl mx-auto">
             <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
                 <div>
-                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Calculator</span>
+                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Zelf checken</span>
                     <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Welke maat past bij jouw unit?</h2>
                     <p class="text-brand-navy/55 mt-4 max-w-xl font-light leading-relaxed">Kies een unit of vul zelf de mm in. Controleer daarna voeten en leidingwerk. We kiezen de kleinste standaardmaat en tonen of de pasvorm ruim, ideaal of krap is.</p>
                 </div>
@@ -1473,6 +866,7 @@
         </div>
     </section>
 
+
     <!-- Perceelkaart: adreszoeken + CadGIS / Geopunt / RO overlays -->
     <section id="perceelkaart" class="parcel-map-section py-24 lg:py-32 px-6 lg:px-8 bg-[#F7F5F1]" data-engine="">
         <div class="max-w-7xl mx-auto">
@@ -1517,565 +911,113 @@
         </div>
     </section>
 
-    <!-- CTA band -->
-    <section class="py-14 px-6 lg:px-8 bg-white border-y border-brand-navy/8">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-            <p class="text-brand-navy font-semibold text-lg tracking-tight">Klaar voor stilte? We meten gratis op locatie.</p>
-            <div class="flex flex-wrap gap-3">
-                <a href="#lead-form" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold">Gratis situatiecheck</a>
-                <a href="#contact" class="btn-outline px-6 py-3 rounded-full text-sm font-semibold">Vraag offerte</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- INSTALLATIES -->
-    <section id="installaties" class="py-24 lg:py-32 px-6 lg:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
-                <div>
-                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Installaties</span>
-                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Naadloos in elke omgeving</h2>
-                </div>
-                <p class="text-brand-navy/55 max-w-md text-base lg:text-lg font-light leading-relaxed">Van moderne nieuwbouw tot karakteristieke tuin — in elke gewenste RAL-kleur of Magnelis® afwerking.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-5 lg:gap-6">
-                <div class="reveal bento rounded-2xl overflow-hidden ring-1 ring-brand-navy/8">
-                    <div class="img-reveal aspect-[4/5] rounded-none">
-                        <img src="assets/images/product-heritage.jpg" alt="Echte Magnelis omkasting bij een gerenoveerde hoeve" class="w-full h-full object-cover" loading="lazy" decoding="async">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-brand-navy mb-1">Heritage garden</h3>
-                        <p class="text-brand-navy/50 text-sm">Echte installatie bij een gerenoveerde hoeve</p>
-                    </div>
-                </div>
-                <div class="reveal reveal-delay-1 bento rounded-2xl overflow-hidden ring-1 ring-brand-navy/8">
-                    <div class="img-reveal aspect-[4/5] rounded-none">
-                        <img src="assets/images/installs/install-bos-groen.jpg" alt="Groene akoestische omkasting bij houten tuinlodge in het bos" class="w-full h-full object-cover object-center" loading="lazy" decoding="async">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-brand-navy mb-1">Boslodge</h3>
-                        <p class="text-brand-navy/50 text-sm">RAL groen, bij houten cabin</p>
-                    </div>
-                </div>
-                <div class="reveal reveal-delay-2 bento rounded-2xl overflow-hidden ring-1 ring-brand-navy/8">
-                    <div class="img-reveal aspect-[4/5] rounded-none">
-                        <img src="assets/images/installs/install-poolhouse-wand.jpg" alt="Wandmodel REDUCD omkasting naast een poolhouse" class="w-full h-full object-cover object-bottom" loading="lazy" decoding="async">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-brand-navy mb-1">Outdoor living</h3>
-                        <p class="text-brand-navy/50 text-sm">Wandmodel bij poolhouse</p>
-                    </div>
-                </div>
-            </div>
-            <div class="reveal mt-10 flex flex-col md:flex-row md:justify-center md:items-center gap-2 md:gap-3">
-                <a href="projecten/" class="btn-outline px-6 lg:px-8 py-4 rounded-full font-semibold text-sm bg-white inline-flex items-center justify-center gap-2 text-center">
-                    Bekijk meer beelden van eerder gerealiseerde projecten
-                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
-                <a href="#maten" class="btn-outline px-6 lg:px-8 py-4 rounded-full font-semibold text-sm bg-white inline-flex items-center justify-center gap-2 text-center">
-                    Bekijk de verschillende maatvoeringen en prijsstellingen van de omkastingen
-                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
-            </div>
-        </div>
-    </section>
+    </div>
 
-    <!-- SPECS / MATEN -->
-    <section id="specs" class="py-24 lg:py-32 px-6 lg:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal mb-16">
-                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Technisch</span>
-                <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 tracking-tight">Specificaties</h2>
-                <div class="line-draw mt-8 max-w-xs"></div>
+    <section class="section price" id="specs">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow"><i></i> Technisch</p>
+                <h2>Vijf standaardmaten. Duidelijke prijzen.</h2>
+                <p class="lede">Magnelis® behuizing, RVS 316, gerecycled PET, 150 mm demper. Getest door Peutz, juli 2025.</p>
             </div>
-            <div class="reveal grid lg:grid-cols-2 gap-10 lg:gap-14 mb-12 items-center">
-                <div class="img-reveal aspect-[4/5] sm:aspect-[16/11] ring-1 ring-brand-navy/8">
-                    <img src="assets/images/detail-louver.jpg" alt="REDUCD louver detail" class="w-full h-full object-cover">
-                </div>
-                <div class="flex flex-col justify-center gap-6">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bento bg-brand-navy/[0.03] rounded-xl p-5 border border-brand-navy/8"><div class="text-[10px] font-bold text-brand-navy/45 uppercase tracking-widest mb-2">Behuizing</div><div class="font-bold text-lg text-brand-navy">Magnelis®</div></div>
-                        <div class="bento bg-brand-navy/[0.03] rounded-xl p-5 border border-brand-navy/8"><div class="text-[10px] font-bold text-brand-navy/45 uppercase tracking-widest mb-2">Bevestiging</div><div class="font-bold text-lg text-brand-navy">RVS 316</div></div>
-                        <div class="bento bg-brand-navy/[0.03] rounded-xl p-5 border border-brand-navy/8"><div class="text-[10px] font-bold text-brand-navy/45 uppercase tracking-widest mb-2">Absorptie</div><div class="font-bold text-lg text-brand-navy">Gerecycled PET</div></div>
-                        <div class="bento bg-brand-navy/[0.03] rounded-xl p-5 border border-brand-navy/8"><div class="text-[10px] font-bold text-brand-navy/45 uppercase tracking-widest mb-2">Demper</div><div class="font-bold text-lg text-brand-navy">150 mm</div></div>
-                    </div>
-                    <p class="text-brand-navy/55 text-sm leading-relaxed">Getest door Peutz, juli 2025 — conform ISO 3741:2010 &amp; ISO 7235:2003. Levering standaardmaten vaak binnen 1 week.</p>
-                    <p class="text-brand-navy font-semibold">Vanaf €&nbsp;2.335 · Magnelis® · zonder installatie</p>
-                </div>
-            </div>
-
-            <div id="maten" class="reveal mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-                <div>
-                    <h3 class="font-extrabold text-2xl lg:text-3xl text-brand-navy tracking-tight">Vijf standaardmaten</h3>
-                    <p class="text-brand-navy/50 text-sm mt-2 font-light">Binnenmaten / buitenmaten in mm. Exacte selectie na inmeting of via de <a href="#calculator" class="text-brand-navy font-medium underline underline-offset-2">maatcalculator</a>.</p>
-                </div>
-                <div class="flex flex-wrap gap-2 self-start">
-                    <a href="#calculator" class="btn-outline px-5 py-2.5 rounded-full text-sm font-semibold">Maatcalculator</a>
-                    <a href="#contact" class="btn-outline px-5 py-2.5 rounded-full text-sm font-semibold">Offerte op maat</a>
-                </div>
-            </div>
-            <div class="reveal overflow-x-auto spec-scroll rounded-xl ring-1 ring-brand-navy/8 bg-white">
-                <table class="w-full text-sm min-w-[720px]">
-                    <thead><tr class="bg-brand-navy text-white">
-                        <th class="px-5 py-4 text-left font-bold">Model</th>
-                        <th class="px-5 py-4 text-left font-medium">Maat</th>
-                        <th class="px-5 py-4 text-left font-medium">Hoogte B/b</th>
-                        <th class="px-5 py-4 text-left font-medium">Breedte B/b</th>
-                        <th class="px-5 py-4 text-left font-medium">Diepte B/b</th>
-                        <th class="px-5 py-4 text-left font-medium">dB</th>
-                        <th class="px-5 py-4 text-left font-medium">Vanaf</th>
+            <div id="maten" class="table-wrap reveal">
+                <table>
+                    <thead><tr>
+                        <th>Model</th><th>Maat</th><th>Hoogte B/b</th><th>Breedte B/b</th><th>Diepte B/b</th><th>dB</th><th>Vanaf</th>
                     </tr></thead>
-                    <tbody class="divide-y divide-brand-navy/8">
-                        <tr data-size-row="vrijstaand-S" class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">S</td><td class="px-5 py-4 text-brand-navy/65">990 / 1060</td><td class="px-5 py-4 text-brand-navy/65">1090 / 1220</td><td class="px-5 py-4 text-brand-navy/65">650 / 950</td><td class="px-5 py-4 text-brand-navy/65">± 14</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.335</td></tr>
-                        <tr data-size-row="vrijstaand-L" class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">L</td><td class="px-5 py-4 text-brand-navy/65">1350 / 1450</td><td class="px-5 py-4 text-brand-navy/65">1250 / 1410</td><td class="px-5 py-4 text-brand-navy/65">650 / 950</td><td class="px-5 py-4 text-brand-navy/65">± 14</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.865</td></tr>
-                        <tr data-size-row="vrijstaand-XL" class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Vrijstaand</td><td class="px-5 py-4 font-semibold">XL</td><td class="px-5 py-4 text-brand-navy/65">1670 / 1770</td><td class="px-5 py-4 text-brand-navy/65">1250 / 1410</td><td class="px-5 py-4 text-brand-navy/65">650 / 950</td><td class="px-5 py-4 text-brand-navy/65">± 14</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;3.365</td></tr>
-                        <tr data-size-row="wand-S" class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Wand</td><td class="px-5 py-4 font-semibold">S</td><td class="px-5 py-4 text-brand-navy/65">990 / 1050</td><td class="px-5 py-4 text-brand-navy/65">1060 / 1360</td><td class="px-5 py-4 text-brand-navy/65">650 / 805</td><td class="px-5 py-4 text-brand-navy/65">10–12</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.335</td></tr>
-                        <tr data-size-row="wand-L" class="hover:bg-brand-navy/[0.03] transition-colors"><td class="px-5 py-4 font-bold">Wand</td><td class="px-5 py-4 font-semibold">L</td><td class="px-5 py-4 text-brand-navy/65">1310 / 1370</td><td class="px-5 py-4 text-brand-navy/65">1250 / 1550</td><td class="px-5 py-4 text-brand-navy/65">800 / 955</td><td class="px-5 py-4 text-brand-navy/65">10–12</td><td class="px-5 py-4 text-brand-navy/65">€&nbsp;2.865</td></tr>
+                    <tbody>
+                        <tr data-size-row="vrijstaand-S"><td>Vrijstaand</td><td>S</td><td>990 / 1060</td><td>1090 / 1220</td><td>650 / 950</td><td>± 14</td><td>€ 2.335</td></tr>
+                        <tr data-size-row="vrijstaand-L"><td>Vrijstaand</td><td>L</td><td>1350 / 1450</td><td>1250 / 1410</td><td>650 / 950</td><td>± 14</td><td>€ 2.865</td></tr>
+                        <tr data-size-row="vrijstaand-XL"><td>Vrijstaand</td><td>XL</td><td>1670 / 1770</td><td>1250 / 1410</td><td>650 / 950</td><td>± 14</td><td>€ 3.365</td></tr>
+                        <tr data-size-row="wand-S"><td>Wand</td><td>S</td><td>990 / 1050</td><td>1060 / 1360</td><td>650 / 805</td><td>10–12</td><td>€ 2.335</td></tr>
+                        <tr data-size-row="wand-L"><td>Wand</td><td>L</td><td>1310 / 1370</td><td>1250 / 1550</td><td>800 / 955</td><td>10–12</td><td>€ 2.865</td></tr>
                     </tbody>
                 </table>
             </div>
-            <p class="reveal mt-4 text-xs text-brand-navy/40 font-light">Prijzen Magnelis® standaard, zonder installatie (indicatief). Poedercoating RAL en montage tegen meerprijs. Maatwerk op aanvraag.</p>
+            <p class="reveal" style="margin-top:0.8rem;font-size:0.78rem;color:var(--ink-faint)">Prijzen Magnelis® standaard, zonder installatie (indicatief). Poedercoating RAL en montage tegen meerprijs. Maatwerk op aanvraag.</p>
         </div>
     </section>
 
-    <!-- REGELGEVING -->
-    <section id="regelgeving" class="py-24 lg:py-28 px-6 lg:px-8 bg-brand-navy/[0.03]">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            <div class="reveal lg:col-span-5">
-                <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Regelgeving</span>
-                <h2 class="font-extrabold text-3xl lg:text-5xl text-brand-navy mt-4 tracking-tight leading-tight">Gewest, gemeente én buren</h2>
-                <p class="text-brand-navy/55 mt-5 text-base font-light leading-relaxed">In België is er geen één landelijke decibelnorm voor elke buitenunit. Geluid loopt via <strong class="text-brand-navy font-semibold">gewestelijke milieuregels</strong>, <strong class="text-brand-navy font-semibold">gemeentelijke verordeningen</strong> en <strong class="text-brand-navy font-semibold">burenhinder</strong>. Start met een situatiecheck — een meting op locatie volgt alleen als de case dat vraagt.</p>
-                <div class="mt-8 flex flex-wrap gap-3">
-                    <a href="vlarem/" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold">VLAREM-rekentool</a>
-                    <a href="blog/post.html?slug=warmtepomp-geluid-buren-overlast-vlaanderen" class="btn-outline px-6 py-3 rounded-full text-sm font-semibold">Lees het Belgische kader</a>
-                </div>
+    <section class="section gallery" id="blog">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow"><i></i> Blog</p>
+                <h2>Stilte in de praktijk.</h2>
             </div>
-            <div class="reveal reveal-delay-1 lg:col-span-7 grid sm:grid-cols-2 gap-4">
-                <div class="bg-white rounded-2xl p-7 border border-brand-navy/8">
-                    <div class="text-[10px] font-bold uppercase tracking-widest text-brand-navy/40 mb-3">Vlaanderen</div>
-                    <div class="font-extrabold text-4xl text-brand-navy tracking-tight">VLAREM</div>
-                    <p class="text-sm text-brand-navy/55 mt-3 font-light leading-relaxed">Gewestelijke milieuregels, plus wat je gemeente extra toetst bij klacht of vergunning. <a href="vlarem/" class="text-brand-navy font-medium underline underline-offset-2">Reken de perceelsgrens</a>.</p>
-                </div>
-                <div class="bg-white rounded-2xl p-7 border border-brand-navy/8">
-                    <div class="text-[10px] font-bold uppercase tracking-widest text-brand-navy/40 mb-3">Brussel &amp; Wallonië</div>
-                    <div class="font-extrabold text-4xl text-brand-navy tracking-tight">Lokaal</div>
-                    <p class="text-sm text-brand-navy/55 mt-3 font-light leading-relaxed">Eigen gewestkaders én burenhinder. Meting blijft de veiligste start — overal in België.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- VIDEO + DOWNLOADS — compact player -->
-    <section id="uitleg" class="py-20 lg:py-24 px-6 lg:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-                <div class="lg:col-span-6">
-                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Uitleg</span>
-                    <h2 class="font-extrabold text-3xl lg:text-4xl text-brand-navy mt-4 tracking-tight">Hoe werkt het — in 2 minuten</h2>
-                    <p class="text-brand-navy/55 mt-4 max-w-md font-light leading-relaxed text-sm lg:text-base">Korte uitleg over demping, luchtweg en installatie. Download daarna brochure of handleiding.</p>
-                    <div class="mt-6 flex flex-wrap gap-3">
-                        <a href="mailto:info@reducd.be?subject=Brochure%20aanvragen" class="btn-outline px-5 py-2.5 rounded-full text-sm font-semibold">Brochure (PDF)</a>
-                        <a href="mailto:info@reducd.be?subject=Installatiehandleiding%20aanvragen" class="btn-outline px-5 py-2.5 rounded-full text-sm font-semibold">Handleiding</a>
-                    </div>
-                    <div class="mt-6 flex flex-wrap gap-3">
-                        <a href="#lead-form" class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold">Gratis situatiecheck</a>
-                        <a href="#contact" class="btn-outline px-5 py-2.5 rounded-full text-sm font-semibold">Vraag offerte</a>
-                    </div>
-                </div>
-                <div class="lg:col-span-6 flex lg:justify-end">
-                    <div class="w-full max-w-[22rem] sm:max-w-sm">
-                        <div class="relative rounded-2xl overflow-hidden ring-1 ring-brand-navy/10 bg-brand-navy shadow-lg shadow-brand-navy/10 aspect-video">
-                            <iframe
-                                class="absolute inset-0 w-full h-full"
-                                src="https://www.youtube-nocookie.com/embed/8CJLvJUjWmk"
-                                title="Hoe werkt een REDUCD akoestische omkasting"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen
-                                loading="lazy"
-                            ></iframe>
-                        </div>
-                        <p class="mt-3 text-[11px] text-brand-navy/40 font-light text-center sm:text-left">
-                            Originele video ·
-                            <a href="https://youtu.be/8CJLvJUjWmk" class="underline hover:text-brand-navy" target="_blank" rel="noopener noreferrer">YouTube</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section id="proces" class="py-24 lg:py-32 px-6 lg:px-8 bg-brand-navy text-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal text-center mb-16 lg:mb-20">
-                <span class="text-[11px] font-bold text-white/40 uppercase tracking-[0.25em]">Proces</span>
-                <h2 class="font-extrabold text-4xl lg:text-5xl mt-4 tracking-tight">Van idee tot installatie</h2>
-                <p class="text-white/50 mt-4 text-base lg:text-lg font-light max-w-xl mx-auto leading-relaxed">Vier stappen naar jouw stille warmtepomp. Gratis intake met geluidsmeting op locatie.</p>
-            </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <div class="reveal bento rounded-2xl p-8 border border-white/10 bg-white/5 text-center">
-                    <div class="w-11 h-11 rounded-full border border-white/20 text-white font-bold flex items-center justify-center mx-auto mb-6">1</div>
-                    <h4 class="font-bold text-lg mb-3">Inspiratie</h4>
-                    <p class="text-white/45 text-sm leading-relaxed">Bekijk modellen, vraag een brochure aan.</p>
-                </div>
-                <div class="reveal reveal-delay-1 bento rounded-2xl p-8 border border-white/10 bg-white/5 text-center">
-                    <div class="w-11 h-11 rounded-full border border-white/20 text-white font-bold flex items-center justify-center mx-auto mb-6">2</div>
-                    <h4 class="font-bold text-lg mb-3">Intake</h4>
-                    <p class="text-white/45 text-sm leading-relaxed">Gratis en vrijblijvend — telefonisch of op locatie.</p>
-                </div>
-                <div class="reveal reveal-delay-2 bento rounded-2xl p-8 border border-white/10 bg-white/5 text-center">
-                    <div class="w-11 h-11 rounded-full border border-white/20 text-white font-bold flex items-center justify-center mx-auto mb-6">3</div>
-                    <h4 class="font-bold text-lg mb-3">Offerte</h4>
-                    <p class="text-white/45 text-sm leading-relaxed">Binnen enkele dagen. Reactie binnen 24 uur.</p>
-                </div>
-                <div class="reveal reveal-delay-3 bento rounded-2xl p-8 border border-white/10 bg-white/5 text-center">
-                    <div class="w-11 h-11 rounded-full border border-white/20 text-white font-bold flex items-center justify-center mx-auto mb-6">4</div>
-                    <h4 class="font-bold text-lg mb-3">Installatie</h4>
-                    <p class="text-white/45 text-sm leading-relaxed">12 boutjes, binnen 1 uur. Of door ons team.</p>
-                </div>
-            </div>
-            <div class="reveal mt-12 flex flex-wrap justify-center gap-3">
-                <a href="#lead-form" class="inline-flex bg-white text-brand-navy px-7 py-3.5 rounded-full text-sm font-semibold">Gratis situatiecheck</a>
-                <a href="#contact" class="inline-flex border border-white/30 text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 transition-colors">Vraag offerte</a>
-                <a href="docs/view.html?id=brochure&amp;for=particulier" class="inline-flex border border-white/30 text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 transition-colors">Brochure</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- OVER ONS -->
-    <section id="over-ons" class="py-24 lg:py-32 px-6 lg:px-8 bg-brand-navy/[0.03]">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div class="reveal order-2 lg:order-1">
-                    <div class="img-reveal aspect-[4/5] shadow-xl shadow-brand-navy/10 ring-1 ring-brand-navy/5">
-                        <img src="assets/images/installs/install-poolhouse-vrijstaand.jpg" alt="Vrijstaande REDUCD omkasting naast een poolhouse" class="w-full h-full object-cover object-bottom" loading="lazy" decoding="async">
-                    </div>
-                </div>
-                <div class="reveal reveal-delay-1 order-1 lg:order-2">
-                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Over REDUCD</span>
-                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 mb-8 leading-tight tracking-tight">Duurzaam verwarmen<br><span class="text-brand-navy/40 font-light">zonder geluidsoverlast</span></h2>
-                    <div class="space-y-5 text-brand-navy/60 text-base lg:text-lg font-light leading-relaxed">
-                        <p>Bij REDUCD helpen we je om opnieuw in alle rust te wonen, zelfs mét een actieve warmtepomp. Onze geluidskasten beperken de geluidsoverlast aanzienlijk — voor jou én je buren.</p>
-                        <p>Al onze omkastingen worden lokaal geproduceerd met gerecyclede materialen. Elke kast wordt gebouwd volgens het <strong class="text-brand-navy font-semibold">Built to Last</strong>-principe.</p>
-                    </div>
-                    <div class="mt-10 grid grid-cols-3 gap-4">
-                        <div class="bg-white rounded-xl p-5 border border-brand-navy/8 text-center"><div class="font-extrabold text-2xl text-brand-navy">2020</div><div class="text-[10px] text-brand-navy/40 uppercase tracking-widest mt-1">Opgestart</div></div>
-                        <div class="bg-white rounded-xl p-5 border border-brand-navy/8 text-center"><div class="font-extrabold text-2xl text-brand-navy">BE</div><div class="text-[10px] text-brand-navy/40 uppercase tracking-widest mt-1">Actief</div></div>
-                        <div class="bg-white rounded-xl p-5 border border-brand-navy/8 text-center"><div class="font-extrabold text-2xl text-brand-navy">14</div><div class="text-[10px] text-brand-navy/40 tracking-widest unit-db mt-1">dB(A)</div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PEUTZ + REVIEWS -->
-    <section id="reviews" class="py-24 lg:py-32 px-6 lg:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal mb-14 grid md:grid-cols-2 gap-5 lg:gap-6">
-                <div class="rounded-2xl bg-brand-navy text-white p-8 lg:p-10">
-                    <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 mb-4">Onafhankelijke proof</p>
-                    <h3 class="font-extrabold text-2xl lg:text-3xl tracking-tight mb-3">Peutz · juli 2025</h3>
-                    <p class="text-white/60 text-sm font-light leading-relaxed mb-6">Geluidsmetingen conform ISO 3741:2010 &amp; ISO 7235:2003. Gemiddeld <strong class="text-white font-semibold">14 dB(A)</strong> reductie — tot 75% waargenomen stiller.</p>
-                    <a href="docs/view.html?id=meetrapport&amp;for=particulier" class="inline-flex bg-white text-brand-navy px-5 py-2.5 rounded-full text-sm font-semibold">Lees meetrapport</a>
-                </div>
-                <div class="rounded-2xl border border-brand-navy/10 bg-brand-navy/[0.03] p-8 lg:p-10 flex flex-col justify-between">
+            <div id="home-blog-grid" class="blog-grid">
+                <a href="blog/post.html?slug=warmtepomp-geluidsoverlast-verminderen" class="blog-card reveal">
+                    <img src="assets/images/installs/install-patio-olijf.webp" alt="Warmtepomp te luid? Zo verminder je geluidsoverlast">
                     <div>
-                        <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-navy/40 mb-4">Klanten op Google</p>
-                        <div class="font-extrabold text-4xl text-brand-navy tracking-tight">4,9 / 5</div>
-                        <p class="text-brand-navy/55 text-sm font-light mt-2">60+ Google-reviews</p>
-                    </div>
-                    <a href="https://maps.app.goo.gl/i8iqMkF2s24Ydeah9" target="_blank" rel="noopener noreferrer" class="btn-outline mt-8 px-5 py-2.5 rounded-full text-sm font-semibold self-start inline-flex">Alle Google-reviews</a>
-                </div>
-            </div>
-
-            <div class="reveal mb-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
-                <div>
-                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Google reviews</span>
-                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 tracking-tight">Wat onze klanten zeggen</h2>
-                    <div class="mt-5 flex flex-wrap items-center gap-3">
-                        <div class="flex items-center gap-1 text-brand-navy" aria-label="4,9 van 5 sterren">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        </div>
-                        <p class="text-sm text-brand-navy/55 font-light"><strong class="text-brand-navy font-semibold">4,9 / 5</strong> · op basis van 60 Google-reviews</p>
-                    </div>
-                </div>
-                <a href="#lead-form" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold inline-flex items-center gap-2 self-start">
-                    Gratis situatiecheck
-                </a>
-            </div>
-
-            <!-- Tiny Google photos carousel -->
-            <div class="reveal mb-12" id="googlePhotos">
-                <div class="flex items-center justify-between gap-4 mb-3">
-                    <p class="text-[10px] font-bold text-brand-navy/40 uppercase tracking-[0.22em]">Foto’s van Google</p>
-                    <div class="flex items-center gap-2">
-                        <button type="button" class="google-photo-btn" data-google-photo-prev aria-label="Vorige foto’s">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                        </button>
-                        <button type="button" class="google-photo-btn" data-google-photo-next aria-label="Volgende foto’s">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="google-photo-track flex gap-2 overflow-x-auto snap-x snap-mandatory" data-google-photo-track></div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-5">
-                <article class="reveal bento bg-white rounded-2xl p-8 border border-brand-navy/8 flex flex-col">
-                    <div class="flex gap-0.5 text-brand-navy mb-4" aria-hidden="true">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                    </div>
-                    <p class="text-brand-navy/65 leading-relaxed flex-1 font-light text-sm">“Dankzij de omkasting van Reducd is het geluid nu teruggebracht naar 43 dB overdag. De verwachte verlaging wordt ruimschoots gehaald. Vanaf het eerste contact voelde het goed — Sten adviseerde ons op locatie.”</p>
-                    <div class="mt-8 pt-6 border-t border-brand-navy/8 flex items-center justify-between gap-4">
-                        <div class="flex items-center gap-4 min-w-0">
-                            <div class="w-10 h-10 rounded-full bg-brand-navy text-white font-bold text-sm flex items-center justify-center shrink-0">MV</div>
-                            <div class="min-w-0">
-                                <div class="font-bold text-brand-navy">Marco V. G.</div>
-                                <div class="text-[10px] text-brand-navy/40 uppercase tracking-widest">Google review · 5/5</div>
-                            </div>
-                        </div>
-                        <a href="https://maps.app.goo.gl/i8iqMkF2s24Ydeah9" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[10px] text-brand-navy/35 hover:text-brand-navy underline underline-offset-2 decoration-brand-navy/20 hover:decoration-brand-navy/50 transition-colors">Verifieer op Google</a>
-                    </div>
-                </article>
-                <article class="reveal reveal-delay-1 bento bg-brand-navy rounded-2xl p-8 text-white flex flex-col">
-                    <div class="flex gap-0.5 text-white mb-4" aria-hidden="true">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                    </div>
-                    <p class="text-white/65 leading-relaxed flex-1 font-light text-sm">“De mannen van Reducd hebben uitstekend werk geleverd. Het geluid is merkbaar afgenomen; het verschil is groot en onze buren zijn ook erg tevreden. Geen goedkope uitgave, maar absoluut het geld waard.”</p>
-                    <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between gap-4">
-                        <div class="flex items-center gap-4 min-w-0">
-                            <div class="w-10 h-10 rounded-full bg-white text-brand-navy font-bold text-sm flex items-center justify-center shrink-0">AA</div>
-                            <div class="min-w-0">
-                                <div class="font-bold">Adriaan A.</div>
-                                <div class="text-[10px] text-white/40 uppercase tracking-widest">Google review · 5/5</div>
-                            </div>
-                        </div>
-                        <a href="https://maps.app.goo.gl/i8iqMkF2s24Ydeah9" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[10px] text-white/35 hover:text-white underline underline-offset-2 decoration-white/20 hover:decoration-white/50 transition-colors">Verifieer op Google</a>
-                    </div>
-                </article>
-                <article class="reveal reveal-delay-2 bento bg-brand-navy/[0.04] rounded-2xl p-8 border border-brand-navy/8 flex flex-col">
-                    <div class="flex gap-0.5 text-brand-navy mb-4" aria-hidden="true">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                    </div>
-                    <p class="text-brand-navy/65 leading-relaxed flex-1 font-light text-sm">“Super tevreden met REDUCD! Duidelijke folder, goed advies en een geluidsmeting op locatie. Goede service en vriendelijke mensen — het scheelt echt een bak herrie.”</p>
-                    <div class="mt-8 pt-6 border-t border-brand-navy/10 flex items-center justify-between gap-4">
-                        <div class="flex items-center gap-4 min-w-0">
-                            <div class="w-10 h-10 rounded-full bg-brand-navy text-white font-bold text-sm flex items-center justify-center shrink-0">IR</div>
-                            <div class="min-w-0">
-                                <div class="font-bold text-brand-navy">Ivo R.</div>
-                                <div class="text-[10px] text-brand-navy/40 uppercase tracking-widest">Google review · 5/5</div>
-                            </div>
-                        </div>
-                        <a href="https://maps.app.goo.gl/i8iqMkF2s24Ydeah9" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[10px] text-brand-navy/35 hover:text-brand-navy underline underline-offset-2 decoration-brand-navy/20 hover:decoration-brand-navy/50 transition-colors">Verifieer op Google</a>
-                    </div>
-                </article>
-            </div>
-            <div class="reveal mt-5 grid md:grid-cols-3 gap-5">
-                <article class="bento bg-white rounded-2xl p-8 border border-brand-navy/8 flex flex-col">
-                    <div class="flex gap-0.5 text-brand-navy mb-4" aria-hidden="true">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                    </div>
-                    <p class="text-brand-navy/65 leading-relaxed flex-1 font-light text-sm">“Vakmensen. Duidelijke informatie vooraf. De plaatsing is uitermate netjes en vakkundig afgehandeld. Geluid is enorm gereduceerd. Meer dan tevreden!”</p>
-                    <div class="mt-8 pt-6 border-t border-brand-navy/8 flex items-center justify-between gap-4">
-                        <div class="flex items-center gap-4 min-w-0">
-                            <div class="w-10 h-10 rounded-full bg-brand-navy text-white font-bold text-sm flex items-center justify-center shrink-0">RH</div>
-                            <div class="min-w-0">
-                                <div class="font-bold text-brand-navy">René H.</div>
-                                <div class="text-[10px] text-brand-navy/40 uppercase tracking-widest">Google review · 5/5</div>
-                            </div>
-                        </div>
-                        <a href="https://maps.app.goo.gl/i8iqMkF2s24Ydeah9" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[10px] text-brand-navy/35 hover:text-brand-navy underline underline-offset-2 decoration-brand-navy/20 hover:decoration-brand-navy/50 transition-colors">Verifieer op Google</a>
-                    </div>
-                </article>
-                <article class="bento bg-white rounded-2xl p-8 border border-brand-navy/8 flex flex-col">
-                    <div class="flex gap-0.5 text-brand-navy mb-4" aria-hidden="true">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                    </div>
-                    <p class="text-brand-navy/65 leading-relaxed flex-1 font-light text-sm">“Professionele club. Sten is langsgekomen voor metingen en een passende offerte. De kast is mooi en reduceert het geluid heel goed. Wij zijn tevreden!”</p>
-                    <div class="mt-8 pt-6 border-t border-brand-navy/8 flex items-center justify-between gap-4">
-                        <div class="flex items-center gap-4 min-w-0">
-                            <div class="w-10 h-10 rounded-full bg-brand-navy text-white font-bold text-sm flex items-center justify-center shrink-0">CL</div>
-                            <div class="min-w-0">
-                                <div class="font-bold text-brand-navy">Caroline L.</div>
-                                <div class="text-[10px] text-brand-navy/40 uppercase tracking-widest">Google review · 5/5</div>
-                            </div>
-                        </div>
-                        <a href="https://maps.app.goo.gl/i8iqMkF2s24Ydeah9" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[10px] text-brand-navy/35 hover:text-brand-navy underline underline-offset-2 decoration-brand-navy/20 hover:decoration-brand-navy/50 transition-colors">Verifieer op Google</a>
-                    </div>
-                </article>
-                <article class="bento bg-white rounded-2xl p-8 border border-brand-navy/8 flex flex-col">
-                    <div class="flex gap-0.5 text-brand-navy mb-4" aria-hidden="true">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                        <svg class="w-4 h-4 fill-current opacity-30" viewBox="0 0 20 20"><path d="M10 1.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L10 13.9l-4.8 2.52.92-5.34L2.24 7.14l5.36-.78L10 1.5z"/></svg>
-                    </div>
-                    <p class="text-brand-navy/65 leading-relaxed flex-1 font-light text-sm">“Op maat gemaakt wandmodel. De hoge tonen horen we niet meer — de ergernis is weg. Mooie constructie van degelijk materiaal. Installatie door Reducd was netjes en snel.”</p>
-                    <div class="mt-8 pt-6 border-t border-brand-navy/8 flex items-center justify-between gap-4">
-                        <div class="flex items-center gap-4 min-w-0">
-                            <div class="w-10 h-10 rounded-full bg-brand-navy text-white font-bold text-sm flex items-center justify-center shrink-0">RB</div>
-                            <div class="min-w-0">
-                                <div class="font-bold text-brand-navy">René B. · Fam. Berends</div>
-                                <div class="text-[10px] text-brand-navy/40 uppercase tracking-widest">Google review · 4/5</div>
-                            </div>
-                        </div>
-                        <a href="https://maps.app.goo.gl/i8iqMkF2s24Ydeah9" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[10px] text-brand-navy/35 hover:text-brand-navy underline underline-offset-2 decoration-brand-navy/20 hover:decoration-brand-navy/50 transition-colors">Verifieer op Google</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- BLOG TEASER -->
-    <section id="blog" class="pt-24 lg:pt-32 pb-8 lg:pb-10 px-6 lg:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
-                <div>
-                    <span class="text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">Blog</span>
-                    <h2 class="font-extrabold text-4xl lg:text-5xl text-brand-navy mt-4 leading-tight tracking-tight">Stilte in de praktijk</h2>
-                </div>
-                <a href="blog/" class="btn-outline px-6 py-3 rounded-full text-sm font-semibold inline-flex self-start">Alle artikelen →</a>
-            </div>
-            <div id="home-blog-grid" class="grid md:grid-cols-3 gap-5 lg:gap-6">
-                <a href="blog/post.html?slug=warmtepomp-geluidsoverlast-verminderen" class="reveal bento block rounded-2xl overflow-hidden ring-1 ring-brand-navy/8 bg-white">
-                    <div class="aspect-[16/10] overflow-hidden bg-brand-navy/[0.04]"><img src="assets/images/installs/install-patio-olijf.webp" alt="Warmtepomp te luid? Zo verminder je geluidsoverlast" class="w-full h-full object-cover"></div>
-                    <div class="p-6">
-                        <div class="text-[10px] uppercase tracking-widest text-brand-navy/40 mb-2">12 augustus 2026</div>
-                        <h3 class="font-bold text-lg text-brand-navy tracking-tight mb-2">Warmtepomp te luid? Zo verminder je geluidsoverlast</h3>
-                        <p class="text-sm text-brand-navy/55 font-light line-clamp-3">Een warmtepomp is zuinig, maar het buitengeluid kan storend zijn. Wat decibels écht betekenen, en hoe je het geluid structureel terugbrengt.</p>
+                        <time>12 augustus 2026</time>
+                        <h3>Warmtepomp te luid? Zo verminder je geluidsoverlast</h3>
+                        <p>Wat decibels écht betekenen, en hoe je het geluid structureel terugbrengt.</p>
                     </div>
                 </a>
-                <a href="blog/post.html?slug=akoestische-omkasting-vs-suskast" class="reveal reveal-delay-1 bento block rounded-2xl overflow-hidden ring-1 ring-brand-navy/8 bg-white">
-                    <div class="aspect-[16/10] overflow-hidden bg-brand-navy/[0.04]"><img src="assets/images/google/photo-14.jpg" alt="Akoestische omkasting of suskast: wat is het verschil?" class="w-full h-full object-cover"></div>
-                    <div class="p-6">
-                        <div class="text-[10px] uppercase tracking-widest text-brand-navy/40 mb-2">8 juli 2026</div>
-                        <h3 class="font-bold text-lg text-brand-navy tracking-tight mb-2">Akoestische omkasting of suskast: wat is het verschil?</h3>
-                        <p class="text-sm text-brand-navy/55 font-light line-clamp-3">Suskast, geluidskast, omkasting: drie woorden, niet altijd hetzelfde product. Waarom een sierkap het geluid zelden oplost.</p>
-                    </div>
-                </a>
-                <a href="blog/post.html?slug=warmtepomp-geluid-buren-overlast-vlaanderen" class="reveal reveal-delay-2 bento block rounded-2xl overflow-hidden ring-1 ring-brand-navy/8 bg-white">
-                    <div class="aspect-[16/10] overflow-hidden bg-brand-navy/[0.04]"><img src="assets/images/google/photo-09.jpg" alt="Warmtepompgeluid en burenoverlast in Vlaanderen" class="w-full h-full object-cover"></div>
-                    <div class="p-6">
-                        <div class="text-[10px] uppercase tracking-widest text-brand-navy/40 mb-2">4 augustus 2026</div>
-                        <h3 class="font-bold text-lg text-brand-navy tracking-tight mb-2">Warmtepompgeluid en burenoverlast: wat te doen in Vlaanderen?</h3>
-                        <p class="text-sm text-brand-navy/55 font-light line-clamp-3">Eerst meten en praten, dan dempen. Een klacht bij de gemeente is duurder dan een kast. De volgorde voor Vlaamse perceelgrenzen.</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="pt-2 pb-16 lg:pt-4 lg:pb-20 px-6 lg:px-8 bg-white">
-        <div class="max-w-7xl mx-auto reveal">
-            <details id="faq-panel" class="faq-section">
-                <summary>
+                <a href="blog/post.html?slug=akoestische-omkasting-vs-suskast" class="blog-card reveal">
+                    <img src="assets/images/google/photo-14.jpg" alt="Akoestische omkasting of suskast">
                     <div>
-                        <span class="block text-[11px] font-bold text-brand-navy/45 uppercase tracking-[0.25em]">FAQ</span>
-                        <h2 class="font-extrabold text-2xl lg:text-3xl text-brand-navy mt-2 tracking-tight">Veelgestelde vragen</h2>
-                        <span class="block text-sm text-brand-navy/50 font-light mt-2">Klik om te openen · 10 vragen</span>
+                        <time>8 juli 2026</time>
+                        <h3>Akoestische omkasting of suskast: wat is het verschil?</h3>
+                        <p>Waarom een sierkap het geluid zelden oplost.</p>
                     </div>
-                </summary>
-                <div class="faq-section-body">
-                <details class="faq-item">
-                    <summary>Hoeveel geluid reduceert een REDUCD omkasting?</summary>
-                    <p class="faq-a">Gemiddeld 14 dB(A) bij het vrijstaand model. Tot 75% stiller in waargenomen luidheid (niet in geluidsenergie, geen garantie voor elke situatie). Getest door Peutz (juli 2025) conform ISO 3741:2010 en ISO 7235:2003. Het wandmodel reduceert typisch 10–12 dB(A).</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Wat kost een akoestische omkasting?</summary>
-                    <p class="faq-a">Standaardmaten starten vanaf €&nbsp;2.335 (Magnelis, zonder installatie). Poedercoating in RAL-kleur en montage zijn optioneel tegen meerprijs. Maatwerk op aanvraag.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Wat is het verschil tussen een sierkap en een akoestische omkasting?</summary>
-                    <p class="faq-a">Een esthetische cover verhult de unit maar dempt nauwelijks. Een REDUCD-omkasting heeft een 150 mm demper, gerecycled PET-absorptie en een berekende luchtweg, zodat geluid én rendement kloppen.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Welke geluidsnormen gelden in België?</summary>
-                    <p class="faq-a">België kent geen één landelijke erfgrensnorm. Geluid van een buitenunit loopt via gewestelijke milieuregels (Vlaanderen, Brussel, Wallonië), gemeentelijke verordeningen en burenhinder. In Vlaanderen toets je het specifieke geluid aan VLAREM-richtwaarden (woongebied 45 / 40 / 35 dB(A)). <a href="vlarem/" class="text-brand-navy font-medium underline underline-offset-2">Open de VLAREM-rekentool</a> of start met een <a href="#lead-form" class="text-brand-navy font-medium underline underline-offset-2"><span class="accent-gratis">gratis</span> situatiecheck</a>.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Kies ik een vrijstaand model of een wandmodel?</summary>
-                    <p class="faq-a">Vrijstaand (S / L / XL) past bij units in de tuin, oprit of platdak met ± 50 cm vrije ruimte. Wandmodel (S / L) is voor units met de rug tegen de gevel of weinig diepte tot pad of perceelgrens.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Hoe weet ik welke maat ik nodig heb?</summary>
-                    <p class="faq-a">Vul hoogte, breedte en diepte van de buitenunit in de <a href="#calculator" class="text-brand-navy font-medium underline underline-offset-2">maatcalculator</a>. We kiezen de kleinste standaardmaat en tonen of de pasvorm ruim (≥&nbsp;100&nbsp;mm speling), ideaal (40–99&nbsp;mm) of krap (&lt;&nbsp;40&nbsp;mm) is. Past de unit niet in S / L / XL, dan is het maatwerk.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Hoe snel kan ik een omkasting krijgen?</summary>
-                    <p class="faq-a">Standaardmaten zijn vaak binnen een week leverbaar. Montage duurt doorgaans ongeveer een uur (12 boutjes), zelf of door het REDUCD-team. Maatwerk volgens afspraak.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Is de geluidsmeting in België gratis?</summary>
-                    <p class="faq-a">Ja. We starten met een gratis situatiecheck op afstand. Een meting op locatie volgt alleen als de case daarvoor in aanmerking komt. We beantwoorden aanvragen binnen 24 uur. <a href="#lead-form" class="text-brand-navy font-medium underline underline-offset-2">Vraag een situatiecheck aan</a>. Brochure, handleidingen en het Peutz-rapport staan in de <a href="docs/" class="text-brand-navy font-medium underline underline-offset-2">documentatie</a>.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Hoe controleer ik of ik aan de VLAREM-normen voldoe?</summary>
-                    <p class="faq-a">Met onze <a href="vlarem/" class="text-brand-navy font-medium underline underline-offset-2">VLAREM-rekentool</a>: kies merk en type (of vul dB handmatig in), de afstand tot de perceelsgrens en of je tussen muren of in een vrij veld staat. Dat geeft een theoretische restwaarde — geen meting. Daarna blijft een situatiecheck of, indien nodig, een meting op locatie mogelijk.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Werkt een REDUCD-omkasting ook voor airco?</summary>
-                    <p class="faq-a">Ja. De omkastingen zijn gemaakt voor buitenunits van warmtepompen én airco. De maat volgt de unit, niet het merk.</p>
-                </details>
-                <a href="#contact" class="btn-primary inline-flex mt-8 px-6 py-3 rounded-full text-sm font-semibold">Vraag staat er niet bij? Mail ons</a>
-                </div>
-            </details>
+                </a>
+                <a href="blog/post.html?slug=warmtepomp-geluid-buren-overlast-vlaanderen" class="blog-card reveal">
+                    <img src="assets/images/google/photo-09.jpg" alt="Warmtepompgeluid en burenoverlast in Vlaanderen">
+                    <div>
+                        <time>4 augustus 2026</time>
+                        <h3>Warmtepompgeluid en burenoverlast in Vlaanderen</h3>
+                        <p>Eerst meten en praten, dan dempen.</p>
+                    </div>
+                </a>
+            </div>
+            <div id="home-blog-taper" class="blog-taper"></div>
+            <div class="gallery-links reveal"><a href="blog/" class="btn btn-line">Alle artikelen</a></div>
         </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="py-24 lg:py-32 px-6 lg:px-8 bg-brand-navy/[0.03]">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal text-center mb-16">
-                <h2 class="font-extrabold text-4xl lg:text-6xl text-brand-navy tracking-tight mb-6">De rust is nabij</h2>
-                <p class="text-brand-navy/55 text-lg lg:text-xl max-w-xl mx-auto font-light leading-relaxed">Vraag een gratis situatiecheck aan. Een meting op locatie volgt alleen als de case dat vraagt. Reactie binnen 24 uur. Vanaf €&nbsp;2.335.</p>
-                <div class="mt-10 flex flex-col sm:flex-row flex-wrap justify-center items-stretch sm:items-center gap-4 max-w-md sm:max-w-none mx-auto">
-                    <a href="#lead-form" class="btn-primary px-10 py-5 rounded-full text-base lg:text-lg font-semibold inline-flex items-center justify-center gap-3 shadow-lg shadow-brand-navy/20">
-                        Gratis situatiecheck
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                    <a href="mailto:info@reducd.be?subject=Offerte%20aanvragen" class="btn-outline px-8 py-4 rounded-full text-sm font-semibold inline-flex items-center justify-center">Vraag offerte</a>
+    <section class="section faq" id="faq">
+        <div class="wrap">
+            <div id="faq-panel">
+                <div class="section-head reveal">
+                    <p class="eyebrow"><i></i> FAQ</p>
+                    <h2>Tien antwoorden voor je een check vraagt.</h2>
                 </div>
-                <p class="mt-5 text-sm font-medium text-brand-navy/50 tracking-wide">Eerst check · daarna eventueel meting · reactie binnen 24 uur</p>
+                <details class="faq-item"><summary>Hoeveel geluid reduceert een REDUCD omkasting?</summary><p class="faq-a">Gemiddeld 14 dB(A) bij het vrijstaand model. Tot 75% stiller in waargenomen luidheid (niet in geluidsenergie, geen garantie voor elke situatie). Getest door Peutz (juli 2025) conform ISO 3741:2010 en ISO 7235:2003. Het wandmodel reduceert typisch 10–12 dB(A).</p></details>
+                <details class="faq-item"><summary>Wat kost een akoestische omkasting?</summary><p class="faq-a">Standaardmaten starten vanaf €&nbsp;2.335 (Magnelis, zonder installatie). Poedercoating in RAL-kleur en montage zijn optioneel tegen meerprijs. Maatwerk op aanvraag.</p></details>
+                <details class="faq-item"><summary>Wat is het verschil tussen een sierkap en een akoestische omkasting?</summary><p class="faq-a">Een esthetische cover verhult de unit maar dempt nauwelijks. Een REDUCD-omkasting heeft een 150 mm demper, gerecycled PET-absorptie en een berekende luchtweg, zodat geluid én rendement kloppen.</p></details>
+                <details class="faq-item"><summary>Welke geluidsnormen gelden in België?</summary><p class="faq-a">België kent geen één landelijke erfgrensnorm. Geluid van een buitenunit loopt via gewestelijke milieuregels (Vlaanderen, Brussel, Wallonië), gemeentelijke verordeningen en burenhinder. In Vlaanderen toets je het specifieke geluid aan VLAREM-richtwaarden (woongebied 45 / 40 / 35 dB(A)). <a href="vlarem/">Open de VLAREM-rekentool</a> of start met een <a href="#lead-form">gratis situatiecheck</a>.</p></details>
+                <details class="faq-item"><summary>Kies ik een vrijstaand model of een wandmodel?</summary><p class="faq-a">Vrijstaand (S / L / XL) past bij units in de tuin, oprit of platdak met ± 50 cm vrije ruimte. Wandmodel (S / L) is voor units met de rug tegen de gevel of weinig diepte tot pad of perceelgrens.</p></details>
+                <details class="faq-item"><summary>Hoe weet ik welke maat ik nodig heb?</summary><p class="faq-a">Vul hoogte, breedte en diepte van de buitenunit in de <a href="#calculator">maatcalculator</a>. We kiezen de kleinste standaardmaat en tonen of de pasvorm ruim (≥&nbsp;100&nbsp;mm speling), ideaal (40–99&nbsp;mm) of krap (&lt;&nbsp;40&nbsp;mm) is. Past de unit niet in S / L / XL, dan is het maatwerk.</p></details>
+                <details class="faq-item"><summary>Hoe snel kan ik een omkasting krijgen?</summary><p class="faq-a">Standaardmaten zijn vaak binnen een week leverbaar. Montage duurt doorgaans ongeveer een uur (12 boutjes), zelf of door het REDUCD-team. Maatwerk volgens afspraak.</p></details>
+                <details class="faq-item"><summary>Is de geluidsmeting in België gratis?</summary><p class="faq-a">Ja. We starten met een gratis situatiecheck op afstand. Een meting op locatie volgt alleen als de case daarvoor in aanmerking komt. We beantwoorden aanvragen binnen 24 uur. Brochure, handleidingen en het Peutz-rapport staan in de <a href="docs/">documentatie</a>.</p></details>
+                <details class="faq-item"><summary>Hoe controleer ik of ik aan de VLAREM-normen voldoe?</summary><p class="faq-a">Met onze <a href="vlarem/">VLAREM-rekentool</a>: kies merk en type (of vul dB handmatig in), de afstand tot de perceelsgrens en of je tussen muren of in een vrij veld staat. Dat geeft een theoretische restwaarde — geen meting.</p></details>
+                <details class="faq-item"><summary>Werkt een REDUCD-omkasting ook voor airco?</summary><p class="faq-a">Ja. De omkastingen zijn gemaakt voor buitenunits van warmtepompen én airco. De maat volgt de unit, niet het merk.</p></details>
             </div>
-            <div class="grid lg:grid-cols-2 gap-12 items-start">
-                <div class="reveal space-y-4">
-                    <a href="tel:+32472084470" data-track-contact="phone-be" class="bento bg-white rounded-2xl p-6 flex items-center gap-5 border border-brand-navy/8 group hover:border-brand-navy/20 transition-colors">
-                        <div class="w-12 h-12 rounded-xl bg-brand-navy/5 flex items-center justify-center text-brand-navy"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div>
-                        <div><div class="text-[10px] text-brand-navy/45 uppercase tracking-widest">België · ma–za 8–20u</div><div class="font-bold text-xl text-brand-navy">+32 472 08 44 70</div></div>
+        </div>
+    </section>
+
+    <section class="section contact" id="contact">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow"><i></i> Contact</p>
+                <h2>De rust is een situatiecheck verwijderd.</h2>
+                <p class="lede">Eerst check op afstand. Een meting volgt alleen als de case dat vraagt. Reactie binnen 24 uur.</p>
+            </div>
+            <div class="contact-grid">
+                <aside class="contact-aside reveal">
+                    <a class="contact-card" href="tel:+32472084470" data-track-contact="phone-be">
+                        <div><small>België · ma–za 8–20u</small><b>+32 472 08 44 70</b></div>
                     </a>
-                    <a href="mailto:info@reducd.be" data-track-contact="email" class="bento bg-white rounded-2xl p-6 flex items-center gap-5 border border-brand-navy/8 group hover:border-brand-navy/20 transition-colors">
-                        <div class="w-12 h-12 rounded-xl bg-brand-navy/5 flex items-center justify-center text-brand-navy"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-                        <div><div class="text-[10px] text-brand-navy/45 uppercase tracking-widest">E-mail</div><div class="font-bold text-xl text-brand-navy">info@reducd.be</div></div>
+                    <a class="contact-card" href="mailto:info@reducd.be" data-track-contact="email">
+                        <div><small>E-mail</small><b>info@reducd.be</b></div>
                     </a>
-                </div>
-                <div class="reveal reveal-delay-1">
-                    <form id="lead-form" class="lead-form bg-white rounded-2xl p-8 lg:p-10 border border-brand-navy/8 shadow-sm" data-journey="particulier" novalidate>
+                    <a class="contact-card" href="mailto:info@reducd.be?subject=Offerte%20aanvragen">
+                        <div><small>Offerte</small><b>Vraag een prijs</b></div>
+                    </a>
+                </aside>
+                <div class="reveal">
+<form id="lead-form" class="lead-form bg-white rounded-2xl p-8 lg:p-10 border border-brand-navy/8 shadow-sm" data-journey="particulier" novalidate>
                         <h3 class="font-bold text-2xl text-brand-navy mb-2 tracking-tight">Vraag een gratis situatiecheck aan</h3>
                         <p class="text-sm text-brand-navy/55 font-light leading-relaxed mb-6" data-journey-hint>Eerst een situatiecheck op afstand. Een meting bij u thuis volgt alleen als de case daarvoor in aanmerking komt. Reactie binnen 24 uur.</p>
                         <p class="text-xs font-semibold text-brand-navy mb-5" data-calc-prefill hidden></p>
@@ -2217,23 +1159,20 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-brand-navy py-12 px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <a href="#"><img src="assets/images/logo-reducd-white.png" alt="REDUCD" class="h-10 w-auto"></a>
-            <div class="flex flex-wrap justify-center gap-6 text-sm text-white/40">
-                <a href="#calculator" class="hover:text-white transition-colors">Oplossingen</a>
-                <a href="#producten" class="hover:text-white transition-colors">Modellen</a>
-                <a href="#installaties" class="hover:text-white transition-colors">Resultaten</a>
-                <a href="pro/" class="hover:text-white transition-colors">Voor professionals</a>
-                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
-                <a href="blog/" class="hover:text-white transition-colors">Blog</a>
-                <a href="docs/" class="hover:text-white transition-colors">Documentatie</a>
-                <a href="vlarem/" class="hover:text-white transition-colors">VLAREM-tool</a>
-                <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
-                <a href="https://www.linkedin.com/company/reducd" class="hover:text-white transition-colors">LinkedIn</a>
-            </div>
-            <p class="text-xs text-white/30">© 2026 REDUCD B.V.</p>
+    <footer class="site-footer">
+        <div class="wrap">
+            <a href="#"><img src="assets/images/logo-reducd-white.png" alt="REDUCD"></a>
+            <nav>
+                <a href="#calculator">Maatcheck</a>
+                <a href="#producten">Modellen</a>
+                <a href="pro/">Voor professionals</a>
+                <a href="blog/">Blog</a>
+                <a href="docs/">Documentatie</a>
+                <a href="vlarem/">VLAREM-tool</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="https://www.linkedin.com/company/reducd">LinkedIn</a>
+            </nav>
+            <p>© 2026 REDUCD B.V.</p>
         </div>
     </footer>
 
@@ -2251,167 +1190,24 @@
         <p class="google-photo-lightbox-count" data-google-photo-count aria-live="polite"></p>
     </div>
 
+
     <script>
-        const revealEls = document.querySelectorAll('.reveal, .line-draw');
+        const revealEls = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
         revealEls.forEach(el => observer.observe(el));
         document.querySelectorAll('.reveal').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible'); });
-        const navPill = document.getElementById('navPill');
-        const syncNavShadow = () => navPill.classList.toggle('scrolled', window.scrollY > 60);
-        syncNavShadow();
-        window.addEventListener('scroll', syncNavShadow, { passive: true });
-        (function () {
-            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            const words = document.querySelectorAll('.hero-title .hero-word');
-            const stil = words[0];
-            const stijlvol = words[1];
-            const duurzaam = words[2];
-            if (reduce || !stil || !stijlvol || !duurzaam) return;
-            const headline = stil.closest('.hero-title');
-            const badge = headline.querySelector('.hero-stil-badge');
-            const focus = (name) => {
-                headline.classList.remove('is-focus-stil', 'is-focus-stijlvol', 'is-focus-duurzaam');
-                if (name) headline.classList.add('is-focus-' + name);
-            };
-            setTimeout(() => {
-                stijlvol.classList.add('is-intro');
-                focus('stijlvol');
-                setTimeout(() => {
-                    stijlvol.classList.remove('is-intro');
-                    duurzaam.classList.add('is-intro');
-                    focus('duurzaam');
-                    setTimeout(() => {
-                        duurzaam.classList.remove('is-intro');
-                        stil.classList.add('is-intro');
-                        focus('stil');
-                        setTimeout(() => {
-                            stil.classList.remove('is-intro');
-                            focus(null);
-                            if (badge) badge.classList.add('is-settled');
-                        }, 2200);
-                    }, 1400);
-                }, 1400);
-            }, 3000);
-        })();
-        (function () {
-            const sky = document.getElementById('skyClouds');
-            if (!sky) return;
-            const blobs = [...sky.querySelectorAll('.sky-cloud')];
-            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            let ticking = false;
-            const paint = () => {
-                const y = window.scrollY || 0;
-                const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-                const t = Math.min(y / max, 1);
-                sky.style.opacity = String(0.224 + t * 0.35);
-                if (reduce) { ticking = false; return; }
-                blobs.forEach((el) => {
-                    const speed = Number(el.getAttribute('data-speed')) || 0.15;
-                    el.style.transform = 'translate3d(0,' + (-y * speed) + 'px,0)';
-                });
-                ticking = false;
-            };
-            const onScroll = () => {
-                if (ticking) return;
-                ticking = true;
-                requestAnimationFrame(paint);
-            };
-            paint();
-            window.addEventListener('scroll', onScroll, { passive: true });
-        })();
-        (function () {
-            const el = document.querySelector('.hero-db-stat');
-            if (!el) return;
-            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (reduce) return;
-            let ticking = false;
-            let originBottom = 0;
-            let near = 0;
-            const measure = () => {
-                const y = window.scrollY || 0;
-                el.style.setProperty('--db', '1');
-                originBottom = el.getBoundingClientRect().bottom + y;
-            };
-            const paint = () => {
-                const y = window.scrollY || 0;
-                if (!originBottom) measure();
-                const scrollScale = 1 + Math.max(0, Math.min(1, y / Math.max(originBottom, 1))) * 1.4;
-                const scale = Math.max(0.28, scrollScale * (1 - near * 0.78));
-                el.style.setProperty('--db', String(scale));
-                el.style.setProperty('--db-glow', '0');
-                el.style.setProperty('--db-hide', String(1 - near * 0.96));
-                ticking = false;
-            };
-            const onScroll = () => {
-                if (ticking) return;
-                ticking = true;
-                requestAnimationFrame(paint);
-            };
-            const zone = el.closest('.relative') || el;
-            zone.addEventListener('mousemove', (e) => {
-                const shot = zone.querySelector('.hero-shot');
-                const r = (shot || el).getBoundingClientRect();
-                const cx = r.left + 48;
-                const cy = r.bottom - 36;
-                const dist = Math.hypot(e.clientX - cx, e.clientY - cy);
-                near = Math.max(0, Math.min(1, 1 - dist / 240));
-                onScroll();
-            }, { passive: true });
-            zone.addEventListener('mouseleave', () => {
-                near = 0;
-                onScroll();
-            });
-            measure();
-            paint();
-            window.addEventListener('scroll', onScroll, { passive: true });
-            window.addEventListener('resize', () => { originBottom = 0; onScroll(); }, { passive: true });
-        })();
-        (function () {
-            const shot = document.querySelector('.img-reveal.hero-shot');
-            if (!shot) return;
-            const img = shot.querySelector('img');
-            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (!img || reduce) return;
-            let ticking = false;
-            let px = 0.5;
-            let py = 0.5;
-            const paint = () => {
-                const d = Math.hypot(px - 0.5, py - 0.5);
-                const ox = 0.72 + (px - 0.72) * 0.22;
-                const scale = 1.04 - Math.min(d, 0.72) * 0.02;
-                img.style.transformOrigin = (ox * 100).toFixed(1) + '% 0%';
-                img.style.transform = 'scale(' + scale.toFixed(3) + ')';
-                ticking = false;
-            };
-            shot.addEventListener('mouseenter', () => shot.classList.add('is-tracking'));
-            shot.addEventListener('mousemove', (e) => {
-                const r = shot.getBoundingClientRect();
-                px = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
-                py = Math.max(0, Math.min(1, (e.clientY - r.top) / r.height));
-                if (ticking) return;
-                ticking = true;
-                requestAnimationFrame(paint);
-            }, { passive: true });
-            shot.addEventListener('mouseleave', () => {
-                shot.classList.remove('is-tracking');
-                img.style.transform = 'scale(1.04)';
-                img.style.transformOrigin = '72% 0%';
-            });
-        })();
-        setTimeout(() => {
-            document.querySelectorAll('.accent-gratis').forEach((el) => el.classList.add('is-on'));
-        }, 2000);
+        const header = document.getElementById('siteHeader');
+        const syncNav = () => header.classList.toggle('is-solid', window.scrollY > 40);
+        syncNav();
+        window.addEventListener('scroll', syncNav, { passive: true });
         const mobileMenu = document.getElementById('mobileMenu');
-        document.getElementById('menuBtn')?.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
-        document.getElementById('closeMenu')?.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
-        document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('translate-x-full')));
+        document.getElementById('menuBtn')?.addEventListener('click', () => mobileMenu.classList.add('is-open'));
+        document.getElementById('closeMenu')?.addEventListener('click', () => mobileMenu.classList.remove('is-open'));
+        document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('is-open')));
         document.querySelectorAll('[data-track-contact]').forEach(a => a.addEventListener('click', () => {
             window.REDUCD?.trackContact?.(a.getAttribute('data-track-contact'));
         }));
-        function openFaqFromNav() {
-            const panel = document.getElementById('faq-panel');
-            if (panel) panel.open = true;
-        }
+        function openFaqFromNav() { document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }); }
         if (location.hash === '#faq') openFaqFromNav();
         window.addEventListener('hashchange', () => { if (location.hash === '#faq') openFaqFromNav(); });
         (function () {
@@ -2422,7 +1218,6 @@
                 const label = root.querySelector('[data-product-finish-label]');
                 const swatches = [...root.querySelectorAll('[data-finish-swatch]')];
                 if (imgs.length < 2) return;
-                imgs.forEach((img) => { if (!img.complete) { const preload = new Image(); preload.src = img.src; } });
                 let idx = 0;
                 let timer;
                 const show = (n) => {
@@ -2435,9 +1230,7 @@
                     });
                     if (label) label.textContent = imgs[idx].getAttribute('data-finish-label') || '';
                 };
-                swatches.forEach((btn, j) => {
-                    btn.addEventListener('click', () => show(j));
-                });
+                swatches.forEach((btn, j) => btn.addEventListener('click', () => show(j)));
                 if (reduce) return;
                 const start = () => { stop(); timer = setInterval(() => show(idx + 1), 13200); };
                 const stop = () => { if (timer) clearInterval(timer); };
@@ -2466,7 +1259,7 @@
                 const src = 'assets/images/google/photo-' + String(i).padStart(2, '0') + '.jpg';
                 const btn = document.createElement('button');
                 btn.type = 'button';
-                btn.className = 'google-photo-thumb snap-start shrink-0 w-[4.5rem] h-[4.5rem] rounded-lg overflow-hidden bg-brand-navy/[0.04] ring-1 ring-brand-navy/8 hover:ring-brand-navy/25 transition-[box-shadow]';
+                btn.className = 'google-photo-thumb snap-start shrink-0 w-[4.5rem] h-[4.5rem] rounded-lg overflow-hidden bg-brand-navy/[0.04] ring-1 ring-brand-navy/8';
                 btn.setAttribute('data-google-photo-src', src);
                 btn.setAttribute('aria-label', 'Vergroot foto ' + i);
                 btn.innerHTML = '<img src="' + src + '" alt="REDUCD Google-foto ' + i + '" class="w-full h-full object-cover pointer-events-none" loading="lazy" width="72" height="72">';
